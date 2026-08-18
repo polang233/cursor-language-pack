@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "AI Completions",
+      "description": "從程式碼語言模型獲取補全。"
+    }
+  }
+}

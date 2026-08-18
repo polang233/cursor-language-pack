@@ -7,6 +7,5 @@ alwaysApply: true
 
 - Primary gallery is the **VS Marketplace** (`VSCE_PAT`). Cursor proxies `marketplace.cursorapi.com`. Open VSX (`OVSX_PAT`) is optional — unlike kiro-language-pack.
 - Never commit tokens, never write them into markdown, never print them. Confirm with `gh secret list` (names only).
-- Nothing is published yet. Version is `0.0.0`. Do not tag `v*` until `npm run package` produces a real `.vsix`.
-- After a Cursor update (once the pack ships): `npm run detect`, then the check-upgrade / translate / sync flow in [AGENTS.md](../../AGENTS.md).
-- Full notes: [docs/publishing.md](../../docs/publishing.md), [docs/roadmap.md](../../docs/roadmap.md).
+- Normal release: bump `config.json` + `package.json` version together → `npm run verify` → commit → `git tag v<version>` → push main and the tag. CI (`.github/workflows/release.yml`) builds the `.vsix`, creates the GitHub Release, and runs `npm run publish:vsce` when the secret exists.
+- After a Cursor update: `npm run check-upgrade`, translate `src/i18n/zh-cn/`, `node scripts/convert-zh-tw.mjs`, add `target.verifiedCursorVersions`, then ship as above. Full notes: [AGENTS.md](../../AGENTS.md)

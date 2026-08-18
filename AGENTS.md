@@ -1,24 +1,17 @@
 # Agent notes (cursor-language-pack)
 
 Persistent instructions for coding agents. Human docs: [README.md](README.md),
-[docs/publishing.md](docs/publishing.md), [CONTRIBUTING.md](CONTRIBUTING.md),
-[docs/roadmap.md](docs/roadmap.md).
+[docs/publishing.md](docs/publishing.md), [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Sibling product (already shipping): `../Kiro` →
+Sibling product: `../Kiro` →
 [kiro-language-pack](https://github.com/polang233/kiro-language-pack). Prefer
 porting scripts from there over inventing a second pipeline.
 
-## Status
-
-Scaffold only. `npm run detect` is implemented. extract / sync / build / package
-/ patch / publish are stubs (`scripts/not-yet.mjs`). Do not claim a listing
-exists. Do not bump past `0.0.0` until there is a `.vsix`.
-
 ## Secrets — never write these to the repo
 
-| Secret | Where it will live | Used by |
+| Secret | Where it lives | Used by |
 | --- | --- | --- |
-| `VSCE_PAT` | GitHub Actions secret (not set yet) | VS Marketplace publish — **this is the primary gallery**, Cursor proxies it |
+| `VSCE_PAT` | GitHub Actions secret (not set yet) | `.github/workflows/release.yml` → `npm run publish:vsce` — **this is the primary gallery**, Cursor proxies it |
 | `OVSX_PAT` | GitHub Actions secret (not set yet) | optional Open VSX publish |
 
 Do **not** commit tokens, put them in markdown, or print them. Confirm only the
@@ -28,25 +21,42 @@ Cursor's `product.json` → `extensionsGallery.serviceUrl` is
 `https://marketplace.cursorapi.com/_apis/public/gallery`. Users search inside
 Cursor, which is the VS Marketplace, not Open VSX. Publish vsce first.
 
-## After a Cursor update (once the pack ships)
+Local publish (token from Marketplace publisher management, not from git):
+
+```powershell
+$env:VSCE_PAT = "<token>"
+npm run package
+npm run publish:vsce
+```
+
+## Shipping a release
+
+1. Bump **both** `config.json` → `version` and `package.json` / lockfile **root** version (same string).
+2. `npm run verify` against the local Cursor install (`npm run detect`).
+3. Commit, then `git tag v<version>` and push **main + the tag**.
+4. Tag `v*` runs [`.github/workflows/release.yml`](.github/workflows/release.yml): package, GitHub Release, VS Marketplace if `VSCE_PAT` is set.
+5. Do not tag until `npm run package` produces a real `.vsix`.
+
+Do not ask the maintainer for `VSCE_PAT` on a normal release once CI has it.
+
+## After a Cursor update
 
 ```bash
-npm run detect
 npm run check-upgrade
 # translate new keys in src/i18n/zh-cn/
-# then zh-tw
+node scripts/convert-zh-tw.mjs
 npm run sync && npm run verify
 ```
 
 Add the Cursor version to `config.target.verifiedCursorVersions`, update README
-coverage numbers and `CHANGELOG.md`, bump the pack version, tag, push.
+coverage numbers, bump the pack version, tag, push.
 
 Moved keys: rename the **module path**, do not retranslate. Orphans can stay;
 the build will filter them.
 
-## Product (planned)
+## Live product
 
 - Extension id: `polang233.cursor-language-pack`
-- Cursor / VS Marketplace: not published
+- Cursor / VS Marketplace: not published yet
 - Open VSX: optional, not published
 - Store page body: `src/marketplace/README.md` (copied into the `.vsix`)

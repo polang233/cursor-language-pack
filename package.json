@@ -1,7 +1,7 @@
 {
   "name": "cursor-language-pack",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Community language pack for Cursor IDE (Simplified & Traditional Chinese) plus build tooling",
   "type": "module",
   "license": "MIT",
@@ -18,23 +18,25 @@
   },
   "scripts": {
     "detect": "node scripts/detect-cursor.mjs",
-    "extract": "node scripts/not-yet.mjs extract",
-    "audit": "node scripts/not-yet.mjs audit",
-    "gap": "node scripts/not-yet.mjs gap",
-    "check-upgrade": "node scripts/not-yet.mjs check-upgrade",
-    "patch": "node scripts/not-yet.mjs patch",
-    "test": "node scripts/not-yet.mjs test",
-    "sync": "node scripts/not-yet.mjs sync",
-    "build": "node scripts/not-yet.mjs build",
-    "coverage": "node scripts/not-yet.mjs coverage",
-    "validate": "node scripts/not-yet.mjs validate",
-    "package": "node scripts/not-yet.mjs package",
-    "publish:ovsx": "node scripts/not-yet.mjs publish:ovsx",
-    "publish:vsce": "node scripts/not-yet.mjs publish:vsce",
-    "verify": "node scripts/not-yet.mjs verify"
+    "extract": "node scripts/extract.mjs",
+    "audit": "node scripts/audit-manifest.mjs",
+    "gap": "node scripts/gap.mjs",
+    "check-upgrade": "node scripts/check-upgrade.mjs",
+    "test": "node scripts/test-extension.mjs",
+    "sync": "node scripts/sync-upstream.mjs",
+    "build": "node scripts/build.mjs",
+    "coverage": "node scripts/coverage.mjs",
+    "validate": "node scripts/validate-dist.mjs",
+    "package": "node scripts/package.mjs",
+    "publish:ovsx": "node scripts/publish.mjs --registry=ovsx",
+    "publish:vsce": "node scripts/publish.mjs --registry=vsce",
+    "verify": "node scripts/build.mjs && node scripts/validate-dist.mjs && node scripts/coverage.mjs",
+    "clean": "node -e \"for (const d of ['dist','reports']) require('fs').rmSync(d,{recursive:true,force:true})\""
   },
   "devDependencies": {
     "@vscode/vsce": "3.2.1",
+    "opencc-js": "1.4.1",
     "ovsx": "0.10.1"
-  }
+  },
+  "$devDependencies": "opencc-js is only used by scripts/convert-zh-tw.mjs, which regenerates the zh-tw sources from zh-cn. It is declared so `npm ci` keeps it available."
 }

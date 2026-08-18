@@ -1,0 +1,1899 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/workbench/contrib/extensions/browser/extensionsBoot.contribution": {
+      "extensionsConfigurationTitle": "擴充套件",
+      "all": "所有擴充套件",
+      "enabled": "僅限已啟用的擴充套件",
+      "none": "無",
+      "extensions.autoUpdate.true": "下載併為所有擴充套件自動安裝更新。",
+      "extensions.autoUpdate.enabled": "僅為已啟用的擴充套件下載並自動安裝更新。",
+      "extensions.autoUpdate.false": "擴充套件不會自動更新。",
+      "extensions.autoUpdate": "控制擴充套件的自動更新行為。更新是從 Microsoft 聯機服務中獲取的。",
+      "extensionsCheckUpdates": "啟用後，將自動檢查擴充套件更新。若擴充套件存在更新，將在“擴充套件”檢視中將其標記為過時擴充套件。更新將從 Microsoft 聯機服務中獲取。",
+      "extensionsInstallCooldownHours": "擴充套件版本在釋出後必須經過的小時數，之後才可從商城安裝或更新。設為 0 可停用冷卻。用作緩衝，降低受損或誤釋出版本的風險；通過推遲安裝，直到該版本已在商城中至少存在這麼長時間，減少對新發布版本的暴露。",
+      "extensionsRequestTimeout": "控制從商城獲取擴充套件時發出 HTTP 請求的超時時間(毫秒)",
+      "extensionsIgnoreRecommendations": "啟用後，將不會顯示擴充套件建議的通知。",
+      "extensionsShowRecommendationsOnlyOnDemand_Deprecated": "已棄用此設定。使用 extensions.ignoreRecommendations 設定來控制建議通知。預設使用“擴充套件”檢視的可見性操作來隱藏“建議”檢視。",
+      "extensionsCloseExtensionDetailsOnViewChange": "啟用後，將在離開“擴充套件”檢視時，自動關閉擴充套件詳細資訊頁面。",
+      "handleUriConfirmedExtensions": "當此處列出副檔名時，該副檔名處理URI時將不會顯示確認提示。",
+      "extensionsWebWorker.true": "Web 輔助角色擴充套件主機將始終啟動。",
+      "extensionsWebWorker.false": "Web 輔助角色擴充套件主機將永遠不會啟動。",
+      "extensionsWebWorker.auto": "Web 輔助角色擴充套件主機將在 Web 擴充套件需要時啟動。",
+      "extensionsWebWorker": "啟用 Web Worker 擴充套件主機。",
+      "extensions.supportVirtualWorkspaces": "替代擴充套件的虛擬工作區支援。",
+      "extensions.affinity": "配置要在其他擴充套件主機程序中執行的擴充套件。",
+      "extensions.supportUntrustedWorkspaces": "替代擴充套件的不受信任的工作區支援。將始終啟用使用 “true” 的擴充套件。將始終啟用使用 “limited” 的擴充套件，並且擴充套件將隱藏需要信任的功能。僅當工作區受信任時才會啟用使用 “false” 的擴充套件。",
+      "extensions.supportUntrustedWorkspaces.true": "將始終啟用擴充套件。",
+      "extensions.supportUntrustedWorkspaces.false": "只有在工作區受信任時才會啟用擴充套件。",
+      "extensions.supportUntrustedWorkspaces.limited": "將始終啟用擴充套件，並且擴充套件將隱藏需要信任的功能。",
+      "extensions.supportUntrustedWorkspaces.supported": "定義擴充套件的不受信任的工作區支援設定。",
+      "extensions.supportUntrustedWorkspaces.version": "定義應應用替代的擴充套件的版本。如果未指定，則將在獨立於擴充套件版本的情況下應用替代。",
+      "extensionsDeferredStartupFinishedActivation": "啟用後，將在超時後啟用宣告“onStartupFinished”啟用事件的擴充套件。",
+      "extensions.gallery.serviceUrl": "配置要連線到的市場服務 URL",
+      "autoRestart": "啟用後，如果視窗不在焦點中，擴充套件將在更新後自動重啟。如果已開啟 Notebooks 或自定義編輯器，則可能會丟失資料。",
+      "extensions.gallery.useUnpkgResourceApi": "啟用後，將從 Unpkg 服務獲取要更新的擴充套件。",
+      "extensions.allowed": "指定允許使用的擴充套件列表。這有助於通過限制使用未經授權的擴充套件來維護安全且一致的開發環境。有關如何配置此設定的詳細資訊，請訪問[配置允許的擴充套件](https://code.visualstudio.com/docs/setup/enterprise#_configure-allowed-extensions)部分。",
+      "extensions.allowed.none": "不允許使用任何擴充套件。",
+      "extensions.allowed.all": "允許使用所有擴充套件。",
+      "extensions.allowed.policy": "指定允許使用的擴充套件列表。這有助於通過限制使用未經授權的擴充套件來維護安全且一致的開發環境。詳細資訊：https://code.visualstudio.com/docs/setup/enterprise#_configure-allowed-extensions",
+      "extensions.allow.description": "允許或禁止使用該擴充套件。",
+      "extensions.allowed.enable.desc": "允許使用擴充套件。",
+      "extensions.allowed.disable.desc": "不允許使用擴充套件。",
+      "extensions.allowed.disable.stable.desc": "僅允許使用擴充套件的穩定版本。",
+      "extensions.allow.version.description": "允許或禁止使用擴充套件的特定版本。若要指定特定於平臺的版本，請使用“platform@1.2.3”格式，例如“win32-x64@1.2.3”。支援的平臺包括“win32-x64”、“win32-arm64”、“linux-x64”、“linux-arm64”、“linux-armhf”、“alpine-x64”、“alpine-arm64”、“darwin-x64”、“darwin-arm64”",
+      "extension.publisher.allow.description": "允許或禁止使用來自該釋出者的所有擴充套件。",
+      "extensions.publisher.allowed.enable.desc": "允許使用來自該釋出者的所有擴充套件。",
+      "extensions.publisher.allowed.disable.desc": "不允許使用來自該釋出者的所有擴充套件。",
+      "extensions.publisher.allowed.disable.stable.desc": "僅允許使用來自該釋出者的擴充套件的穩定版本。",
+      "extensions.allow.all.description": "允許或禁止使用所有擴充套件。",
+      "extensions.allow.all.enable": "允許使用所有擴充套件。",
+      "extensions.allow.all.disable": "禁止使用所有擴充套件。",
+      "notFound": "找不到擴充套件“{0}”。",
+      "workbench.extensions.installExtension.description": "安裝給定的擴充套件",
+      "workbench.extensions.installExtension.arg.decription": "擴充套件 ID 或 VSIX 資源 URI",
+      "workbench.extensions.installExtension.option.installOnlyNewlyAddedFromExtensionPackVSIX": "啟用後，VS Code 僅安裝來自擴充套件包 VSIX 的新新增的擴充套件。僅在安裝 VSIX 時才考慮此選項。",
+      "workbench.extensions.installExtension.option.installPreReleaseVersion": "啟用後，VS Code 將安裝擴充套件的預釋出版本(如果可用)。",
+      "workbench.extensions.installExtension.option.donotSync": "啟用後，VS Code 在啟用“設定同步”時不同步此擴充套件。",
+      "workbench.extensions.installExtension.option.justification": "安裝擴充套件的理由。這是可用於向安裝處理程序傳遞任意資訊的字串或物件。例如 `{reason: 'This extension wants to open a URI', action: 'Open URI'}` 將在安裝時顯示包含原因和操作的訊息框。",
+      "workbench.extensions.installExtension.option.enable": "啟用後，如果安裝了該擴充套件但已將其停用，則將啟用該擴充套件。如果已啟用該擴充套件，則該操作不起作用。",
+      "workbench.extensions.installExtension.option.context": "安裝上下文。這是一個 JSON 物件，可用於向安裝處理程序傳遞任意資訊。例如 `{skipWalkthrough: true}` 將在安裝時跳過開啟演練。",
+      "workbench.extensions.uninstallExtension.description": "解除安裝給定的擴充套件",
+      "workbench.extensions.uninstallExtension.arg.name": "要解除安裝的擴充套件的 id",
+      "id required": "擴充套件 ID 是必需的。",
+      "notInstalled": "未安裝擴充套件“{0}”。請確保使用包含釋出者的完整擴充套件 ID，例如：anysphere.csharp。",
+      "builtin": "擴充套件“{0}”是內建擴充套件，無法安裝",
+      "workbench.extensions.search.description": "搜尋特定擴充套件",
+      "workbench.extensions.search.arg.name": "要在搜尋中使用的查詢"
+    },
+    "vs/workbench/contrib/debug/common/debugConfiguration": {
+      "debugConfigurationTitle": "除錯",
+      "showVariableTypes": "除錯會話期間在變數窗格中顯示變數型別",
+      "allowBreakpointsEverywhere": "允許在任何檔案中設定斷點。",
+      "gutterMiddleClickAction": "控制要在使用滑鼠中鍵單擊編輯器裝訂線時執行的操作。",
+      "debug.gutterMiddleClickAction.logpoint": "新增記錄點。",
+      "debug.gutterMiddleClickAction.conditionalBreakpoint": "新增條件斷點。",
+      "debug.gutterMiddleClickAction.triggeredBreakpoint": "新增觸發的斷點。",
+      "debug.gutterMiddleClickAction.none": "不要執行任何操作。",
+      "openExplorerOnEnd": "在除錯會話結束時自動開啟資源管理器檢視。",
+      "closeReadonlyTabsOnEnd": "除錯會話結束時，與該會話關聯的所有隻讀選項卡都將關閉",
+      "inlineValues": "當處於除錯過程中時，在編輯器中內聯顯示變數值。",
+      "inlineValues.on": "在除錯時，始終在編輯器中內聯顯示變數值。",
+      "inlineValues.off": "在除錯時，絕不在編輯器中內聯顯示變數值。",
+      "inlineValues.focusNoScroll": "如果語言支援內聯值位置，則在除錯時在編輯器中內聯顯示變數值。",
+      "toolBarLocation": "控制除錯工具欄的位置。在所有檢視中“浮動”、在除錯檢視中“停靠”、“commandCenter”(需要 {0})或“hidden”。",
+      "debugToolBar.floating": "在所有檢視中顯示除錯工具欄。",
+      "debugToolBar.docked": "僅在除錯檢視中顯示除錯工具欄。",
+      "debugToolBar.commandCenter": "“(實驗)”在命令中心顯示除錯工具欄。",
+      "debugToolBar.hidden": "不顯示除錯工具欄。",
+      "never": "在狀態列中從不顯示除錯項",
+      "always": "始終在狀態列中顯示除錯項",
+      "onFirstSessionStart": "僅在第一次啟動除錯後才在狀態列中顯示除錯項",
+      "showInStatusBar": "控制應在何時顯示除錯狀態列項。",
+      "debug.console.closeOnEnd": "控制除錯控制台是否應在除錯會話結束時自動關閉。",
+      "debug.terminal.clearBeforeReusing": "在整合或外部終端中啟動新的除錯會話之前，請清除終端。",
+      "openDebug": "控制何時開啟“除錯”檢視。",
+      "showSubSessionsInToolBar": "控制除錯子會話是否顯示在除錯工具欄中。當此設定為 false 時, 子會話上的 stop 命令也將停止父會話。",
+      "debug.console.fontSize": "控制除錯控制台中的字號(以畫素為單位)。",
+      "debug.console.fontFamily": "控制除錯控制台中的字體系列。",
+      "debug.console.lineHeight": "設定除錯控制台中的行高(以畫素為單位)。使用 0 可根據字號計算行高。",
+      "debug.console.wordWrap": "控制是否應在除錯控制台中換行。",
+      "debug.console.historySuggestions": "控制除錯控制台是否應建議以前鍵入的輸入。",
+      "debug.console.collapseIdenticalLines": "控制除錯控制台是否應摺疊相同的行，並顯示出現次數和徽章。",
+      "debug.console.acceptSuggestionOnEnter": "控制是否應在除錯控制台中輸入時接受建議。enter 還用於評估除錯控制台中鍵入的任何內容。",
+      "launch": "全域性除錯啟動配置。應當作為跨工作區共享的 'launch.json' 的替代方法。",
+      "debug.focusWindowOnBreak": "控制當偵錯程式中斷時，工作臺視窗是否應獲得焦點。",
+      "debug.focusEditorOnBreak": "控制偵錯程式中斷時編輯器是否應聚焦。",
+      "debugAnyway": "忽略任務錯誤並開始除錯。",
+      "showErrors": "顯示問題檢視且不開始除錯。",
+      "prompt": "提示使用者。",
+      "cancel": "取消除錯。",
+      "debug.onTaskErrors": "控制在執行預啟動任務後遇到錯誤時應該怎麼做。",
+      "showBreakpointsInOverviewRuler": "控制斷點是否應顯示在概覽標尺中。",
+      "showInlineBreakpointCandidates": "控制除錯時是否應在編輯器中顯示內聯斷點候選修飾。",
+      "debug.saveBeforeStart": "控制在啟動除錯會話前要儲存哪些編輯器。",
+      "debug.saveBeforeStart.allEditorsInActiveGroup": "在啟動除錯會話之前，儲存活動組中的所有編輯器。",
+      "debug.saveBeforeStart.nonUntitledEditorsInActiveGroup": "在啟動除錯會話之前，儲存活動組中的所有編輯器(無標題的編輯器除外)。",
+      "debug.saveBeforeStart.none": "在啟動除錯會話之前，不儲存任何編輯器。",
+      "debug.confirmOnExit": "如果存在活動除錯會話，控制是否確認視窗關閉時間。",
+      "debug.confirmOnExit.never": "從不確認。",
+      "debug.confirmOnExit.always": "始終確認是否存在除錯會話。",
+      "debug.disassemblyView.showSourceCode": "在反彙編檢視中顯示原始碼。",
+      "debug.autoExpandLazyVariables.auto": "處於螢幕閱讀器最佳化模式時，自動展開惰性變數。",
+      "debug.autoExpandLazyVariables.on": "始終自動展開惰性變數。",
+      "debug.autoExpandLazyVariables.off": "從不自動展開惰性變數。",
+      "debug.autoExpandLazyVariables": "控制是否由偵錯程式自動解析和展開延遲解析的變數，如 getter。",
+      "debug.enableStatusBarColor": "偵錯程式處於活動狀態時的狀態列顏色。",
+      "debug.hideLauncherWhileDebugging": "除錯處於活動狀態時，在“執行和除錯”檢視的標題欄中隱藏“啟動除錯”控制元件。僅當 {0} 未“停靠”時才相關。",
+      "debug.hideSlowPreLaunchWarning": "隱藏“preLaunchTask”執行一段時間後顯示的警告。"
+    },
+    "vs/workbench/services/experiment/browser/featureFlagOverrideActions": {
+      "featureFlagOverridesProductionWarning": "正式構建中不可用功能標誌覆蓋。",
+      "noFeatureFlags": "當前沒有可用的功能標誌。在程式碼庫中定義後，功能標誌將顯示在此處。",
+      "overriddenTo": "已覆蓋 → {0}",
+      "currentValue": "當前：{0}",
+      "overrideDetail": "單擊以管理覆蓋（硬編碼預設值：{0}）",
+      "currentDetail": "單擊以覆蓋此標誌",
+      "featureFlagOverridesOverriddenSection": "覆蓋",
+      "featureFlagOverridesDefaultSection": "功能標誌",
+      "actions": "操作",
+      "refreshStatsigConfig": "重新整理 Statsig 配置",
+      "refreshStatsigConfigDesc": "從伺服器手動拉取最新的 Statsig 配置",
+      "setAllFlagsToBundled": "將所有標誌設為內建預設值",
+      "setAllFlagsToBundledDescription": "將每個標誌覆蓋為內建預設值（模擬首次使用的使用者）",
+      "clearAllFlagOverrides": "清除所有覆蓋",
+      "clearAllFlagDescription": "一次性移除全部 {0} 項覆蓋",
+      "selectFlag": "選擇要管理的標誌：",
+      "featureFlagOverrides": "功能標誌覆蓋",
+      "refreshingStatsig": "正在重新整理 Statsig 配置…",
+      "statsigRefreshed": "已成功重新整理 Statsig 配置",
+      "statsigRefreshFailed": "重新整理 Statsig 配置失敗：{0}",
+      "viewInStatsig": "在 Statsig 中檢視",
+      "openStatsigConsole": "在 Statsig 控制台中開啟此標誌",
+      "removeOverride": "移除覆蓋",
+      "resetToCurrent": "重置為 Statsig/預設值",
+      "overrideEnable": "覆蓋 → 啟用",
+      "setToEnabled": "強制將此標誌設為啟用",
+      "overrideDisable": "覆蓋 → 停用",
+      "setToDisabled": "強制將此標誌設為停用",
+      "selectOverrideAction": "“{0}”當前為 {1}。你想要執行什麼操作？",
+      "manageFlagTitle": "管理：{0}",
+      "overrideSet": "功能標誌“{0}”已覆蓋為停用",
+      "overrideRemoved": "已移除“{0}”的覆蓋",
+      "confirmSetFlagsToBundled": "是，全部覆蓋為內建預設值",
+      "confirmSetFlagsToBundledDescription": "這將建立 {0} 項覆蓋",
+      "cancelFlagOverride": "取消",
+      "keepCurrentFlagValues": "保留當前值",
+      "confirmSetAllFlagsToBundled": "將所有功能標誌設為內建預設值？",
+      "confirmApplyFlagBundledValues": "確認應用內建預設值",
+      "bundledApplied": "已將內建預設值應用到 {0} 個功能標誌。",
+      "confirmClearFlagOverrides": "是，清除所有覆蓋",
+      "confirmClearFlagDescription": "這將移除 {0} 項覆蓋",
+      "cancelFlagClear": "取消",
+      "keepFlagOverrides": "保留現有覆蓋",
+      "confirmClearAllFlagOverrides": "清除全部 {0} 項功能標誌覆蓋？",
+      "confirmClearAllFlagsAction": "確認全部清除",
+      "allOverridesCleared": "已清除全部 {0} 項功能標誌覆蓋。",
+      "simulateProdProductionWarning": "正式構建中不可用模擬生產模式。",
+      "nowSimulatingProd": "正在模擬生產模式。Dev 狀態為 OFF。使用類生產評估。",
+      "backToNormalMode": "已回到正常開發模式。Dev 狀態為 ON。使用正常評估。",
+      "statsigDummyConsoleLoopProductionWarning": "此命令僅供 Cursor 開發人員使用。",
+      "statsigDummyConsoleLoopStarted": "正在按間隔將 statsig_dummy_gauge_config.dummy 記錄到控制台。再次執行可停止。（statsig.dummy_gauge_config 始終在後臺發出。）",
+      "statsigDummyConsoleLoopStopped": "控制台迴圈已停止。",
+      "manageFeatureFlagOverrides": "管理功能標誌覆蓋",
+      "manageFeatureFlagOverridesDescription": "管理用於開發和測試的功能標誌覆蓋",
+      "toggleSimulateProd": "切換模擬生產模式",
+      "toggleSimulateProdDescription": "切換模擬生產模式（在 Statsig 評估中忽略開發/內部定向）",
+      "toggleStatsigDummyConsoleLoop": "切換 Statsig Dummy 配置控制台迴圈",
+      "toggleStatsigDummyConsoleLoopDescription": "按間隔開始或停止將 statsig_dummy_gauge_config.dummy 記錄到開發人員控制台（指標始終開啟）"
+    },
+    "vs/workbench/electron-sandbox/desktop.contribution": {
+      "miExit": "退出(&&X)",
+      "application.shellEnvironmentResolutionTimeout": "控制在應用程式尚未從終端啟動時放棄解析 shell 環境之前的超時(以秒為單位)。有關詳細資訊，請參閱我們的 [文件](https://go.microsoft.com/fwlink/?linkid=2149667)。",
+      "windowConfigurationTitle": "視窗",
+      "confirmSaveUntitledWorkspace": "控制切換到另一個工作區時是否顯示確認對話方塊，以詢問是儲存還是放棄視窗中開啟的無標題工作區。停用確認對話方塊將始終放棄無標題工作區。",
+      "window.openWithoutArgumentsInNewWindow.on": "開啟一個新的空視窗。",
+      "window.openWithoutArgumentsInNewWindow.off": "聚焦到上一活動的執行例項。",
+      "openWithoutArgumentsInNewWindow": "在另一例項無參啟動時，控制是開啟新的空視窗或是聚焦到最後執行的例項。\n注意，此設定可能會被忽略 (例如，在使用 `--new-window` 或 `--reuse-window` 命令列選項時)。",
+      "window.reopenFolders.preserve": "始終重新開啟所有視窗。如果開啟資料夾或工作區(例如從命令列開啟)，它將作為新視窗開啟，除非它之前已開啟。如果檔案已開啟，則它們將與以前開啟的編輯器一起在還原的一個視窗中開啟。",
+      "window.reopenFolders.all": "重新開啟所有視窗，除非資料夾、工作區或檔案已開啟(例如從命令列開啟)。如果開啟某個檔案，它將替換以前在視窗中開啟的任何編輯器。",
+      "window.reopenFolders.folders": "重新開啟已開啟資料夾或工作區的所有視窗，除非資料夾、工作區或檔案已開啟(例如從命令列開啟)。如果開啟某個檔案，它將替換以前在視窗中開啟的任何編輯器。",
+      "window.reopenFolders.one": "重新開啟最後一個活動視窗，除非資料夾、工作區或檔案已開啟(例如從命令列開啟)。如果開啟某個檔案，它將替換以前在視窗中開啟的任何編輯器。",
+      "window.reopenFolders.none": "從不重新開啟視窗。如果資料夾或工作區未開啟(例如從命令列)，將出現一個空視窗。",
+      "restoreWindows": "控制其中的視窗和編輯器在開啟時的還原方式。",
+      "restoreFullscreen": "控制在全屏模式下退出時視窗是否應還原為全屏模式。",
+      "zoomLevel": "調整所有視窗的預設縮放級別。大於“0”的每個增量（例如“1”）或小於“0”的每個增量（例如“-1”）表示放大或縮小“20%”。還可以輸入小數以使用更細的粒度調整縮放級別。請參閱 {0}，瞭解將“放大”和“縮小”命令配置為將縮放級別應用於所有視窗還是僅應用於活動視窗。",
+      "zoomPerWindow": "控制“放大”和“縮小”命令是將縮放級別應用於所有視窗還是僅應用於活動視窗。請參閱 {0} 以配置所有視窗的預設縮放級別。",
+      "window.newWindowDimensions.default": "在螢幕中心開啟新視窗。",
+      "window.newWindowDimensions.inherit": "以與上一個活動視窗相同的尺寸開啟新視窗。",
+      "window.newWindowDimensions.offset": "開啟與上次活動視窗具有相同尺寸的新視窗，並帶有偏移位置。",
+      "window.newWindowDimensions.maximized": "開啟最大化的新視窗。",
+      "window.newWindowDimensions.fullscreen": "在全屏模式下開啟新視窗。",
+      "newWindowDimensions": "控制在至少已開啟一個視窗時開啟新視窗的維度。請注意，此設定對開啟的第一個視窗沒有影響。第一個視窗將始終還原為你在關閉之前退出視窗時的大小和位置。",
+      "closeWhenEmpty": "控制關閉最後一個編輯器時是否還應關閉該視窗。此設定僅適用於不顯示資料夾的視窗。",
+      "window.doubleClickIconToClose": "如果啟用，當雙擊標題欄中的應用程式圖示時，此設定將關閉視窗。該視窗將無法使用圖示拖動。僅當 {0} 設定為 `custom` 時，此設定才有效。",
+      "titleBarStyle": "將視窗標題欄的外觀調整為作業系統原生或自定義。在 Linux 和 Windows 上，此設定還會影響應用程式和上下文選單的外觀。更改需要完全重啟才能應用。",
+      "controlsStyle": "將視窗控制元件的外觀調整為作業系統原生樣式、自定義繪製或隱藏狀態。更改需要完全重啟才能應用。",
+      "dialogStyle": "將對話方塊的外觀調整為作業系統或自定義的本機樣式。",
+      "window.nativeTabs": "啟用 macOS 本機視窗選項卡。請注意，更改需要在完全重啟後才能應用，並且本機選項卡將停用自定義標題欄樣式(如果已配置)。",
+      "window.nativeFullScreen": "控制在 macOS 上是否應使用本機全屏。停用此選項可防止 macOS 在全屏時建立新空間。",
+      "window.clickThroughInactive": "啟用後，點選非活動視窗後將在啟用視窗的同時觸發游標之下的元素 (若可點選)。停用後，點選非活動視窗僅能啟用視窗，再次點選才能觸發元素。",
+      "telemetryConfigurationTitle": "遙測",
+      "telemetry.enableCrashReporting": "啟用要收集的崩潰報告。這有助於我們提高穩定性。\n此選項需重啟才可生效。",
+      "enableCrashReporterDeprecated": "如果此設定為 false，則無論新設定的值如何，都不會發送遙測資料。由於合併到 {0} 設定，目前已棄用。",
+      "keyboardConfigurationTitle": "鍵盤",
+      "touchbar.enabled": "啟用鍵盤上的 macOS 觸控欄按鈕 (若可用)。",
+      "touchbar.ignored": "觸控欄中不應顯示的條目的一組識別符號(例如 \"workbench.action.navigateBack\")。",
+      "security.promptForLocalFileProtocolHandling": "啟用此引數後，每次即將通過協議處理程序開啟本地檔案或工作區時，都會彈出一個請求確認的對話方塊。",
+      "security.promptForRemoteFileProtocolHandling": "啟用此引數後，每次即將通過協議處理程序開啟遠端檔案或工作區時，都會彈出一個請求確認的對話方塊。",
+      "argv.locale": "要使用的顯示語言。選取其他語言需要安裝關聯的語言包。",
+      "argv.disableLcdText": "停用 LCD 字型抗鋸齒。",
+      "argv.proxyBypassList": "對於給定的分號分隔的主機列表，繞過任何指定代理。示例值 \"<local>;*.microsoft.com;*foo.com;1.2.3.4:5678\" 將對除以下主機外的所有主機使用代理伺服器: 本地地址(localhost、127.0.0.1 等)、microsoft.com 子域、包含字尾 foo.com 的主機以及位於 1.2.3.4:5678 的主機",
+      "argv.disableHardwareAcceleration": "停用硬體加速。僅在遇到圖形問題時更改此選項。",
+      "argv.forceColorProfile": "允許替代要使用的顏色配置檔案。如果發現顏色顯示不佳，可嘗試將此項設定為`srgb` 並重啟。",
+      "argv.enableCrashReporter": "允許停用崩潰報告；如果更改了值，則應重啟應用。",
+      "argv.crashReporterId": "用於關聯從此應用例項傳送的崩潰報表的唯一 ID。",
+      "argv.enebleProposedApi": "為擴充套件 ID (如 \"vscode.git\")的列表啟用建議的 API。建議的 API 不穩定，可能隨時中斷且不發出警告。僅應針對擴充套件開發和測試目的設定該項。",
+      "argv.logLevel": "要使用的日誌級別。預設值為 “info”。允許的值為 “error”、“warn”、“info”、“debug”、“trace” 和 “off”。",
+      "argv.disableChromiumSandbox": "停用 Chromium 沙盒。當在 Linux 上以提升的權限執行 VS Code 並在 Windows 上的 Applocker 下執行時，這很有用。",
+      "argv.useInMemorySecretStorage": "確保記憶體中儲存將用於機密儲存，而不是使用 OS 的憑據儲存。此選項通常在執行 VS Code 擴充套件測試或遇到憑據儲存問題時使用。",
+      "argv.force-renderer-accessibility": "強制渲染器可訪問。僅當在 Linux 上使用螢幕閱讀器時才更改此設定。在其他平臺上，渲染器將自動可訪問。如果已啟用 editor.accessibilitySupport:，則會自動設定此標誌。",
+      "argv.passwordStore": "配置用於在 Linux 上儲存機密的後端。此引數在 Windows 和 macOS 上會被忽略。",
+      "newTab": "新建視窗標籤頁",
+      "showPreviousTab": "顯示上一個視窗選項卡",
+      "showNextWindowTab": "顯示下一個視窗選項卡",
+      "moveWindowTabToNewWindow": "將視窗選項卡移動到新視窗",
+      "mergeAllWindowTabs": "合併所有視窗",
+      "toggleWindowTabsBar": "切換視窗選項卡欄"
+    },
+    "vs/workbench/services/experiment/browser/experimentOverrideActions": {
+      "experimentOverridesProductionWarning": "正式構建中不可用實驗覆蓋。",
+      "noExperiments": "無當前試驗。",
+      "experimentOverrideValue": "覆蓋：{0}",
+      "currentValueWithParams": "當前：{0}",
+      "overrideDetailExp": "內建預設值：{0} · 單擊以管理",
+      "currentDetailExp": "單擊以覆蓋此實驗",
+      "experimentOverridesOverriddenSection": "覆蓋",
+      "experimentOverridesDefaultSection": "實驗",
+      "actions": "操作",
+      "setAllExperimentsToDefault": "將所有實驗設為預設值",
+      "setAllExperimentsToDefaultDescription": "將每個實驗覆蓋為內建預設值",
+      "clearAllExperimentOverrides": "清除所有覆蓋",
+      "clearAllExperimentDescription": "一次性移除全部 {0} 項覆蓋",
+      "selectExperiment": "選擇要管理的實驗：",
+      "experimentOverrides": "實驗覆蓋",
+      "removeOverride": "移除覆蓋",
+      "resetToCurrent": "重置為 Statsig/預設值",
+      "setEnumOverride": "將 {0} 設為 {1}",
+      "setEnumOverrideDesc": "覆蓋此實驗引數",
+      "setOverride": "設定覆蓋（JSON）",
+      "setOverrideDesc": "以 JSON 提供引數",
+      "selectExperimentAction": "要對“{0}”執行什麼操作？",
+      "manageExperimentTitle": "管理：{0}",
+      "overrideRemoved": "已移除“{0}”的覆蓋",
+      "experimentEnumOverrideSet": "實驗“{0}”已覆蓋：{1}={2}",
+      "setExperimentOverride": "為 {0} 設定覆蓋",
+      "enterJsonParams": "以 JSON 輸入實驗引數",
+      "invalidJson": "無效的 JSON：{0}",
+      "experimentOverrideSet": "實驗“{0}”已覆蓋",
+      "failedToSetOverride": "設定覆蓋失敗：{0}",
+      "confirmSetExperimentsToDefault": "是，全部覆蓋為預設值",
+      "confirmSetExperimentsToDefaultDescription": "這將建立 {0} 項覆蓋",
+      "cancelExperimentOverride": "取消",
+      "keepCurrentExperimentValues": "保留當前值",
+      "confirmSetAllExperimentsToDefault": "將所有實驗設為預設值？",
+      "confirmApplyExperimentDefaults": "確認應用預設值",
+      "bundledApplied": "已將預設值應用到 {0} 個實驗。",
+      "confirmClearExperimentOverrides": "是，清除所有覆蓋",
+      "confirmClearExperimentDescription": "這將移除 {0} 項覆蓋",
+      "cancelExperimentClear": "取消",
+      "keepExperimentOverrides": "保留現有覆蓋",
+      "confirmClearAllExperimentOverrides": "清除全部 {0} 項實驗覆蓋？",
+      "confirmClearAllExperimentsAction": "確認全部清除",
+      "allOverridesCleared": "已清除全部 {0} 項實驗覆蓋。",
+      "manageExperimentOverrides": "管理實驗覆蓋",
+      "manageExperimentOverridesDescription": "管理用於開發和測試的實驗引數覆蓋"
+    },
+    "vs/workbench/services/experiment/browser/dynamicConfigOverrideActions": {
+      "dynamicConfigOverridesProductionWarning": "正式構建中不可用動態配置覆蓋。",
+      "noDynamicConfigs": "當前沒有可用的動態配置。在程式碼庫中定義後，動態配置將顯示在此處。",
+      "dynamicConfigOverrideValue": "覆蓋：{0}",
+      "currentValueWithParams": "當前：{0}",
+      "overrideDetailConfig": "內建預設值：{0} · 單擊以管理",
+      "currentDetailConfig": "單擊以覆蓋此配置",
+      "dynamicConfigOverridesOverriddenSection": "覆蓋",
+      "dynamicConfigOverridesDefaultSection": "動態配置",
+      "actions": "操作",
+      "setAllConfigsToDefault": "將所有配置設為預設值",
+      "setAllConfigsToDefaultDescription": "將每個配置覆蓋為內建預設值",
+      "clearAllConfigOverrides": "清除所有覆蓋",
+      "clearAllConfigDescription": "一次性移除全部 {0} 項覆蓋",
+      "selectConfig": "選擇要管理的動態配置：",
+      "dynamicConfigOverrides": "動態配置覆蓋",
+      "removeOverride": "移除覆蓋",
+      "resetToCurrent": "重置為 Statsig/預設值",
+      "setOverride": "設定覆蓋（JSON）",
+      "setOverrideDesc": "以 JSON 提供引數",
+      "selectConfigAction": "要對“{0}”執行什麼操作？",
+      "manageConfigTitle": "管理：{0}",
+      "overrideRemoved": "已移除“{0}”的覆蓋",
+      "setConfigOverride": "為 {0} 設定覆蓋",
+      "enterJsonParams": "以 JSON 輸入配置引數",
+      "invalidJson": "無效的 JSON：{0}",
+      "configOverrideSet": "動態配置“{0}”已覆蓋",
+      "failedToSetOverride": "設定覆蓋失敗：{0}",
+      "confirmSetConfigsToDefault": "是，全部覆蓋為預設值",
+      "confirmSetConfigsToDefaultDescription": "這將建立 {0} 項覆蓋",
+      "cancelConfigOverride": "取消",
+      "keepCurrentConfigValues": "保留當前值",
+      "confirmSetAllConfigsToDefault": "將所有動態配置設為預設值？",
+      "confirmApplyConfigDefaults": "確認應用預設值",
+      "bundledApplied": "已將預設值應用到 {0} 個動態配置。",
+      "confirmClearConfigOverrides": "是，清除所有覆蓋",
+      "confirmClearConfigDescription": "這將移除 {0} 項覆蓋",
+      "cancelConfigClear": "取消",
+      "keepConfigOverrides": "保留現有覆蓋",
+      "confirmClearAllConfigOverrides": "清除全部 {0} 項動態配置覆蓋？",
+      "confirmClearAllConfigsAction": "確認全部清除",
+      "allOverridesCleared": "已清除全部 {0} 項動態配置覆蓋。",
+      "manageDynamicConfigOverrides": "管理動態配置覆蓋",
+      "manageDynamicConfigOverridesDescription": "管理用於開發和測試的動態配置引數覆蓋"
+    },
+    "vs/workbench/contrib/remoteTunnel/electron-sandbox/remoteTunnel.contribution": {
+      "remoteTunnel.actions.turnOn": "開啟遠端隧道訪問...",
+      "remoteTunnel.actions.turnOff": "關閉遠端隧道訪問...",
+      "remoteTunnel.actions.showLog": "顯示遠端隧道服務日誌",
+      "remoteTunnel.actions.configure": "配置隧道名稱...",
+      "remoteTunnel.actions.copyToClipboard": "將瀏覽器 URI 複製到剪貼簿",
+      "remoteTunnel.actions.learnMore": "Tunnel 入門",
+      "recommend.remoteExtension": "隧道 \"{0}\" 可用於遠端訪問。{1} 擴充套件可用於連線到該隧道。",
+      "action.showExtension": "顯示擴充套件",
+      "action.doNotShowAgain": "不再顯示",
+      "initialize.progress.title": "[正在查詢遠端隧道](command:{0})",
+      "startTunnel.progress.title": "[正在啟動遠端隧道](command:{0})",
+      "remoteTunnel.serviceInstallFailed": "作為服務安裝失敗，我們已回退到執行此會話的隧道。有關詳細資訊，請參閱 [error log](command:{0})。",
+      "accountPreference.placeholder": "登入帳戶以啟用遠端訪問",
+      "signed in": "已登入",
+      "others": "其他",
+      "sign in using account": "使用 {0} 登入",
+      "tunnel.preview": "遠端隧道目前為預覽版。請使用“幫助: 報告問題”命令報告任何問題。",
+      "enable": "啟用(&&E)",
+      "tunnel.enable.placeholder": "選擇要如何啟用訪問權限",
+      "tunnel.enable.session": "啟用此會話",
+      "tunnel.enable.session.description": "每當開啟時 {0} 執行",
+      "tunnel.enable.service": "作為服務安裝",
+      "tunnel.enable.service.description": "每次登入時執行",
+      "progress.turnOn.final": "現在，可以通過安全隧道 [{0}](command:{4}) 隨時隨地訪問此計算機。要通過其他計算機進行連線，請使用生成的 [{1}]({2})連結，或者在桌面或 Web 中使用 [{6}]({7})擴充套件。可以通過“VS Code 帳戶”選單 [配置](command:{3}) 或 [關閉](command:{5})此訪問權限。",
+      "action.copyToClipboard": "將瀏覽器連結複製到剪貼簿",
+      "progress.turnOn.failed": "無法啟用遠端隧道訪問。有關詳細資訊，請檢視遠端隧道服務日誌。",
+      "remoteTunnel.actions.manage.on.v2": "遠端隧道訪問已啟用",
+      "remoteTunnel.actions.manage.connecting": "遠端隧道訪問正在連線",
+      "remoteTunnel.turnOffAttached.confirm": "是否要關閉遠端隧道訪問？這也將停止在外部啟動的服務。",
+      "remoteTunnel.turnOff.confirm": "是否要關閉遠端隧道訪問？",
+      "manage.placeholder": "選擇要呼叫的命令",
+      "manage.title.attached": "已為 {0} 啟用遠端隧道訪問(已在外部啟動)",
+      "manage.title.orunning": "已為 {0} 啟用遠端隧道訪問",
+      "manage.title.off": "未啟用遠端隧道訪問",
+      "manage.showLog": "顯示日誌",
+      "manage.tunnelName": "更改隧道名稱",
+      "remoteTunnelAccess.machineName": "遠端隧道訪問註冊名。如果未設定，則使用主機名。",
+      "remoteTunnelAccess.machineNameRegex": "名稱只能由字母、數字、下劃線和短劃線組成。不得以短劃線開頭。",
+      "remoteTunnelAccess.preventSleep": "啟用遠端隧道訪問時，防止計算機進入休眠。",
+      "remoteTunnel.category": "遠端隧道"
+    },
+    "vs/workbench/electron-sandbox/window": {
+      "sharedProcessCrash": "共享後臺程序意外終止。請重新啟動應用程式以進行恢復。",
+      "restart": "重啟",
+      "configure": "配置",
+      "learnMore": "瞭解詳細資訊",
+      "keychainWriteError": "將登入資訊寫入金鑰鏈失敗，出現錯誤“{0}”。",
+      "troubleshooting": "疑難解答指南",
+      "runningTranslated": "你正在執行 {0} 的模擬版本。為了獲得更好的效能，請下載適用於計算機的本機 arm64 版本的 {0} 內部版本。",
+      "downloadArmBuild": "下載",
+      "showArgvParseWarning": "執行時引數檔案 \"argv.json\" 包含錯誤。請更正它們並重啟。",
+      "showArgvParseWarningAction": "開啟檔案",
+      "proxyAuthRequired": "需要代理身份驗證",
+      "loginButton": "登入(&&L)",
+      "username": "使用者名稱",
+      "password": "密碼",
+      "proxyDetail": "代理 {0} 需要使用者名稱和密碼。",
+      "rememberCredentials": "記住我的憑據",
+      "shutdownChatStreamingCancel": "取消",
+      "shutdownBackgroundTerminalCancel": "取消",
+      "shutdownErrorDetail": "錯誤: {0}",
+      "willShutdownDetail": "以下操作仍在執行: \n{0}",
+      "shutdownErrorClose": "意外錯誤導致無法關閉視窗",
+      "shutdownErrorQuit": "意外錯誤導致無法退出應用程式",
+      "shutdownErrorReload": "意外錯誤導致無法重新載入視窗",
+      "shutdownErrorLoad": "意外錯誤導致無法更改工作區",
+      "shutdownTitleClose": "關閉視窗需要的時間較長...",
+      "shutdownTitleQuit": "退出應用程式需要的時間較長...",
+      "shutdownTitleReload": "重新載入視窗需要的時間較長...",
+      "shutdownTitleLoad": "更改工作區需要的時間較長...",
+      "runningAsRoot": "不建議以 root 使用者身份執行 {0}。",
+      "appRootWarning.banner": "在更新時，儲存在安裝資料夾(“{0}”)中的檔案可能會被覆蓋或刪除(不可撤銷)，而不會發出警告。",
+      "macoseolmessage": "{1} 上的 {0} 將很快停止接收更新。請考慮升級 macOS 版本。",
+      "resolveShellEnvironment": "正在解析 shell 環境...",
+      "zoomOut": "縮小",
+      "zoomIn": "放大",
+      "zoomReset": "重置",
+      "zoomResetLabel": "{0} ({1})",
+      "zoomSettings": "設定",
+      "status.windowZoom": "視窗縮放",
+      "zoomNumber": "縮放級別: {0} ({1}%)"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/extensionProfileService": {
+      "extensionHostProfileStatusTarget": "擴充套件宿主",
+      "status.profiler": "擴充套件探查器",
+      "profilingTarget": "正在分析 {0}",
+      "selectAndStartDebug": "單擊以停止分析。",
+      "profilingTargetTime": "正在分析 {0}（{1} 秒）",
+      "restartAllHosts1": "分析擴充套件主機",
+      "restartAllHosts2": "要分析擴充套件主機，需要重啟。是否立即重啟“{0}”？",
+      "restart3": "重啟(&&R)",
+      "selectExtensionHostToProfile": "選擇要分析的擴充套件主機",
+      "restartRemote1": "分析遠端擴充套件",
+      "restartRemote2": "要分析遠端擴充套件主機，需要重啟。是否立即重啟“{0}”？",
+      "restartRemote3": "重啟(&&R)",
+      "remoteExtensionHostCPUProfilerRunning": "遠端擴充套件主機 CPU 分析器正在執行",
+      "remoteAgentProfileNoRemote": "開啟遠端工作區以分析遠端伺服器。",
+      "remoteServerProfileStatusTarget": "遠端伺服器",
+      "remoteAgentProfileUnavailable": "此連線不支援遠端伺服器 CPU 分析。",
+      "remoteAgentProfileMaxDurationReached": "遠端伺服器 CPU 分析器已達到最長持續時間並已停止。",
+      "remoteAgentCPUProfilerRunning": "遠端伺服器 CPU 分析器正在執行",
+      "extensionHostLocationRemote": "遠端",
+      "extensionHostLocationLocal": "本地",
+      "extensionHostPidUnavailable": "無",
+      "extensionHostDescriptionWithMore": "擴充套件：{0}（另有 {1} 個）",
+      "extensionHostDescription": "擴充套件：{0}",
+      "extensionHostBuiltinDescriptionWithMore": "內建擴充套件：{0}（另有 {1} 個）",
+      "extensionHostBuiltinDescription": "內建擴充套件：{0}",
+      "extensionHostEmptyDescription": "未檢測到已註冊的擴充套件",
+      "currentWorkspaceRemoteExtensionHost": "當前工作區遠端擴充套件主機",
+      "currentWorkspaceExtensionHost": "當前工作區擴充套件主機",
+      "restartCurrentWorkspaceHost1": "分析當前工作區擴充套件主機",
+      "restartCurrentWorkspaceHost2": "要分析{0}，需要重啟。是否立即重啟“{1}”？",
+      "restartCurrentWorkspaceHost3": "重啟(&&R)",
+      "remoteExtensionHostHeapProfilerRunning": "遠端擴充套件主機堆分配分析器正在執行",
+      "localExtensionHostHeapProfilerRunning": "擴充套件主機堆分配分析器正在執行",
+      "localExtensionHostCPUProfilerRunning": "擴充套件主機 CPU 分析器正在執行"
+    },
+    "vs/workbench/contrib/tracing/electron-sandbox/tracing.contribution": {
+      "captureDebuggingDataHeapSnapshot": "渲染器堆快照",
+      "captureDebuggingDataHeapSnapshotDetail": "捕獲堆轉儲。這可能會使編輯器暫時無響應，並在記憶體已經很高時失敗。",
+      "captureDebuggingDataUserDirectory": "使用者資料庫",
+      "captureDebuggingDataUserDirectoryDetail": "在小於 2 GB 時包含 User 資料目錄。若勾選，即使處於隱私模式，也會上傳聊天和提示資料（可能包含附加的程式碼片段）。",
+      "captureDebuggingDataLogs": "日誌",
+      "captureDebuggingDataLogsDetail": "包含最近的 Cursor 日誌會話。",
+      "captureDebuggingDataFeatureFlagsAndExtensions": "功能標誌和擴充套件摘要",
+      "captureDebuggingDataFeatureFlagsAndExtensionsDetail": "包含功能門、實驗、動態配置和已安裝的擴充套件。",
+      "captureDebuggingDataProcessDiagnostics": "程序診斷",
+      "captureDebuggingDataProcessDiagnosticsDetail": "包含最近的程序記憶體和 CPU 歷史記錄。",
+      "captureDebuggingDataAgentTranscripts": "Agent 記錄（最近 7 天）",
+      "captureDebuggingDataAgentTranscriptsDetail": "包含此工作區最近的 Cursor Agent 記錄。若勾選，即使處於隱私模式，也會上傳聊天和提示資料（可能包含附加的程式碼片段）。",
+      "captureDebuggingDataPickerTitle": "捕獲併發送除錯資料",
+      "captureDebuggingDataPickerPlaceholder": "選擇要收集的除錯資料。按 Enter 繼續。",
+      "capturingAndSendingDebuggingData": "正在捕獲併發送除錯資料…",
+      "capturingDebuggingData": "正在捕獲除錯資料…",
+      "debuggingDataSavedLocally": "除錯資料已儲存在本地。",
+      "revealInOS": "在檔案資源管理器中顯示",
+      "debuggingDataUploadSuccess": "除錯資料已成功傳送。",
+      "debuggingDataCaptureFailed": "捕獲或傳送除錯資料失敗。{0}",
+      "watchForCrashesConfirm": "切換監視崩潰",
+      "watchForCrashesWarning": "監視崩潰可能會使編輯器變慢，並會在發生崩潰時自動傳送除錯資料。是否確定要繼續？",
+      "watchForCrashesConfirmButton": "繼續",
+      "watchForCrashesCancelButton": "取消",
+      "watchingForCrashes": "正在監視崩潰。",
+      "notWatchingForCrashes": "已停止監視崩潰。",
+      "forceOOMConfirm": "強制渲染器 OOM 崩潰",
+      "forceOOMWarning": "這將持續分配記憶體，直到渲染器記憶體耗盡並崩潰。視窗將無響應，然後重新載入。用於測試崩潰監視器。是否繼續？",
+      "forceOOMButton": "立即崩潰",
+      "forceOOMCancel": "取消",
+      "captureAndSendDebuggingData": "捕獲併發送除錯資料",
+      "toggleWatchForCrashes": "切換監視崩潰",
+      "forceRendererOOM": "強制渲染器 OOM 崩潰"
+    },
+    "vs/workbench/electron-sandbox/actions/windowActions": {
+      "quitConfirmationTitle": "退出 Cursor？",
+      "closeWindowConfirmationTitle": "關閉此視窗？",
+      "quitConfirmationMessage": "是否確實要退出？",
+      "closeWindowConfirmationMessage": "是否確定要關閉此視窗？",
+      "quitButtonLabel": "退出",
+      "closeWindowButtonLabel": "關閉",
+      "cancel": "取消",
+      "miCloseWindow": "關閉視窗(&&E)",
+      "miZoomIn": "放大(&&Z)",
+      "miSetZoomLevel": "設定縮放級別(&&S)",
+      "miZoomOut": "縮小(&&Z)",
+      "miZoomReset": "重置縮放(&&R)",
+      "close": "關閉視窗",
+      "windowGroup": "視窗組",
+      "windowDirtyAriaLabel": "{0}，具有未儲存更改的視窗",
+      "current": "當前視窗",
+      "switchWindowPlaceHolder": "選擇切換的視窗",
+      "closeWindow": "關閉視窗",
+      "zoomIn": "放大",
+      "setZoomLevel": "設定縮放級別",
+      "zoomOut": "縮小",
+      "zoomReset": "重置縮放",
+      "switchWindow": "切換視窗...",
+      "quickSwitchWindow": "快速切換視窗..."
+    },
+    "vs/workbench/services/extensions/electron-sandbox/nativeExtensionService": {
+      "extensionSignatureVerification.blocked": "由於簽名驗證，以下擴充套件已被阻止：{0}。請從受信任的來源重新安裝。",
+      "extensionSignatureVerification.hashMismatch": "擴充套件檔案已被修改",
+      "extensionSignatureVerification.hashError": "未能驗證擴充套件完整性",
+      "extensionSignatureVerification.notVerified": "安裝時未驗證擴充套件 - 請重新安裝",
+      "extensionService.versionMismatchCrash": "擴充套件主機無法啟動: 版本不匹配。",
+      "relaunch": "重新啟動 VS Code",
+      "extensionService.autoRestart": "擴充套件主機意外終止。正在重啟…",
+      "startBisect": "開始擴充套件二等分",
+      "devTools": "開啟開發人員工具",
+      "restart": "重啟擴充套件主機",
+      "learnMore": "瞭解詳細資訊",
+      "extensionService.crash": "擴充套件主機在過去 5 分鐘內意外終止了 3 次。",
+      "remoteConnectionConfirm": "允許連線到遠端伺服器“{0}:{1}”?",
+      "remoteConnectionConfirmDetail": "程式碼即將連線到“{0}:{1}”以託管遠端擴充套件主機。僅當你信任此伺服器時才繼續，因為它將能夠代表你執行程式碼和訪問檔案。",
+      "remoteConnectionConfirmButton": "連線",
+      "remoteConnectionRejected": "不允許連線到“{0}:{1}”。",
+      "getEnvironmentFailure": "無法獲取遠端環境",
+      "enableResolver": "需要擴充套件“{0}”才能開啟遠端視窗。\n是否啟用？",
+      "enable": "啟用和重新載入",
+      "installResolver": "開啟遠端視窗需要擴充套件“{0}”。\n確定要安裝擴充套件嗎？",
+      "install": "安裝並重新載入",
+      "resolverExtensionNotFound": "未在市場上找到“{0}”",
+      "restartExtensionHost.reason": "顯式請求",
+      "restartExtensionHost": "重啟擴充套件主機"
+    },
+    "vs/platform/utilityHost/common/utilityHostCpuProfileCommands": {
+      "revealInWindows": "在檔案資源管理器中顯示",
+      "revealInMac": "在 Finder 中顯示",
+      "openContainer": "開啟所在的資料夾",
+      "utilityHost.diagnostics": "{0} 診斷",
+      "utilityHost.diagnostics.startCpuProfile": "啟動 CPU 分析器",
+      "utilityHost.diagnostics.takeHeapSnapshot": "拍攝堆快照",
+      "utilityHost.diagnostics.placeholder": "選擇診斷操作",
+      "utilityHost.cpuProfile.notRunning": "{0} 未在執行；請先開啟使用它的命令。",
+      "utilityHost.cpuProfile.alreadyRunning": "{0} CPU 分析器已在執行。",
+      "utilityHost.cpuProfile.startFailed": "啟動 {0} CPU 分析器失敗：{1}",
+      "utilityHost.cpuProfile.stop": "停止",
+      "utilityHost.cpuProfile.running": "{0} CPU 分析器正在執行",
+      "utilityHost.cpuProfile.stopFailed": "停止 {0} CPU 分析器失敗：{1}",
+      "utilityHost.cpuProfile.maxDuration": "{0} CPU 分析器已達到最長持續時間並已停止。",
+      "utilityHost.heapSnapshot.notRunning": "{0} 未在執行；請先開啟使用它的命令。",
+      "utilityHost.heapSnapshot.saveFailed": "儲存 {0} 堆快照失敗：{1}",
+      "utilityHost.heapSnapshot.running": "正在拍攝 {0} 堆快照…",
+      "utilityHost.heapSnapshot.empty": "{0} 返回了空的堆快照。",
+      "utilityHost.heapSnapshot.saved": "已將 {0} 堆快照儲存到 {1}",
+      "utilityHost.heapSnapshot.failed": "拍攝 {0} 堆快照失敗：{1}",
+      "utilityHost.cpuProfile.invalid": "{0} CPU 分析器返回了無效的分析：{1}",
+      "utilityHost.cpuProfile.saved": "已將 {0} CPU 分析儲存到 {1}",
+      "utilityHost.cpuProfile.saveFailed": "儲存 {0} CPU 分析失敗：{1}"
+    },
+    "vs/workbench/browser/windowQuitConfirmation": {
+      "shutdownChatStreamingTitle": "Agent 仍在工作",
+      "shutdownChatStreamingDetail": "現在停止將取消當前任務。",
+      "shutdownChatStreamingTitlePlural": "{0} 個 Agent 仍在工作",
+      "shutdownChatStreamingDetailPlural": "現在停止將取消它們的當前任務。",
+      "shutdownChatStreamingAutoContinueDetail": "重新開啟後，Cursor 將繼續此 Agent。",
+      "shutdownChatStreamingAutoContinueDetailPlural": "重新開啟後，Cursor 將繼續這些 Agent。",
+      "shutdownChatStreamingAutoContinueToggle": "自動恢復 Agent",
+      "shutdownChatStreamingAutoContinueTogglePlural": "自動恢復 Agent",
+      "shutdownClose": "關閉",
+      "shutdownQuit": "退出",
+      "shutdownReload": "重新載入",
+      "shutdownLoad": "更改",
+      "shutdownForceClose": "仍然關閉",
+      "shutdownForceQuit": "仍然退出",
+      "shutdownForceReload": "仍然重新載入",
+      "shutdownForceLoad": "仍然更改",
+      "archiveRunningAgentTitle": "將正在執行的 Agent 歸檔？",
+      "archiveRunningAgentDetail": "此 Agent 仍在工作。歸檔將停止它並取消當前任務。",
+      "archiveRunningAgentConfirm": "歸檔",
+      "shutdownBackgroundTerminalTitle": "後臺終端仍在執行",
+      "shutdownBackgroundTerminalDetail": "現在停止將終止後臺終端。",
+      "shutdownBackgroundTerminalTitlePlural": "{0} 個後臺終端仍在執行",
+      "shutdownBackgroundTerminalDetailPlural": "現在停止將終止這些後臺終端。"
+    },
+    "vs/workbench/browser/actions/developerActions": {
+      "clearStatsigCache.done": "已清除 Statsig 快取。將在下次重新整理時重新載入。",
+      "saveReactiveStorage.done": "已成功儲存響應式儲存。",
+      "injectCursorSocketFailure.done": "已向 {0} 個客戶端套接字和 {1} 個伺服器連線注入 cursor-socket 故障。",
+      "crashExtensionHost.none": "未找到可使其崩潰的本地程序擴充套件主機（不支援 web worker 和遠端主機）。",
+      "crashExtensionHost.done": "已使本地擴充套件主機崩潰（pid {0}）。它應會自動重啟。",
+      "crashRemoteExtensionHost.none": "未找到可使其崩潰的遠端擴充套件主機。",
+      "crashRemoteExtensionHost.done": "已使遠端擴充套件主機崩潰（pid {0}）。它應會自動重啟。",
+      "simulatePermanentRemoteDisconnect.noConnection": "當前視窗沒有可斷開的遠端連線。",
+      "simulatePermanentRemoteDisconnect.done": "已斷開套接字，並讓下一次管理重連像解析器錯誤一樣失敗（永久失敗走真實重連路徑）。",
+      "simulateRemoteConnectionDrop.noConnection": "當前視窗沒有遠端連線。",
+      "simulateRemoteConnectionDrop.done": "已模擬連線中斷（套接字已關閉）。若遠端仍可用，將正常重連。",
+      "featureGatesDumped": "功能門已轉儲到 {0}",
+      "revealInOS": "在檔案資源管理器中顯示",
+      "clearStatsigCache": "清除 Statsig 快取",
+      "saveReactiveStorage": "儲存響應式儲存",
+      "injectCursorSocketFailure": "注入 cursor-socket 故障",
+      "crashExtensionHost": "使擴充套件主機崩潰（慢速恢復）",
+      "crashRemoteExtensionHost": "使遠端擴充套件主機崩潰（慢速恢復）",
+      "simulatePermanentRemoteDisconnect": "連線：模擬永久斷開",
+      "simulateRemoteConnectionDrop": "連線：模擬連線中斷（瞬時）",
+      "dumpFeatureGates": "轉儲功能門"
+    },
+    "vs/workbench/contrib/search/browser/search.contribution": {
+      "anythingQuickAccessPlaceholder": "按名稱搜尋檔案(追加 {0} 轉到行，追加 {1} 轉到符號)",
+      "anythingQuickAccess": "轉到檔案",
+      "symbolsQuickAccessPlaceholder": "鍵入要開啟的符號的名稱。",
+      "symbolsQuickAccess": "轉到工作區中的符號",
+      "searchConfigurationTitle": "搜尋",
+      "search.quickOpen.useVscodeSearch": "啟用後，使用預設的 VS Code 快速開啟搜尋演算法，而不使用 Cursor 的修改版本。",
+      "search.searchOnType": "在鍵入時搜尋所有檔案。",
+      "search.searchOnTypeDebouncePeriod": "啟用 {0} 時，控制鍵入的字元與開始搜尋之間的超時(以毫秒為單位)。停用 {0} 時不起作用。",
+      "search.searchEditor.doubleClickBehaviour.selectWord": "雙擊選擇游標下的單詞。",
+      "search.searchEditor.doubleClickBehaviour.goToLocation": "雙擊將在活動編輯器組中開啟結果。",
+      "search.searchEditor.doubleClickBehaviour.openLocationToSide": "雙擊會將編輯器組中的結果開啟到一側，如果尚不存在，則建立一個結果。",
+      "search.searchEditor.doubleClickBehaviour": "配置在搜尋編輯器中雙擊結果的效果。",
+      "search.searchEditor.singleClickBehaviour.default": "單擊不執行任何操作。",
+      "search.searchEditor.singleClickBehaviour.peekDefinition": "單擊可開啟“速覽定義”視窗。",
+      "search.searchEditor.singleClickBehaviour": "配置在搜尋編輯器中單擊結果的效果。",
+      "search.searchEditor.reusePriorSearchConfiguration": "啟用後，新的搜尋編輯器將重用之前開啟的搜尋編輯器的包含、排除和標誌。",
+      "search.searchEditor.defaultNumberOfContextLines": "建立新的搜尋編輯器時要使用的周圍上下文行的預設數目。如果使用 \"#search.searchEditor.reusePriorSearchConfiguration#\"，則可將它設定為 \"null\" (空)，以使用搜索編輯器之前的配置。",
+      "search.searchEditor.focusResultsOnSearch": "觸發搜尋時，聚焦搜尋編輯器結果，而不是搜尋編輯器輸入。",
+      "search.quickAccess.excludeSymbolProviders": "搜尋符號時不使用其符號提供程式的擴充套件列表。請使用擴充套件 ID。"
+    },
+    "vs/workbench/browser/parts/titlebar/titlebarPart": {
+      "ariaLabelLeftTitleActions": "左側標題操作",
+      "ariaLabelNavigationActions": "導航操作",
+      "movePrimarySideBarRight": "將側邊欄移到右側",
+      "movePrimarySideBarLeft": "將側邊欄移到左側",
+      "newAgentShort": "開啟聊天",
+      "chatHistoryTitlebarMaximized": "聊天記錄",
+      "openAgentsWindowTitlebar": "開啟 Agents 視窗",
+      "ideTitlebarUpdateAction": "重啟以更新",
+      "moreActionsTitlebarMaximized": "更多操作",
+      "togglePrimarySidebar": "切換主側欄",
+      "toggleAgents": "切換 Agents",
+      "titlebarOpenCursorSettings": "開啟 Cursor 設定",
+      "cursorSettings": "Cursor 設定",
+      "goBack": "返回",
+      "goForward": "前進"
+    },
+    "vs/workbench/browser/workbench.contribution": {
+      "workbench.quickOpen.width": "控制“快速開啟”及其他快速選取器的寬度（畫素）。",
+      "activityBarDirection": "控制工作臺中活動欄的方向。退出並重新開啟後生效。",
+      "agentsWindowButtonEnabled": "控制是否在標題欄中顯示 Agents 視窗按鈕。",
+      "zenModeConfigurationTitle": "禪模式",
+      "zenMode.fullScreen": "控制在開啟禪模式時是否將工作臺切換到全屏。",
+      "zenMode.centerLayout": "控制在開啟禪模式時是否啟用居中佈局。",
+      "zenMode.showTabs": "控制開啟禪模式是應該顯示多個編輯器選項卡、單個編輯器選項卡還是完全隱藏編輯器標題區域。",
+      "zenMode.showTabs.multiple": "每個編輯器在編輯器標題區域顯示為選項卡。",
+      "zenMode.showTabs.single": "活動編輯器在編輯器標題區域顯示為單個大選項卡。",
+      "zenMode.showTabs.none": "未顯示編輯器標題區域。",
+      "zenMode.hideStatusBar": "控制在開啟禪模式時是否隱藏工作臺底部的狀態列。",
+      "zenMode.hideActivityBar": "控制在開啟禪模式時是否隱藏工作臺左側或右側的活動欄。",
+      "zenMode.hideLineNumbers": "控制在開啟禪模式時是否隱藏編輯器行號。",
+      "zenMode.restore": "控制在禪模式下退出的視窗是否應還原為禪模式。",
+      "zenMode.silentNotifications": "控制在禪模式下是否應啟用通知請勿打擾模式。如果為 true，則僅彈出錯誤通知。"
+    },
+    "vs/workbench/contrib/issue/electron-sandbox/process.contribution": {
+      "miOpenProcessExplorerer": "開啟程序資源管理器(&&P)",
+      "stopProfiler.title": "正在建立分析…",
+      "stopProfiler.detail": "最多可能需要一分鐘才能完成。",
+      "stopTracing.message": "沒有正在進行的跟蹤會話。使用“開發人員: 啟動跟蹤”或帶有 \"--trace\" 引數啟動以開始跟蹤。",
+      "stopTracing.button": "重新啟動並啟用跟蹤(&&R)",
+      "stopTracing.title": "正在建立跟蹤檔案...",
+      "stopTracing.detail": "這可能需要一分鐘才能完成。",
+      "openProcessExplorer": "開啟程序資源管理器",
+      "openGlassProcessExplorer": "開啟工作區程序資源管理器",
+      "toggleCPUProfiler": "開始 Electron 跟蹤",
+      "toggleMemoryProfiler": "啟動記憶體分析器",
+      "toggleGCProfiler": "啟動 GC 分析器",
+      "stopTracing": "停止跟蹤"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/debugExtensionHostAction": {
+      "selectExtensionHost": "選擇擴充套件主機",
+      "debugExtensionHost": "在新視窗中除錯擴充套件主機",
+      "restart1": "除錯擴充套件",
+      "restart2": "要除錯擴充套件，需要重啟。是否立即重啟“{0}”？",
+      "restart3": "重啟(&&R)",
+      "debugCursorAlwaysLocalExtensionHost": "在新視窗中開始除錯 Cursor Always Local 擴充套件主機",
+      "restartCursorAlwaysLocal1": "除錯 Cursor Always Local 擴充套件主機",
+      "restartCursorAlwaysLocal2": "要除錯 cursor-always-local 擴充套件主機，需要重啟。是否立即重啟“{0}”？",
+      "debugExtensionHost.progress": "正在將偵錯程式附加到擴充套件主機",
+      "debugExtensionHost.launch.name": "附加擴充套件主機",
+      "openDevToolsForExtensionHost": "在開發工具中除錯擴充套件主機",
+      "openDevToolsForCursorAlwaysLocal": "開啟 Cursor Always Local 擴充套件主機的開發人員工具"
+    },
+    "vs/workbench/contrib/search/browser/searchView": {
+      "noResultsIncludesExcludesIndex": "在“{0}”中排除“{1}”後未找到索引結果 - ",
+      "noResultsIncludesIndex": "在“{0}”中未找到索引結果 - ",
+      "noResultsExcludesIndex": "排除“{0}”後未找到索引結果 - ",
+      "noResultsFoundIndex": "未找到索引結果 - ",
+      "openSettings.learnMore": "瞭解詳細資訊",
+      "searchAll.tooltip": "不使用索引搜尋工作區中的所有檔案",
+      "searchAll.message": "搜尋全部",
+      "openInComposer.tooltip": "在聊天中開啟搜尋結果",
+      "search.file.result.indexed": "在 {1} 個已索引檔案中找到 {0} 個結果",
+      "search.files.result.indexed": "在 {1} 個已索引檔案中找到 {0} 個結果",
+      "search.file.results.indexed": "在 {1} 個已索引檔案中找到 {0} 個結果",
+      "search.files.results.indexed": "在 {1} 個已索引檔案中找到 {0} 個結果"
+    },
+    "vs/workbench/services/customize/browser/projectPrimitiveCreation": {
+      "newCommandName": "輸入命令名稱",
+      "commandNamePlaceholder": "例如 my-custom-command",
+      "commandNamePrompt": "請輸入新命令的名稱",
+      "emptyCommandName": "命令名稱不能為空",
+      "invalidCommandName": "命令名稱只能包含小寫字母、數字和連字元",
+      "commandExists": "已存在同名命令",
+      "newRuleName": "新建規則",
+      "ruleNamePlaceholder": "例如 my-rule",
+      "ruleNamePrompt": "輸入新規則的名稱",
+      "emptyRuleName": "規則名稱不能為空",
+      "invalidRuleName": "規則名稱只能包含小寫字母、數字和連字元",
+      "ruleExists": "已存在同名規則"
+    },
+    "vs/workbench/services/workingCopy/electron-sandbox/workingCopyBackupTracker": {
+      "backupTrackerBackupFailed": "以下具有未儲存更改的編輯器無法儲存到備份位置。",
+      "backupTrackerConfirmFailed": "無法儲存或還原以下具有未儲存更改的編輯器。",
+      "backupErrorDetails": "請先嚐試儲存或還原具有未儲存更改的編輯器，然後重試。",
+      "ok": "確定(&&O)",
+      "shutdownForceClose": "仍然關閉",
+      "shutdownForceQuit": "仍然退出",
+      "shutdownForceReload": "仍然重新載入",
+      "backupBeforeShutdownMessage": "備份具有未儲存更改的編輯器需要的時間較長...",
+      "backupBeforeShutdownDetail": "點選‘取消’以停止等待，並儲存或還原具有未儲存更改的編輯器。",
+      "saveBeforeShutdown": "儲存具有未儲存更改的編輯器需要的時間較長...",
+      "revertBeforeShutdown": "還原具有未儲存更改的編輯器需要的時間較長...",
+      "discardBackupsBeforeShutdown": "放棄備份需要的時間較長..."
+    },
+    "vs/code/electron-sandbox/processExplorer/processExplorerMain": {
+      "name": "程序名稱",
+      "cpu": "CPU (%)",
+      "pid": "PID",
+      "memory": "記憶體 (MB)",
+      "network": "網路",
+      "killProcess": "結束程序",
+      "forceKillProcess": "強制結束程序",
+      "copy": "複製",
+      "copyAll": "全部複製",
+      "openDevTools": "開啟開發人員工具（本地渲染器）",
+      "debug": "除錯"
+    },
+    "vs/workbench/browser/actions/layoutActions": {
+      "minimizeChatSize": "最小化聊天",
+      "maximizeChatSizeDescription": "最大化聊天大小 - 隱藏編輯器、面板和主側邊欄，以便專注於 AI Agent",
+      "toggleInlineDiffsDescription": "切換編輯器中內聯差異的可見性",
+      "toggleUnifiedSideBar": "切換 Agents 側邊欄",
+      "openLayoutSettingsMenu": "開啟佈局設定選單",
+      "miToggleZenMode": "禪模式",
+      "maximizeChatSize": "最大化聊天大小",
+      "toggleInlineDiffs": "切換內聯差異",
+      "openAgentLayoutQuickMenu": "開啟 Cursor 設定",
+      "openLayoutSwitcher": "切換佈局",
+      "toggleZenMode": "切換禪模式"
+    },
+    "vs/workbench/contrib/continuousProfiling/electron-sandbox/continuousProfiling.contribution": {
+      "captureProfileConfirm": "捕獲效能分析",
+      "captureProfileWarning": "此操作將建立當前視窗的 CPU 和分配分析。分析將安全上傳以供分析。是否繼續？",
+      "captureProfileConfirmButton": "繼續",
+      "captureProfileCancelButton": "取消",
+      "capturingProfile": "正在捕獲效能分析…",
+      "profileCaptured": "已開始效能分析。\n\n分析 ID：{0}",
+      "profileCaptureFailed": "啟動效能分析失敗。",
+      "profileCaptureError": "啟動效能分析時出錯：{0}",
+      "profilingStatus": "效能分析狀態：隱私模式：{0}，活動分析：{1}，計劃分析：{2}",
+      "captureProfile": "捕獲效能分析",
+      "showProfilingStatus": "顯示效能分析狀態"
+    },
+    "vs/workbench/contrib/remote/electron-sandbox/remote.cursor.contribution": {
+      "wslMntWorkspaceWarning.message": "不建議在 /mnt 下開啟 WSL 工作區",
+      "wslMntWorkspaceWarning.detail": "你開啟的資料夾解析為“{0}”，這是已掛載的 Windows 檔案系統。這可能比 Linux 檔案系統慢得多，並且某些功能可能無法正常工作。\n\n為獲得最佳效果，請將專案移到 WSL 主目錄（例如 ~/projects），或直接在 Cursor 中開啟 Windows 目錄。",
+      "wslMntWorkspaceWarning.checkbox": "不再顯示此警告",
+      "wslMntWorkspaceWarning.ok": "確定(&&O)",
+      "windowsWslPathWarning.message": "不建議在未安裝 WSL 擴充套件的情況下開啟 WSL 資料夾",
+      "windowsWslPathWarning.detail": "你開啟的資料夾（“{0}”）位於 Windows Subsystem for Linux 檔案系統中。直接從 Windows 開啟 WSL 資料夾可能會明顯變慢，並且某些功能可能無法正常工作。\n\n為獲得最佳效果，請安裝 WSL 擴充套件並用它開啟 WSL 資料夾。這樣可以完整訪問 Linux 檔案系統並獲得更好的效能。",
+      "windowsWslPathWarning.checkbox": "不再顯示此警告",
+      "windowsWslPathWarning.install": "安裝 WSL 擴充套件(&&I)",
+      "windowsWslPathWarning.ok": "確定(&&O)",
+      "windowsWslPathWarning.extensionInstalled.message": "不建議在未使用 WSL 擴充套件的情況下開啟 WSL 資料夾",
+      "windowsWslPathWarning.extensionInstalled.detail": "你開啟的資料夾（“{0}”）位於 Windows Subsystem for Linux 檔案系統中。直接從 Windows 開啟 WSL 資料夾可能會明顯變慢，並且某些功能可能無法正常工作。\n\n你已安裝 WSL 擴充套件。為獲得最佳效果，請使用命令“WSL: Connect to WSL”，或在 WSL 終端中使用“cursor .”從 WSL 內開啟此資料夾。"
+    },
+    "vs/workbench/contrib/appLayout/electron-sandbox/glassModeActions": {
+      "switchToModelSlug.noAgentsWindow": "無法開啟 Agents 視窗以切換模型。請開啟 Agents 視窗後重試。",
+      "switchToModelSlug.agentsWindowRoutingFailed": "無法在 Agents 視窗中切換模型。請重試。",
+      "cursor.newAgentsWindow": "新建 Agents 視窗",
+      "cursor.newAdditionalAgentsWindowDev": "開發人員：新建額外的 Agents 視窗",
+      "cursor.switchToNamedWindow": "切換到 {0}",
+      "cursor.openOrFocusNamedWindow": "開啟或聚焦 {0}",
+      "cursor.openOrFocusEditorWindow": "開啟或聚焦 IDE",
+      "cursor.openGlassAndSwitchModelSlug": "開啟 Glass 並切換模型",
+      "cursor.openGlassAndChangeToMultitask": "開啟 Glass 並切換到 Multitask",
+      "cursor.openGlassAndStartCloudAgent": "開啟 Agents 視窗並啟動 Cloud Agent"
+    },
+    "vs/workbench/contrib/externalTerminal/electron-sandbox/externalTerminal.contribution": {
+      "terminal.kind.integrated": "顯示整合終端操作。",
+      "terminal.kind.external": "顯示外部終端操作。",
+      "terminal.kind.both": "同時顯示整合和外部終端操作。",
+      "terminalConfigurationTitle": "外部終端",
+      "explorer.openInTerminalKind": "在終端中從資源管理器開啟檔案時，確定將啟動哪種型別的終端",
+      "sourceControlRepositories.openInTerminalKind": "當從終端中從“原始碼管理儲存庫”檢視中開啟檔案時，確定將啟動哪種型別的終端",
+      "terminal.external.windowsExec": "自定義要在 Windows 上執行的終端。",
+      "terminal.external.osxExec": "定義在 macOS 上執行的終端應用程式。",
+      "terminal.external.linuxExec": "自定義要在 Linux 上執行的終端。",
+      "globalConsoleAction": "開啟新的外部終端"
+    },
+    "vs/workbench/contrib/preferences/browser/keyboardLayoutPicker": {
+      "status.workbench.keyboardLayout": "鍵盤佈局",
+      "keyboardLayout": "佈局：{0}",
+      "displayLanguage": "定義 VS Code 在瀏覽器環境中使用的鍵盤佈局。",
+      "doc": "開啟 VS Code，然後從命令面板執行“開發人員: 檢查鍵對映 (JSON)”。",
+      "layoutPicks": "鍵盤佈局（{0}）",
+      "configureKeyboardLayout": "配置鍵盤佈局",
+      "autoDetect": "自動檢測",
+      "pickKeyboardLayout": "選擇鍵盤佈局",
+      "fail.createSettings": "無法建立“{0}”({1})。",
+      "keyboard.chooseLayout": "更改鍵盤佈局"
+    },
+    "vs/workbench/contrib/preferences/browser/settingsEditorPane.contribution": {
+      "settingsEditor2": "設定編輯器 2",
+      "settings.focusFile": "聚焦到設定檔案",
+      "settings.focusSettingsList": "聚焦設定列表",
+      "settings.focusSettingControl": "焦點設定控制",
+      "settings.focusSearch": "聚焦到設定搜尋",
+      "settings.clearResults": "清除設定搜尋結果",
+      "settings.focusSettingsTOC": "聚焦到設定目錄",
+      "settings.showContextMenu": "顯示設定上下文選單",
+      "settings.focusLevelUp": "將焦點上移一級",
+      "openSettingsJson": "開啟設定 (json)"
+    },
+    "vs/workbench/api/browser/mainThreadCursor": {
+      "extensionHostTimeoutTitle": "工作區已斷開連線",
+      "extensionHostTimeoutDetail": "Cursor 在開始執行工具時與工作區失去連線。請重新載入視窗後重試。",
+      "sessionInitFailedTitle": "Agent 會話初始化失敗",
+      "sessionInitFailedDetail": "未能初始化 Agent 執行會話。請重新載入視窗以繼續。",
+      "sessionNotFoundTitle": "未找到 Agent 會話",
+      "sessionNotFoundDetail": "Agent 執行會話已丟失。請重新載入視窗以繼續。",
+      "streamStartFailedTitle": "Agent 流啟動失敗",
+      "streamStartFailedDetail": "未能啟動 Agent 執行流。請重新載入視窗以繼續。",
+      "reloadWindow": "重新載入視窗"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/runtimeExtensionsEditor": {
+      "extensionHostProfileStart": "開始分析擴充套件宿主",
+      "extensionHostHeapProfileStart": "啟動擴充套件主機堆分配分析器",
+      "currentWorkspaceExtensionHostProfileStart": "啟動當前工作區擴充套件主機 CPU 分析器",
+      "currentWorkspaceExtensionHostHeapProfileStart": "啟動當前工作區擴充套件主機堆分配分析器",
+      "remoteAgentProfileStart": "啟動遠端伺服器 CPU 分析器",
+      "stopExtensionHostProfileStart": "停止分析擴充套件宿主",
+      "openExtensionHostProfile": "開放擴充套件主機配置檔案",
+      "saveExtensionHostProfile": "儲存擴充套件宿主分析檔案",
+      "saveprofile.dialogTitle": "儲存擴充套件宿主分析檔案"
+    },
+    "vs/workbench/contrib/mdceditor/browser/mdceditor.contribution": {
+      "newCursorRule": "新建 Cursor 規則",
+      "newCommandName": "輸入命令名稱",
+      "commandNamePlaceholder": "例如 my-custom-command",
+      "commandNamePrompt": "請輸入新命令的名稱",
+      "emptyCommandName": "命令名稱不能為空",
+      "invalidCommandName": "命令名稱只能包含小寫字母、數字和連字元",
+      "commandExists": "已存在同名命令",
+      "newProjectCursorCommand": "新建專案 Cursor 命令",
+      "newUserCursorCommand": "新建使用者 Cursor 命令"
+    },
+    "vs/workbench/contrib/scm/browser/scmHistoryViewPane": {
+      "historyItemChangesEditorTitle": "所有更改（{0} ↔ {1}）",
+      "openInCursorBlame": "在 Cursor Blame 中開啟",
+      "emailLinkTitle": "電子郵件",
+      "fileChanged": "{0} 個檔案已更改",
+      "filesChanged": "{0} 個檔案已更改",
+      "insertion": "{0} 個插入{1}",
+      "insertions": "{0} 個插入{1}",
+      "deletion": "{0} 個刪除{1}",
+      "deletions": "{0} 個刪除{1}"
+    },
+    "vs/workbench/browser/parts/editor/editorGroupWatermark": {
+      "editorLineHighlight": "編輯器水印中標籤的前景色。",
+      "watermark.openBrowser": "開啟瀏覽器",
+      "watermark.showTerminal": "顯示終端",
+      "watermark.hideTerminal": "隱藏終端",
+      "watermark.showFiles": "顯示檔案",
+      "watermark.addFolder": "新增資料夾",
+      "watermark.addRepository": "新增儲存庫",
+      "watermark.maximizeChat": "最大化聊天"
+    },
+    "vs/workbench/browser/parts/titlebar/menubarControl": {
+      "mFile": "檔案(&&F)",
+      "mEdit": "編輯(&&E)",
+      "mSelection": "選擇(&&S)",
+      "mView": "檢視(&&V)",
+      "mGoto": "轉到(&&G)",
+      "mTerminal": "終端(&&T)",
+      "mHelp": "幫助(&&H)",
+      "mPreferences": "首選項"
+    },
+    "vs/workbench/contrib/debug/browser/replAccessibilityHelp": {
+      "repl.help": "除錯控制台是一個讀取-求值-列印迴圈，可用於計算表示式和執行命令，可通過{0}聚焦。",
+      "repl.output": "可使用“聚焦上一個小元件”命令{0}從輸入欄位導航到除錯控制台輸出。",
+      "repl.input": "可使用“聚焦下一個小元件”命令{0}從輸出導航到除錯控制台輸入。",
+      "repl.history": "可使用向上和向下箭頭鍵瀏覽除錯控制台輸出歷史記錄。",
+      "repl.accessibleView": "“開啟輔助檢視”命令{0}允許逐字元瀏覽控制台輸出。",
+      "repl.showRunAndDebug": "“顯示執行和除錯檢視”命令{0}將開啟“執行和除錯”檢視，並提供有關除錯的詳細資訊。",
+      "repl.clear": "“除錯: 清除控制台”命令{0}將清除控制台輸出。",
+      "repl.lazyVariables": "設定 `debug.expandLazyVariables` 控制是否自動計算變數。使用螢幕閱讀器時預設啟用。"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsViews": {
+      "extensions": "擴充套件",
+      "showingExtensionsForFeature": "過去 30 天內使用 {0} 的擴充套件",
+      "suggestProxyError": "市場返回了 \"ECONNREFUSED\"。請檢查 \"http.proxy\" 設定。",
+      "open user settings": "開啟使用者設定",
+      "extension.arialabel.verifiedPublisher": "已驗證的釋出者 {0}",
+      "extension.arialabel.publisher": "釋出者 {0}",
+      "extension.arialabel.deprecated": "已棄用",
+      "extension.arialabel.rating": "{1} 使用者評了 {0} 星，共 5 星"
+    },
+    "vs/workbench/contrib/scm/browser/scmViewPane": {
+      "openReviewChangesPane": "審查分支",
+      "scmReviewChangesDefaultLabel": "與預設分支比較差異",
+      "scmReviewChangesBranchLabel": "與 {0} 比較差異",
+      "scmInputMoreActions": "更多操作...",
+      "scmInputCancelAction": "取消",
+      "scmInput.accessibilityHelp": "{0}，使用 {1} 開啟原始碼管理輔助功能幫助。",
+      "scmInput.accessibilityHelpNoKb": "{0}，有關詳細資訊，請執行“開啟輔助功能幫助”命令。",
+      "label.close": "關閉"
+    },
+    "vs/workbench/contrib/update/browser/update": {
+      "updateDidNotInstall": "{0} 未能完成安裝到版本 {1} 的更新。",
+      "tryAgain": "重試",
+      "update service disabled": "由於你正在以管理員身份執行 {0} 的使用者範圍安裝，更新已停用。",
+      "learn more": "瞭解詳細資訊",
+      "update service": "更新服務",
+      "thereIsUpdateAvailable": "有可用更新。",
+      "download update": "下載更新",
+      "later": "稍後"
+    },
+    "vs/workbench/services/fileWatchRecording/electron-sandbox/fileWatchRecording.contribution": {
+      "featureFlagDisabled": "檔案監視錄製需要啟用“{0}”功能標誌。",
+      "recordingStopped": "檔案監視錄製已停止。已收集 {0} 個唯一路徑和 {1} 項監視器統計。",
+      "stop": "停止",
+      "stopRecording": "停止錄製",
+      "recordingComplete": "檔案監視錄製已完成。已收集 {0} 個唯一路徑、{1} 個事件和 {2} 項監視器統計。",
+      "openFolder": "開啟錄製資料夾",
+      "recordingStarted": "檔案監視錄製正在執行。請更改檔案以錄製它們。",
+      "startFileWatchRecording": "開始檔案監視錄製"
+    },
+    "vs/workbench/services/userDataProfile/browser/extensionsResource": {
+      "skipped profile extensions": "匯入的配置中有些擴充套件無法安裝：{0}",
+      "invalid profile extensions content": "匯入的配置中的擴充套件資料不是有效的 JSON。",
+      "invalid profile extensions array": "匯入的配置中的擴充套件資料必須是 JSON 陣列。",
+      "invalid profile extension id": "匯入的配置中的擴充套件條目 {0} 為空。",
+      "invalid profile extension entry": "匯入的配置中的擴充套件條目 {0} 格式不正確。",
+      "invalid profile extension identifier": "匯入的配置中的擴充套件條目 {0} 缺少有效識別符號。",
+      "invalid profile extension entry skipped": "匯入的配置中的擴充套件條目 {0} 無效，已跳過。",
+      "invalid profile extension entries skipped": "匯入的配置中的擴充套件條目 {0} 無效，已跳過。"
+    },
+    "vs/workbench/services/workspaces/electron-sandbox/workspaceEditingService": {
+      "saveWorkspaceMessage": "你是否要將你的工作區配置儲存為檔案？",
+      "saveWorkspaceDetail": "若要再次開啟此工作區，請先儲存。",
+      "save": "儲存(&&S)",
+      "doNotSave": "不儲存(&&N)",
+      "doNotAskAgain": "始終丟棄無標題工作區而不詢問",
+      "workspaceOpenedMessage": "無法儲存工作區“{0}”",
+      "workspaceOpenedDetail": "已在另一個視窗開啟工作區。請先關閉該視窗，然後重試。",
+      "restartExtensionHost.reason": "開啟多根工作區"
+    },
+    "vs/platform/environment/node/argv": {
+      "suppressPopupsOnStartup": "啟動時抑制通知彈出。",
+      "webWorkerExthost": "在 web worker 擴充套件主機中執行所有支援 Web 的擴充套件。",
+      "glass": "啟用多工作臺架構（僅開發）。",
+      "classic": "停用 Glass 模式並強制使用經典視窗（僅開發）。",
+      "chat": "開啟不含完整 IDE 的獨立聊天視窗。",
+      "stdinWindows": "要讀取其他程式的輸出，請追加“-”（例如 “echo Hello World | {0} -”）",
+      "stdinUnix": "要從 stdin 讀取，請追加“-”（例如 “ps aux | grep code | {0} -”）"
+    },
+    "vs/workbench/contrib/appLayout/browser/dumpLayoutAction": {
+      "applyLayoutStorageDataTitle": "應用佈局儲存資料",
+      "applyLayoutStorageDataPrompt": "貼上由“轉儲佈局儲存資料”生成的 JSON",
+      "applyLayoutStorageDataInvalidJson": "無效的 JSON：{0}",
+      "applyLayoutStorageDataSuccess": "已應用佈局儲存資料（更新 {0} 項，移除 {1} 項）。部分更改可能需要重新載入窗口才能完全生效。",
+      "applyLayoutStorageDataFailed": "應用佈局儲存資料失敗：{0}",
+      "dumpLayoutStorageData": "轉儲佈局儲存資料",
+      "applyLayoutStorageData": "應用佈局儲存資料"
+    },
+    "vs/workbench/contrib/canvas/browser/canvas-start-page.react": {
+      "glass.canvasStartPage.showLess": "顯示更少",
+      "glass.canvasStartPage.showMore": "顯示更多",
+      "glass.canvasStartPage.searchAriaLabel": "搜尋畫布",
+      "glass.canvasStartPage.searchPlaceholder": "畫布…",
+      "glass.canvasStartPage.newCanvas": "新建畫布",
+      "glass.canvasStartPage.results": "結果",
+      "glass.canvasStartPage.recents": "最近使用"
+    },
+    "vs/workbench/contrib/customizeEditor/browser/customizeEditor.contribution": {
+      "openCustomizeEditor": "開啟自定義",
+      "clearPrimitiveAuthorshipCache.done": "已清除基元作者快取。",
+      "clearPrimitiveSourceCache.done": "已清除基元源快取。",
+      "focusCustomizeSearch": "聚焦自定義搜尋",
+      "openSkillPublishLogs": "開啟技能釋出日誌",
+      "clearPrimitiveAuthorshipCache": "清除基元作者快取",
+      "clearPrimitiveSourceCache": "清除基元源快取"
+    },
+    "vs/workbench/contrib/performance/electron-sandbox/startupProfiler": {
+      "prof.message": "已成功建立配置檔案。",
+      "prof.detail": "請建立問題並手動附加以下檔案:\n{0}",
+      "prof.restartAndFileIssue": "建立問題並重啟(&&C)",
+      "prof.restart": "重啟",
+      "prof.thanks": "感謝您的幫助。",
+      "prof.detail.restart": "需要重新啟動才能繼續使用“{0}”。再次感謝您的貢獻。",
+      "prof.restart.button": "重啟(&&R)"
+    },
+    "vs/workbench/contrib/tracing/browser/internalReportMenuAction": {
+      "sessionRecording.reportMenu.bug": "$(bug) 報告 Bug",
+      "sessionRecording.reportMenu.bugDetail": "標記此會話並新增上下文。",
+      "sessionRecording.reportMenu.lag": "$(watch) 報告卡頓",
+      "sessionRecording.reportMenu.lagDetail": "一鍵傳送卡頓報告。",
+      "sessionRecording.reportMenu.title": "[Internal] 報告",
+      "sessionRecording.reportMenu.placeholder": "你想報告什麼？",
+      "sessionRecording.reportMenu": "報告 Bug 或卡頓"
+    },
+    "vs/workbench/services/dialogs/browser/fileDialogService": {
+      "pickFolderAndOpen": "無法開啟資料夾，請改為將資料夾新增到工作區。",
+      "pickWorkspaceAndOpen": "無法開啟工作區，請改為將資料夾新增到工作區。",
+      "openRemote": "開啟遠端(&&O)...",
+      "learnMore": "瞭解詳細資訊(&&L)",
+      "openFiles": "開啟檔案(&&F)...",
+      "unsupportedBrowserMessage": "不支援開啟本地資料夾",
+      "unsupportedBrowserDetail": "你的瀏覽器不支援開啟本地資料夾。\n你可以開啟單個檔案，或開啟遠端儲存庫。"
+    },
+    "vs/workbench/services/workspaceConnection/browser/workspaceConnectionService": {
+      "workspaceReconnectFailedCloudAgent": "Cursor 無法重新連線到執行此 Agent 的計算機。Agent 會在後臺繼續執行，不受影響。請重新載入視窗以重新連線，或稍後再試。",
+      "workspaceReconnectFailed": "Cursor 無法重新連線此工作區。請重新載入視窗後重試。",
+      "workspaceReconnectTimedOut": "Cursor 未能在 5 秒內重新連線此工作區。請重新載入視窗後重試。",
+      "workspaceReconnectStillDisconnected": "Cursor 無法重新連線此工作區。請重新載入視窗後重試。",
+      "workspaceRepairFailed": "Cursor 無法修復此工作區連線。請重新載入視窗後重試。",
+      "workspaceReconnectReloadTitle": "無法重新連線工作區",
+      "reloadWindow": "重新載入視窗(&&R)"
+    },
+    "vs/platform/files/browser/indexedDBFileSystemProvider": {
+      "fileNotExists": "檔案不存在",
+      "fileIsDirectory": "檔案是目錄",
+      "fileNotDirectory": "檔案不是目錄",
+      "dirIsNotEmpty": "目錄不為空",
+      "fileExceedsStorageQuota": "檔案超出可用儲存配額",
+      "internal": "IndexedDB 檔案系統提供程式中發生內部錯誤。（{0}）"
+    },
+    "vs/workbench/browser/actions/exportNotepadsAction": {
+      "hasNotepads": "使用者儲存中是否有記事本",
+      "noNotepadsFound": "儲存中未找到記事本。",
+      "parseError": "解析記事本資料失敗：{0}",
+      "notepadsExported": "已將 {0} 個記事本匯出到 {1}",
+      "exportNotepadsError": "匯出記事本失敗：{0}",
+      "exportNotepads": "將記事本匯出為檔案"
+    },
+    "vs/workbench/browser/parts/auxiliarybar/auxiliaryBarPart": {
+      "auxiliaryBarShowAgentsSidebar": "顯示 Agents 側邊欄",
+      "titleAndKb": "{0} ({1})",
+      "auxiliaryBarNewAgent": "開啟聊天",
+      "auxiliaryBarChatHistory": "聊天記錄",
+      "auxiliaryBarClose": "關閉",
+      "auxiliaryBarMoreActions": "更多操作"
+    },
+    "vs/workbench/contrib/appLayout/browser/appLayoutActions": {
+      "hideUnifiedSideBar": "切換 Agents 側邊欄",
+      "toggleUnifiedSideBarDescription": "切換 Agents 側邊欄的可見性",
+      "toggleAgentsToggled": "切換 Agents",
+      "toggleAgentsDescription": "切換 Agents 的可見性",
+      "toggleUnifiedSideBar": "切換 Agents 側邊欄",
+      "toggleAgents": "切換 Agents"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/extensionsSlowActions": {
+      "cmd.reportOrShow": "效能問題",
+      "cmd.report": "報告問題",
+      "attach.title": "你是否已附加 CPU 分析？",
+      "attach.msg": "這是一個提醒, 以確保您沒有忘記將 \"{0}\" 附加到剛剛建立的問題。",
+      "cmd.show": "顯示問題",
+      "attach.msg2": "這是一個提醒, 以確保您沒有忘記將 \"{0}\" 歸入現有的效能問題中。"
+    },
+    "vs/workbench/contrib/ui/browser/buttons/AgentsWindowButton": {
+      "agentsWindow.hoverGraphicTitle": "認識全新的 Cursor",
+      "agentsWindow.hoverSectionParallelTitle": "並行執行多個 Agent",
+      "agentsWindow.hoverSectionParallelBody": "跨倉庫的所有 Agent——本地、遠端 SSH 和雲端",
+      "agentsWindow.hoverSectionDeeperTitle": "隨時深入",
+      "agentsWindow.hoverSectionDeeperBody": "在需要時使用編輯器中最好的部分，例如檔案和瀏覽器",
+      "agentsWindowButtonLabel": "Agents 視窗"
+    },
+    "vs/workbench/electron-sandbox/parts/dialogs/dialogHandler": {
+      "aboutLocalMode": "本地模式：已啟用",
+      "copy": "複製(&&C)",
+      "okButton": "確定",
+      "aboutDetailWithoutReleaseTrack": "版本: {0}\nVS Code Extension API: {1}\n提交: {2}\n日期: {3}\n佈局: {4}\n構建型別: {5}\nElectron: {6}\nChromium: {7}\nNode.js: {8}\nV8: {9}\nxterm.js: {10}\n作業系統: {11}",
+      "aboutDetail": "版本: {0}\nVS Code Extension API: {1}\n提交: {2}\n日期: {3}\n佈局: {4}\n構建型別: {5}\n釋出通道: {6}\nElectron: {7}\nChromium: {8}\nNode.js: {9}\nV8: {10}\nxterm.js: {11}\n作業系統: {12}",
+      "aboutCopyright": "版權所有 © 2026 Anysphere。保留所有權利。"
+    },
+    "vs/workbench/services/localization/electron-sandbox/localeService": {
+      "argvInvalid": "無法編寫顯示語言。請開啟執行時設定，更正其中的錯誤/警告，然後重試。",
+      "openArgv": "開啟執行時設定",
+      "installing": "正在安裝 {0} 語言支援...",
+      "restartDisplayLanguageMessage1": "重啟 {0} 以切換到 {1}?",
+      "restartDisplayLanguageDetail1": "要將顯示語言更改為 {0}，{1} 需要重啟。",
+      "restart": "重啟(&&R)"
+    },
+    "vs/workbench/services/secrets/electron-sandbox/secretStorageService": {
+      "troubleshootingButton": "開啟疑難解答指南",
+      "encryptionNotAvailableJustTroubleshootingGuide": "無法識別用於在當前桌面環境中儲存加密相關資料的 OS keyring。",
+      "usePlainTextExtraSentence": "請開啟疑難解答指南以解決此問題，也可以使用不用 OS keyring 的較弱加密。",
+      "usePlainText": "使用較弱的加密",
+      "isGnome": "你正在 GNOME 環境中執行，但 OS keyring 不可用用於加密。請確保已安裝並執行 gnome-keyring 或其他 libsecret 相容實現。",
+      "isKwallet": "你正在 KDE 環境中執行，但 OS keyring 不可用於加密。請確保 kwallet 正在執行。"
+    },
+    "vs/editor/browser/widget/diffEditor/features/hideUnchangedRegionsFeature": {
+      "show20LinesAbove": "在上方再顯示 20 行",
+      "show20LinesBelow": "在下方再顯示 20 行",
+      "diff.hiddenLines.summary": "隱藏行摘要",
+      "diff.expandAllLinkTitle": "展開整個隱藏區域",
+      "diff.expandAllLinkLabel": "全部展開"
+    },
+    "vs/editor/contrib/quickAccess/browser/gotoLineQuickAccess": {
+      "cannotRunGotoLine": "請先開啟文本編輯器再轉到行。",
+      "gotoLineColumnLabel": "轉到第 {0} 行第 {1} 個字元。",
+      "gotoLineLabel": "轉到第 {0} 行。",
+      "gotoLineLabelEmptyWithLimit": "當前行：{0}，字元：{1}。鍵入 1 到 {2} 之間的行號以導航。",
+      "gotoLineLabelEmpty": "當前行：{0}，字元：{1}。鍵入行號以導航。"
+    },
+    "vs/platform/browserView/electron-sandbox/externalSchemeConfirmation": {
+      "browserView.openExternalLinkOpen": "開啟(&&O)",
+      "browserView.openExternalLinkCancel": "取消",
+      "browserView.openExternalLinkTitle": "開啟外部連結",
+      "browserView.openExternalLink": "是否要開啟此連結？",
+      "browserView.openExternalLinkDetail": "{0}\n\n這將在外部應用程式中開啟。"
+    },
+    "vs/platform/process/electron-main/processMainService": {
+      "workspaceProcessExplorer": "工作區程序資源管理器",
+      "processExplorer": "程序資源管理器",
+      "trace.message": "已成功建立跟蹤檔案",
+      "trace.detail": "請建立問題並手動附加以下檔案:\n{0}",
+      "trace.ok": "確定(&&O)"
+    },
+    "vs/platform/storage/electron-main/storageMainService": {
+      "storageError.title": "儲存錯誤",
+      "storageError.message": "Cursor 無法開啟本地儲存。請重新載入或聯絡支援。",
+      "storageError.detail": "如果儲存檔案已損壞、被移動或存在權限問題，則可能發生此情況。\n\n儲存路徑：{0}",
+      "storageError.restart": "重啟",
+      "storageError.quit": "退出"
+    },
+    "vs/workbench/browser/parts/sidebar/sidebarMenu": {
+      "configureKeybinding": "配置鍵繫結",
+      "hide": "隱藏“{0}”",
+      "keep": "保留“{0}”",
+      "movePrimarySideBarRight": "向右移動主側欄",
+      "movePrimarySideBarLeft": "向左移動主側欄"
+    },
+    "vs/workbench/contrib/bulkEdit/browser/bulkEditService": {
+      "closeTheWindow": "關閉視窗(&&C)",
+      "changeWorkspace": "更改工作區(&&W)",
+      "reloadTheWindow": "重新載入視窗(&&R)",
+      "quit.message": "是否確實要退出？",
+      "quit": "退出(&&Q)"
+    },
+    "vs/workbench/contrib/files/electron-sandbox/fileActions.contribution": {
+      "miShare": "共享",
+      "revealInWindows": "在檔案資源管理器中顯示",
+      "revealInMac": "在 Finder 中顯示",
+      "openContainer": "開啟所在的資料夾",
+      "filesCategory": "檔案"
+    },
+    "vs/workbench/contrib/mcp/common/mcpService": {
+      "mcp.tool.warning": "{0} 此工具來自“{1}”（MCP 伺服器）。請注意，MCP 伺服器或惡意對話內容可能會嘗試通過工具濫用“{2}”。請仔細審查任何請求的操作。",
+      "msg.title": "執行 `{0}`",
+      "msg.msg": "{0}\n\n {1}",
+      "msg.run": "正在執行 `{0}`",
+      "msg.ran": "已執行 `{0}` "
+    },
+    "vs/workbench/contrib/search/browser/anythingQuickAccess": {
+      "lowScoringResultsSeparator": "其他結果",
+      "semanticResultsSeparator": "語義搜尋結果",
+      "createFile": "建立檔案“{0}”",
+      "createFileDescription": "在此路徑建立新檔案",
+      "createFileError": "建立檔案失敗：{0}"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalTooltip": {
+      "shellIntegration.rich": "豐富",
+      "shellIntegration.basic": "基本",
+      "shellIntegration.injectionFailed": "注入未能啟用",
+      "shellIntegration.no": "否",
+      "shellIntegration": "Shell 整合"
+    },
+    "vs/workbench/contrib/terminal/common/terminalConfiguration": {
+      "terminal.integrated.environmentChangesIndicator": "是否在每個終端上顯示環境更改指示器，以說明擴充套件是否已更改或要更改終端環境。",
+      "terminal.integrated.environmentChangesIndicator.off": "停用指示器。",
+      "terminal.integrated.environmentChangesIndicator.on": "啟用指示器。",
+      "terminal.integrated.environmentChangesIndicator.warnonly": "僅在終端環境“過時”時顯示警告指示器，而不顯示錶示擴充套件已修改終端環境的資訊指示器。",
+      "terminal.integrated.windowsEnableConpty": "是否使用 ConPTY 進行 Windows 終端程序通訊（需要 Windows 10 內部版本 18309+）。若為 false，將使用 Winpty。"
+    },
+    "vs/workbench/contrib/testing/browser/testingProgressUiService": {
+      "testProgress.runningInitial": "正在執行測試...",
+      "testProgress.running": "正在執行測試，通過 {0}/{1} ({2}%)",
+      "testProgressWithSkip.running": "正在執行測試，通過 {0}/{1} ({2}%, {3} 個已跳過)",
+      "testProgress.completed": "{0}/{1} 個測試已通過({2}%)",
+      "testProgressWithSkip.completed": "{0}/{1} 個測試已通過({2}%，{3} 個已跳過)"
+    },
+    "vs/workbench/contrib/ui/browser/buttons/IdeTitlebarUpdateButton": {
+      "ideTitlebarUpdateButton.tooltip": "重啟 Cursor 以安裝待處理的更新。",
+      "ideTitlebarUpdateButton.tooltipWithVersion": "重啟 Cursor 以安裝待處理的更新到 {0}。",
+      "ideTitlebarUpdateButton.installingTooltip": "正在安裝更新 — Cursor 將自動關閉並重新開啟。",
+      "ideTitlebarUpdateButton.label": "更新",
+      "ideTitlebarUpdateButton.installingLabel": "正在安裝"
+    },
+    "vs/workbench/contrib/webview/electron-sandbox/webviewCommands": {
+      "openToolsDescription": "開啟活動 Web 檢視的開發人員工具",
+      "iframeWebviewAlert": "使用標準開發工具除錯基於 iFrame 的 Web 檢視",
+      "doNotIgnoreMenuShortcuts": "不忽略選單快捷鍵",
+      "openToolsLabel": "開啟 Webview 開發人員工具",
+      "refreshCssLabel": "重新載入 CSS"
+    },
+    "vs/workbench/electron-sandbox/actions/developerActions": {
+      "toggleDevTools": "切換開發人員工具",
+      "configureRuntimeArguments": "配置執行時引數",
+      "reloadWindowWithExtensionsDisabled": "在停用擴充套件的情況下重新載入",
+      "revealUserDataFolder": "顯示使用者資料資料夾",
+      "showGPUInfo": "顯示 GPU 資訊"
+    },
+    "vs/workbench/electron-sandbox/actions/installActions": {
+      "successIn": "已成功解除 Cursor 與 “code” 命令的關聯。",
+      "install": "安裝“{0}”命令",
+      "successFrom": "已成功從 PATH 解除安裝 Shell 命令“{0}”。",
+      "shellCommand": "Shell 命令",
+      "uninstall": "從 PATH 解除安裝“{0}”命令"
+    },
+    "vs/workbench/services/extensions/electron-sandbox/localProcessExtensionHost": {
+      "copyErrorMessage": "複製",
+      "reloadWindow": "重新載入視窗",
+      "extensionHost.startupFailDebug": "擴充套件未在 10 秒內啟動，可能在第一行已停止，需要偵錯程式才能繼續。",
+      "extensionHost.startupFail": "擴充套件主機未在 10 秒內啟動，這可能是一個問題。",
+      "join.extensionDevelopment": "正在終止擴充套件除錯會話"
+    },
+    "vs/workbench/services/localization/browser/localeService": {
+      "relaunchDisplayLanguageMessage": "要更改顯示語言，{0} 需要重新載入",
+      "relaunchDisplayLanguageDetail": "按重新載入按鈕以重新整理頁面並將顯示語言設定為 {0}。",
+      "reload": "重新載入(&&R)",
+      "clearDisplayLanguageMessage": "要更改顯示語言，{0} 需要重新載入",
+      "clearDisplayLanguageDetail": "按重新載入按鈕以重新整理頁面並使用瀏覽器語言。"
+    },
+    "vs/workbench/services/themes/electron-sandbox/themes.contribution": {
+      "window.systemColorTheme.default": "本機小元件顏色與系統顏色匹配。",
+      "window.systemColorTheme.auto": "對淺色主題使用淺色本機小元件顏色，對深色主題使用深色本機小元件顏色。",
+      "window.systemColorTheme.light": "使用淺色本機小元件顏色。",
+      "window.systemColorTheme.dark": "使用深色本機小元件顏色。",
+      "window.systemColorTheme": "設定本機 UI 元素的顏色模式，例如本機對話方塊、選單和標題欄。即使在淺色模式下配置 OS，也可以為視窗選擇深色系統顏色主題。還可以配置為根據 {0} 設定自動調整。\n\n注意: 啟用 {1} 時會忽略此設定。"
+    },
+    "vs/workbench/browser/actions/exportCustomModesAction": {
+      "hasCustomModes": "使用者是否有舊版自定義 Composer 模式",
+      "noCustomModesFound": "儲存中未找到自定義模式。",
+      "customModesExported": "已將 {0} 個自定義模式匯出到 {1}",
+      "exportCustomModes": "匯出自定義模式"
+    },
+    "vs/workbench/browser/actions/layoutIcons": {
+      "panelLeft": "表示左側位置的側欄",
+      "panelLeftOff": "表示已關閉的左側位置的側欄",
+      "panelRight": "表示右側位置的側欄",
+      "panelRightOff": "表示已關閉的右側位置的側欄"
+    },
+    "vs/workbench/common/contextkeys": {
+      "activeEditorIsReviewChanges": "活動編輯器是否為“審查更改”編輯器",
+      "isAuxiliaryEditorPart": "編輯器部分位於輔助視窗中",
+      "agentChatMaximized": "Agent 聊天體驗是否已最大化並通過統一最大化模式隱藏編輯器區域",
+      "documentBodyFocused": "文件正文是否具有鍵盤焦點"
+    },
+    "vs/workbench/contrib/canvas/browser/shareCanvasAction": {
+      "sharingCanvas": "正在共享畫布…",
+      "shareCanvasLinkCopied": "畫布連結已複製到剪貼簿。",
+      "shareCanvasLinkReady": "畫布已共享。如有需要，請從共享選單複製連結。",
+      "shareCanvasSynced": "畫布已同步。"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsViewlet": {
+      "finalNote": "單擊以匯入所有本地 {0} 擴充套件",
+      "importingNote": "正在匯入…這可能需要一分鐘",
+      "importDone": "已完成匯入 VS Code 設定！",
+      "dismiss": "關閉"
+    },
+    "vs/workbench/contrib/localization/electron-sandbox/minimalTranslations": {
+      "showLanguagePackExtensions": "在商店中搜索語言包並將顯示語言更改為 {0}。",
+      "searchMarketplace": "搜尋市場",
+      "installAndRestartMessage": "安裝語言包並將顯示語言更改為 {0}。",
+      "installAndRestart": "安裝並重啟"
+    },
+    "vs/workbench/contrib/markdownEditor/browser/markdownEditorActions": {
+      "editMarkdown": "編輯 Markdown",
+      "editSource": "編輯源",
+      "toggleMarkdownEditorMode": "切換編輯器模式",
+      "markdownEditor": "Markdown 編輯器"
+    },
+    "vs/workbench/contrib/mergeEditor/electron-sandbox/devCommands": {
+      "mergeEditor.enterJSON": "輸入 JSON",
+      "mergeEditor": "合併編輯器(開發)",
+      "merge.dev.openState": "從 JSON 開啟合併編輯器狀態",
+      "merge.dev.openSelectionInTemporaryMergeEditor": "在臨時合併編輯器中開啟所選內容"
+    },
+    "vs/workbench/contrib/notebook/browser/controller/insertCellActions": {
+      "notebookActions.menu.insertCodeCell": "新增程式碼",
+      "notebookActions.menu.insertCodeCellTop": "新增程式碼",
+      "notebookActions.menu.insertMarkdownCell": "新增 Markdown",
+      "notebookActions.menu.insertMarkdownCellTop": "新增 Markdown"
+    },
+    "vs/workbench/contrib/scm/browser/scm.contribution": {
+      "maxRenderedResources": "控制原始碼管理檢視中每組呈現的最大資源數。超過此限制的超大更改列表會在檢視中截斷，以保持編輯器響應；這僅影響呈現，不會更改提交、暫存或放棄的檔案。設為 0 可呈現所有資源。",
+      "editorBugbot": "Agent 審查",
+      "openBugbotSettings": "Agent 審查設定",
+      "triggerAgentReview": "開始 Agent 審查"
+    },
+    "vs/workbench/contrib/tasks/electron-sandbox/taskService": {
+      "TaskSystem.runningTask": "存在執行中的任務。要終止它嗎？",
+      "TaskSystem.terminateTask": "終止任務(&&T)",
+      "TaskSystem.noProcess": "啟動的任務不再存在。如果任務已生成出後臺程序，則退出 VS Code 可能會導致出現孤立的程序。若要避免此情況，請使用等待標記啟動最後一個後臺程序。",
+      "TaskSystem.exitAnyways": "仍要退出(&&E)"
+    },
+    "vs/workbench/contrib/ui/browser/gallery/sections/TreeViewExampleSection": {
+      "openFile": "開啟檔案",
+      "fetchRemote": "獲取",
+      "refreshAll": "全部重新整理",
+      "treeViewExample": "樹檢視示例"
+    },
+    "vs/workbench/contrib/workspace/browser/workspace.contribution": {
+      "status.workspaceName": "工作區名稱",
+      "status.workspaceNameAria": "工作區：{0}",
+      "status.workspaceNameTooltip": "當前工作區：{0}",
+      "securityConfigurationTitle": "安全性"
+    },
+    "vs/workbench/services/userDataProfile/browser/userDataProfileImportExportService": {
+      "create profile from profile failed": "未能從“{0}”建立配置檔案。",
+      "create profile from template extensions warning": "已建立配置檔案“{0}”，但匯入配置中的部分擴充套件條目已跳過。",
+      "create profile from template extensions not applied warning": "已建立配置檔案“{0}”，但未應用匯入配置中的任何擴充套件。",
+      "create profile from template failed": "未能從匯入的檔案建立配置檔案。"
+    },
+    "vs/editor/contrib/inlineCompletions/browser/controller/commands": {
+      "noInlineEditAvailable": "沒有可用的內聯編輯。",
+      "action.inlineSuggest.trigger.explicitInlineEdit": "觸發下一次編輯建議",
+      "action.inlineSuggest.acceptNextInlineEditPart": "接受下一段內聯編輯"
+    },
+    "vs/platform/update/common/update.config.contribution": {
+      "silentlyApplyOnQuit": "啟用自動檢查更新，並在不提示的情況下自動安裝更新。有可用更新時將自動應用。",
+      "releaseTrack": "配置更新的釋出通道。可以是 “prerelease”、“stable”、“dev”、“dogfood” 或 “candidate”。",
+      "releaseTrackOverride": "內部託管的更新發布通道覆蓋。"
+    },
+    "vs/workbench/api/browser/mainThreadAuthentication": {
+      "signedOut": "已成功退出登入。",
+      "dontAskAgain": "不再詢問",
+      "confirmModelAccess": "擴充套件“{0}”想要訪問 {1} 提供的語言模型。"
+    },
+    "vs/workbench/browser/actions/layoutSwitcherOverlay": {
+      "layoutSwitcher.agent": "Agent",
+      "layoutSwitcher.editor": "編輯器",
+      "layoutSwitcher.untitled": "無標題"
+    },
+    "vs/workbench/browser/parts/editor/editor.contribution": {
+      "closePaneAction": "關閉窗格",
+      "closePaneContext": "關閉窗格",
+      "openBrowser": "開啟瀏覽器"
+    },
+    "vs/workbench/browser/parts/editor/renderEditorEmptyScreen": {
+      "enableResolver": "需要擴充套件“Remote - SSH”才能開啟遠端視窗。\n是否啟用？",
+      "enable": "啟用和重新載入",
+      "removeRecentProject": "從最近項中移除"
+    },
+    "vs/workbench/browser/parts/titlebar/titlebarActions": {
+      "toggle.agentsWindow": "Agents 視窗按鈕",
+      "toggle.agentsWindowDescription": "切換標題欄中 Agents 視窗按鈕的可見性",
+      "toggle.titleBarStyle": "還原原生標題欄"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionFeaturesTab": {
+      "uncaught errors at least": "未捕獲的錯誤（至少 {0} 個，顯示最近 {1} 個）",
+      "messages at least": "訊息（至少 {0} 條，顯示最近 {1} 條）",
+      "messages": "訊息（{0}）"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsActions": {
+      "incompatible platform": "“{0}”擴充套件在 {1} 中不可用於 {2} 平臺。",
+      "not web tooltip": "擴充套件“{0}”在 {1} 中不可用。",
+      "learn why": "瞭解原因"
+    },
+    "vs/workbench/contrib/extensions/browser/maliciousExtensionChecker": {
+      "malicious warning": "發現擴充套件“{0}”存在問題，並已將其解除安裝",
+      "restartNow": "重新啟動擴充套件",
+      "reloadNow": "立即過載"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/extensionMonitor.contribution": {
+      "miOpenExtensionMonitorer": "開啟擴充套件監視器(&&E)",
+      "extensionMonitorEnabled": "啟用擴充套件監視。需要重啟才能生效。",
+      "openExtensionMonitor": "開啟擴充套件監視器"
+    },
+    "vs/workbench/contrib/localHistory/electron-sandbox/localHistoryCommands": {
+      "revealInWindows": "在檔案資源管理器中顯示",
+      "revealInMac": "在 Finder 中顯示",
+      "openContainer": "開啟所在的資料夾"
+    },
+    "vs/workbench/contrib/localization/electron-sandbox/localization.contribution": {
+      "updateLocale": "要將 {0} 的顯示語言更改為 {1} 並重啟嗎？",
+      "changeAndRestart": "更改語言並重啟",
+      "neverAgain": "不再顯示"
+    },
+    "vs/workbench/contrib/preferences/browser/keybindingsEditor": {
+      "foundResults": "{0} 個結果",
+      "editKeybindingLabelWithKey": "更改鍵繫結 {0}",
+      "addKeybindingLabelWithKey": "新增鍵繫結 {0}"
+    },
+    "vs/workbench/contrib/remote/electron-sandbox/remote.contribution": {
+      "wslFeatureInstalled": "平臺是否安裝了 WSL 功能",
+      "remote": "遠端",
+      "remote.downloadExtensionsLocally": "啟用後，擴充套件將本地下載並安裝在遠端上。"
+    },
+    "vs/workbench/contrib/tasks/browser/abstractTaskService": {
+      "TaskSystem.activeSame.noBackground": "任務“{0}”已處於活動狀態。",
+      "terminateTask": "終止任務",
+      "restartTask": "重啟任務"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalInstance": {
+      "keybindingHandling": "某些鍵繫結預設不會發送到終端，而是由 {0} 處理。",
+      "configureTerminalSettings": "配置終端設定",
+      "workspaceNotTrustedCreateTerminalCwd": "無法在不受信任的工作區中啟動終端程序，cwd 為 {0}，userHome 為 {1}"
+    },
+    "vs/workbench/contrib/tracing/browser/sessionRecordingStatusBar": {
+      "sessionRecording.statusBar.name": "[Internal] 報告",
+      "sessionRecording.statusBar.ariaLabel": "[Internal] 報告 - 單擊以報告 Bug 或卡頓",
+      "sessionRecording.statusBar.tooltip": "報告 Bug 或卡頓並自動附帶會話上下文"
+    },
+    "vs/workbench/services/extensionManagement/electron-sandbox/remoteExtensionManagementService": {
+      "incompatibleAPI": "無法安裝擴充套件“{0}”。{1}",
+      "notFoundReleaseExtension": "由於 '{0}' 擴充套件沒有釋出版本，因此無法安裝。",
+      "notFoundCompatibleDependency": "無法安裝“{0}”擴充套件，因為它與當前 {1} 版本不相容(版本 {2})。"
+    },
+    "vs/workbench/services/files/electron-sandbox/elevatedFileService": {
+      "fileNotTrustedMessageWindows": "你即將以管理員身份儲存“{0}”。",
+      "fileNotTrustedMessagePosix": "你即將以超級管理員身份儲存“{0}”。",
+      "fileNotTrusted": "此工作區不受信任。"
+    },
+    "vs/workbench/services/integrity/electron-sandbox/integrityService": {
+      "integrity.prompt": "{0} 安裝似乎損壞。請重新安裝。",
+      "integrity.moreInformation": "更多資訊",
+      "integrity.dontShowAgain": "不再顯示"
+    },
+    "vs/workbench/services/remote/browser/remoteAgentService": {
+      "connectionError": "出現意外錯誤，需要重新載入此頁面。",
+      "connectionErrorDetail": "工作臺未能連線到伺服器（錯誤：{0}）",
+      "reload": "重新載入(&&R)"
+    },
+    "vs/workbench/services/worktree/browser/worktree.contribution": {
+      "runCursorWorktreeCleanupDev": "執行 Cursor Worktree 清理（Dev）",
+      "runCursorWorktreeCleanupDev.leaseBusy": "已跳過 Worktree 清理：另一個視窗已持有清理租約。",
+      "runCursorWorktreeCleanupDev.done": "Worktree 清理已完成（dev）。已移除 {0} 個 worktree，釋放 {1} 位元組。詳見日誌。"
+    },
+    "vs/editor/browser/services/inlineDiffService": {
+      "inlineDiff.tooManyChanges": "由於更改過多無法顯示，最近更改的內聯差異已被抑制。",
+      "inlineDiff.disableProtection": "停用保護"
+    },
+    "vs/editor/common/config/editorOptions": {
+      "experimentalEditContextEnabled": "設定是否使用新的實驗性編輯上下文，而不使用文本區域。",
+      "commentOnLineNumbers": "在行號上拖動時啟用註釋檢視區域。"
+    },
+    "vs/editor/common/editorContextKeys": {
+      "editorHasPromptBar": "編輯器是否具有活動的提示欄",
+      "editorPromptBarFocused": "編輯器提示欄輸入是否具有焦點"
+    },
+    "vs/editor/contrib/gotoSymbol/browser/peek/referencesWidget": {
+      "label.composer": "在聊天中開啟",
+      "label.close": "關閉"
+    },
+    "vs/editor/contrib/hover/browser/markdownHoverParticipant": {
+      "increaseVerbosityWithKb": "增加懸停詳細程度（{0}）",
+      "decreaseVerbosityWithKb": "降低懸停詳細程度（{0}）"
+    },
+    "vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/components/gutterIndicatorMenu": {
+      "goto": "轉到",
+      "accept": "接受"
+    },
+    "vs/editor/contrib/inlineDiffs/browser/controllers/inlineDiffController": {
+      "inlineDiffs.activeEditorWithDiffs": "活動編輯器是否具有內聯差異",
+      "inlineDiffs.hasInlineDiffsInAnyEditor": "是否有任何編輯器具有內聯差異"
+    },
+    "vs/platform/contextkey/common/contextkeys": {
+      "isDevUser": "使用者是否為 Cursor 開發人員/員工",
+      "isGlass": "工作臺是否處於 Glass 模式"
+    },
+    "vs/platform/extensions/common/extensionValidator": {
+      "apiProposalMismatch1": "此擴充套件正在使用與當前版本的 VS Code 不相容的 API 提案“{0}”。",
+      "apiProposalMismatch2": "此擴充套件正在使用與當前版本的 VS Code 不相容的 API 提案 {0} 和“{1}”。"
+    },
+    "vs/platform/externalTerminal/node/externalTerminalService": {
+      "mac.terminal.script.failed": "指令碼“{0}”失敗，退出程式碼為 {1}",
+      "linux.term.failed": "“{0}”失敗，退出程式碼為 {1}"
+    },
+    "vs/workbench/browser/parts/dialogs/dialogHandler": {
+      "aboutDetail": "版本: {0}\n提交: {1}\n日期: {2}\n佈局: {3}\n瀏覽器: {4}",
+      "aboutLocalMode": "本地模式：已啟用"
+    },
+    "vs/workbench/browser/parts/editor/editorActions": {
+      "closeAllTabsDescription": "關閉所有編輯器選項卡。也匹配之前的名稱：關閉所有編輯器。",
+      "closeAllTabs": "關閉所有選項卡"
+    },
+    "vs/workbench/browser/parts/panel/panelActions": {
+      "restoreIcon": "用於還原面板的圖示。",
+      "toggle panel mnemonic": "面板(&&P)"
+    },
+    "vs/workbench/browser/web.main": {
+      "reset user data message": "是否要重置資料（設定、鍵繫結、擴充套件、程式碼片段和 UI 狀態）並重新載入？",
+      "reset": "重置使用者資料"
+    },
+    "vs/workbench/browser/window": {
+      "open": "開啟(&&O)",
+      "learnMore": "瞭解詳細資訊(&&L)"
+    },
+    "vs/workbench/contrib/analytics/browser/aiCodeTrackingActions.contribution": {
+      "scoreCommitFromSCM": "[Debug] 為 AI 內容評分提交",
+      "scoreCommitWithDetails": "[Debug] 評分提交（含詳細資訊）"
+    },
+    "vs/workbench/contrib/analytics/browser/aiCodeTrackingStatusBar": {
+      "aiCodeTracking.resetDailyStats": "重置 AI 程式碼跟蹤統計",
+      "aiCodeTracking.category": "AI 程式碼跟蹤"
+    },
+    "vs/workbench/contrib/appLayout/common/agentsWindowOrFocusMenuRegistrations": {
+      "cursor.agentsWindowNew": "新建 Agents 視窗",
+      "cursor.agentsWindowSwitchTo": "切換到 {0}"
+    },
+    "vs/workbench/contrib/authentication/browser/authentication.contribution": {
+      "authentication.Placeholder": "尚未請求任何帳戶...",
+      "loading": "正在載入..."
+    },
+    "vs/workbench/contrib/canvas/common/canvasOpenResult": {
+      "canvas.mention.unavailable": "畫布不再可用",
+      "canvas.mention.openFailed": "無法開啟畫布"
+    },
+    "vs/workbench/contrib/codeEditor/browser/emptyTextEditorHint/emptyTextEditorHint": {
+      "message": "[[按 {0} 生成程式碼。]] 開始鍵入即可關閉。",
+      "defaultHintAriaLabel": "執行 {0} 以選擇語言，執行 {1} 以使用模板填充，或執行 {2} 以開啟其他編輯器並開始。開始鍵入即可關閉。"
+    },
+    "vs/workbench/contrib/cpuMonitor/electron-sandbox/cpuMonitor.contribution": {
+      "cpuMonitorEnabled": "控制 Cursor 是否監視持續的高 CPU 使用率並提供捕獲診斷程序快照。僅對 Anysphere 內部使用者啟用。",
+      "developer.captureAndUploadProcessSnapshot.label": "捕獲並上傳程序快照"
+    },
+    "vs/workbench/contrib/debug/browser/debugCommands": {
+      "recordStepByStep": "逐步記錄",
+      "stopRecording": "停止錄製"
+    },
+    "vs/workbench/contrib/debug/browser/welcomeView": {
+      "customizeRunAndDebug": "要自定義執行和除錯，請[建立 launch.json 檔案](command:{0})。",
+      "customizeRunAndDebugOpenFolder": "要自定義執行和除錯，請[開啟資料夾](command:{0})並建立 launch.json 檔案。"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsWidgets": {
+      "uncaught errors at least": "至少 {0} 個未捕獲的錯誤",
+      "messages at least": "至少 {0} 條訊息"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/extensionsActions": {
+      "openExtensionsFolder": "開啟擴充套件資料夾",
+      "cleanUpExtensionsFolder": "清理擴充套件資料夾"
+    },
+    "vs/workbench/contrib/logs/electron-sandbox/logsActions": {
+      "openLogsFolder": "開啟日誌資料夾",
+      "openExtensionLogsFolder": "開啟擴充套件日誌資料夾"
+    },
+    "vs/workbench/contrib/markers/browser/markers.contribution": {
+      "addToChat": "新增到聊天",
+      "fixInChat": "使用 Agent 修復"
+    },
+    "vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesView": {
+      "notebook.notebookVariables": "筆記本變數",
+      "notebook.ReplVariables": "REPL 變數"
+    },
+    "vs/workbench/contrib/onboarding/electron-sandbox/onboarding.contribution": {
+      "onboarding.importFromVSCodeToast.message": "將你的 VS Code 設定帶到 Cursor。匯入設定和擴充套件，無縫開始。",
+      "onboarding.importFromVSCodeToast.import": "匯入"
+    },
+    "vs/workbench/contrib/preferences/browser/preferences.contribution": {
+      "miOpenVSCodeSettings": "VS Code 設定(&&V)",
+      "vsCodeSettings": "VS Code 設定"
+    },
+    "vs/workbench/contrib/remote/browser/remoteStartEntry": {
+      "remote.category": "遠端",
+      "remote.showWebStartEntryActions": "顯示 Web 的遠端開始條目"
+    },
+    "vs/workbench/contrib/tracing/browser/internalReportLagAction": {
+      "sessionRecording.reportLag.thanks": "已報告卡頓 — 謝謝！",
+      "sessionRecording.reportLag": "報告卡頓"
+    },
+    "vs/workbench/contrib/welcomeGettingStarted/common/gettingStartedContent": {
+      "gettingStarted.topLevelShowWalkthroughs.title": "開啟演練...",
+      "gettingStarted.topLevelShowWalkthroughs.description": "檢視編輯器或擴充套件的演練"
+    },
+    "vs/workbench/contrib/workspace/browser/workspaceTrustEditor": {
+      "trustMessage": "信任當前資料夾或其父級“{0}”中所有檔案的作者。",
+      "trustParentButton": "信任父級"
+    },
+    "vs/workbench/services/actions/common/menusExtensionPoint": {
+      "menus.historyItemHover": "原始碼管理歷史記錄項懸停選單",
+      "menus.chatModelPicker": "聊天模型選取器下拉選單"
+    },
+    "vs/workbench/services/ai/browser/urlOpenToastService": {
+      "urlOpenToast.message": "正在 Cursor 瀏覽器中開啟 {0}",
+      "urlOpenToast.dontOpen": "不要開啟"
+    },
+    "vs/workbench/services/extensionManagement/browser/webExtensionsScannerService": {
+      "not a web extension": "無法新增“{0}”，因為此擴充套件不是 Web 擴充套件。",
+      "openInstalledWebExtensionsResource": "開啟已安裝的 Web 擴充套件資源"
+    },
+    "vs/workbench/services/extensionManagement/common/extensionManagementServerService": {
+      "remote": "遠端",
+      "browser": "瀏覽器"
+    },
+    "vs/workbench/services/extensionManagement/electron-sandbox/extensionGalleryManifestService": {
+      "extensionGalleryManifestService.accountChange": "{0} 現在已配置到其他市場。請重啟以應用更改。",
+      "restart": "重啟(&&R)"
+    },
+    "vs/workbench/services/extensionManagement/electron-sandbox/extensionManagementServerService": {
+      "local": "本地",
+      "remote": "遠端"
+    },
+    "vs/workbench/services/extensions/common/abstractExtensionService": {
+      "exthostDiagnosticsSaved.msg": "已在 {0}（PID {1}）無響應時捕獲診斷資訊。",
+      "revealInOS": "在檔案資源管理器中顯示"
+    },
+    "vs/workbench/services/extensions/common/extensionHostManager": {
+      "communicationProfilerUnavailable": "網路和 IPC 分析器僅在開發構建中或供內部 Cursor 開發人員使用。",
+      "toggleExtHostProfiler": "啟動網路和 IPC 分析器"
+    },
+    "vs/workbench/services/extensions/electron-sandbox/cachedExtensionScanner": {
+      "extensionCache.invalid": "擴充套件在磁碟上已被修改。請重新載入視窗。",
+      "reloadWindow": "重新載入視窗"
+    },
+    "vs/workbench/services/keybinding/browser/keyboardLayoutService": {
+      "keyboardConfigurationTitle": "鍵盤",
+      "keyboard.layout.config": "控制 Web 中使用的鍵盤佈局。"
+    },
+    "vs/workbench/services/remote/electron-sandbox/remoteAgentService": {
+      "directUrl": "在瀏覽器中開啟",
+      "connectionError": "無法連線到遠端擴充套件主機伺服器 (錯誤: {0})"
+    },
+    "vs/workbench/services/search/browser/searchService": {
+      "errorSearchText": "無法使用 Web Worker 文本搜尋器進行搜尋",
+      "errorSearchFile": "無法使用 Web Worker 檔案搜尋器進行搜尋"
+    },
+    "vs/code/electron-main/main": {
+      "localModeDataImportError": "Cursor 資料匯入失敗"
+    },
+    "vs/code/electron-utility/mcpProcess/mcpProcessMain": {
+      "mcpProcessLog": "MCP 程序"
+    },
+    "vs/editor/browser/services/hoverService/hoverWidget": {
+      "hoverhint": "按住 {0} 鍵將滑鼠懸停"
+    },
+    "vs/editor/browser/services/hoverService/updatableHoverWidget": {
+      "iconLabel.loading": "正在載入..."
+    },
+    "vs/editor/contrib/codeAction/browser/codeAction": {
+      "codeAction.slowProvider": "正在等待來自“{0}”的程式碼操作（[配置]({1})）。"
+    },
+    "vs/editor/contrib/find/browser/findWidget": {
+      "ctrlEnter.keybindingChanged": "Ctrl+Enter 現在插入換行而不是全部替換。你可以修改 editor.action.replaceAll 的鍵繫結以覆蓋此行為。"
+    },
+    "vs/editor/contrib/gotoError/browser/gotoError": {
+      "markerAction.this.label": "轉到游標處的問題（錯誤、警告、資訊）"
+    },
+    "vs/editor/contrib/inlineCompletions/browser/hintsWidget/inlineCompletionsHintsWidget": {
+      "content": "{0} ({1})"
+    },
+    "vs/editor/contrib/inlineCompletions/browser/inlineCompletionsAccessibleView": {
+      "inlineEditAvailable": "有可用的內聯編輯："
+    },
+    "vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsModel": {
+      "inlineEdit": "內聯編輯"
+    },
+    "vs/platform/action/common/actionCommonCategories": {
+      "cursor": "游標"
+    },
+    "vs/platform/actions/browser/menuEntryActionViewItem": {
+      "titleAndKb": "{0} ({1})"
+    },
+    "vs/platform/actions/browser/toolbar": {
+      "configureIconVisibility": "配置圖示可見性"
+    },
+    "vs/platform/conversationSearch/electron-main/conversationSearchProcess": {
+      "conversationSearchProcessLog": "對話搜尋"
+    },
+    "vs/platform/extensionManagement/common/abstractExtensionManagementService": {
+      "incompatibleAPI": "無法安裝擴充套件“{0}”。{1}"
+    },
+    "vs/platform/extensionManagement/node/extensionManagementService": {
+      "package not signed": "擴充套件未簽名。"
+    },
+    "vs/platform/extensions/electron-main/extensionMonitorMainService": {
+      "extensionMonitor": "擴充套件監視器"
+    },
+    "vs/platform/files/common/fileService": {
+      "invalidStat": "提供程式返回的檔案狀態無效"
+    },
+    "vs/platform/mcpProcess/electron-main/mcpProcess": {
+      "mcpProcessLog": "MCP 程序"
+    },
+    "vs/platform/native/electron-main/nativeHostMainService": {
+      "cantRemoveVSCodeFromPath": "無法在路徑上將 `code` 替換為 `Cursor`。"
+    },
+    "vs/platform/quickinput/browser/quickInputTree": {
+      "quickInput": "快速輸入"
+    },
+    "vs/workbench/api/browser/viewsExtensionPoint": {
+      "views.container.secondarySidebar.unsupported": "無法將檢視容器貢獻到 Cursor 的輔助側邊欄。該位置保留給 Cursor 的 Agent UI。請改為貢獻到 “activitybar” 或 “panel”。"
+    },
+    "vs/workbench/browser/actions/helpActions": {
+      "setupBugBot": "設定 Bugbot"
+    },
+    "vs/workbench/browser/parts/activitybar/activitybarPart": {
+      "reloadForActivityBar": "請退出並重新開啟，以使活動欄垂直顯示。"
+    },
+    "vs/workbench/browser/parts/auxiliarybar/auxiliaryBarActions": {
+      "secondary sidebar mnemonic": "輔助側邊欄(&&D)"
+    },
+    "vs/workbench/browser/parts/editor/breadcrumbsControl": {
+      "miBreadcrumbs": "痕跡導航(&&B)"
+    },
+    "vs/workbench/browser/parts/globalCompositeBar": {
+      "noAccounts": "你尚未登入任何帳戶"
+    },
+    "vs/workbench/browser/parts/notifications/notificationAccessibleView": {
+      "notification.accessibleView": "{0}"
+    },
+    "vs/workbench/common/theme": {
+      "tabWorktreeBorder": "包含 worktree 檔案的選項卡的邊框顏色。選項卡是編輯器區域中編輯器的容器。"
+    },
+    "vs/workbench/contrib/canvas/browser/canvas.contribution": {
+      "openCanvas": "開啟畫布"
+    },
+    "vs/workbench/contrib/canvas/browser/canvasNavigationCommands": {
+      "openVisibleInlineCanvasPreview": "開啟可見的內聯畫布預覽"
+    },
+    "vs/workbench/contrib/codeEditor/browser/saveParticipants": {
+      "skip": "跳過"
+    },
+    "vs/workbench/contrib/codeEditor/browser/toggleRenderWhitespace": {
+      "miToggleRenderWhitespace": "顯示空白字元(&&R)"
+    },
+    "vs/workbench/contrib/codeEditor/electron-sandbox/selectionClipboard": {
+      "actions.pasteSelectionClipboard": "貼上選擇剪貼簿"
+    },
+    "vs/workbench/contrib/codeEditor/electron-sandbox/startDebugTextMate": {
+      "startDebugTextMate": "啟動 TextMate 語法語法日誌記錄"
+    },
+    "vs/workbench/contrib/comments/browser/commentThreadZoneWidget": {
+      "collapse": "摺疊"
+    },
+    "vs/workbench/contrib/customizeEditor/browser/skillPublishEditorTitle": {
+      "skillPublishMenu": "技能釋出"
+    },
+    "vs/workbench/contrib/debug/browser/debugIcons": {
+      "debugAll": "除錯停止記錄操作的圖示。"
+    },
+    "vs/workbench/contrib/debug/common/debug": {
+      "debugRecordingState": "已聚焦除錯會話所處的記錄狀態。"
+    },
+    "vs/workbench/contrib/extensions/browser/abstractRuntimeExtensionsEditor": {
+      "errorsAtLeast": "至少 {0} 個未捕獲的錯誤"
+    },
+    "vs/workbench/contrib/extensions/browser/extensions.web.contribution": {
+      "runtimeExtension": "正在執行的擴充套件"
+    },
+    "vs/workbench/contrib/extensions/browser/showRuntimeExtensionsAction": {
+      "showRuntimeExtensions": "顯示正在執行的擴充套件"
+    },
+    "vs/workbench/contrib/extensions/electron-sandbox/extensions.contribution": {
+      "runtimeExtension": "正在執行的擴充套件"
+    },
+    "vs/workbench/contrib/files/browser/fileActions": {
+      "readonlyFolder": "父資料夾為只讀。"
+    },
+    "vs/workbench/contrib/files/browser/fileActions.contribution": {
+      "openFileInBrowser": "在瀏覽器中開啟"
+    },
+    "vs/workbench/contrib/issue/browser/issue.contribution": {
+      "statusUnsupported": "瀏覽器尚不支援 --status 引數。"
+    },
+    "vs/workbench/contrib/mcp/common/mcpConfigPathsService": {
+      "mcp.configuration.userLocalValue": "{0} 中的全域性"
+    },
+    "vs/workbench/contrib/memoryMonitor/electron-sandbox/memoryMonitor.contribution": {
+      "developer.captureAndUploadRendererHeapSnapshot.label": "捕獲並上傳渲染器堆快照"
+    },
+    "vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesTree": {
+      "debugConsole": "筆記本變數"
+    },
+    "vs/workbench/contrib/notebook/browser/controller/coreActionsCommon": {
+      "notebookActions.category": "筆記本"
+    },
+    "vs/workbench/contrib/notebook/browser/viewParts/notebookCellOverlays": {
+      "workbench.notebook.developer.addCellOverlays": "切換 Notebook 單元格覆蓋層"
+    },
+    "vs/workbench/contrib/performance/electron-sandbox/performance.contribution": {
+      "experimental.rendererProfiling": "啟用時，將自動分析慢速呈現器。"
+    },
+    "vs/workbench/contrib/performanceEvents/electron-sandbox/smoothness.contribution": {
+      "openInteractionProfiles": "在 Datadog 中檢視會話互動分析"
+    },
+    "vs/workbench/contrib/scm/browser/editorBugbotViewPane": {
+      "editorBugbotTitle": "審閱"
+    },
+    "vs/workbench/contrib/tasks/browser/taskService": {
+      "taskService.processTaskSystem": "Web 中不支援程序任務系統。"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalActions": {
+      "workbench.action.terminal.addTooltip": "新增工具提示"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalMenus": {
+      "splitTerminal": "拆分終端"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalView": {
+      "terminal.externalAgentActions": "終端貢獻操作"
+    },
+    "vs/workbench/contrib/terminal/browser/xterm/decorationAddon": {
+      "terminal.addToCurrentChat": "新增到當前聊天"
+    },
+    "vs/workbench/contrib/terminal/common/terminalContextKey": {
+      "terminalHasContributionActions": "活動終端是否具有貢獻擁有的操作。"
+    },
+    "vs/workbench/contrib/terminal/common/terminalStrings": {
+      "workbench.action.terminal.sendSequence": "向終端傳送自定義序列"
+    },
+    "vs/workbench/contrib/terminal/electron-sandbox/terminalRemote": {
+      "workbench.action.terminal.newLocal": "新建整合終端(本地)"
+    },
+    "vs/workbench/contrib/terminalContrib/links/browser/terminalLinkManager": {
+      "terminalLinkHandler.forceExternal": "，按住 Shift 以使用瀏覽器"
+    },
+    "vs/workbench/contrib/terminalContrib/suggest/browser/terminal.suggest.contribution": {
+      "workbench.action.terminal.requestCompletions": "請求補全"
+    },
+    "vs/workbench/contrib/terminalContrib/suggest/common/terminalSuggestConfiguration": {
+      "runOnEnter.ignore": "忽略建議，並將 Enter 直接傳送到 shell 而不完成。這用作預設值，以使建議小元件儘可能不打擾。"
+    },
+    "vs/workbench/contrib/tracing/browser/internalBugReportAction": {
+      "sessionRecording.flagAndAddContext": "報告 Bug"
+    },
+    "vs/workbench/contrib/url/browser/trustedDomainsValidator": {
+      "alwaysTrustDomain": "始終開啟此域(&&A)"
+    },
+    "vs/workbench/contrib/utilityHostTrace/browser/utilityHostTrace.contribution": {
+      "utilityHostRpcTrace": "Utility Host RPC 跟蹤"
+    },
+    "vs/workbench/electron-sandbox/desktop.main": {
+      "join.closeStorage": "正在儲存 UI 狀態"
+    },
+    "vs/workbench/electron-sandbox/glass.main": {
+      "join.closeStorage": "正在儲存 UI 狀態"
+    },
+    "vs/workbench/services/auxiliaryWindow/electron-sandbox/auxiliaryWindowService": {
+      "backupErrorDetails": "請先嚐試儲存或還原具有未儲存更改的編輯器，然後重試。"
+    },
+    "vs/workbench/services/experiment/browser/overrideQuickPickOrdering": {
+      "overrideQuickPickOverriddenSection": "{0} ({1})"
+    },
+    "vs/workbench/services/extensionManagement/browser/extensionEnablementService": {
+      "cannot disable auth extension in workspace": "無法在工作區中更改擴充套件 {0} 的啟用狀態，因為它貢獻了身份驗證提供程式"
+    },
+    "vs/workbench/services/extensions/common/extensionsRegistry": {
+      "vscode.extension.activationEvents.onTerminalCompletionsRequested": "在請求終端補全時發出的啟用事件。"
+    },
+    "vs/workbench/services/files/electron-sandbox/diskFileSystemProvider": {
+      "fileWatcher": "檔案觀察程式"
+    },
+    "vs/workbench/services/host/browser/browserHostService": {
+      "open": "開啟(&&O)"
+    },
+    "vs/workbench/services/preferences/browser/preferencesService": {
+      "settingsEditor2InputNameVSCode": "VS Code 設定"
+    },
+    "vs/workbench/services/request/browser/requestService": {
+      "network": "網路"
+    },
+    "vs/workbench/services/request/electron-sandbox/requestService": {
+      "network": "網路"
+    },
+    "vs/workbench/services/textfile/electron-sandbox/nativeTextFileService": {
+      "join.textFiles": "正在儲存文本檔案"
+    },
+    "vs/workbench/services/workingCopy/electron-sandbox/workingCopyBackupService": {
+      "join.workingCopyBackups": "備份工作副本"
+    },
+    "vs/workbench/services/workspaceCollection/browser/workspaceCollectionService": {
+      "workspaceCollectionShutdown": "正在關閉工作區"
+    }
+  }
+}

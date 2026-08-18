@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Cursor Always Local",
+      "description": "Cursor 實驗功能 @ cursor.sh"
+    }
+  }
+}

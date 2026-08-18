@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Cursor Shadow Workspace",
+      "description": "管理一個隱藏的本地視窗，供 AI Agent 在向你展示程式碼前進行打磨。"
+    }
+  }
+}

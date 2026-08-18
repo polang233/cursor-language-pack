@@ -1,0 +1,30 @@
+{
+  "$comment": [
+    "Runtime messages of this extension's own thin runtime (src/extension/main.cjs), shipped as",
+    "l10n/bundle.l10n.zh-cn.json. Keys are the English source strings, which is how",
+    "vscode.l10n.t looks them up.",
+    "",
+    "Most of these appear while the UI is still English - that is the whole point of the prompt -",
+    "so a missing translation here is harmless. Keep {0} placeholders intact.",
+    "",
+    "Button labels are compared by value in main.cjs, so a translation change here changes what the",
+    "comparison matches. That is fine because both sides go through t, but do not translate the",
+    "same label two different ways."
+  ],
+  "Display language set to {0}. Restart Cursor to apply it. The language pack stays installed; switch again anytime without reinstalling.": "顯示語言已設為 {0}，重啟 Cursor 後生效。語言包仍保留，之後可隨時再切換，無需重灌。",
+  "{0} Quit and start Cursor again.": "{0} 請退出並重新啟動 Cursor。",
+  "Restart now": "立即重啟",
+  "Later": "以後",
+  "The display language is already {0}.": "顯示語言已經是 {0}。",
+  "Could not write {0}: {1}. Run \"Configure Display Language\" from the Command Palette instead.": "無法寫入 {0}：{1}。請改用命令面板中的 \"Configure Display Language\"。",
+  "Cursor Language Pack": "Cursor 語言包",
+  "Switch language only — does not uninstall the pack. Restart required.": "僅切換顯示語言，不會解除安裝語言包。需重啟後生效。",
+  "Applies workbench and Cursor UI. The pack stays installed — switch languages anytime without reinstalling.": "同時作用於編輯器主體與 Cursor 寫入核心的介面。語言包仍保留，之後可隨時切換，無需重灌。",
+  "Built-in English. Menus, Settings and other Cursor UI all return to English. The pack stays installed — pick a language again later, no reinstall.": "內建英文。選單、設定及其他 Cursor 介面都會恢復英文。語言包仍保留，之後再選中文即可，無需重灌。",
+  "current": "當前",
+  "Show in Extensions": "在擴充套件檢視中顯示",
+  "Do not ask again": "不再提示",
+  "{0} also provides the workbench translations for a language this pack covers. Only one of them can win, and which one is not stable across restarts. Uninstall the other pack.": "{0} 也為本語言包覆蓋的語言提供編輯器主體譯文。兩者只有一個生效，且哪個生效在每次重啟後並不確定。請解除安裝另一個語言包。",
+  "Cursor Language Pack is installed ({0}), but the display language is still {1}.": "Cursor 語言包已安裝（{0}），但當前顯示語言仍是 {1}。",
+  "Select language": "選擇語言"
+}

@@ -1,32 +1,31 @@
 {
-  "$comment": "Single source of truth for the build. Everything else is generated. The pipeline itself is not implemented yet — see docs/roadmap.md.",
+  "$comment": "Single source of truth for the build. Everything else is generated.",
 
   "publisher": "polang233",
   "$publisher": "Must match the VS Marketplace publisher id (Cursor's gallery proxies marketplace.visualstudio.com) and the Open VSX namespace if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",
   "bugs": "https://github.com/polang233/cursor-language-pack/issues",
   "icon": "media/icon.png",
-  "$icon": "128x128 PNG. Not drawn yet; packaging will fail until one is added.",
+  "$icon": "Copied into each packaged extension by scripts/build.mjs. 128x128 PNG.",
 
   "engines": {
     "vscode": "^1.128.0"
   },
-  "$engines": "Lower bound is the Code OSS version inside the Cursor build this pack was probed against. Cursor 3.16.17 ships vscodeVersion 1.128.0. Raise it only to require a newer Cursor. `npm run detect` prints the value for the locally installed build.",
+  "$engines": "Lower bound is the Code OSS version inside the Cursor build this pack was reconciled against. Cursor 3.16.17 ships vscodeVersion 1.128.0. Raise it only to require a newer Cursor. `npm run detect` prints the value for the locally installed build.",
 
   "pack": {
     "displayName": "Cursor Language Pack — 简体中文 / 繁體中文",
-    "description": "Cursor IDE 中文语言包（汉化）— Simplified & Traditional Chinese for Cursor. Replaces the official VS Code language pack and translates Cursor-authored workbench strings the Microsoft pack cannot see. 替代 VS Code 官方中文语言包，并覆盖 Cursor 写进内核的界面文案。"
+    "description": "Cursor IDE 中文语言包（汉化）— Simplified & Traditional Chinese for Cursor. Replaces the official VS Code language pack and translates Cursor-authored workbench strings the Microsoft pack cannot see. 替代 VS Code 官方中文语言包，并覆盖 Cursor 写进内核的界面文案。",
+    "$note": "Used by the single-extension `full` mode. Open VSX / Marketplace show ONE displayName + this description, so both carry the Chinese terms users search for."
   },
 
   "target": {
-    "verifiedCursorVersions": [],
-    "$verifiedCursorVersions": "Cursor releases whose localizable surface this pack has been reconciled against. Empty until the first extract + translation pass. Probe snapshot: Cursor 3.16.17 (Code OSS 1.128.0) at F:\\AI\\cursor — see docs/research.md.",
-    "probedCursorVersion": "3.16.17",
-    "probedVscodeVersion": "1.128.0"
+    "verifiedCursorVersions": ["3.16.17"],
+    "$verifiedCursorVersions": "Builds whose localizable surface this pack has been reconciled against: `npm run coverage` reports the Cursor-specific keys and `npm run validate` passes. `npm run check-upgrade` compares the installed Cursor against this list."
   },
 
   "locales": [
@@ -35,7 +34,7 @@
       "languageName": "Chinese Simplified",
       "localizedLanguageName": "中文（简体）",
       "displayName": "Cursor Chinese (Simplified) Language Pack",
-      "description": "Simplified Chinese for Cursor: the editor workbench plus Cursor-authored NLS strings. Self-contained; replaces the official VS Code language pack.",
+      "description": "Simplified Chinese for the whole Cursor IDE: the editor workbench and Cursor-authored NLS strings. Self-contained; replaces the official VS Code language pack. Cursor IDE 完整界面简体中文语言包（含编辑器主体与 Cursor 写入内核的文案），自包含，替代 VS Code 官方中文语言包。",
       "companionExtension": "ms-ceintl.vscode-language-pack-zh-hans",
       "upstreamPackDir": "i18n/vscode-language-pack-zh-hans",
       "enabled": true
@@ -45,7 +44,7 @@
       "languageName": "Chinese Traditional",
       "localizedLanguageName": "中文（繁體）",
       "displayName": "Cursor Chinese (Traditional) Language Pack",
-      "description": "Traditional Chinese for Cursor: the editor workbench plus Cursor-authored NLS strings. Self-contained; replaces the official VS Code language pack.",
+      "description": "Traditional Chinese for the whole Cursor IDE: the editor workbench and Cursor-authored NLS strings. Self-contained; replaces the official VS Code language pack. Cursor IDE 完整介面繁體中文語言包（含編輯器主體與 Cursor 寫入核心的文案），自包含，替代 VS Code 官方繁體中文語言包。",
       "companionExtension": "ms-ceintl.vscode-language-pack-zh-hant",
       "upstreamPackDir": "i18n/vscode-language-pack-zh-hant",
       "enabled": true
@@ -65,8 +64,81 @@
       "companionExtension": "ms-ceintl.vscode-language-pack-ko",
       "upstreamPackDir": "i18n/vscode-language-pack-ko",
       "enabled": false
+    },
+    {
+      "id": "fr",
+      "languageName": "French",
+      "localizedLanguageName": "français",
+      "companionExtension": "ms-ceintl.vscode-language-pack-fr",
+      "upstreamPackDir": "i18n/vscode-language-pack-fr",
+      "enabled": false
+    },
+    {
+      "id": "de",
+      "languageName": "German",
+      "localizedLanguageName": "Deutsch",
+      "companionExtension": "ms-ceintl.vscode-language-pack-de",
+      "upstreamPackDir": "i18n/vscode-language-pack-de",
+      "enabled": false
+    },
+    {
+      "id": "es",
+      "languageName": "Spanish",
+      "localizedLanguageName": "español",
+      "companionExtension": "ms-ceintl.vscode-language-pack-es",
+      "upstreamPackDir": "i18n/vscode-language-pack-es",
+      "enabled": false
+    },
+    {
+      "id": "it",
+      "languageName": "Italian",
+      "localizedLanguageName": "italiano",
+      "companionExtension": "ms-ceintl.vscode-language-pack-it",
+      "upstreamPackDir": "i18n/vscode-language-pack-it",
+      "enabled": false
+    },
+    {
+      "id": "ru",
+      "languageName": "Russian",
+      "localizedLanguageName": "русский",
+      "companionExtension": "ms-ceintl.vscode-language-pack-ru",
+      "upstreamPackDir": "i18n/vscode-language-pack-ru",
+      "enabled": false
+    },
+    {
+      "id": "pt-br",
+      "languageName": "Portuguese (Brazil)",
+      "localizedLanguageName": "português (Brasil)",
+      "companionExtension": "ms-ceintl.vscode-language-pack-pt-BR",
+      "upstreamPackDir": "i18n/vscode-language-pack-pt-BR",
+      "enabled": false
+    },
+    {
+      "id": "tr",
+      "languageName": "Turkish",
+      "localizedLanguageName": "Türkçe",
+      "companionExtension": "ms-ceintl.vscode-language-pack-tr",
+      "upstreamPackDir": "i18n/vscode-language-pack-tr",
+      "enabled": false
+    },
+    {
+      "id": "pl",
+      "languageName": "Polish",
+      "localizedLanguageName": "polski",
+      "companionExtension": "ms-ceintl.vscode-language-pack-pl",
+      "upstreamPackDir": "i18n/vscode-language-pack-pl",
+      "enabled": false
+    },
+    {
+      "id": "cs",
+      "languageName": "Czech",
+      "localizedLanguageName": "čeština",
+      "companionExtension": "ms-ceintl.vscode-language-pack-cs",
+      "upstreamPackDir": "i18n/vscode-language-pack-cs",
+      "enabled": false
     }
   ],
+  "$locales": "Every language microsoft/vscode-loc ships is listed here; only the enabled ones are built. To contribute a language, create src/i18n/<id>/ (see CONTRIBUTING.md) and flip `enabled` to true — no script changes needed. For a language vscode-loc does not cover, add an entry with upstreamPackDir set to null: the workbench then stays English and only the Cursor strings are translated.",
 
   "modes": {
     "full": {
@@ -77,8 +149,8 @@
       "includeUpstream": true,
       "cursorOnly": false,
       "requireCompanion": false,
-      "$note": "The intended published product. One extension declaring every enabled locale. Self-contained: it carries the vscode-loc workbench baseline plus Cursor-authored NLS keys, and therefore owns the `vscode` translation id. Do not install an official VS Code language pack alongside it.",
-      "$why": "Cursor is a Code OSS fork. Language packs map one translation id to one file with no per-key merge. Translating Cursor modules that live in nls.messages.json (composer, agents, aiSettings, …) requires owning `vscode`. That is the same constraint as kiro-language-pack."
+      "$note": "The published product. One extension declaring every enabled locale. Self-contained: vscode-loc workbench baseline plus Cursor-authored NLS keys, so it owns the `vscode` translation id. Do not install an official VS Code language pack alongside it.",
+      "$why": "Cursor compiled its own UI into nls.messages.json (composer, agents, aiSettings, …). Those strings live in the `vscode` translation id. languagepacks.json maps one id to one file — no per-key merge. Translating them requires owning `vscode`."
     },
     "companion": {
       "enabled": false,
@@ -88,26 +160,23 @@
       "includeUpstream": false,
       "cursorOnly": true,
       "requireCompanion": false,
-      "$note": "Disabled. A companion that only claimed Cursor extension ids would coexist with the official pack, but Cursor's built-in extensions barely expose package.nls.json (8 keys on 3.16.17). Almost all reachable Cursor strings live in the `vscode` id, so companion mode is not useful."
+      "$note": "Disabled. A companion that only claimed Cursor extension ids would coexist with the official pack, but Cursor's built-in extensions barely expose package.nls.json. Almost all reachable Cursor strings live in the `vscode` id."
     }
   },
 
   "upstream": {
     "repo": "microsoft/vscode-loc",
-    "ref": "main",
-    "$ref": "Pin to a tag or commit sha for reproducible releases. Prefer a vscode-loc snapshot close to Cursor's vscodeVersion (1.128.x), not latest main, so menu-bar NLS stays in sync.",
+    "ref": "9f7f99d0d6d281b7ce3d4c6f1a36899349f8d2d5",
+    "$ref": "Last vscode-loc commit still on engine 1.128.0, immediately before the 1.129.0 bump. Pin here so File/Edit/View stay aligned with Cursor 3.16.17 (Code OSS 1.128.0). Do not track vscode-loc main.",
     "$license": "vscode-loc source and strings are MIT licensed, so redistribution is permitted. See NOTICE."
   },
 
   "build": {
     "filterByCursorMetadata": true,
+    "$filterByCursorMetadata": "Drop keys that do not exist in the local Cursor build. Shrinks the pack and makes coverage numbers meaningful. Automatically disabled when metadata/ is absent (e.g. in CI).",
     "repairMismatchedMarkers": true,
+    "$repairMismatchedMarkers": "Drop inherited translations whose {0} placeholders, $(icon) references or (command:...) links no longer match the English source in the installed Cursor build. Mismatches in files this repository maintains are reported instead of dropped. Requires metadata/.",
     "dropEmptyBundles": true,
     "prettyJson": false
-  },
-
-  "patch": {
-    "enabled": false,
-    "$note": "Phase 2. Cursor Settings, the Agent/Chat overlay, and similar React surfaces are not in nls.messages.json. A language pack cannot reach them. An optional install-directory patch (same idea as kiro-language-pack's patcher, or a workbench.html injection) is documented in docs/roadmap.md and is not implemented. Plugin first."
   }
 }

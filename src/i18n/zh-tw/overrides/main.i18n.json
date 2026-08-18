@@ -1,0 +1,14 @@
+{
+  // Corrections layered on top of the vscode-loc baseline for the core workbench.
+  // Only used by `full` mode builds.
+  //
+  // Keys are `<module path>` -> `<nls key>`, exactly as they appear in
+  // <cursor>/resources/app/out/nls.keys.json. Run `npm run extract` and grep
+  // metadata/cursor.json to find the module a string belongs to.
+  //
+  // Use this file when the upstream VS Code wording clashes with Cursor's own
+  // terminology. Keep it small — every entry here is a divergence from a
+  // translation that Microsoft maintains for free.
+  "version": "1.0.0",
+  "contents": {}
+}

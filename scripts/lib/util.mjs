@@ -61,6 +61,35 @@ export function stripJsonComments(text) {
   return out;
 }
 
+/** Deep merge where `override` wins. Arrays are replaced, not concatenated. */
+export function deepMerge(base, override) {
+  if (!isPlainObject(base) || !isPlainObject(override)) {
+    return structuredClone(override ?? base);
+  }
+  const out = { ...base };
+  for (const [key, value] of Object.entries(override)) {
+    out[key] = isPlainObject(value) && isPlainObject(base[key])
+      ? deepMerge(base[key], value)
+      : structuredClone(value);
+  }
+  return out;
+}
+
+export const isPlainObject = (v) => typeof v === 'object' && v !== null && !Array.isArray(v);
+
+/** Files directly inside `dir` with the given extension, sorted by name. */
+export function listFiles(dir, ext) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(ext))
+    .sort()
+    .map((f) => path.join(dir, f));
+}
+
+export function rmrf(target) {
+  fs.rmSync(target, { recursive: true, force: true });
+}
+
 const USE_COLOR = process.stdout.isTTY && !process.env.NO_COLOR;
 const paint = (code, s) => (USE_COLOR ? `\u001b[${code}m${s}\u001b[0m` : s);
 
@@ -79,7 +108,24 @@ export function fail(message) {
 }
 
 export function loadConfig() {
-  return readJson(p('config.json'));
+  const config = readJson(p('config.json'));
+
+  const required = ['publisher', 'namePrefix', 'version', 'engines', 'locales', 'modes', 'upstream', 'build', 'target'];
+  for (const key of required) {
+    if (config[key] === undefined) fail(`config.json is missing the required "${key}" field.`);
+  }
+  if (!Array.isArray(config.locales) || config.locales.length === 0) {
+    fail('config.json: "locales" must be a non-empty array.');
+  }
+  for (const locale of config.locales) {
+    for (const key of ['id', 'languageName', 'localizedLanguageName']) {
+      if (!locale[key]) fail(`config.json: locale entry ${JSON.stringify(locale.id ?? locale)} is missing "${key}".`);
+    }
+  }
+  if (String(config.publisher).startsWith('CHANGE-ME')) {
+    log.warn('config.json still has the placeholder "publisher". Packaging works, but set a real publisher id before publishing.');
+  }
+  return config;
 }
 
 /** Minimal `--flag`, `--key=value` and positional argument parser. */

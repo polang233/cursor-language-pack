@@ -121,5 +121,8 @@ if (report.cursorBuiltinsWithNls.length) {
   for (const id of report.cursorBuiltinsWithNls) log.plain(`    ${id}`);
 }
 
-log.step('Next');
-log.plain('  extract / sync / build are not implemented yet. See docs/roadmap.md.');
+log.step('Next steps');
+log.plain(`  1. Set engines.vscode in config.json to a bound not above ${report.vscodeVersion ?? 'x.y.z'}`);
+log.plain('  2. npm run extract   # snapshot the localizable surface of this build');
+log.plain('  3. npm run gap       # Cursor keys the vscode-loc baseline does not cover');
+log.plain('  4. npm run sync && npm run build && npm run package');

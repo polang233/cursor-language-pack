@@ -1,19 +1,19 @@
-# 文档
+# 文档索引
 
-安装与使用（扩展发布之后）：根目录 [README.md](../README.md)（English） /
-[README.zh-CN.md](../README.zh-CN.md)（简体中文）。这里给贡献者和维护者。
+安装与使用见根目录 [README.zh-CN](../README.zh-CN.md) / [README](../README.md)。
+本目录下的内容面向贡献者与维护者。
 
 | 文档 | 语言 | 内容 |
 | --- | --- | --- |
-| [research.md](research.md) · [zh-CN](research.zh-CN.md) | EN · 简体中文 | 商店调查、本机 NLS 探测、为什么值得做插件 |
-| [architecture.md](architecture.md) · [zh-CN](architecture.zh-CN.md) | EN · 简体中文 | 自包含单扩展、NLS、计划中的流水线 |
-| [roadmap.md](roadmap.md) | EN | 骨架已有什么、要从 kiro-language-pack 搬什么 |
-| [publishing.md](publishing.md) · [zh-CN](publishing.zh-CN.md) | EN · 简体中文 | 先发 VS Marketplace（Cursor 商店），Open VSX 可选 |
+| [architecture.zh-CN.md](architecture.zh-CN.md) · [EN](architecture.md) | 简体中文 · EN | 为什么做成一个自包含扩展、本地化如何解析、构建流水线、运行时 |
+| [publishing.zh-CN.md](publishing.zh-CN.md) · [EN](publishing.md) | 简体中文 · EN | VS Marketplace（Cursor 商店）、可选 Open VSX、GitHub Releases |
 
-文件夹外：
+两个不在本目录、但很容易漏掉的地方：
 
-- **加语言** — [CONTRIBUTING.md](../CONTRIBUTING.md#adding-a-language)
-- **商店页正文** — `src/marketplace/README.md`
-- **Agent / 发版** — 根目录 [AGENTS.md](../AGENTS.md)
+- **新增语言** — [CONTRIBUTING.md](../CONTRIBUTING.md#adding-a-language)。语言列表在 `config.json` 里，不需要改脚本。
+- **扩展市场页面** — `src/marketplace/README.md`。构建时会复制进 `.vsix`。
+- **给后续 AI 的发布说明** — 根目录 [AGENTS.md](../AGENTS.md)（`VSCE_PAT` secret 名、打 tag 发版流程）
+
+贡献流程、译文规则、提 PR 前的检查项：[CONTRIBUTING.md](../CONTRIBUTING.md)。
 
 姊妹项目：[kiro-language-pack](https://github.com/polang233/kiro-language-pack)。

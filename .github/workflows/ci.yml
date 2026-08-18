@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build language packs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # The runtime's argv.json editing needs no Cursor install to test, so it runs first:
+      # a failure there is the one that could keep an editor from starting.
+      - name: Test the runtime
+        run: npm test
+
+      # No Cursor installation is available here, so metadata/cursor.json is absent and
+      # the build skips key filtering. The GitHub token raises the API rate limit
+      # used by the file listing strategy.
+      - name: Sync upstream baseline
+        run: npm run sync -- --strategy=api
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Package
+        run: npm run package -- --skip-build
+
+      - name: Validate generated manifests
+        run: node scripts/validate-dist.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vsix
+          path: dist/*.vsix
+          if-no-files-found: error
+          retention-days: 14

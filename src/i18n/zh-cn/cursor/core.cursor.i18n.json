@@ -1,0 +1,297 @@
+// Cursor-authored strings that live in the Code OSS core (`vscode` translation id).
+// microsoft/vscode-loc has no translation for these. Keep {0} placeholders,
+// $(codicon) markers, (command:...) links and && menu mnemonics intact.
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/workbench/electron-sandbox/actions/developerActions.cursor": {
+      "logDataDirectories": "记录数据目录",
+      "reloadWindowWithHMR": "使用 HMR 重新加载",
+      "hangRendererThread": "挂起渲染器线程（30 秒）",
+      "devForceNextSmartModeClassifierBlock": "开发：强制下一次自动审查拦截",
+      "devDelayNextSmartModeClassifier": "开发：延迟下一次自动审查（{0} 秒）",
+      "restartInTemporaryProfile": "在临时配置中重启",
+      "startInfiniteComposerSession": "开始无限 Composer 会话",
+      "stopInfiniteComposerSession": "停止无限 Composer 会话",
+      "devAutoLoginFree": "开发：自动登录（Free）",
+      "devAutoLoginProTrial": "开发：自动登录（Pro Trial）",
+      "devAutoLoginPro": "开发：自动登录（Pro）",
+      "devAutoLoginProPlusTrial": "开发：自动登录（Pro Plus Trial）",
+      "devAutoLoginProPlus": "开发：自动登录（Pro Plus）",
+      "devAutoLoginUltra": "开发：自动登录（Ultra）",
+      "devAutoLoginEnterprise": "开发：自动登录（Enterprise）",
+      "devAutoLoginFakeForTesting": "开发：自动登录（测试用假令牌）",
+      "devSetApplicationStorageForTesting": "开发：设置应用存储（测试用）",
+      "devGetApplicationStorageForTesting": "开发：读取应用存储（测试用）",
+      "devIsAgentHostEnabledForTesting": "开发：Agent Host 是否已启用（测试用）",
+      "devBatchSetApplicationStorageForTesting": "开发：批量设置应用存储（测试用）",
+      "devSetComposerModeAutoRun": "开发：设置 Composer 模式 AutoRun（测试用）",
+      "devGetComposerDataForTesting": "开发：读取 Composer 数据（测试用）",
+      "setAnyrunCluster": "设置 Anyrun 集群",
+      "devGetAutorunSettingForTesting": "开发：读取 Autorun 设置（测试用）",
+      "devGetLoadedPluginsSummaryForTesting": "开发：读取已加载插件摘要（测试用）",
+      "devGetModelConfigForSurfaceForTesting": "开发：读取界面模型配置（测试用）",
+      "simulateNewUser": "模拟新用户"
+    },
+    "vs/workbench/contrib/composer/electron-sandbox/webviewBrowserManager": {
+      "passkeyRequestStalled": "此页面正在等待通行密钥或安全密钥。如果使用硬件安全密钥，请插入并轻触以继续。",
+      "passkeyHybridUnsupported": "此登录需要通过二维码从手机或平板获取通行密钥，Cursor 浏览器无法显示该二维码。请在常用浏览器中打开此页面以继续。",
+      "browserContextMenu.openLinkExternalBrowser": "在浏览器中打开链接",
+      "browserContextMenu.openLinkNewTab": "在新标签页中打开链接",
+      "browserContextMenu.openLinkBackgroundTab": "在后台标签页中打开链接",
+      "browserContextMenu.copyLinkAddress": "复制链接地址",
+      "browserContextMenu.openMediaExternalBrowser": "在浏览器中打开媒体",
+      "browserContextMenu.openMediaNewTab": "在新标签页中打开媒体",
+      "browserContextMenu.copyMediaAddress": "复制媒体地址",
+      "browserContextMenu.copyImage": "复制图像",
+      "browserContextMenu.back": "后退",
+      "browserContextMenu.forward": "前进",
+      "browserContextMenu.reload": "重新加载",
+      "browserContextMenu.undo": "撤消",
+      "browserContextMenu.redo": "恢复",
+      "browserContextMenu.cut": "剪切",
+      "browserContextMenu.copy": "复制",
+      "browserContextMenu.paste": "粘贴",
+      "browserContextMenu.selectAll": "全选",
+      "browserContextMenu.inspectElement": "检查元素"
+    },
+    "vs/workbench/contrib/agents/browser/agentsQuickAccess": {
+      "agents.chatHistory.section.chats": "聊天",
+      "agents.chatHistory.section.cloudAgents": "Cloud Agent",
+      "agents.chatHistory.noResults": "没有可用的聊天",
+      "agents.chatHistory.noResults.filter": "请尝试其他搜索词",
+      "agents.chatHistory.noResults.empty": "开始一个新的 Agent，它会显示在这里",
+      "agents.chatHistory.noResults.aria": "没有可用的聊天",
+      "agents.chatHistory.composerAria": "聊天 {0}",
+      "agents.chatHistory.backgroundAria": "Cloud Agent {0}",
+      "agents.chatHistory.untitledChat": "无标题聊天",
+      "agents.chatHistory.placeholder": "搜索聊天和 Cloud Agent",
+      "agents.chatHistory.help": "搜索聊天记录",
+      "agents.mru.noResults": "没有最近使用的 Agent",
+      "agents.mru.composerAria": "Agent {0}",
+      "agents.mru.backgroundAria": "Cloud Agent {0}",
+      "agents.ctrlTab.draft": "草稿",
+      "agents.mru.placeholder": "在最近使用的 Agent 之间切换",
+      "agents.mru.help": "在最近使用的 Agent 之间切换"
+    },
+    "vs/workbench/contrib/cursorExampleUtilityHost/electron-sandbox/exampleUtilityHostCommands": {
+      "exampleUtilityHost.echo": "示例 Utility Host Echo",
+      "exampleUtilityHost.echo.ok": "示例 Utility Host Echo：\"{0}\"（往返 {1} 毫秒）",
+      "exampleUtilityHost.echo.err": "示例 Utility Host Echo 失败：{0}",
+      "exampleUtilityHost.ping": "示例 Utility Host Ping",
+      "exampleUtilityHost.ping.ok": "示例 Utility Host Ping：主机时间 {0}，往返 {1} 毫秒",
+      "exampleUtilityHost.ping.err": "示例 Utility Host Ping 失败：{0}",
+      "exampleUtilityHost.tick": "示例 Utility Host Tick",
+      "exampleUtilityHost.tick.start": "示例 Utility Host Tick：正在等待 tick…",
+      "exampleUtilityHost.tick.progress": "示例 Utility Host Tick：{0}/{1}（主机时间 {2}）",
+      "exampleUtilityHost.tick.ok": "示例 Utility Host Tick：在 {1} 毫秒内收到 {0} 个 tick（最后主机时间 {2}）",
+      "exampleUtilityHost.tick.partial": "示例 Utility Host Tick：在 {0}/{1} 个 tick 后已取消",
+      "exampleUtilityHost.tick.err": "示例 Utility Host Tick：未收到 tick（流提前结束）",
+      "exampleUtilityHost.stressTest.start": "示例 Utility Host 压力测试（{0}）：正在接收数据…",
+      "exampleUtilityHost.stressTest.ok": "示例 Utility Host 压力测试（{0}）：在 {2} 毫秒内收到 {1} MiB（{3} MiB/s）",
+      "exampleUtilityHost.stressTest.err": "示例 Utility Host 压力测试（{0}）失败：{1}",
+      "exampleUtilityHost.stressTest": "示例 Utility Host 压力测试（16 MiB）",
+      "exampleUtilityHost.stressTestLarge": "示例 Utility Host 压力测试大容量（63 MiB，低于 64 MiB 通道上限）"
+    },
+    "vs/workbench/contrib/aiConfig/browser/aiconfig.contribution": {
+      "cursorGeneralConfigurationTitle": "常规",
+      "http2.disable.title": "禁用 HTTP/2.0",
+      "http2.disable.description": "对所有请求禁用 HTTP/2，改用 HTTP/1.1。这会增加资源占用和延迟，但在会拦截 HTTP/2 的公司代理后面很有用。",
+      "debug.timeoutPrevention.title": "调试超时防护",
+      "cursor.composer.planTextSizeScale.matchAgentChat": "与 Agent 聊天一致",
+      "cursor.composer.planTextSizeScale.small": "小",
+      "cursor.composer.planTextSizeScale.defaultSize": "默认",
+      "cursor.composer.planTextSizeScale.large": "大",
+      "cursor.composer.planTextSizeScale.extraLarge": "特大",
+      "cursor.composer.conversationDensity.toolSummary": "紧凑",
+      "cursor.composer.conversationDensity.compactRows": "均衡",
+      "cursor.composer.conversationDensity.detailed": "详细",
+      "cursor.composer.editorConversationDensity.toolSummary": "紧凑",
+      "cursor.composer.editorConversationDensity.compactRows": "均衡",
+      "cursor.composer.editorConversationDensity.detailed": "详细"
+    },
+    "vs/workbench/contrib/aiSettings/browser/components/settings/settingsRulesTab": {
+      "noWorkspace": "请先打开一个工作区文件夹。",
+      "importGithubRule": "从 GitHub/GitLab 导入项目规则",
+      "githubUrlPlaceholder": "https://github.com/owner/repository.git",
+      "githubUrlPrompt": "输入要导入项目规则的 GitHub/GitLab 仓库 URL",
+      "emptyUrl": "URL 不能为空",
+      "invalidGitRepoUrl": "请输入有效的 GitHub/GitLab 仓库 URL。",
+      "invalidRepoUrl": "无法从 URL 中提取仓库名。",
+      "ruleAlreadyExists": "\"{0}\" 的导入规则已存在于 `.cursor/rules/imported/{0}`。",
+      "cloningRule": "正在从 GitHub/GitLab 克隆规则...",
+      "rulesImported": "已从 \"{0}\" 导入 {1} 个项目规则文件到 `.cursor/rules/imported/{0}`。",
+      "importFailed": "从 GitHub/GitLab 导入规则失败：{0}",
+      "teamContentDashboard": "团队 {0} 可在 Cursor Dashboard 中创建和编辑。",
+      "openDashboard": "打开 Dashboard",
+      "noWorkspaceForProjectRule": "没有工作区无法创建项目规则。请先打开一个文件夹。",
+      "createRuleFailed": "创建规则失败，请重试。"
+    },
+    "vs/workbench/contrib/cursorBlame/browser/cursorBlame.contribution": {
+      "cursorBlame.openFileBlameTitle": "打开文件 Blame",
+      "cursorBlame.category": "Cursor Blame",
+      "cursorBlame.openCommitTitle": "查看提交",
+      "cursorBlame.pasteCommitHash": "粘贴提交哈希",
+      "cursorBlame.viewCommitTitle": "查看提交",
+      "cursorBlame.noGit": "未找到 git 仓库",
+      "cursorBlame.uncommittedLine": "此行尚未提交",
+      "cursorBlame.explorerContextMenu": "Cursor Blame",
+      "cursorBlameSubmenu": "Cursor Blame",
+      "toggleFileBlame": "切换文件 Blame",
+      "cursorBlameConfigurationTitle": "Cursor Blame",
+      "cursor.blame.hoverDelay": "控制 Cursor Blame 窗格中悬停提示出现前的延迟（毫秒）。若未设置，则使用 `#editor.hover.delay#`，且不少于 500 毫秒。"
+    },
+    "vs/workbench/contrib/composer/browser/browserEditor.contribution": {
+      "closeBrowserTab.message": "关闭浏览器标签页",
+      "closeBrowserTab.detail": "此浏览器由 Agent 创建。关闭它可能影响正在进行的聊天。",
+      "closeBrowserTab.hide": "隐藏(&&H)",
+      "closeBrowserTab.close": "关闭(&&C)",
+      "openBrowser": "打开浏览器",
+      "newBrowserTab": "新建浏览器标签页",
+      "reloadBrowserTab": "重新加载浏览器标签页",
+      "focusBrowserLocationBar": "聚焦浏览器地址栏",
+      "openCursorWebsite": "在浏览器中打开 cursor.com"
+    },
+    "vs/workbench/contrib/cursorOrigin/browser/cursorOrigin.contribution": {
+      "cursorOrigin.category": "Cursor Origin",
+      "cursorOrigin.noFile": "当前没有打开的文件。",
+      "cursorOrigin.noLink": "无法生成 cursor.com 链接。请在带有符合条件远程仓库的 git 仓库中打开文件。",
+      "cursorOrigin.copyCodeLink": "复制 cursor.com 链接（含选区）",
+      "cursorOrigin.copyCodeLinkWithoutRange": "复制 cursor.com 链接（仅文件）",
+      "cursorOrigin.copyCodeLink.menu": "复制 cursor.com 链接",
+      "cursorOrigin.copyCodeLinkExplorer.menu": "复制 cursor.com 链接",
+      "cursorOrigin.copyCodeLinkEditorTitle.menu": "复制 cursor.com 链接",
+      "cursorOrigin.copyCodeLinkLineNumber.menu": "复制 cursor.com 链接"
+    },
+    "vs/workbench/contrib/cursorMarkdownPlanEditor/browser/markdownPlanEditorActions": {
+      "toggleMarkdownPlanEditorMode": "切换编辑器模式",
+      "markdownPlanEditor": "Markdown 计划编辑器",
+      "acceptPlan": "构建计划",
+      "find": "查找",
+      "findNext": "查找下一个",
+      "findPrevious": "查找上一个",
+      "closeFindWidget": "关闭查找小组件"
+    },
+    "vs/workbench/services/cursorAuth/browser/authenticationService.contribution": {
+      "cursorAuthConfigurationTitle": "Cursor Auth",
+      "cursor.allowedTeamId": "指定用户必须所属的团队 ID 才能使用 Cursor。若已设置且已登录用户不属于该团队，Cursor 会自动将其退出登录。",
+      "cursor.signInEnforcement": "通过设备管理（MDM）启用后，若账号不属于任何已配置的允许组织、团队、邮箱或邮箱域，Cursor 后端将拒绝为其签发或刷新登录会话。",
+      "cursor.allowedOrganizationIds": "允许在此设备上登录的 Cursor 组织 ID 逗号分隔列表（通过设备管理设置）。",
+      "cursor.allowedTeamIds": "允许在此设备上登录的 Cursor 团队 ID 逗号分隔列表（通过设备管理设置）。会覆盖单独的 AllowedTeamId 策略；两者都会生效。",
+      "cursor.allowedLoginEmails": "允许在此设备上登录的精确账号邮箱逗号分隔列表（通过设备管理设置）。比较时忽略大小写。",
+      "cursor.allowedLoginDomains": "允许在此设备上登录的邮箱域逗号分隔列表（例如 example.com）（通过设备管理设置）。仅精确匹配域名；不会隐式包含子域。"
+    },
+    "vs/workbench/contrib/terminalContrib/cursorExternalAgentStatus/browser/terminal.externalAgentStatus.contribution": {
+      "workbench.action.terminal.externalAgentActions": "外部 Agent 操作",
+      "workbench.action.terminal.externalAgentSecondOpinion": "第二意见",
+      "workbench.action.terminal.externalAgentAsk": "侧边聊天",
+      "workbench.action.terminal.externalAgentAsk.menu": "侧边聊天",
+      "workbench.action.terminal.externalAgentSecondOpinion.menu": "第二意见",
+      "workbench.action.terminal.externalAgentActions.title": "外部 Agent 操作"
+    },
+    "vs/workbench/services/agent/browser/agentExecProviderService": {
+      "agentExecSimulatedStreamStartTimeoutTitle": "Agent 流启动超时",
+      "agentExecSimulatedStreamStartTimeoutDetail": "扩展主机未及时响应。请重新加载窗口以继续。",
+      "reloadWindow": "重新加载窗口",
+      "agentExecTimeoutTitle": "Agent 执行超时",
+      "agentExecTimeoutDetail": "Agent 执行提供程序未及时响应。这可能表示扩展主机未运行或无响应。",
+      "toggleSimulatedAgentExecStreamStartTimeout": "开发人员：切换 Agent 执行流启动超时模拟（仅开发）"
+    },
+    "vs/workbench/contrib/agents/browser/components/AgentSidebarUpdateButton": {
+      "agentSidebarUpdateButton.tooltip": "重启 Cursor 以安装待处理的更新。",
+      "agentSidebarUpdateButton.tooltipWithVersion": "重启 Cursor 以安装待处理的更新到 {0}。",
+      "agentSidebarUpdateButton.installingTooltip": "正在安装更新 — Cursor 将自动关闭并重新打开。",
+      "agentSidebarUpdateButton.label": "更新",
+      "agentSidebarUpdateButton.installingLabel": "正在安装"
+    },
+    "vs/workbench/contrib/cursorAiMarkdown/browser/chatFileReferenceContextMenu": {
+      "chatRevealInWindows": "在文件资源管理器中显示",
+      "chatRevealInMac": "在 Finder 中显示",
+      "chatOpenContainer": "打开所在文件夹",
+      "chatFileAddToChat": "添加到聊天",
+      "copyPath": "复制路径"
+    },
+    "vs/workbench/services/agent/electron-sandbox/localAgentPromptQualityUrlHandler": {
+      "localAgentPromptQuality.invalidUploadLink": "Prompt Quality 上传链接无效",
+      "localAgentPromptQuality.uploadFailed": "将本地 Agent 运行上传到 Prompt Quality 失败：{0}",
+      "localAgentPromptQuality.confirmTitle": "将此本地 Agent 运行上传到 Prompt Quality？",
+      "localAgentPromptQuality.confirmDetail": "这会上传提示词、代码和上下文、工具参数与结果，以及模型回复。Prompt Quality 会保存这些数据供内部调试。",
+      "localAgentPromptQuality.confirmButton": "上传到 Prompt Quality"
+    },
+    "vs/workbench/browser/actions/agentLayoutQuickMenu/agentLayoutQuickMenuTypes": {
+      "agentLayoutMenu.layout.agent": "布局 • 左侧",
+      "agentLayoutMenu.layout.editor": "布局 • 右侧",
+      "agentLayoutMenu.layout.zen": "布局 • Zen",
+      "agentLayoutMenu.layout.browser": "浏览器"
+    },
+    "vs/workbench/contrib/composer/browser/capabilities/chimes": {
+      "chimes.unsafePath.unc": "出于安全原因，自定义提示音路径不能是网络（UNC）路径。请使用本地文件路径。",
+      "chimes.unsafePath.url": "自定义提示音路径不能是 URL。请使用本地文件路径。",
+      "chimes.untrustedWorkspace": "自定义提示音配置在工作区设置中，但工作区不受信任。将忽略自定义提示音。",
+      "chimes.source": "Cursor Chimes"
+    },
+    "vs/workbench/contrib/agents/browser/agentsActions": {
+      "all-agents": "所有 Agent",
+      "quickOpenPreviousRecentlyUsedAgent": "快速打开上一个最近使用的 Agent",
+      "quickOpenLeastRecentlyUsedAgent": "快速打开最久未使用的 Agent"
+    },
+    "vs/workbench/contrib/cursorLocalTrace/browser/cursorLocalTrace.contribution": {
+      "cursorLocalTraceModeConfigurationTitle": "本地跟踪模式",
+      "cursorLocalTraceMode.settingTitle": "本地跟踪模式",
+      "cursorLocalTraceMode": "启用后，会在本地记录性能标记和测量（例如 Chrome DevTools Performance），并将 VS Code RPC 镜像到 DevTools 的网络选项卡。"
+    },
+    "vs/workbench/contrib/cursorMarkdownPlanEditor/browser/usePlanEditorState": {
+      "markdownPlanEditor.fileChangedWhileDirty": "文件内容更新了。要用你的更改覆盖文件，还是还原你的更改？",
+      "overwrite": "覆盖",
+      "revert": "还原"
+    },
+    "vs/workbench/contrib/terminalContrib/cursorPromptBar/browser/terminalPromptBarContextKeys": {
+      "terminalPromptBarVisible": "终端提示栏当前是否可见",
+      "terminalPromptBarCanCancelGeneration": "是否可以取消终端提示栏生成",
+      "terminalPromptBarCanRejectGeneration": "是否可以拒绝终端提示栏生成的命令"
+    },
+    "vs/workbench/browser/actions/agentLayoutQuickMenu/agentLayoutQuickMenuComponents": {
+      "agentLayoutMenu.add": "添加",
+      "agentLayoutMenu.moreActions": "更多操作"
+    },
+    "vs/workbench/contrib/agents/common/agentsContextKeys": {
+      "agentsPaneFocused": "Agents 侧边栏当前是否包含键盘焦点。",
+      "agentNavigationMode": "当前是否处于 Agent 导航模式（按住并松开以切换）。"
+    },
+    "vs/workbench/contrib/composer/browser/composer.contribution": {
+      "cursor ai": "Cursor AI",
+      "composerEditor": "Cursor AI"
+    },
+    "vs/workbench/contrib/composer/browser/composerMessageStorageService": {
+      "checkpointHydrationErrorTitle": "加载对话失败",
+      "checkpointHydrationErrorDetail": "对话检查点数据可能已损坏。你可以开始新对话，或尝试重新加载窗口。"
+    },
+    "vs/workbench/contrib/composer/electron-sandbox/browserAutomation.contribution": {
+      "crashBrowserWebviewRenderer": "开发人员：使浏览器 Webview 渲染器崩溃",
+      "orphanBrowserViewEntry": "开发人员：孤立的浏览器视图条目"
+    },
+    "vs/workbench/contrib/cursorAiFeedback/browser/aiFeedbackActions": {
+      "miReportIssue": "报告问题(&&I)",
+      "miGiveFeedback": "提供反馈(&&F)..."
+    },
+    "vs/workbench/contrib/terminalContrib/cursorCliPrompt/browser/terminal.cursorCliPrompt.contribution": {
+      "cursor.cliAlreadyInstalled": "Cursor CLI 已经安装。",
+      "cursor.installCli": "安装 Cursor CLI"
+    },
+    "vs/workbench/browser/actions/agentLayoutQuickMenu/agentLayoutQuickMenuState": {
+      "agentLayoutMenu.savedLayoutName": "布局 {0}"
+    },
+    "vs/workbench/browser/parts/editor/editorActions.cursor": {
+      "evenEditorGroupsExcludingAgent": "重置编辑器组大小（不含 Agent）"
+    },
+    "vs/workbench/contrib/composer/browser/transcript/composerTranscriptToolRuntime": {
+      "composerTranscript.openFileFailed": "无法打开 {0}"
+    },
+    "vs/workbench/contrib/terminalContrib/cursorDeveloper/browser/terminal.cursorDeveloper.contribution": {
+      "workbench.action.terminal.debugCheckExecutionServiceVersion": "调试：检查终端执行服务版本"
+    },
+    "vs/workbench/electron-sandbox/actions/devRefreshTeamAdminSettingsAction.cursor": {
+      "devRefreshTeamAdminSettings": "开发：刷新团队管理员设置（测试用）"
+    }
+  }
+}

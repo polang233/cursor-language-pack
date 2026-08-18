@@ -1,21 +1,16 @@
-# 架构
+# 架构说明
 
-技术设计。发布之后的用法见 [README.zh-CN.md](../README.zh-CN.md)。为什么做：
-[research.zh-CN.md](research.zh-CN.md)。
+Cursor Language Pack 的技术设计文档。安装与日常使用见 [README.zh-CN.md](../README.zh-CN.md)。
 
-流水线还没实现。本文是目标形态，从
-[kiro-language-pack](https://github.com/polang233/kiro-language-pack) 搬过来，按 Cursor 改过。
+## 单个自包含扩展
 
-## 自包含单扩展
+语言包同时携带来自
+[microsoft/vscode-loc](https://github.com/microsoft/vscode-loc) 的编辑器主体基线**和**本项目
+自己写的 Cursor 译文。因此它占用 `vscode` 这个翻译 id，会**替代** VS Code 官方语言包。两者不要
+同时安装。
 
-包会带上 [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc) 的工作台基线，
-**加上**本项目写的 Cursor 译文。因此它拥有 `vscode` 这个 translation id，**替代**
-VS Code 官方语言包。不要两个一起装。
-
-主机解析本地化的方式决定了这一点。`%USERPROFILE%\.cursor\languagepacks.json`
-把每个 translation id 映射到**一个**路径，扩展扫描时后写覆盖先写，没有按 key 合并。
-
-Cursor 里走了 `nls.localize` 的自有字符串在：
+这不是偏好，而是 Cursor 的实现决定的。Cursor 是一个 fork，把自己的界面直接编译进了 Code OSS
+内核：
 
 ```
 resources/app/out/nls.messages.json
@@ -24,44 +19,103 @@ resources/app/out/nls.messages.json
   vs/workbench/contrib/aiSettings/…
   vs/workbench/contrib/aiConfig/…
   vs/workbench/contrib/cursorBlame/…
-  …
+  vs/workbench/contrib/cursorOrigin/…
+  vs/workbench/services/cursorAuth/…
+  …以及一批 `*.cursor` 模块
 ```
 
-它们属于 `vscode`，不属于 `anysphere.*`。要译它们就必须提供 `vscode` 那份文件。
-把 vscode-loc 基线一并带上，占有这个 id 才安全。
+这些字符串属于 `vscode` 这个翻译 id，而不是 `anysphere.*`。宿主对每个 id 只认一个文件 ——
+`%USERPROFILE%\.cursor\languagepacks.json` 把每个翻译 id 映射到唯一路径，扫描扩展时直接覆盖：
 
-companion 模式（只声明 Cursor 扩展 id）在 `config.json` 里关着。Cursor 内置扩展几乎没有
-`package.nls.json`。
-
-## 本地化怎么工作
-
-语言包是无代码扩展，声明 `contributes.localizations`。缺的 key 静默回落英文。
-显示语言写在 `~/.cursor/argv.json` 的 `locale`，必须整进程重启，重载窗口无效。
-
-## 计划中的流水线
-
-```
-Cursor 安装 ──(extract)──> metadata/cursor.json ─────┐
-                                                     │
-microsoft/vscode-loc ──(sync)──> upstream/<locale>/ ──┼──(build)──> dist/<pack>/ ──(package)──> .vsix
-                                                     │
-src/i18n/<locale>/{overrides,cursor} ────────────────┘
+```js
+for (const c of localization.translations)
+  entry.translations[c.id] = join(extension.location.fsPath, c.path);
 ```
 
-`metadata/cursor.json` 是已装构建里每一个可本地化 key 的快照：过滤 Cursor 没有的键、
-丢掉占位符已经对不上的继承译文（也就是官方说的菜单栏错位）、给 coverage 一个真实分母。
+**没有按 key 合并的机制。** 想翻译 composer / agents 这些 NLS，就必须提供 `vscode` 这个文件，
+而两个扩展不可能同时提供它。把主体基线一起打包进来，正是为了让占用这个 id 不至于让工作台退化。
 
-`upstream.ref` 要钉在接近 Cursor `vscodeVersion`（探测时是 1.128.x）的 vscode-loc 快照上，
-不要盲目跟 `main`。跟踪比 fork 更新的 VS Code 线，正是 File/Edit/View 退回英文的原因。
+这样换掉官方包不会有损失：主体译文来自钉在 Code OSS 1.128（对应 Cursor 3.16.17）的那份 MIT
+许可 `vscode-loc` 快照，而且本构建还会丢掉占位符已经和原文对不上的继承译文（见[标记修复](#标记修复)）。
+
+| 版本 | 扩展名 | 内容 | 默认 |
+| --- | --- | --- | --- |
+| **完整版** | `cursor-language-pack` | 主体基线 + Cursor 译文，含所有已启用语言 | 发布 |
+| **互补版** | `cursor-language-pack-<locale>-companion` | 仅 Cursor 内置扩展 id | 仅本地构建，默认关闭 |
+
+互补版能与官方包并存，因为它从不声明 `vscode`。代价是范围：Cursor 内置扩展几乎没有
+`package.nls.json`，所以互补模式没有用。它在 `config.json` 里默认关闭。
+
+## 本地化机制
+
+VS Code（因此也是 Cursor）通过语言包贡献点解析界面字符串。语言包是一个可以没有代码的扩展，
+每种语言一条：
+
+```json
+{
+  "contributes": {
+    "localizations": [
+      {
+        "languageId": "zh-cn",
+        "languageName": "Chinese Simplified",
+        "localizedLanguageName": "中文（简体）",
+        "translations": [
+          { "id": "vscode", "path": "./translations/zh-cn/main.i18n.json" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+缺译文的键静默回落英文。宿主会读每个已装扩展的 `contributes.localizations`，所以一个扩展可以
+服务多种语言。
+
+显示语言写在 `~/.cursor/argv.json` 的 `locale`。改它必须整进程重启，重载窗口无效。
+
+## 构建流水线
+
+```
+Cursor 安装目录 ──(extract)──> metadata/cursor.json ─────┐
+                                                        │
+microsoft/vscode-loc ──(sync)──> upstream/<locale>/ ─────┼──(build)──> dist/<pack>/ ──(package)──> .vsix
+                                                        │
+src/i18n/<locale>/{overrides,cursor} ───────────────────┘
+```
+
+`metadata/cursor.json` 是本机安装里每一条可本地化键的快照，用途是过滤、标记修复、缺口分析、覆盖率分母。CI 没有 Cursor 安装时可以跳过这份快照。
+
+`upstream.ref` 必须钉在接近 Cursor `vscodeVersion`（1.128.x）的 vscode-loc 提交上，不要追 `main`。追更新的 VS Code 线，文件 / 编辑 / 查看菜单会错位回英文。
+
+## 标记修复
+
+`scripts/lib/markers.mjs` 对比 `{0}` 占位符、`$(codicon)` 图标和 `(command:…)` 链接。继承基线里对不上的丢掉；本仓库自己维护的文件对不上则报错。
 
 ## 语言包做不到的
 
-Cursor Settings、Agent/Chat 这类浮层不在 `nls.messages.json` 里。语言包到不了。
-第二阶段才是可选的安装补丁（注入 workbench.html 或改字符串），见 [roadmap.md](roadmap.md)，
-不上 Marketplace。和越南语 DMCTN 包的结论相同。
+Cursor Settings、Agent/Chat 浮层以及类似的 React 界面不在 `nls.messages.json` 里，语言包碰不到。安装目录补丁在扩展成为用户装的产品之前不做。
 
-## 运行时（计划）
+## 运行时
 
-语言包不需要代码。Kiro 包仍然带了一个很小的 `main.cjs`，用来选语言、以及在另一个扩展也声称
-`vscode` 时警告。把那份文件迁过来，把 `kiroLanguagePack` 改成 `cursorLanguagePack`，
-从 `product.json` 读 `dataFolderName`（`.cursor`）。
+语言包不需要代码，译文没有它也能工作。仍然带了一个很小的 `main.cjs`，用来选语言，以及在另一个扩展也声称 `vscode` 时警告。
+
+它只做这些：读 `product.json` 得知用户数据目录名；读写 `argv.json` 的 `locale` 字段（只有你确认后才写）；读已装扩展清单以发现冲突语言包；在自己的 globalState 里存两个「不再询问」标记。不联网、不遥测。`argv.json` 是原地改一个字段，所以 `npm test` 专门测这一处。
+
+## 仓库布局
+
+```
+config.json                       发布者、版本、语言、构建模式
+src/
+  manifest.template.json          扩展清单骨架
+  extension/main.cjs              运行时：选语言、冲突警告
+  marketplace/README.md           商店页正文
+  i18n/<locale>/
+    glossary.json                 术语表
+    extension.l10n.json           运行时自己的提示
+    cursor/core.*.i18n.json       Cursor 编进内核的字符串
+    overrides/main.i18n.json      对 vscode-loc 基线的修正
+scripts/                          构建流水线
+metadata/  upstream/  dist/  reports/   生成物，已 gitignore
+```
+
+`cursor/` 下任何名为 `core*.i18n.json` 的文件都会合并进 `vscode` 翻译 id。

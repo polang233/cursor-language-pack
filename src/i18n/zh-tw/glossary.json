@@ -1,12 +1,12 @@
 {
-  "$comment": "Terminology contract for zh-tw. Generated later from zh-cn via OpenCC once translations exist; this file is the Taiwan-oriented glossary, not a machine dump.",
+  "$comment": "Terminology contract for zh-tw (from zh-cn + Taiwan phrasing). Cursor product names stay English when they are UI chrome the user already searches for in English.",
   "locale": "zh-tw",
   "terms": [
     { "en": "Cursor", "zh": "Cursor", "keepEnglish": true, "note": "產品名，不譯" },
-    { "en": "Agent", "zh": "Agent", "keepEnglish": true },
+    { "en": "Agent", "zh": "Agent", "keepEnglish": true, "note": "產品模式名；介面標題保留 Agent，說明性文字可寫「智慧體」" },
     { "en": "Composer", "zh": "Composer", "keepEnglish": true },
-    { "en": "Tab", "zh": "Tab", "keepEnglish": true },
-    { "en": "Plan", "zh": "計畫", "keepEnglish": false },
+    { "en": "Tab", "zh": "Tab", "keepEnglish": true, "note": "Cursor Tab 補全，保留" },
+    { "en": "Plan", "zh": "計劃", "keepEnglish": false },
     { "en": "Ask", "zh": "提問", "keepEnglish": false },
     { "en": "Cloud Agent", "zh": "Cloud Agent", "keepEnglish": true },
     { "en": "Bugbot", "zh": "Bugbot", "keepEnglish": true },
@@ -17,14 +17,14 @@
     { "en": "Hooks", "zh": "鉤子", "keepEnglish": false },
     { "en": "Checkpoints", "zh": "檢查點", "keepEnglish": false },
     { "en": "Auto-review", "zh": "自動審查", "keepEnglish": false },
-    { "en": "Workspace", "zh": "工作區", "keepEnglish": false },
-    { "en": "Command Palette", "zh": "命令選擇區", "keepEnglish": false }
+    { "en": "Workspace", "zh": "工作區", "keepEnglish": false, "note": "沿用 VS Code 官方中文譯法" },
+    { "en": "Command Palette", "zh": "命令面板", "keepEnglish": false, "note": "沿用 VS Code 官方中文譯法" }
   ],
   "style": {
-    "punctuation": "中文全形標點；括號用（），但保留佔位符與命令連結中的半形原樣",
+    "punctuation": "中文全形標點；括號用，但保留佔位符與命令連結中的半形原樣",
     "placeholders": "{0}、{1} 等佔位符必須原樣保留",
     "codicons": "$(icon-name) 圖示標記必須原樣保留",
-    "commandLinks": "Markdown 命令連結 [文字](command:xxx) 中的 command: 部分不得翻譯",
+    "commandLinks": "Markdown 命令連結 [文本](command:xxx) 中的 command: 部分不得翻譯",
     "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot 作產品名時不譯"
   }
 }

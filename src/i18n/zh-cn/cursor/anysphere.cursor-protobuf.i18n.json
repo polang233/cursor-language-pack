@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Cursor Protocol Buffers",
+      "description": "在 Cursor 中为 Protocol Buffers 提供语法高亮和括号匹配。"
+    }
+  }
+}

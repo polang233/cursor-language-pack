@@ -1,114 +1,110 @@
 # Cursor Language Pack
 
-Community language pack for [Cursor](https://cursor.com/) — a self-contained
-VS Code language pack that translates the editor workbench **and** the Cursor
-strings that live in Code OSS's NLS files.
-
-**This repository is a scaffold.** The `.vsix` is not built yet. Translations
-have not been written. `npm run detect` is the only live command.
+Community language pack for [Cursor](https://cursor.com/) — it translates the editor
+workbench **and** the Cursor strings that live in Code OSS's NLS files (composer,
+agents, aiSettings, and related modules).
 
 **English** · [简体中文](README.zh-CN.md)
 
-> 中文用户请看 [简体中文说明](README.zh-CN.md)。
+> 中文用户请看 [简体中文说明](README.zh-CN.md)。安装前请先卸载其他语言包，装完选显示语言后**重启** Cursor。
 
-## Why this exists
+<img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack icon" />
 
-Installing Microsoft's [Chinese (Simplified) Language Pack](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans)
-in Cursor translates File / Edit / Explorer / Settings (the VS Code parts). It
-leaves Cursor's own UI in English: Agent, Composer, Cursor Settings, account,
-the marketplace chrome, and more.
+The project is built to hold any number of languages. **Today it ships Simplified Chinese
+and Traditional Chinese.** Eleven more locales are already declared in `config.json` and
+waiting for someone to fill them in; see [Adding a language](#adding-a-language).
 
-That is expected. Cursor staff have said third-party language packs work on a
-best-effort basis, and that **Cursor Settings / account and the Agent/Chat
-window stay English**. There is no official Chinese option and no ETA.
+## Install
 
-There is also **no Chinese Cursor language pack on the VS Marketplace or Open
-VSX** as of 2026-08-18. The Chinese community tools that do exist
-([Ericwyn/cursor-chinese-translate](https://github.com/Ericwyn/cursor-chinese-translate),
-[somersby10ml/cursor-i18n](https://github.com/somersby10ml/cursor-i18n)) rewrite
-files inside the Cursor install. They are not extensions.
+1. **Uninstall any other language pack first.** This pack replaces the official VS Code one —
+   [why](docs/architecture.md#one-self-contained-extension). Two packs installed together give
+   you a UI that is translated differently after each restart.
+2. Install the pack:
+   - from a GitHub Release `.vsix` — Command Palette → **Extensions: Install from VSIX…**
+   - VS Marketplace listing is not published yet
+3. Command Palette → **Language Pack: Select Display Language** → pick a language → restart.
 
-This project takes the opposite order, copied from
-[kiro-language-pack](https://github.com/polang233/kiro-language-pack):
+On Windows, do not double-click the `.vsix`; Visual Studio may claim the file type. Install it
+from the Command Palette instead.
 
-1. **A normal language-pack extension first.** It replaces the official VS Code
-   pack, carries the vscode-loc workbench baseline, and adds Cursor-authored
-   NLS keys the Microsoft pack cannot see.
-2. **An optional install patch later**, only for strings that never enter NLS
-   (the React overlay: Cursor Settings, Agent/Chat). Not implemented.
+### Switching language later
 
-A Vietnamese pack on the Marketplace already proved the extension route works:
-[buivantinh.dmctn-vscode-language-pack-vi](https://marketplace.visualstudio.com/items?itemName=buivantinh.dmctn-vscode-language-pack-vi)
-(~3.8k installs). There is no Chinese equivalent.
+Any of these work, and none of them require reinstalling — every bundled language is already
+on disk:
 
-Probe against the local install (Cursor **3.16.17**, Code OSS **1.128.0**):
+- Command Palette → **Language Pack: Select Display Language**
+- Settings → `cursorLanguagePack.language` (`auto`, `zh-cn`, `zh-tw`, `en`)
+- The built-in **Configure Display Language** command
 
-| Surface | Reachable by a language pack? | Notes |
-| --- | --- | --- |
-| VS Code workbench (menus, explorer, terminal, …) | Yes | Same `contributes.localizations` as Microsoft's pack |
-| Cursor modules in `nls.messages.json` | Yes | 231 keys / 34 modules: composer, agents, aiSettings, aiConfig, cursorBlame, … |
-| Cursor built-in extension manifests | Almost empty | 22 builtins, 8 `package.nls.json` keys |
-| Cursor Settings / Agent / Chat overlay | No | Hard-coded / React; needs a patch, or official i18n |
+Picking `en` returns the whole UI to English while the pack stays installed. All three write
+the `locale` field in `argv.json` and nothing else. The display language is a launch argument,
+so Cursor has to be restarted, not just reloaded.
 
-So yes: there is plugin work to do even before touching the install directory.
-The leftover English after the Microsoft pack is not "nothing we can reach" —
-it is a mix of **Cursor NLS the official pack never shipped** and **overlay
-strings no pack can ship**.
+## Language support
 
-Full write-up: [docs/research.md](docs/research.md). Design: [docs/architecture.md](docs/architecture.md).
-Plan: [docs/roadmap.md](docs/roadmap.md).
-
-## Status
-
-| | |
+| Locale | Status |
 | --- | --- |
-| Extension | Not packaged. No store listing. |
-| Locales | `zh-cn` and `zh-tw` declared; glossaries only |
-| Pipeline | `npm run detect` works. extract / sync / build / package are stubs |
-| Patcher | Out of scope until the extension ships |
+| `zh-cn` 简体中文 | Shipped — workbench 99.8% plus all 1621 Cursor-specific core keys (100%) |
+| `zh-tw` 繁體中文 | Shipped — same surface, Taiwan-oriented terminology |
+| `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | Declared in `config.json`, `enabled: false`, no translations yet |
 
-## What you can run today
+One extension declares every enabled locale; Cursor loads the one matching `locale` in
+`argv.json`, and any key without a translation falls back to English.
 
-Node.js 18.17 or newer.
+### Adding a language
+
+1. Set `enabled: true` for your locale in `config.json`. If
+   [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc) has no pack for it, set
+   `upstreamPackDir: null`: the workbench stays English and only the Cursor strings get
+   translated.
+2. Add `src/i18n/<locale>/` — glossary first, then the translation files.
+3. `npm run build && npm run validate && npm run coverage`.
+
+Step-by-step: [CONTRIBUTING.md](CONTRIBUTING.md#adding-a-language).
+
+## Known limits
+
+Still English, because Cursor has not externalized these strings — a language pack cannot
+reach them:
+
+- Cursor Settings
+- the Agent / Chat overlay (the React chrome around the conversation)
+- account / marketplace overlay chrome
+
+Please do not file translation issues for those surfaces here.
+
+The UI language does not change what language the AI answers in.
+
+Reconciled against Cursor **3.16.17** (Code OSS 1.128.0) — see
+`target.verifiedCursorVersions` in `config.json`. Other builds generally work; strings Cursor
+adds later fall back to English until someone runs `npm run check-upgrade` and translates the
+additions.
+
+## Development
+
+Node.js 18.17 or newer. No compile step.
 
 ```bash
 npm install
-npm run detect          # find the local Cursor install, print NLS stats
+npm run detect          # find the local Cursor install
+npm run extract         # snapshot its localizable strings
+npm run sync            # download the vscode-loc workbench baseline
+npm run verify          # build + validate + coverage
+npm run package         # dist/cursor-language-pack-<version>.vsix
+npm run check-upgrade   # after a Cursor update: what changed, what needs translating
 ```
 
-If Cursor is not in a default path:
+Pipeline and layout are copied from
+[kiro-language-pack](https://github.com/polang233/kiro-language-pack), with Cursor paths and
+a VS Marketplace-first publish target (Cursor's gallery is `marketplace.cursorapi.com`, not
+Open VSX).
 
-```powershell
-$env:CURSOR_INSTALL_DIR = "F:\AI\cursor"
-npm run detect
-```
-
-## Two ways this will ship (planned)
-
-Same split as the Kiro pack. Only the extension is in scope for the first
-release.
-
-| | **Extension** | **Extension + install patch** |
-| --- | --- | --- |
-| How | Install one `.vsix` | Clone this repo, run a patcher (not written) |
-| Translates | Workbench + Cursor NLS in the core | The above, plus overlay strings |
-| Official VS Code language pack | You uninstall it yourself | The patcher would offer to uninstall it |
-| Survives a Cursor update | Yes | No — re-run after every update |
-| Supported by Anysphere | It is a normal extension | No, the install is modified |
-
-## Related project
-
-The sibling repo [kiro-language-pack](https://github.com/polang233/kiro-language-pack)
-is the same idea for Kiro IDE and is already published on Open VSX. This repo
-will reuse its pipeline (detect → extract → sync vscode-loc → merge → package)
-with Cursor-specific paths and a VS Marketplace-first publish target, because
-Cursor's gallery is `marketplace.cursorapi.com` (a VS Marketplace proxy), not
-Open VSX.
+Docs: [architecture](docs/architecture.md) · [contributing](CONTRIBUTING.md) ·
+[publishing](docs/publishing.md) · [all documents](docs/README.md)
 
 ## License
 
-MIT. Workbench strings will be derived from the MIT-licensed
+MIT. Workbench strings are derived from the MIT-licensed
 [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc); see [NOTICE](NOTICE).
 
-A community project. Not affiliated with, endorsed by, or supported by
-Anysphere or Microsoft.
+A community project. Not affiliated with, endorsed by, or supported by Anysphere or Microsoft.
