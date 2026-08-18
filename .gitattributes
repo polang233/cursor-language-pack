@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.vsix binary
+
+# Translation files are the primary reviewable asset - always diff as text
+*.i18n.json text eol=lf
+*.md text eol=lf

@@ -1,0 +1,40 @@
+{
+  "name": "cursor-language-pack",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Community language pack for Cursor IDE (Simplified & Traditional Chinese) plus build tooling",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polang233/cursor-language-pack.git"
+  },
+  "homepage": "https://github.com/polang233/cursor-language-pack#readme",
+  "bugs": {
+    "url": "https://github.com/polang233/cursor-language-pack/issues"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "detect": "node scripts/detect-cursor.mjs",
+    "extract": "node scripts/not-yet.mjs extract",
+    "audit": "node scripts/not-yet.mjs audit",
+    "gap": "node scripts/not-yet.mjs gap",
+    "check-upgrade": "node scripts/not-yet.mjs check-upgrade",
+    "patch": "node scripts/not-yet.mjs patch",
+    "test": "node scripts/not-yet.mjs test",
+    "sync": "node scripts/not-yet.mjs sync",
+    "build": "node scripts/not-yet.mjs build",
+    "coverage": "node scripts/not-yet.mjs coverage",
+    "validate": "node scripts/not-yet.mjs validate",
+    "package": "node scripts/not-yet.mjs package",
+    "publish:ovsx": "node scripts/not-yet.mjs publish:ovsx",
+    "publish:vsce": "node scripts/not-yet.mjs publish:vsce",
+    "verify": "node scripts/not-yet.mjs verify"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.2.1",
+    "ovsx": "0.10.1"
+  }
+}

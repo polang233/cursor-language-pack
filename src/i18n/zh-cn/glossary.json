@@ -1,0 +1,30 @@
+{
+  "$comment": "Terminology contract for zh-cn. Cursor product names stay English when they are UI chrome the user already searches for in English.",
+  "locale": "zh-cn",
+  "terms": [
+    { "en": "Cursor", "zh": "Cursor", "keepEnglish": true, "note": "产品名，不译" },
+    { "en": "Agent", "zh": "Agent", "keepEnglish": true, "note": "产品模式名；界面标题保留 Agent，说明性文字可写「智能体」" },
+    { "en": "Composer", "zh": "Composer", "keepEnglish": true },
+    { "en": "Tab", "zh": "Tab", "keepEnglish": true, "note": "Cursor Tab 补全，保留" },
+    { "en": "Plan", "zh": "计划", "keepEnglish": false },
+    { "en": "Ask", "zh": "提问", "keepEnglish": false },
+    { "en": "Cloud Agent", "zh": "Cloud Agent", "keepEnglish": true },
+    { "en": "Bugbot", "zh": "Bugbot", "keepEnglish": true },
+    { "en": "Rules", "zh": "规则", "keepEnglish": false },
+    { "en": "Memories", "zh": "记忆", "keepEnglish": false },
+    { "en": "MCP", "zh": "MCP", "keepEnglish": true },
+    { "en": "Skills", "zh": "技能", "keepEnglish": false },
+    { "en": "Hooks", "zh": "钩子", "keepEnglish": false },
+    { "en": "Checkpoints", "zh": "检查点", "keepEnglish": false },
+    { "en": "Auto-review", "zh": "自动审查", "keepEnglish": false },
+    { "en": "Workspace", "zh": "工作区", "keepEnglish": false, "note": "沿用 VS Code 官方中文译法" },
+    { "en": "Command Palette", "zh": "命令面板", "keepEnglish": false, "note": "沿用 VS Code 官方中文译法" }
+  ],
+  "style": {
+    "punctuation": "中文全角标点；括号用（），但保留占位符与命令链接中的半角原样",
+    "placeholders": "{0}、{1} 等占位符必须原样保留",
+    "codicons": "$(icon-name) 图标标记必须原样保留",
+    "commandLinks": "Markdown 命令链接 [文本](command:xxx) 中的 command: 部分不得翻译",
+    "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot 作产品名时不译"
+  }
+}

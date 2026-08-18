@@ -1,0 +1,12 @@
+---
+description: How to release this language pack to the VS Marketplace (Cursor's gallery) and GitHub. Apply when tagging, publishing, or after a Cursor upgrade.
+alwaysApply: true
+---
+
+# Release and secrets
+
+- Primary gallery is the **VS Marketplace** (`VSCE_PAT`). Cursor proxies `marketplace.cursorapi.com`. Open VSX (`OVSX_PAT`) is optional — unlike kiro-language-pack.
+- Never commit tokens, never write them into markdown, never print them. Confirm with `gh secret list` (names only).
+- Nothing is published yet. Version is `0.0.0`. Do not tag `v*` until `npm run package` produces a real `.vsix`.
+- After a Cursor update (once the pack ships): `npm run detect`, then the check-upgrade / translate / sync flow in [AGENTS.md](../../AGENTS.md).
+- Full notes: [docs/publishing.md](../../docs/publishing.md), [docs/roadmap.md](../../docs/roadmap.md).

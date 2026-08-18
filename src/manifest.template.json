@@ -1,0 +1,45 @@
+{
+  "name": "${NAME}",
+  "displayName": "${DISPLAY_NAME}",
+  "description": "${DESCRIPTION}",
+  "version": "${VERSION}",
+  "publisher": "${PUBLISHER}",
+  "license": "${LICENSE}",
+  "icon": "${ICON}",
+  "engines": {
+    "vscode": "${ENGINE_VSCODE}"
+  },
+  "categories": [
+    "Language Packs"
+  ],
+  "keywords": [
+    "cursor",
+    "cursor ide",
+    "中文",
+    "汉化",
+    "漢化",
+    "中文语言包",
+    "语言包",
+    "語言包",
+    "简体中文",
+    "繁體中文",
+    "chinese",
+    "chinese language pack",
+    "language pack",
+    "localization",
+    "本地化",
+    "l10n",
+    "i18n"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "${REPOSITORY}"
+  },
+  "homepage": "${HOMEPAGE}",
+  "bugs": {
+    "url": "${BUGS_URL}"
+  },
+  "contributes": {
+    "localizations": []
+  }
+}
