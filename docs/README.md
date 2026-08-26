@@ -6,13 +6,13 @@ Installing and using the pack: root [README.md](../README.md) (English) /
 | Document | Language | What it covers |
 | --- | --- | --- |
 | [architecture.md](architecture.md) · [zh-CN](architecture.zh-CN.md) | EN · 简体中文 | Why one self-contained extension, localization, build, runtime |
-| [publishing.md](publishing.md) · [zh-CN](publishing.zh-CN.md) | EN · 简体中文 | 发新版本的三种上架方式、`VSCE_PAT`、Cursor 升级后再发、Open VSX 可选 |
+| [publishing.md](publishing.md) · [zh-CN](publishing.zh-CN.md) | EN · 简体中文 | Open VSX 优先（Cursor 搜索）、`OVSX_PAT` / `VSCE_PAT`、Cursor 升级后再发 |
 
 Also outside this folder:
 
 - **Adding a language** — [CONTRIBUTING.md](../CONTRIBUTING.md#adding-a-language)
 - **Extension marketplace page** — `src/marketplace/README.md` (copied into the `.vsix`)
-- **Agent / release notes** — root [AGENTS.md](../AGENTS.md) (VSCE secret name, tag-and-push flow)
+- **Agent / release notes** — root [AGENTS.md](../AGENTS.md) (`OVSX_PAT`, tag-and-push flow)
 
 Contributor workflow: [CONTRIBUTING.md](../CONTRIBUTING.md).
 

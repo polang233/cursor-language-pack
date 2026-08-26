@@ -2,9 +2,9 @@
   "$comment": "Single source of truth for the build. Everything else is generated.",
 
   "publisher": "polang233",
-  "$publisher": "Must match the VS Marketplace publisher id (Cursor's gallery proxies marketplace.visualstudio.com) and the Open VSX namespace if we also publish there.",
+  "$publisher": "Must match the Open VSX namespace (Cursor's in-app search) and the VS Marketplace publisher id if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",
@@ -19,8 +19,8 @@
 
   "pack": {
     "displayName": "Cursor Language Pack — 简体中文 / 繁體中文",
-    "description": "Cursor IDE 中文语言包（汉化）— Simplified & Traditional Chinese for Cursor. Replaces the official VS Code language pack and translates Cursor-authored workbench strings the Microsoft pack cannot see. 替代 VS Code 官方中文语言包，并覆盖 Cursor 写进内核的界面文案。",
-    "$note": "Used by the single-extension `full` mode. Open VSX / Marketplace show ONE displayName + this description, so both carry the Chinese terms users search for."
+    "description": "Cursor IDE 中文语言包（汉化 / 中文翻译）。简体与繁体已发布；替代 VS Code 官方语言包，并覆盖 Cursor 写进内核的界面文案。其他语言可自行贡献。Simplified & Traditional Chinese for Cursor; other locales welcome via PR.",
+    "$note": "One displayName + description on Open VSX / Marketplace. Lead with 汉化 / 中文翻译 so Chinese users can find it; other languages are contribution-only and do not need to dominate search."
   },
 
   "target": {

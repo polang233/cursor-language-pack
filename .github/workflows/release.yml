@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       publish:
-        description: Publish to VS Marketplace after building
+        description: Publish to Open VSX (and VS Marketplace if VSCE_PAT is set)
         type: boolean
         default: false
 
@@ -55,8 +55,20 @@ jobs:
           files: dist/*.vsix
           generate_release_notes: true
 
-      # VS Marketplace is Cursor's gallery (marketplace.cursorapi.com proxies it).
-      # Repo secret VSCE_PAT must be set (gh secret set VSCE_PAT). Skips when missing.
+      # Open VSX is Cursor's in-app gallery. Repo secret OVSX_PAT must be set
+      # (gh secret set OVSX_PAT). Skips when missing so a Release still ships.
+      - name: Publish to Open VSX
+        if: startsWith(github.ref, 'refs/tags/v') || inputs.publish
+        run: |
+          if [ -z "${OVSX_PAT:-}" ]; then
+            echo "OVSX_PAT secret is not set; skipping Open VSX publish."
+            exit 0
+          fi
+          npm run publish:ovsx
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+
+      # VS Marketplace is optional extra listing, not Cursor's search source.
       - name: Publish to VS Marketplace
         if: startsWith(github.ref, 'refs/tags/v') || inputs.publish
         run: |
@@ -67,14 +79,3 @@ jobs:
           npm run publish:vsce
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-
-      - name: Publish to Open VSX (optional)
-        if: startsWith(github.ref, 'refs/tags/v') || inputs.publish
-        run: |
-          if [ -z "${OVSX_PAT:-}" ]; then
-            echo "OVSX_PAT secret is not set; skipping Open VSX publish."
-            exit 0
-          fi
-          npm run publish:ovsx
-        env:
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}

@@ -196,6 +196,9 @@ function renderManifest(vars) {
     return JSON.stringify(String(vars[key])).slice(1, -1);
   });
   const manifest = JSON.parse(rendered);
+  for (const key of Object.keys(manifest)) {
+    if (key.startsWith('$')) delete manifest[key];
+  }
   if (!vars.ICON) delete manifest.icon;
   return manifest;
 }

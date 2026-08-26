@@ -2,8 +2,8 @@
 /**
  * Publishes the packaged .vsix files.
  *
- *   npm run publish:vsce    VS Code Marketplace (Cursor's gallery)
- *   npm run publish:ovsx    Open VSX (optional)
+ *   npm run publish:ovsx    Open VSX (Cursor's in-app search)
+ *   npm run publish:vsce    VS Code Marketplace (optional)
  *
  * Credentials come from the environment, never from files in this repository:
  *   OVSX_PAT   Open VSX personal access token

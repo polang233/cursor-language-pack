@@ -1,152 +1,103 @@
 # Publishing the language pack
 
-Cursor’s gallery is the [Visual Studio Marketplace](https://marketplace.visualstudio.com/),
-not Open VSX. `product.json` → `extensionsGallery.serviceUrl` is
-`https://marketplace.cursorapi.com/_apis/public/gallery`, a proxy of Marketplace.
-**Publish there first.** Open VSX is optional; Cursor users will not find the pack by
-searching Open VSX.
+Cursor’s in-app extension search uses **[Open VSX](https://open-vsx.org/)** (via
+`marketplace.cursorapi.com`). Publish there first, or Cursor users will not find the pack.
+The VS Code Marketplace listing is optional extra exposure — it is **not** what Cursor
+searches.
+
+`config.json` → `publisher` is `polang233`. Same string on Open VSX (namespace) and
+VS Marketplace (publisher).
+
+中文说明：[publishing.zh-CN.md](publishing.zh-CN.md)
 
 | | |
 | --- | --- |
 | Extension id | `polang233.cursor-language-pack` |
-| Publisher | `polang233` (already created: [manage](https://marketplace.visualstudio.com/manage)) |
-| Store page | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
+| Open VSX (required) | https://open-vsx.org/extension/polang233/cursor-language-pack |
+| VS Marketplace (optional) | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
 | GitHub Releases | https://github.com/polang233/cursor-language-pack/releases |
 
-The sibling [kiro-language-pack](https://github.com/polang233/kiro-language-pack) is
-Open VSX-first because Kiro’s gallery *is* Open VSX. Do not copy that order.
+Sibling [kiro-language-pack](https://github.com/polang233/kiro-language-pack) is the same
+order: Open VSX first.
 
-中文说明：[publishing.zh-CN.md](publishing.zh-CN.md).
+## Two registries
 
----
+| | Open VSX (Cursor search) | VS Marketplace (optional) |
+| --- | --- | --- |
+| Token | `OVSX_PAT` | `VSCE_PAT` |
+| Publish | `npm run publish:ovsx` | `npm run publish:vsce` |
+| Create id once | `npx ovsx create-namespace polang233` | publisher `polang233` in the [manage UI](https://marketplace.visualstudio.com/manage) |
 
-## Shipping a new version
+Independent accounts. Reuse `polang233` so the id stays `polang233.cursor-language-pack`.
 
-Bump + verify first, then pick one of the three publish paths below.
-**A version number can be published only once.** Icon, store copy, and translations all
-need a bump.
-
-### Every release
-
-1. Set the **same** `version` string in both:
-   - [`config.json`](../config.json)
-   - [`package.json`](../package.json) (and the lockfile root version if npm rewrote it)
-2. If this ships a **Cursor upgrade reconciliation**, do [After a Cursor update](#after-a-cursor-update) first.
-3. Local check:
-
-```bash
-npm run verify
-```
-
-That is `build` + `validate` + `coverage` against the Cursor install `npm run detect` finds.
-4. Then pick a publish path. Do not tag until `npm run package` produces a real `.vsix`.
-
-What the listing is built from:
+## What the listing is built from
 
 | Shown as | Source |
 | --- | --- |
-| Page body | [`src/marketplace/README.md`](../src/marketplace/README.md), copied into the `.vsix` by `npm run build` |
-| Title and short description | `config.json` → `pack.displayName`, `pack.description` |
-| Icon | [`media/icon.png`](../media/icon.png) (128×128 PNG) |
-| Search keywords | `src/manifest.template.json` → `keywords`, plus the packaged locale ids |
+| Page body | [`src/marketplace/README.md`](../src/marketplace/README.md) (copied into the `.vsix`) |
+| Title / short description | `config.json` → `pack.displayName`, `pack.description` |
+| Search keywords | `src/manifest.template.json` → `keywords`, plus packaged locale ids |
+| Icon | [`media/icon.png`](../media/icon.png) |
 
-### Three ways onto the store
+Lead the title and description with 汉化 / 中文翻译. Other languages are contribution-only;
+do not bury the Chinese search terms.
 
-| | A Web upload | B Local `vsce` | C Tag → CI |
-| --- | --- | --- | --- |
-| Needs `VSCE_PAT` | No | Yes (shell env) | Yes (GitHub Actions secret) |
-| VS Marketplace | Yes | Yes | Yes (when the secret exists) |
-| GitHub Release | Manual extra step | No | Automatic |
-| Use when | PAT not set yet; hot-fix the listing | Token already in the shell, skip CI wait | **Normal releases (preferred)** |
+A version number can be published only once. Icon, store copy, and translations all need a bump.
 
-`0.1.0` used **A**. Once `VSCE_PAT` is a repo secret, use **C**.
+## Every release
 
-#### Path A — upload on the publisher site (no PAT)
+1. Same `version` in [`config.json`](../config.json) and [`package.json`](../package.json) (and the lockfile root if npm rewrote it).
+2. Cursor upgrade reconciliation first, if this ships one: [After a Cursor update](#after-a-cursor-update).
+3. `npm run verify` then `npm run package`. Do not tag until a real `.vsix` exists.
 
-Do **not** click **+ New extension** again; that creates a second listing. Update the
-existing **Cursor Language Pack**.
+### Open VSX (required)
 
-1. `npm run package` → `dist/cursor-language-pack-<version>.vsix`.
-2. Open [publisher management](https://marketplace.visualstudio.com/manage), publisher `polang233`.
-3. Open the existing extension row (not “new extension”).
-4. Upload the new `.vsix` (Update / new version / upload package).
-5. Status becomes **Verifying** for a few minutes; the public page version then updates.
-   Keep Availability **Public**.
+Namespace `polang233` already exists (used by the Kiro pack). You can publish as a
+contributor; verified Owner is separate.
 
-You can also download the `.vsix` from a GitHub Release (path C still attaches it when
-`VSCE_PAT` is missing) and upload that file.
-
-#### Path B — local CLI
-
-Needs [VSCE_PAT](#creating-vsce_pat). Keep the token in the current shell only. Never
-commit it, paste it into markdown, or print it.
+1. Open VSX PAT → `OVSX_PAT` (Access Tokens on [open-vsx.org](https://open-vsx.org/) after GitHub login + Publisher Agreement).
+2. Local:
 
 ```powershell
-npm run package
-$env:VSCE_PAT = "<token>"
-npm run publish:vsce
+$env:OVSX_PAT = "<token>"
+npm run publish:ovsx
 ```
 
-This updates Marketplace only — **no** GitHub Release. Use path C for a Release, or attach
-`dist/*.vsix` on GitHub yourself.
+Dry-run: `npm run publish:ovsx -- --dry-run`.
 
-#### Path C — `v*` tag, GitHub Actions packages and publishes (preferred)
-
-Workflow: [`.github/workflows/release.yml`](../.github/workflows/release.yml).
-
-1. Commit the bump on `main`.
-2. Tag with **exactly** `config.json` → `version`, push **main and the tag**:
+3. CI: `gh secret set OVSX_PAT --repo polang233/cursor-language-pack`, then tag:
 
 ```bash
-git tag v0.2.0
+git tag v0.1.2
 git push origin main
-git push origin v0.2.0
+git push origin v0.1.2
 ```
 
-3. CI runs `npm ci` → sync → `npm run package` → `validate` → checks the tag matches
-   `config.json` → attaches the `.vsix` to the GitHub Release.
-4. **If** the repo secret `VSCE_PAT` is set, it runs `npm run publish:vsce`. If the secret
-   is missing, that step is skipped (the Release still has the vsix); finish with path A.
+[`.github/workflows/release.yml`](../.github/workflows/release.yml) packages, attaches the
+Release, and runs `publish:ovsx` when the secret exists. Confirm the **name** only:
+`gh secret list --repo polang233/cursor-language-pack`.
 
-You can also run the **Release** workflow by hand (`workflow_dispatch`) and tick publish;
-the secret still has to exist.
+### VS Marketplace (optional)
 
-Confirm the secret **name** only:
+Already listed. Same bump, then either:
+
+- `VSCE_PAT` in the shell → `npm run publish:vsce`
+- or upload the `.vsix` on the existing **Cursor Language Pack** row ([manage](https://marketplace.visualstudio.com/manage)) — do not click **+ New extension**
+- or set secret `VSCE_PAT`; the same tag workflow also publishes Marketplace when that secret exists
+
+`VSCE_PAT`: Azure DevOps PAT, org **All accessible organizations**, scope **Marketplace → Manage**.
+
+### Tag → CI (preferred once secrets exist)
 
 ```bash
-gh secret list --repo polang233/cursor-language-pack
+git tag v0.1.2
+git push origin main
+git push origin v0.1.2
 ```
 
----
-
-## Creating VSCE_PAT
-
-Needed for paths B and C. Publisher `polang233` already exists.
-
-1. Open [Azure DevOps PAT](https://dev.azure.com/_usersSettings/tokens) with the same
-   Microsoft account as Marketplace.
-2. **New Token**. Organization: **All accessible organizations** (a single-org token often
-   401s against Marketplace).
-3. Scopes: **Custom** → **Marketplace** → **Manage** (Read is not enough).
-4. Copy it **immediately**; the UI will not show it again.
-5. Either or both:
-   - **GitHub Actions (path C):**
-
-     ```bash
-     gh secret set VSCE_PAT --repo polang233/cursor-language-pack
-     ```
-
-     Paste into stdin when prompted. `gh secret list` should then show the name `VSCE_PAT`.
-   - **Local (path B):** current PowerShell session only: `$env:VSCE_PAT = "<token>"`.
-
-If it leaks, revoke it in Azure DevOps and `gh secret set` again. Never commit a PAT.
-
----
+Missing `OVSX_PAT` / `VSCE_PAT` skips that registry; the GitHub Release still gets the `.vsix`.
 
 ## After a Cursor update
-
-Reconcile NLS **then** ship a **new** version (new number, new tag). Do not re-upload
-the old version.
 
 ```bash
 npm run check-upgrade
@@ -155,29 +106,11 @@ node scripts/convert-zh-tw.mjs
 npm run sync && npm run verify
 ```
 
-Add the Cursor version to `config.json` → `target.verifiedCursorVersions`, update README
-coverage numbers, then ship.
-
-Orphans can stay; the build filters them. Moved keys: rename the **module path**.
-
-More pipeline detail: [architecture.md](architecture.md), [CONTRIBUTING.md](../CONTRIBUTING.md).
-
----
-
-## Open VSX (optional)
-
-Cursor users do not need this. Use it only if you also want
-[open-vsx.org](https://open-vsx.org/).
-
-1. Sign in, create a PAT (`OVSX_PAT`), `npx ovsx create-namespace polang233`.
-2. Local: `$env:OVSX_PAT = "<token>"; npm run publish:ovsx`.
-3. Or set GitHub secret `OVSX_PAT`; path C will publish Open VSX on the same tag.
-
----
+Add the Cursor version to `target.verifiedCursorVersions`, update README coverage, bump
+`version`, ship a **new** version. Do not re-upload the old number.
 
 ## Tell users
 
-- Uninstall `MS-CEINTL.vscode-language-pack-zh-hans` (and zh-hant) first; two packs conflict.
-- After choosing the display language, **restart Cursor** — reload is not enough.
-- Search inside Cursor can lag the manage UI’s Verifying state. The public page is:
-  https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack
+- Uninstall `MS-CEINTL.vscode-language-pack-zh-hans` (and zh-hant) first.
+- After choosing the display language, **restart Cursor**.
+- In Cursor, search **汉化** / **中文语言包** / `polang233.cursor-language-pack`. Indexing can lag Open VSX by a few minutes.

@@ -31,7 +31,7 @@ npm run build && npm run validate && npm run coverage
 
 Do not edit `dist/`, `metadata/`, `upstream/` or `reports/` — generated and gitignored.
 
-Store search also uses `pack.displayName` / `pack.description` in `config.json` and `keywords` in `src/manifest.template.json`.
+Store search also uses `pack.displayName` / `pack.description` in `config.json` and `keywords` in `src/manifest.template.json`. Keep 汉化 / 中文翻译 near the front.
 
 ## Finding gaps
 
@@ -97,7 +97,7 @@ Read **orphaned authored keys first** — often keys *moved* (new module path), 
 
 Then `npm run sync`, `npm run gap`, `npm run coverage`, add the version to `target.verifiedCursorVersions`, bump `version`.
 
-Publishing (web upload / local `vsce` / tag `v*` + GitHub secret `VSCE_PAT`): [docs/publishing.md](docs/publishing.md) · [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md) · [AGENTS.md](AGENTS.md).
+Publishing (Open VSX first for Cursor search; VS Marketplace optional): [docs/publishing.md](docs/publishing.md) · [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md) · [AGENTS.md](AGENTS.md).
 
 ## Reporting issues
 
