@@ -21,8 +21,9 @@ editor workbench *and* Cursor-authored NLS strings the official VS Code pack can
 ## Install / 安装
 
 1. Uninstall any other language pack. 先卸载其他语言包。
-2. Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Extensions: Install from VSIX…**
-   命令面板 → **Extensions: Install from VSIX…**
+2. Install from [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack)
+   (Cursor’s extension search uses this gallery), or Command Palette → **Extensions: Install from VSIX…**
+   从商店安装，或命令面板 → **Extensions: Install from VSIX…**
 3. **Language Pack: Select Display Language** → pick **中文（简体）** or **中文（繁體）** → restart Cursor.
    选择语言 → 重启 Cursor。
 

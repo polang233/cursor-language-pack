@@ -24,9 +24,8 @@ yarn-error.log*
 Thumbs.db
 .idea/
 .vscode/
-.cursor/*
-!.cursor/rules/
-!.cursor/rules/**
+# Local Cursor project state (rules, MCP, debug logs). Agent notes for clones: AGENTS.md
+.cursor/
 *.swp
 
 # Temp probes and local scratch

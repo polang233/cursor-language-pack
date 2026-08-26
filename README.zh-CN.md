@@ -17,8 +17,8 @@
 1. **先卸载其他语言包。** 本扩展替代 VS Code 官方语言包 —
    [原因](docs/architecture.zh-CN.md#单个自包含扩展)。两个包并存时，每次重启翻译结果都不一样。
 2. 安装：
-   - GitHub Release 的 `.vsix` — 命令面板 → **Extensions: Install from VSIX…**
-   - VS Marketplace 尚未上架
+   - [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack)（Cursor 扩展搜索走的就是这家商店）
+   - 或 GitHub Release 的 `.vsix` — 命令面板 → **Extensions: Install from VSIX…**
 3. 命令面板 → **Language Pack: Select Display Language** → 选语言 → 重启。
 
 Windows 上不要双击 `.vsix`，文件类型可能被 Visual Studio 抢走。请用命令面板安装。

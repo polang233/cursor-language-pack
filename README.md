@@ -20,8 +20,8 @@ waiting for someone to fill them in; see [Adding a language](#adding-a-language)
    [why](docs/architecture.md#one-self-contained-extension). Two packs installed together give
    you a UI that is translated differently after each restart.
 2. Install the pack:
-   - from a GitHub Release `.vsix` — Command Palette → **Extensions: Install from VSIX…**
-   - VS Marketplace listing is not published yet
+   - [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack) (this is what Cursor’s extension search uses)
+   - or a GitHub Release `.vsix` — Command Palette → **Extensions: Install from VSIX…**
 3. Command Palette → **Language Pack: Select Display Language** → pick a language → restart.
 
 On Windows, do not double-click the `.vsix`; Visual Studio may claim the file type. Install it

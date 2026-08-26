@@ -97,7 +97,7 @@ Read **orphaned authored keys first** — often keys *moved* (new module path), 
 
 Then `npm run sync`, `npm run gap`, `npm run coverage`, add the version to `target.verifiedCursorVersions`, bump `version`.
 
-Publishing (tag `v*` + GitHub secret `VSCE_PAT`): [docs/publishing.md](docs/publishing.md) · [AGENTS.md](AGENTS.md).
+Publishing (web upload / local `vsce` / tag `v*` + GitHub secret `VSCE_PAT`): [docs/publishing.md](docs/publishing.md) · [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md) · [AGENTS.md](AGENTS.md).
 
 ## Reporting issues
 

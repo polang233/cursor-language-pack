@@ -4,7 +4,7 @@
   "publisher": "polang233",
   "$publisher": "Must match the VS Marketplace publisher id (Cursor's gallery proxies marketplace.visualstudio.com) and the Open VSX namespace if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",

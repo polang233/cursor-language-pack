@@ -6,7 +6,7 @@
 | 文档 | 语言 | 内容 |
 | --- | --- | --- |
 | [architecture.zh-CN.md](architecture.zh-CN.md) · [EN](architecture.md) | 简体中文 · EN | 为什么做成一个自包含扩展、本地化如何解析、构建流水线、运行时 |
-| [publishing.zh-CN.md](publishing.zh-CN.md) · [EN](publishing.md) | 简体中文 · EN | VS Marketplace（Cursor 商店）、可选 Open VSX、GitHub Releases |
+| [publishing.zh-CN.md](publishing.zh-CN.md) · [EN](publishing.md) | 简体中文 · EN | 发新版本的三种上架方式、`VSCE_PAT`、Cursor 升级后再发、Open VSX 可选 |
 
 两个不在本目录、但很容易漏掉的地方：
 

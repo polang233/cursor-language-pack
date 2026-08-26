@@ -1,7 +1,7 @@
 {
   "name": "cursor-language-pack",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Community language pack for Cursor IDE (Simplified & Traditional Chinese) plus build tooling",
   "type": "module",
   "license": "MIT",

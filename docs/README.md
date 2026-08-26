@@ -6,7 +6,7 @@ Installing and using the pack: root [README.md](../README.md) (English) /
 | Document | Language | What it covers |
 | --- | --- | --- |
 | [architecture.md](architecture.md) · [zh-CN](architecture.zh-CN.md) | EN · 简体中文 | Why one self-contained extension, localization, build, runtime |
-| [publishing.md](publishing.md) · [zh-CN](publishing.zh-CN.md) | EN · 简体中文 | VS Marketplace (Cursor gallery), Open VSX optional, GitHub Releases |
+| [publishing.md](publishing.md) · [zh-CN](publishing.zh-CN.md) | EN · 简体中文 | 发新版本的三种上架方式、`VSCE_PAT`、Cursor 升级后再发、Open VSX 可选 |
 
 Also outside this folder:
 

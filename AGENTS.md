@@ -1,7 +1,8 @@
 # Agent notes (cursor-language-pack)
 
 Persistent instructions for coding agents. Human docs: [README.md](README.md),
-[docs/publishing.md](docs/publishing.md), [CONTRIBUTING.md](CONTRIBUTING.md).
+[docs/publishing.md](docs/publishing.md) /
+[docs/publishing.zh-CN.md](docs/publishing.zh-CN.md), [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Sibling product: `../Kiro` →
 [kiro-language-pack](https://github.com/polang233/kiro-language-pack). Prefer
@@ -15,7 +16,8 @@ porting scripts from there over inventing a second pipeline.
 | `OVSX_PAT` | GitHub Actions secret (not set yet) | optional Open VSX publish |
 
 Do **not** commit tokens, put them in markdown, or print them. Confirm only the
-**name**: `gh secret list`.
+**name**: `gh secret list`. Do not commit `.cursor/` (local IDE state); clones
+use [AGENTS.md](AGENTS.md) and [docs/publishing.md](docs/publishing.md).
 
 Cursor's `product.json` → `extensionsGallery.serviceUrl` is
 `https://marketplace.cursorapi.com/_apis/public/gallery`. Users search inside
@@ -30,6 +32,9 @@ npm run publish:vsce
 ```
 
 ## Shipping a release
+
+Three publish paths (web upload / local `vsce` / tag+CI): [docs/publishing.md](docs/publishing.md).
+Preferred once `VSCE_PAT` is a repo secret:
 
 1. Bump **both** `config.json` → `version` and `package.json` / lockfile **root** version (same string).
 2. `npm run verify` against the local Cursor install (`npm run detect`).
@@ -57,6 +62,6 @@ the build will filter them.
 ## Live product
 
 - Extension id: `polang233.cursor-language-pack`
-- Cursor / VS Marketplace: not published yet
+- VS Marketplace (Cursor gallery): https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack
 - Open VSX: optional, not published
 - Store page body: `src/marketplace/README.md` (copied into the `.vsix`)
