@@ -35,7 +35,7 @@ for (const c of localization.translations)
 **没有按 key 合并的机制。** 想翻译 composer / agents 这些 NLS，就必须提供 `vscode` 这个文件，
 而两个扩展不可能同时提供它。把主体基线一起打包进来，正是为了让占用这个 id 不至于让工作台退化。
 
-这样换掉官方包不会有损失：主体译文来自钉在 Code OSS 1.128（对应 Cursor 3.16.17）的那份 MIT
+这样换掉官方包不会有损失：主体译文来自钉在 Code OSS 1.128（对应 Cursor 3.17.21）的那份 MIT
 许可 `vscode-loc` 快照，而且本构建还会丢掉占位符已经和原文对不上的继承译文（见[标记修复](#标记修复)）。
 
 | 版本 | 扩展名 | 内容 | 默认 |

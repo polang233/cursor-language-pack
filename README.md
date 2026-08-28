@@ -38,7 +38,7 @@ No reinstall needed:
 
 | Locale | Status |
 | --- | --- |
-| `zh-cn` 简体中文 | Shipped — workbench 99.8% plus all 1621 Cursor-specific core keys (100%) |
+| `zh-cn` 简体中文 | Shipped — workbench 99.8% plus all 1709 Cursor-specific core keys (100%) |
 | `zh-tw` 繁體中文 | Shipped — same surface, Taiwan terminology |
 | `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | Declared, `enabled: false`, no translations yet |
 
@@ -62,7 +62,7 @@ These strings are not in NLS, so a language pack cannot reach them:
 
 Do not file translation issues for those. UI language does not change the AI reply language.
 
-Reconciled against Cursor **3.16.17** (Code OSS 1.128.0). Other builds usually work; new strings stay English until someone runs `npm run check-upgrade`.
+Reconciled against Cursor **3.17.21** (Code OSS 1.128.0) and **3.16.17**. Other builds usually work; new strings stay English until someone runs `npm run check-upgrade`.
 
 ## Development
 

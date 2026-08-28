@@ -38,7 +38,7 @@ Windows 上不要双击 `.vsix`，可能被 Visual Studio 抢走文件类型。
 
 | 语言 | 状态 |
 | --- | --- |
-| `zh-cn` 简体中文 | 已发布 — 工作台 99.8% + Cursor 自有 NLS 1621 键（100%） |
+| `zh-cn` 简体中文 | 已发布 — 工作台 99.8% + Cursor 自有 NLS 1709 键（100%） |
 | `zh-tw` 繁體中文 | 已发布 — 同一覆盖面，台湾用词 |
 | `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | 已预留，`enabled: false`，尚无译文 |
 
@@ -62,7 +62,7 @@ Windows 上不要双击 `.vsix`，可能被 Visual Studio 抢走文件类型。
 
 界面语言不会改变 AI 回复用的语言。
 
-已对齐 Cursor **3.16.17**（Code OSS 1.128.0）。其他版本一般能用；之后新增的字符串会先显示英文，直到有人跑 `npm run check-upgrade` 并补译文。
+已对齐 Cursor **3.17.21**（Code OSS 1.128.0）与 **3.16.17**。其他版本一般能用；之后新增的字符串会先显示英文，直到有人跑 `npm run check-upgrade` 并补译文。
 
 ## 开发
 

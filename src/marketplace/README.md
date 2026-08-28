@@ -39,12 +39,12 @@ Community language pack for [Cursor](https://cursor.com/). Ships **Simplified Ch
 
 已包含：
 
-- 编辑器主体（底座来自 [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc)，钉在 Code OSS 1.128，对齐 Cursor 3.16.17）
+- 编辑器主体（底座来自 [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc)，钉在 Code OSS 1.128，对齐 Cursor 3.17.21）
 - Cursor 写进内核的 NLS：composer、agents、aiSettings、aiConfig、cursorBlame 等
 
 碰不到（不在 `nls.messages.json` 里）：Cursor Settings、Agent/Chat 浮层、账号和商店浮层。这些请不要提翻译 issue。
 
-已对齐 Cursor **3.16.17**。其他版本一般能用，新增字符串会先显示英文。界面语言和 AI 回复语言无关。
+已对齐 Cursor **3.17.21** 与 **3.16.17**。其他版本一般能用，新增字符串会先显示英文。界面语言和 AI 回复语言无关。
 
 ## 其他语言 / Other languages
 
