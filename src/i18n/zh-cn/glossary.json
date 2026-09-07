@@ -10,6 +10,8 @@
     { "en": "Ask", "zh": "提问", "keepEnglish": false },
     { "en": "Cloud Agent", "zh": "Cloud Agent", "keepEnglish": true },
     { "en": "Bugbot", "zh": "Bugbot", "keepEnglish": true },
+    { "en": "Instant Grep", "zh": "Instant Grep", "keepEnglish": true, "note": "产品功能名，不译" },
+    { "en": "Agent Store", "zh": "Agent Store", "keepEnglish": true, "note": "产品名，不译" },
     { "en": "Rules", "zh": "规则", "keepEnglish": false },
     { "en": "Memories", "zh": "记忆", "keepEnglish": false },
     { "en": "MCP", "zh": "MCP", "keepEnglish": true },
@@ -25,6 +27,6 @@
     "placeholders": "{0}、{1} 等占位符必须原样保留",
     "codicons": "$(icon-name) 图标标记必须原样保留",
     "commandLinks": "Markdown 命令链接 [文本](command:xxx) 中的 command: 部分不得翻译",
-    "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot 作产品名时不译"
+    "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot、Instant Grep、Agent Store 作产品名时不译"
   }
 }

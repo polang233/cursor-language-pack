@@ -1,0 +1,64 @@
+// Cursor 3.19.13: explorer / SCM / output / outline / terminal / timeline / dock-menu
+// NLS modules moved to new paths. Same English source as 3.17.21 — translations copied
+// from the old module ids (this repo, then vscode-loc). Do not retranslate. Old ids stay as orphans.
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/platform/tray/electron-main/dockMenuMain": {
+      "miNewWindow": "新建窗口(&&W)"
+    },
+    "vs/workbench/contrib/files/browser/files.glass.contribution": {
+      "explore": "资源管理器"
+    },
+    "vs/workbench/contrib/files/browser/files.view.contribution": {
+      "explorerViewIcon": "查看资源管理器视图的图标。",
+      "openEditorsIcon": "查看打开编辑器视图的图标。",
+      "miViewExplorer": "资源管理器(&&E)",
+      "openFolder": "打开文件夹",
+      "addAFolder": "添加文件夹",
+      "openRecent": "打开最近的文件",
+      "noWorkspaceHelp": "尚未将文件夹添加到工作区。\n{0}",
+      "noFolderHelpWeb": "尚未打开文件夹。\n{0}\n{1}",
+      "remoteNoFolderHelp": "已连接到远程。\n{0}",
+      "noFolderButEditorsHelp": "尚未打开文件夹。\n{0}\n打开文件夹将关闭所有当前打开的编辑器。要使其保持打开状态，请改为 {1}。",
+      "noFolderHelp": "尚未打开文件夹。\n{0}",
+      "folders": "文件夹",
+      "explore": "资源管理器"
+    },
+    "vs/workbench/contrib/outline/browser/outline.view.contribution": {
+      "outlineViewIcon": "查看大纲视图的图标。",
+      "name": "大纲"
+    },
+    "vs/workbench/contrib/output/browser/output.view.contribution": {
+      "outputViewIcon": "查看输出视图的图标。",
+      "miToggleOutput": "输出(&&O)",
+      "output": "输出"
+    },
+    "vs/workbench/contrib/scm/browser/scm.view.contribution": {
+      "sourceControlViewIcon": "查看“源代码管理”视图的图标。",
+      "source control view": "源代码管理",
+      "no open repo": "当前没有源代码管理提供程序进行注册。",
+      "no open repo in an untrusted workspace": "所有已注册的源代码管理提供程序都无法在“受限模式”下工作。",
+      "manageWorkspaceTrustAction": "管理工作区信任",
+      "no history items": "所选源代码管理提供程序没有任何源代码管理历史记录项。",
+      "source control repositories": "源代码管理存储库",
+      "miViewSCM": "源代码管理(&&C)",
+      "source control graph": "源代码管理图",
+      "source control": "源代码管理",
+      "scmRepositories": "存储库",
+      "scmChanges": "更改",
+      "scmGraph": "图表",
+      "editorBugbot": "Agent 审查"
+    },
+    "vs/workbench/contrib/terminal/browser/terminal.glass.contribution": {
+      "terminal": "终端"
+    },
+    "vs/workbench/contrib/terminal/browser/terminal.view.contribution": {
+      "miToggleIntegratedTerminal": "终端(&&T)",
+      "terminal": "终端"
+    },
+    "vs/workbench/contrib/timeline/browser/timeline.view.contribution": {
+      "timelineViewIcon": "查看时间线视图的图标。"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// Cursor 3.19.13: explorer / SCM / output / outline / terminal / timeline / dock-menu
+// NLS modules moved to new paths. Same English source as 3.17.21 — translations copied
+// from the old module ids (this repo, then vscode-loc). Do not retranslate. Old ids stay as orphans.
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/platform/tray/electron-main/dockMenuMain": {
+      "miNewWindow": "新建視窗(&&W)"
+    },
+    "vs/workbench/contrib/files/browser/files.glass.contribution": {
+      "explore": "資源管理器"
+    },
+    "vs/workbench/contrib/files/browser/files.view.contribution": {
+      "explorerViewIcon": "檢視資源管理器檢視的圖示。",
+      "openEditorsIcon": "檢視開啟編輯器檢視的圖示。",
+      "miViewExplorer": "資源管理器(&&E)",
+      "openFolder": "開啟資料夾",
+      "addAFolder": "新增資料夾",
+      "openRecent": "開啟最近的檔案",
+      "noWorkspaceHelp": "尚未將資料夾新增到工作區。\n{0}",
+      "noFolderHelpWeb": "尚未開啟資料夾。\n{0}\n{1}",
+      "remoteNoFolderHelp": "已連線到遠端。\n{0}",
+      "noFolderButEditorsHelp": "尚未開啟資料夾。\n{0}\n開啟資料夾將關閉所有當前開啟的編輯器。要使其保持開啟狀態，請改為 {1}。",
+      "noFolderHelp": "尚未開啟資料夾。\n{0}",
+      "folders": "資料夾",
+      "explore": "資源管理器"
+    },
+    "vs/workbench/contrib/outline/browser/outline.view.contribution": {
+      "outlineViewIcon": "檢視大綱檢視的圖示。",
+      "name": "大綱"
+    },
+    "vs/workbench/contrib/output/browser/output.view.contribution": {
+      "outputViewIcon": "檢視輸出檢視的圖示。",
+      "miToggleOutput": "輸出(&&O)",
+      "output": "輸出"
+    },
+    "vs/workbench/contrib/scm/browser/scm.view.contribution": {
+      "sourceControlViewIcon": "檢視“原始碼管理”檢視的圖示。",
+      "source control view": "原始碼管理",
+      "no open repo": "當前沒有原始碼管理提供程式進行註冊。",
+      "no open repo in an untrusted workspace": "所有已註冊的原始碼管理提供程式都無法在“受限模式”下工作。",
+      "manageWorkspaceTrustAction": "管理工作區信任",
+      "no history items": "所選原始碼管理提供程式沒有任何原始碼管理歷史記錄項。",
+      "source control repositories": "原始碼管理儲存庫",
+      "miViewSCM": "原始碼管理(&&C)",
+      "source control graph": "原始碼管理圖",
+      "source control": "原始碼管理",
+      "scmRepositories": "儲存庫",
+      "scmChanges": "更改",
+      "scmGraph": "圖表",
+      "editorBugbot": "Agent 審查"
+    },
+    "vs/workbench/contrib/terminal/browser/terminal.glass.contribution": {
+      "terminal": "終端"
+    },
+    "vs/workbench/contrib/terminal/browser/terminal.view.contribution": {
+      "miToggleIntegratedTerminal": "終端(&&T)",
+      "terminal": "終端"
+    },
+    "vs/workbench/contrib/timeline/browser/timeline.view.contribution": {
+      "timelineViewIcon": "檢視時間線檢視的圖示。"
+    }
+  }
+}

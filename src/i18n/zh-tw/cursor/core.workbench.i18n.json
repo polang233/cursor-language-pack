@@ -1012,7 +1012,14 @@
       "focusCustomizeSearch": "聚焦自定義搜尋",
       "openSkillPublishLogs": "開啟技能釋出日誌",
       "clearPrimitiveAuthorshipCache": "清除基元作者快取",
-      "clearPrimitiveSourceCache": "清除基元源快取"
+      "clearPrimitiveSourceCache": "清除基元源快取",
+      "forceSkillMigrationBanner": "強制顯示技能遷移橫幅",
+      "clearForcedSkillMigrationBanner": "清除強制技能遷移橫幅"
+    },
+    "vs/workbench/contrib/customizeEditor/browser/skillMigrationDevCommands": {
+      "forceSkillMigrationBanner.noStore": "已強制顯示技能遷移橫幅，但尚未掛載 Agent Store，因此仍會保持隱藏。請登入後重試。",
+      "forceSkillMigrationBanner.done": "已強制顯示技能遷移橫幅。請重新載入視窗以檢視。",
+      "clearForcedSkillMigrationBanner.done": "已清除技能遷移橫幅的強制覆蓋。"
     },
     "vs/workbench/contrib/performance/electron-sandbox/startupProfiler": {
       "prof.message": "已成功建立配置檔案。",
@@ -1048,7 +1055,11 @@
       "workspaceReconnectStillDisconnected": "Cursor 無法重新連線此工作區。請重新載入視窗後重試。",
       "workspaceRepairFailed": "Cursor 無法修復此工作區連線。請重新載入視窗後重試。",
       "workspaceReconnectReloadTitle": "無法重新連線工作區",
-      "reloadWindow": "重新載入視窗(&&R)"
+      "reloadWindow": "重新載入視窗(&&R)",
+      "workspaceConnection.reconnectFailed": "重新連線失敗。工作區仍處於斷開狀態。",
+      "workspaceConnection.reconnectGaveUp": "無法重新連線到遠端工作區。",
+      "workspaceConnection.tryAgain": "重試",
+      "workspaceConnection.reconnectNow": "重新連線"
     },
     "vs/platform/files/browser/indexedDBFileSystemProvider": {
       "fileNotExists": "檔案不存在",
@@ -1846,6 +1857,13 @@
     },
     "vs/workbench/contrib/tracing/browser/internalBugReportAction": {
       "sessionRecording.flagAndAddContext": "報告 Bug"
+    },
+    "vs/workbench/contrib/tracing/browser/internalBugReportService": {
+      "internalBugReportFailed": "無法提交 Bug 報告。請重試。",
+      "internalBugReportSubmitted": "Bug 報告已提交。感謝幫助我們改進 Cursor！"
+    },
+    "vs/workbench/contrib/remote/browser/remote": {
+      "reconnectionGaveUp": "無法重新連線到遠端工作區。"
     },
     "vs/workbench/contrib/url/browser/trustedDomainsValidator": {
       "alwaysTrustDomain": "始終開啟此域(&&A)"

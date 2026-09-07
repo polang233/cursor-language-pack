@@ -108,7 +108,9 @@
       "cursor.composer.conversationDensity.detailed": "详细",
       "cursor.composer.editorConversationDensity.toolSummary": "紧凑",
       "cursor.composer.editorConversationDensity.compactRows": "均衡",
-      "cursor.composer.editorConversationDensity.detailed": "详细"
+      "cursor.composer.editorConversationDensity.detailed": "详细",
+      "instantGrep.indexRepositories.title": "为 Instant Grep 索引仓库",
+      "instantGrep.indexRepositories.policyDescription": "控制 Cursor 是否在本地为 Instant Grep 建立仓库索引。禁用此策略可阻止在受管设备上进行仓库索引。"
     },
     "vs/workbench/contrib/aiSettings/browser/components/settings/settingsRulesTab": {
       "noWorkspace": "请先打开一个工作区文件夹。",
