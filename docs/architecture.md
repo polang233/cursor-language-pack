@@ -40,7 +40,7 @@ what makes owning that id safe.
 
 Nothing is lost by the swap: the workbench strings come from the same MIT-licensed
 `vscode-loc` snapshot the official pack is built from (pinned to Code OSS 1.128, matching
-Cursor 3.17.21–3.19.13), and this build additionally drops inherited strings whose placeholders no
+Cursor 3.17.21–3.21.13), and this build additionally drops inherited strings whose placeholders no
 longer match the source (see [Marker repair](#marker-repair)).
 
 | Edition | Extension name | Contents | Default |

@@ -8,6 +8,7 @@
     { "en": "Tab", "zh": "Tab", "keepEnglish": true, "note": "Cursor Tab 補全，保留" },
     { "en": "Plan", "zh": "計劃", "keepEnglish": false },
     { "en": "Ask", "zh": "提問", "keepEnglish": false },
+    { "en": "Steer", "zh": "Steer", "keepEnglish": true, "note": "Composer 發訊息模式名，不譯" },
     { "en": "Cloud Agent", "zh": "Cloud Agent", "keepEnglish": true },
     { "en": "Bugbot", "zh": "Bugbot", "keepEnglish": true },
     { "en": "Instant Grep", "zh": "Instant Grep", "keepEnglish": true, "note": "產品功能名，不譯" },
@@ -27,6 +28,6 @@
     "placeholders": "{0}、{1} 等佔位符必須原樣保留",
     "codicons": "$(icon-name) 圖示標記必須原樣保留",
     "commandLinks": "Markdown 命令連結 [文本](command:xxx) 中的 command: 部分不得翻譯",
-    "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot、Instant Grep、Agent Store 作產品名時不譯"
+    "productNames": "Cursor、Agent、Composer、Tab、MCP、Bugbot、Instant Grep、Agent Store、Steer 作產品名時不譯"
   }
 }

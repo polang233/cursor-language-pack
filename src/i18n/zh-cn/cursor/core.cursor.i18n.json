@@ -264,6 +264,11 @@
       "cursor ai": "Cursor AI",
       "composerEditor": "Cursor AI"
     },
+    "vs/workbench/contrib/composer/browser/utils/firstSteerNotice": {
+      "firstSteerNoticeTitle": "你的消息已引导 Agent，且未停止其运行",
+      "firstSteerNoticeDescription": "新消息已设为 Steer",
+      "firstSteerNoticeOpenSettings": "打开设置"
+    },
     "vs/workbench/contrib/composer/browser/composerMessageStorageService": {
       "checkpointHydrationErrorTitle": "加载对话失败",
       "checkpointHydrationErrorDetail": "对话检查点数据可能已损坏。你可以开始新对话，或尝试重新加载窗口。"

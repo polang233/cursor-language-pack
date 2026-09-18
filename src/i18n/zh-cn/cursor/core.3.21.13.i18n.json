@@ -1,0 +1,78 @@
+// Cursor 3.21.13: workspace / preferences / quick-access NLS modules moved to new
+// paths. Same English source as 3.19.13 — translations copied from the old module
+// ids (this repo, then vscode-loc). Do not retranslate. Old ids stay as orphans.
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/workbench/common/contextkeys": {
+      "isGlass": "工作台是否处于 Glass 模式"
+    },
+    "vs/workbench/contrib/debug/common/debug": {
+      "openLaunchJson": "打开“{0}”"
+    },
+    "vs/workbench/contrib/preferences/browser/preferences.view.contribution": {
+      "clear": "清除搜索结果",
+      "clearHistory": "清除键盘快捷方式搜索历史记录",
+      "keybindingsEditor": "键绑定编辑器",
+      "showDefaultKeybindings": "显示系统键绑定",
+      "showExtensionKeybindings": "显示扩展键绑定",
+      "showUserKeybindings": "显示用户按键绑定"
+    },
+    "vs/workbench/contrib/quickaccess/browser/quickAccess.view.contribution": {
+      "miOpenView": "打开视图(&&O)…",
+      "viewQuickAccess": "打开视图",
+      "viewQuickAccessPlaceholder": "键入要打开的视图、输出通道或终端的名称。"
+    },
+    "vs/workbench/contrib/workspace/browser/workspace.view.contribution": {
+      "addWorkspaceFolderDetail": "你正在将文件添加到受信任的工作区，该工作区当前不受信任。是否信任这些新文件的作者?",
+      "addWorkspaceFolderMessage": "是否信任此文件夹中的文件的作者?",
+      "cancelWorkspaceTrustButton": "取消",
+      "checkboxString": "信任上级文件夹“{0}”中所有文件的作者",
+      "dontTrustFolderOptionDescription": "在受限模式下打开文件夹",
+      "dontTrustOption": "否，我不信任此作者(&&N)",
+      "dontTrustWorkspaceOptionDescription": "在受限模式下打开工作区",
+      "folderStartupTrustDetails": "{0} 提供可以自动在此文件夹中执行文件的功能。",
+      "folderTrust": "是否信任此文件夹中的文件的作者?",
+      "grantFolderTrustButton": "信任文件夹并继续(&&T)",
+      "grantWorkspaceTrustButton": "信任工作区并继续(&&T)",
+      "immediateTrustRequestLearnMore": "如果不信任这些文件的作者，则建议不要继续，因为这些文件可能是恶意文件。请参阅[我们的文档](https://aka.ms/vscode-workspace-trust)，了解详细信息。",
+      "immediateTrustRequestMessage": "如果不信任当前打开的文件或文件夹的源，则尝试使用的功能可能会带来安全风险。",
+      "manageWorkspaceTrustButton": "管理(&&M)",
+      "newWindow": "在受限模式中打开(&&R)",
+      "no": "否",
+      "open": "打开(&&O)",
+      "openLooseFileLearnMore": "如果不想打开不受信任的文件，则建议在新窗口中通过受限模式打开它们，因为这些文件可能是恶意文件。请参阅[我们的文档](https://aka.ms/vscode-workspace-trust)，了解详细信息。",
+      "openLooseFileWindowDetails": "你尝试在受信任的窗口中打开不受信任的文件。",
+      "openLooseFileWindowMesssage": "是否要在此窗口中允许不受信任的文件?",
+      "openLooseFileWorkspaceCheckbox": "记住我对所有工作区的决定",
+      "openLooseFileWorkspaceDetails": "你尝试在受信任的工作区中打开不受信任的文件。",
+      "openLooseFileWorkspaceMesssage": "是否要允许此工作区中不受信任的文件?",
+      "restrictedModeBannerAriaLabelFolder": "受限模式旨在实现安全地浏览代码。信任此文件夹以启用所有功能。使用导航键访问横幅操作。",
+      "restrictedModeBannerAriaLabelWindow": "受限模式旨在实现安全地浏览代码。信任此窗口以启用所有功能。使用导航键访问横幅操作。",
+      "restrictedModeBannerAriaLabelWorkspace": "受限模式旨在实现安全地浏览代码。信任此工作区以启用所有功能。使用导航键访问横幅操作。",
+      "restrictedModeBannerLearnMore": "了解详细信息",
+      "restrictedModeBannerManage": "管理",
+      "restrictedModeBannerMessageFolder": "受限模式旨在实现安全地浏览代码。信任此文件夹以启用所有功能。",
+      "restrictedModeBannerMessageWindow": "受限模式旨在实现安全地浏览代码。信任此窗口以启用所有功能。",
+      "restrictedModeBannerMessageWorkspace": "受限模式旨在实现安全地浏览代码。信任此工作区以启用所有功能。",
+      "startupTrustRequestLearnMore": "如果不信任这些文件的作者，则建议继续使用受限模式，因为这些文件可能是恶意文件。请参阅[我们的文档](https://aka.ms/vscode-workspace-trust)，了解详细信息。",
+      "status.ariaUntrustedFolder": "受限模式: 某些功能已禁用，因为此文件夹不受信任。",
+      "status.ariaUntrustedWindow": "受限模式: 某些功能已禁用，因为此窗口不受信任。",
+      "status.ariaUntrustedWorkspace": "受限模式: 某些功能已禁用，因为此工作区不受信任。",
+      "status.tooltipUntrustedFolder2": "在受限模式下运行\n\n某些[功能被禁用]({0})，因为此[文件夹不受信任]({1})。",
+      "status.tooltipUntrustedWindow2": "在受限模式下运行\n\n某些[功能被禁用]({0})，因为此[窗口不受信任]({1})。",
+      "status.tooltipUntrustedWorkspace2": "在受限模式下运行\n\n某些[功能被禁用]({0})，因为此[工作区不受信任]({1})。",
+      "status.workspaceName": "工作区名称",
+      "status.workspaceNameAria": "工作区：{0}",
+      "status.workspaceNameTooltip": "当前工作区：{0}",
+      "status.WorkspaceTrust": "工作区信任",
+      "trustFolderOptionDescription": "信任文件夹并启用所有功能",
+      "trustOption": "是，我信任此作者(&&Y)",
+      "trustWorkspaceOptionDescription": "信任工作区并启用所有功能",
+      "untrusted": "受限模式",
+      "workspaceStartupTrustDetails": "{0} 提供可以自动在此工作区中执行文件的功能。",
+      "workspaceTrust": "是否信任此工作区中的文件的作者?",
+      "workspaceTrustEditor": "工作区信任编辑器"
+    }
+  }
+}

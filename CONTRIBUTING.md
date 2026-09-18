@@ -54,7 +54,7 @@ npm run gap -- --skeleton=.tmp-todo.json   # stub only — do not commit English
 - Keep key glyphs (`⌘Enter`) and significant whitespace / `\n`.
 - No empty values. Follow `glossary.json`; change the glossary in the same PR if you rename a term.
 - Prefer terms that match the official VS Code Chinese pack when the concept exists in both.
-- Keep product names in English: Cursor, Agent, Composer, Tab, MCP, Bugbot, Instant Grep.
+- Keep product names in English: Cursor, Agent, Composer, Tab, MCP, Bugbot, Instant Grep, Steer.
 
 After filling `zh-cn`, regenerate Traditional Chinese with:
 
