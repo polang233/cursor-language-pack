@@ -53,11 +53,11 @@ The product name Cursor and the protocol name MCP stay in English.
 
 | Locale | Status |
 | --- | --- |
-| `zh-cn` 简体中文 | Shipped. Menus and the editor are covered; Settings still has English |
-| `zh-tw` 繁體中文 | Shipped. Same coverage as Simplified Chinese |
+| `zh-cn` 简体中文 | Shipped. Workbench 12725/12747 (99.8%), 1741 own strings (100%), plus 578 compiled strings |
+| `zh-tw` 繁體中文 | Shipped. Same numbers as Simplified Chinese |
 | `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | Reserved, no translations yet |
 
-One extension holds every enabled locale. Missing strings stay English.
+One extension holds every enabled locale. The compiled strings change only after the command above. Anything not translated stays English.
 
 The current translation matches Cursor **3.21.13**. Older versions generally work. On newer versions, newly added text stays English until we translate it.
 
