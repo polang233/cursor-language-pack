@@ -5,46 +5,21 @@
 
 ![Cursor Language Pack](../../media/icon.png)
 
-**Cursor IDE 中文语言包（汉化 / 中文翻译）。** 翻译编辑器主体，以及 Cursor 写进内核的界面文案。当前发布简体中文和繁体中文。
+**Cursor 中文语言包（汉化 / 中文翻译）。** 简体、繁体已发布。
 
-Community language pack for [Cursor](https://cursor.com/). Ships **Simplified Chinese** and **Traditional Chinese**. Other languages can be added by contributors.
+## 只汉化 VS Code 部分
 
-> 安装前请先卸载其他语言包。本扩展**替代** VS Code 官方中文语言包，两个包不要并存，否则每次重启翻译都会乱。
->
-> Uninstall any other language pack first. This pack **replaces** the official VS Code one.
+装扩展即可。菜单、文件、编辑器、终端会变成中文。设置页、智能体窗口、账号页里写死的英文不会变。
 
-## 安装 / Install
+1. 先卸载其他语言包。本扩展替代 VS Code 官方中文语言包，不要两个一起装。
+2. 扩展里搜索 **汉化** 或 **中文语言包**，安装。
+3. 命令面板 → **Language Pack: Select Display Language** → 选 **中文（简体）** 或 **中文（繁體）** → **完全退出 Cursor 再打开**。
 
-1. 卸载其他语言包。Uninstall other language packs.
-2. 在 Cursor 扩展视图搜索 **汉化**、**中文语言包**、**中文翻译** 或 **Cursor Language Pack** → 安装。
-   In Cursor: Extensions → search those terms → Install.
-   商店页: [open-vsx.org/extension/polang233/cursor-language-pack](https://open-vsx.org/extension/polang233/cursor-language-pack)
-3. 命令面板 → **Language Pack: Select Display Language** → 选 **中文（简体）** 或 **中文（繁體）** → **重启** Cursor。
+换语言不用重装，改 `cursorLanguagePack.language`（`auto` / `zh-cn` / `zh-tw` / `en`）后同样要重启。选 `en` 回到英文。
 
-显示语言是启动参数，必须重启，重载窗口无效。 Restart Cursor; reload is not enough.
+## 全局翻译
 
-也可以从 [GitHub Release](https://github.com/polang233/cursor-language-pack/releases) 下 `.vsix`，命令面板 → **Extensions: Install from VSIX…**。
-
-## 切换语言 / Switching language
-
-不用重装：
-
-- 命令面板 **Language Pack: Select Display Language**
-- 设置 `cursorLanguagePack.language`：`auto` / `zh-cn` / `zh-tw` / `en`
-- Cursor 自带的 **Configure Display Language**
-
-选 `en` 就回到英文，扩展还在。
-
-## 翻译范围 / What is translated
-
-已包含：
-
-- 编辑器主体（底座来自 [microsoft/vscode-loc](https://github.com/microsoft/vscode-loc)，钉在 Code OSS 1.128，对齐 Cursor 3.21.13）
-- Cursor 写进内核的 NLS：composer、agents、aiSettings、aiConfig、cursorBlame 等
-
-碰不到（不在 `nls.messages.json` 里）：Cursor Settings、Agent/Chat 浮层、账号和商店浮层。这些请不要提翻译 issue。
-
-已对齐 Cursor **3.21.13**、**3.19.13**、**3.17.21** 与 **3.16.17**。其他版本一般能用，新增字符串会先显示英文。界面语言和 AI 回复语言无关。
+设置页、智能体窗口、账号页的英文在程序文件里，扩展改不到。完全退出 Cursor，下载 [仓库](https://github.com/polang233/cursor-language-pack) 后执行 `npm install` 和 `npm run translate`，再打开。Cursor 更新后要再执行一次。
 
 ## 其他语言 / Other languages
 

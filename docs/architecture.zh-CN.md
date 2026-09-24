@@ -93,7 +93,13 @@ src/i18n/<locale>/{overrides,cursor} ──────────────�
 
 ## 语言包做不到的
 
-Cursor Settings、Agent/Chat 浮层以及类似的 React 界面不在 `nls.messages.json` 里，语言包碰不到。安装目录补丁在扩展成为用户装的产品之前不做。
+Cursor 设置页、Agent 窗口和账号页有一批英文直接写在这些文件里，不在 `nls.messages.json` 中：
+
+- `out/vs/workbench/workbench.desktop.main.js`
+- `out/vs/workbench/workbench.glass.main.js`
+- `out/vs/workbench/workbench.anysphere-ui-automations.js`
+
+`npm run translate` 按 `src/i18n/<locale>/hardcoded.json` 改写它们：整段对上界面字段（`label`、`description`、`title`、`children` 等）、设置侧栏名称，或少数整句标题时才替换，然后更新 `product.json` 里对应的安装校验。原文备份在用户数据目录的 `cursor-language-pack/backup/`。这些译文不进 `.vsix`。Cursor 更新会盖掉改写。
 
 ## 运行时
 
@@ -114,6 +120,7 @@ src/
     extension.l10n.json           运行时自己的提示
     cursor/core.*.i18n.json       Cursor 编进内核的字符串
     overrides/main.i18n.json      对 vscode-loc 基线的修正
+    hardcoded.json                安装目录里写死的界面文案，不进 vsix
 scripts/                          构建流水线
 metadata/  upstream/  dist/  reports/   生成物，已 gitignore
 ```

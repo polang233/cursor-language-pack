@@ -120,9 +120,13 @@ maintains are reported as errors.
 
 ## What a pack cannot do
 
-Cursor Settings, the Agent/Chat overlay, and similar React chrome are not in
-`nls.messages.json`. A language pack cannot reach them. An optional install-directory patch
-is out of scope until the extension is the product people install.
+Cursor Settings, the Agent window and the account page keep English literals in:
+
+- `out/vs/workbench/workbench.desktop.main.js`
+- `out/vs/workbench/workbench.glass.main.js`
+- `out/vs/workbench/workbench.anysphere-ui-automations.js`
+
+`npm run translate` rewrites those from `src/i18n/<locale>/hardcoded.json` when the English text is the whole value of a UI field (`label`, `description`, `title`, `children`, and the others named in the script), a Settings sidebar name, or one of a few whole-string labels. It then updates the matching checksum in `product.json`. Originals are copied under `cursor-language-pack/backup/` in the user data folder. None of this goes into the `.vsix`. A Cursor update overwrites it.
 
 ## Runtime
 
@@ -159,6 +163,7 @@ src/
     cursor/core.*.i18n.json       Cursor strings compiled into the Code OSS core
     cursor/<extId>.i18n.json      built-in extension manifest strings (rare)
     overrides/main.i18n.json      corrections to the upstream workbench baseline
+    hardcoded.json                UI literals rewritten in the install; not in the vsix
 scripts/                          the build pipeline
 metadata/                         generated, gitignored
 upstream/                         translation cache, gitignored

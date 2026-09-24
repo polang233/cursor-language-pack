@@ -4,9 +4,9 @@ Persistent instructions for coding agents. Human docs: [README.md](README.md),
 [docs/publishing.md](docs/publishing.md) /
 [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md), [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Sibling: `../Kiro` →
-[kiro-language-pack](https://github.com/polang233/kiro-language-pack). Prefer
-porting scripts from there over inventing a second pipeline.
+Hardcoded UI (Settings, Agent window, account) is `scripts/translate-install.mjs`
+(`npm run translate`) plus `src/i18n/<locale>/hardcoded.json`. Leave that
+script as its own implementation.
 
 ## Secrets — never write these to the repo
 

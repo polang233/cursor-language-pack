@@ -27,6 +27,7 @@ npm run build && npm run validate && npm run coverage
 | Terminology | `src/i18n/<locale>/glossary.json` |
 | Store page | `src/marketplace/README.md` |
 | Runtime notifications | `src/i18n/<locale>/extension.l10n.json` |
+| Hardcoded Cursor UI | `src/i18n/<locale>/hardcoded.json` |
 | Enable locale / bump version | `config.json` |
 
 Do not edit `dist/`, `metadata/`, `upstream/` or `reports/` — generated and gitignored.
@@ -54,7 +55,9 @@ npm run gap -- --skeleton=.tmp-todo.json   # stub only — do not commit English
 - Keep key glyphs (`⌘Enter`) and significant whitespace / `\n`.
 - No empty values. Follow `glossary.json`; change the glossary in the same PR if you rename a term.
 - Prefer terms that match the official VS Code Chinese pack when the concept exists in both.
-- Keep product names in English: Cursor, Agent, Composer, Tab, MCP, Bugbot, Instant Grep, Steer.
+- Keep Cursor and the protocol name MCP in English. Translate feature labels: Agent 智能体, Tab 代码补全, Cloud Agent 云端智能体, Composer 编写, Steer 引导, Bugbot 缺陷检查. Editor tabs stay 标签页, not 代码补全.
+
+`hardcoded.json` is not part of the `.vsix`. English keys must match the installed Cursor byte for byte. `npm run translate` only rewrites UI fields (`label`, `description`, `title`, `children`, and the others listed in `scripts/translate-install.mjs`). Check a local install with `npm run translate -- --preview` before changing entries.
 
 After filling `zh-cn`, regenerate Traditional Chinese with:
 
@@ -81,8 +84,9 @@ Locales from vscode-loc are already in `config.json` with `enabled: false`.
 2. Write `src/i18n/<locale>/glossary.json` first.
 3. `npm run sync -- --locale=<locale>` then `npm run gap -- --locale=<locale> --skeleton=.tmp-todo.json`.
 4. Fill `src/i18n/<locale>/cursor/…` (use zh-cn files as reference).
-5. `npm run build && npm run validate && npm run coverage`, then open the PR.
-6. Mention the language in `src/marketplace/README.md` and, if useful, in `pack.displayName` / `pack.description`.
+5. Add `src/i18n/<locale>/hardcoded.json` for strings compiled into Cursor (copy `src/i18n/zh-cn/hardcoded.json` and translate the values). `npm run translate -- --locale=<locale>` reads that file. English keys must match the UI exactly.
+6. `npm run build && npm run validate && npm run coverage`, then open the PR.
+7. Mention the language in `src/marketplace/README.md` and, if useful, in `pack.displayName` / `pack.description`.
 
 Partial translations are fine — missing keys fall back to English.
 
@@ -97,7 +101,7 @@ Read **orphaned authored keys first** — often keys *moved* (new module path), 
 
 Then `npm run sync`, `npm run gap`, `npm run coverage`, add the version to `target.verifiedCursorVersions`, bump `version`.
 
-Publishing (Open VSX first for Cursor search; VS Marketplace optional): [docs/publishing.md](docs/publishing.md) · [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md) · [AGENTS.md](AGENTS.md).
+Publishing: [docs/publishing.md](docs/publishing.md) · [docs/publishing.zh-CN.md](docs/publishing.zh-CN.md) · [AGENTS.md](AGENTS.md).
 
 ## Reporting issues
 
