@@ -5,7 +5,7 @@
 
 ![Cursor Language Pack](../../media/icon.png)
 
-**Cursor 中文语言包（汉化 / 中文翻译）。** 简体、繁体已发布。
+**Cursor 的多语言工具包（汉化 / 中文翻译）。** 目前支持简体中文和繁体中文。
 
 ## 只汉化 VS Code 部分
 

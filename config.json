@@ -4,7 +4,7 @@
   "publisher": "polang233",
   "$publisher": "Must match the Open VSX namespace (Cursor's in-app search) and the VS Marketplace publisher id if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",

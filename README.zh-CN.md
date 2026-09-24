@@ -1,15 +1,19 @@
 # Cursor Language Pack
 
-Cursor 的中文语言包。简体、繁体已发布。
+Cursor 的多语言工具包，目前支持简体中文和繁体中文。
 
 [English](README.md) · **简体中文**
+
+<img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack 图标" />
 
 [![Open VSX](https://img.shields.io/open-vsx/v/polang233/cursor-language-pack?label=Open%20VSX)](https://open-vsx.org/extension/polang233/cursor-language-pack)
 [![下载量](https://img.shields.io/open-vsx/dt/polang233/cursor-language-pack)](https://open-vsx.org/extension/polang233/cursor-language-pack)
 
-<img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack 图标" />
+<img src="media/settings-zh.png" alt="简体中文设置页" width="720" />
 
-<img src="media/settings-compare.png" alt="简体中文与英文设置页对比" width="720" />
+<img src="media/settings-en.png" alt="英文设置页" width="720" />
+
+有两种安装方式。只安装插件，只能翻译一部分界面。下载项目后运行命令，可以翻译绝大部分界面。
 
 ## 只汉化 VS Code 部分
 
@@ -49,13 +53,13 @@ Cursor 这个产品名和 MCP 仍是英文。
 
 | 语言 | 状态 |
 | --- | --- |
-| `zh-cn` 简体中文 | 已发布 — 工作台 99.8%，Cursor 自有 NLS 1741 键（100%） |
-| `zh-tw` 繁體中文 | 已发布 — 同一覆盖面，台湾用词 |
+| `zh-cn` 简体中文 | 已发布。菜单和编辑器为主，设置里仍有英文 |
+| `zh-tw` 繁體中文 | 已发布。覆盖面与简体相同 |
 | `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | 已预留，尚无译文 |
 
 一个扩展包含已启用的语言。没翻的句子显示英文。
 
-已对齐 Cursor **3.21.13**（Code OSS 1.128.0）、**3.19.13**、**3.17.21**、**3.16.17**。其他版本一般能用；新出现的句子会先显示英文。
+当前翻译对应 Cursor **3.21.13**。低于这个版本一般能用。高于这个版本时，新增的界面会先显示英文，等我们补上译文。
 
 ### 添加语言
 

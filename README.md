@@ -1,15 +1,19 @@
 # Cursor Language Pack
 
-Chinese language pack for Cursor. Simplified and Traditional Chinese are published.
+A multilingual language pack for Cursor. Simplified Chinese and Traditional Chinese are supported.
 
 **English** · [简体中文](README.zh-CN.md)
+
+<img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack icon" />
 
 [![Open VSX](https://img.shields.io/open-vsx/v/polang233/cursor-language-pack?label=Open%20VSX)](https://open-vsx.org/extension/polang233/cursor-language-pack)
 [![Downloads](https://img.shields.io/open-vsx/dt/polang233/cursor-language-pack)](https://open-vsx.org/extension/polang233/cursor-language-pack)
 
-<img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack icon" />
+<img src="media/settings-zh.png" alt="Settings in Simplified Chinese" width="720" />
 
-<img src="media/settings-compare.png" alt="Simplified Chinese and English settings, compared" width="720" />
+<img src="media/settings-en.png" alt="Settings in English" width="720" />
+
+There are two ways to install. The plugin alone translates only part of the interface. Clone the repo and run the command to translate most of it.
 
 ## VS Code only
 
@@ -49,13 +53,13 @@ The product name Cursor and the protocol name MCP stay in English.
 
 | Locale | Status |
 | --- | --- |
-| `zh-cn` 简体中文 | Shipped — workbench 99.8%, all 1741 Cursor-specific core keys (100%) |
-| `zh-tw` 繁體中文 | Shipped — same surface, Taiwan terminology |
+| `zh-cn` 简体中文 | Shipped. Menus and the editor are covered; Settings still has English |
+| `zh-tw` 繁體中文 | Shipped. Same coverage as Simplified Chinese |
 | `ja` `ko` `fr` `de` `es` `it` `ru` `pt-br` `tr` `pl` `cs` | Reserved, no translations yet |
 
 One extension holds every enabled locale. Missing strings stay English.
 
-Reconciled against Cursor **3.21.13** (Code OSS 1.128.0), **3.19.13**, **3.17.21**, and **3.16.17**. Other builds usually work; strings added later stay English until someone fills them in.
+The current translation matches Cursor **3.21.13**. Older versions generally work. On newer versions, newly added text stays English until we translate it.
 
 ### Adding a language
 
