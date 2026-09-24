@@ -48,7 +48,7 @@
       "scmRepositories": "儲存庫",
       "scmChanges": "更改",
       "scmGraph": "圖表",
-      "editorBugbot": "Agent 審查"
+      "editorBugbot": "智慧體審查"
     },
     "vs/workbench/contrib/terminal/browser/terminal.glass.contribution": {
       "terminal": "終端"

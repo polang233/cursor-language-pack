@@ -11,8 +11,8 @@
       "devForceNextSmartModeClassifierBlock": "开发：强制下一次自动审查拦截",
       "devDelayNextSmartModeClassifier": "开发：延迟下一次自动审查（{0} 秒）",
       "restartInTemporaryProfile": "在临时配置中重启",
-      "startInfiniteComposerSession": "开始无限 Composer 会话",
-      "stopInfiniteComposerSession": "停止无限 Composer 会话",
+      "startInfiniteComposerSession": "开始无限编写会话",
+      "stopInfiniteComposerSession": "停止无限编写会话",
       "devAutoLoginFree": "开发：自动登录（Free）",
       "devAutoLoginProTrial": "开发：自动登录（Pro Trial）",
       "devAutoLoginPro": "开发：自动登录（Pro）",
@@ -23,10 +23,10 @@
       "devAutoLoginFakeForTesting": "开发：自动登录（测试用假令牌）",
       "devSetApplicationStorageForTesting": "开发：设置应用存储（测试用）",
       "devGetApplicationStorageForTesting": "开发：读取应用存储（测试用）",
-      "devIsAgentHostEnabledForTesting": "开发：Agent Host 是否已启用（测试用）",
+      "devIsAgentHostEnabledForTesting": "开发：智能体 Host 是否已启用（测试用）",
       "devBatchSetApplicationStorageForTesting": "开发：批量设置应用存储（测试用）",
-      "devSetComposerModeAutoRun": "开发：设置 Composer 模式 AutoRun（测试用）",
-      "devGetComposerDataForTesting": "开发：读取 Composer 数据（测试用）",
+      "devSetComposerModeAutoRun": "开发：设置编写模式 AutoRun（测试用）",
+      "devGetComposerDataForTesting": "开发：读取编写数据（测试用）",
       "setAnyrunCluster": "设置 Anyrun 集群",
       "devGetAutorunSettingForTesting": "开发：读取 Autorun 设置（测试用）",
       "devGetLoadedPluginsSummaryForTesting": "开发：读取已加载插件摘要（测试用）",
@@ -57,22 +57,22 @@
     },
     "vs/workbench/contrib/agents/browser/agentsQuickAccess": {
       "agents.chatHistory.section.chats": "聊天",
-      "agents.chatHistory.section.cloudAgents": "Cloud Agent",
+      "agents.chatHistory.section.cloudAgents": "云端智能体",
       "agents.chatHistory.noResults": "没有可用的聊天",
       "agents.chatHistory.noResults.filter": "请尝试其他搜索词",
-      "agents.chatHistory.noResults.empty": "开始一个新的 Agent，它会显示在这里",
+      "agents.chatHistory.noResults.empty": "开始一个新的智能体，它会显示在这里",
       "agents.chatHistory.noResults.aria": "没有可用的聊天",
       "agents.chatHistory.composerAria": "聊天 {0}",
-      "agents.chatHistory.backgroundAria": "Cloud Agent {0}",
+      "agents.chatHistory.backgroundAria": "云端智能体 {0}",
       "agents.chatHistory.untitledChat": "无标题聊天",
-      "agents.chatHistory.placeholder": "搜索聊天和 Cloud Agent",
+      "agents.chatHistory.placeholder": "搜索聊天和云端智能体",
       "agents.chatHistory.help": "搜索聊天记录",
-      "agents.mru.noResults": "没有最近使用的 Agent",
-      "agents.mru.composerAria": "Agent {0}",
-      "agents.mru.backgroundAria": "Cloud Agent {0}",
+      "agents.mru.noResults": "没有最近使用的智能体",
+      "agents.mru.composerAria": "智能体 {0}",
+      "agents.mru.backgroundAria": "云端智能体 {0}",
       "agents.ctrlTab.draft": "草稿",
-      "agents.mru.placeholder": "在最近使用的 Agent 之间切换",
-      "agents.mru.help": "在最近使用的 Agent 之间切换"
+      "agents.mru.placeholder": "在最近使用的智能体之间切换",
+      "agents.mru.help": "在最近使用的智能体之间切换"
     },
     "vs/workbench/contrib/cursorExampleUtilityHost/electron-sandbox/exampleUtilityHostCommands": {
       "exampleUtilityHost.echo": "示例 Utility Host Echo",
@@ -98,7 +98,7 @@
       "http2.disable.title": "禁用 HTTP/2.0",
       "http2.disable.description": "对所有请求禁用 HTTP/2，改用 HTTP/1.1。这会增加资源占用和延迟，但在会拦截 HTTP/2 的公司代理后面很有用。",
       "debug.timeoutPrevention.title": "调试超时防护",
-      "cursor.composer.planTextSizeScale.matchAgentChat": "与 Agent 聊天一致",
+      "cursor.composer.planTextSizeScale.matchAgentChat": "与智能体聊天一致",
       "cursor.composer.planTextSizeScale.small": "小",
       "cursor.composer.planTextSizeScale.defaultSize": "默认",
       "cursor.composer.planTextSizeScale.large": "大",
@@ -145,7 +145,7 @@
     },
     "vs/workbench/contrib/composer/browser/browserEditor.contribution": {
       "closeBrowserTab.message": "关闭浏览器标签页",
-      "closeBrowserTab.detail": "此浏览器由 Agent 创建。关闭它可能影响正在进行的聊天。",
+      "closeBrowserTab.detail": "此浏览器由智能体创建。关闭它可能影响正在进行的聊天。",
       "closeBrowserTab.hide": "隐藏(&&H)",
       "closeBrowserTab.close": "关闭(&&C)",
       "openBrowser": "打开浏览器",
@@ -184,20 +184,20 @@
       "cursor.allowedLoginDomains": "允许在此设备上登录的邮箱域逗号分隔列表（例如 example.com）（通过设备管理设置）。仅精确匹配域名；不会隐式包含子域。"
     },
     "vs/workbench/contrib/terminalContrib/cursorExternalAgentStatus/browser/terminal.externalAgentStatus.contribution": {
-      "workbench.action.terminal.externalAgentActions": "外部 Agent 操作",
+      "workbench.action.terminal.externalAgentActions": "外部智能体操作",
       "workbench.action.terminal.externalAgentSecondOpinion": "第二意见",
       "workbench.action.terminal.externalAgentAsk": "侧边聊天",
       "workbench.action.terminal.externalAgentAsk.menu": "侧边聊天",
       "workbench.action.terminal.externalAgentSecondOpinion.menu": "第二意见",
-      "workbench.action.terminal.externalAgentActions.title": "外部 Agent 操作"
+      "workbench.action.terminal.externalAgentActions.title": "外部智能体操作"
     },
     "vs/workbench/services/agent/browser/agentExecProviderService": {
-      "agentExecSimulatedStreamStartTimeoutTitle": "Agent 流启动超时",
+      "agentExecSimulatedStreamStartTimeoutTitle": "智能体流启动超时",
       "agentExecSimulatedStreamStartTimeoutDetail": "扩展主机未及时响应。请重新加载窗口以继续。",
       "reloadWindow": "重新加载窗口",
-      "agentExecTimeoutTitle": "Agent 执行超时",
-      "agentExecTimeoutDetail": "Agent 执行提供程序未及时响应。这可能表示扩展主机未运行或无响应。",
-      "toggleSimulatedAgentExecStreamStartTimeout": "开发人员：切换 Agent 执行流启动超时模拟（仅开发）"
+      "agentExecTimeoutTitle": "智能体执行超时",
+      "agentExecTimeoutDetail": "智能体执行提供程序未及时响应。这可能表示扩展主机未运行或无响应。",
+      "toggleSimulatedAgentExecStreamStartTimeout": "开发人员：切换智能体执行流启动超时模拟（仅开发）"
     },
     "vs/workbench/contrib/agents/browser/components/AgentSidebarUpdateButton": {
       "agentSidebarUpdateButton.tooltip": "重启 Cursor 以安装待处理的更新。",
@@ -215,8 +215,8 @@
     },
     "vs/workbench/services/agent/electron-sandbox/localAgentPromptQualityUrlHandler": {
       "localAgentPromptQuality.invalidUploadLink": "Prompt Quality 上传链接无效",
-      "localAgentPromptQuality.uploadFailed": "将本地 Agent 运行上传到 Prompt Quality 失败：{0}",
-      "localAgentPromptQuality.confirmTitle": "将此本地 Agent 运行上传到 Prompt Quality？",
+      "localAgentPromptQuality.uploadFailed": "将本地智能体运行上传到 Prompt Quality 失败：{0}",
+      "localAgentPromptQuality.confirmTitle": "将此本地智能体运行上传到 Prompt Quality？",
       "localAgentPromptQuality.confirmDetail": "这会上传提示词、代码和上下文、工具参数与结果，以及模型回复。Prompt Quality 会保存这些数据供内部调试。",
       "localAgentPromptQuality.confirmButton": "上传到 Prompt Quality"
     },
@@ -233,9 +233,9 @@
       "chimes.source": "Cursor Chimes"
     },
     "vs/workbench/contrib/agents/browser/agentsActions": {
-      "all-agents": "所有 Agent",
-      "quickOpenPreviousRecentlyUsedAgent": "快速打开上一个最近使用的 Agent",
-      "quickOpenLeastRecentlyUsedAgent": "快速打开最久未使用的 Agent"
+      "all-agents": "所有智能体",
+      "quickOpenPreviousRecentlyUsedAgent": "快速打开上一个最近使用的智能体",
+      "quickOpenLeastRecentlyUsedAgent": "快速打开最久未使用的智能体"
     },
     "vs/workbench/contrib/cursorLocalTrace/browser/cursorLocalTrace.contribution": {
       "cursorLocalTraceModeConfigurationTitle": "本地跟踪模式",
@@ -257,16 +257,16 @@
       "agentLayoutMenu.moreActions": "更多操作"
     },
     "vs/workbench/contrib/agents/common/agentsContextKeys": {
-      "agentsPaneFocused": "Agents 侧边栏当前是否包含键盘焦点。",
-      "agentNavigationMode": "当前是否处于 Agent 导航模式（按住并松开以切换）。"
+      "agentsPaneFocused": "智能体侧边栏当前是否包含键盘焦点。",
+      "agentNavigationMode": "当前是否处于智能体导航模式（按住并松开以切换）。"
     },
     "vs/workbench/contrib/composer/browser/composer.contribution": {
       "cursor ai": "Cursor AI",
       "composerEditor": "Cursor AI"
     },
     "vs/workbench/contrib/composer/browser/utils/firstSteerNotice": {
-      "firstSteerNoticeTitle": "你的消息已引导 Agent，且未停止其运行",
-      "firstSteerNoticeDescription": "新消息已设为 Steer",
+      "firstSteerNoticeTitle": "你的消息已引导智能体，且未停止其运行",
+      "firstSteerNoticeDescription": "新消息已设为引导",
       "firstSteerNoticeOpenSettings": "打开设置"
     },
     "vs/workbench/contrib/composer/browser/composerMessageStorageService": {
@@ -289,7 +289,7 @@
       "agentLayoutMenu.savedLayoutName": "布局 {0}"
     },
     "vs/workbench/browser/parts/editor/editorActions.cursor": {
-      "evenEditorGroupsExcludingAgent": "重置编辑器组大小（不含 Agent）"
+      "evenEditorGroupsExcludingAgent": "重置编辑器组大小（不含智能体）"
     },
     "vs/workbench/contrib/composer/browser/transcript/composerTranscriptToolRuntime": {
       "composerTranscript.openFileFailed": "无法打开 {0}"

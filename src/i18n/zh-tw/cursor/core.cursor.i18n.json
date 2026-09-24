@@ -11,8 +11,8 @@
       "devForceNextSmartModeClassifierBlock": "開發：強制下一次自動審查攔截",
       "devDelayNextSmartModeClassifier": "開發：延遲下一次自動審查（{0} 秒）",
       "restartInTemporaryProfile": "在臨時配置中重啟",
-      "startInfiniteComposerSession": "開始無限 Composer 會話",
-      "stopInfiniteComposerSession": "停止無限 Composer 會話",
+      "startInfiniteComposerSession": "開始無限編寫會話",
+      "stopInfiniteComposerSession": "停止無限編寫會話",
       "devAutoLoginFree": "開發：自動登入（Free）",
       "devAutoLoginProTrial": "開發：自動登入（Pro Trial）",
       "devAutoLoginPro": "開發：自動登入（Pro）",
@@ -23,10 +23,10 @@
       "devAutoLoginFakeForTesting": "開發：自動登入（測試用假令牌）",
       "devSetApplicationStorageForTesting": "開發：設定應用儲存（測試用）",
       "devGetApplicationStorageForTesting": "開發：讀取應用儲存（測試用）",
-      "devIsAgentHostEnabledForTesting": "開發：Agent Host 是否已啟用（測試用）",
+      "devIsAgentHostEnabledForTesting": "開發：智慧體 Host 是否已啟用（測試用）",
       "devBatchSetApplicationStorageForTesting": "開發：批次設定應用儲存（測試用）",
-      "devSetComposerModeAutoRun": "開發：設定 Composer 模式 AutoRun（測試用）",
-      "devGetComposerDataForTesting": "開發：讀取 Composer 資料（測試用）",
+      "devSetComposerModeAutoRun": "開發：設定編寫模式 AutoRun（測試用）",
+      "devGetComposerDataForTesting": "開發：讀取編寫資料（測試用）",
       "setAnyrunCluster": "設定 Anyrun 叢集",
       "devGetAutorunSettingForTesting": "開發：讀取 Autorun 設定（測試用）",
       "devGetLoadedPluginsSummaryForTesting": "開發：讀取已載入外掛摘要（測試用）",
@@ -57,22 +57,22 @@
     },
     "vs/workbench/contrib/agents/browser/agentsQuickAccess": {
       "agents.chatHistory.section.chats": "聊天",
-      "agents.chatHistory.section.cloudAgents": "Cloud Agent",
+      "agents.chatHistory.section.cloudAgents": "雲端智慧體",
       "agents.chatHistory.noResults": "沒有可用的聊天",
       "agents.chatHistory.noResults.filter": "請嘗試其他搜尋詞",
-      "agents.chatHistory.noResults.empty": "開始一個新的 Agent，它會顯示在這裡",
+      "agents.chatHistory.noResults.empty": "開始一個新的智慧體，它會顯示在這裡",
       "agents.chatHistory.noResults.aria": "沒有可用的聊天",
       "agents.chatHistory.composerAria": "聊天 {0}",
-      "agents.chatHistory.backgroundAria": "Cloud Agent {0}",
+      "agents.chatHistory.backgroundAria": "雲端智慧體 {0}",
       "agents.chatHistory.untitledChat": "無標題聊天",
-      "agents.chatHistory.placeholder": "搜尋聊天和 Cloud Agent",
+      "agents.chatHistory.placeholder": "搜尋聊天和雲端智慧體",
       "agents.chatHistory.help": "搜尋聊天記錄",
-      "agents.mru.noResults": "沒有最近使用的 Agent",
-      "agents.mru.composerAria": "Agent {0}",
-      "agents.mru.backgroundAria": "Cloud Agent {0}",
+      "agents.mru.noResults": "沒有最近使用的智慧體",
+      "agents.mru.composerAria": "智慧體 {0}",
+      "agents.mru.backgroundAria": "雲端智慧體 {0}",
       "agents.ctrlTab.draft": "草稿",
-      "agents.mru.placeholder": "在最近使用的 Agent 之間切換",
-      "agents.mru.help": "在最近使用的 Agent 之間切換"
+      "agents.mru.placeholder": "在最近使用的智慧體之間切換",
+      "agents.mru.help": "在最近使用的智慧體之間切換"
     },
     "vs/workbench/contrib/cursorExampleUtilityHost/electron-sandbox/exampleUtilityHostCommands": {
       "exampleUtilityHost.echo": "示例 Utility Host Echo",
@@ -98,7 +98,7 @@
       "http2.disable.title": "停用 HTTP/2.0",
       "http2.disable.description": "對所有請求停用 HTTP/2，改用 HTTP/1.1。這會增加資源佔用和延遲，但在會攔截 HTTP/2 的公司代理後面很有用。",
       "debug.timeoutPrevention.title": "除錯超時防護",
-      "cursor.composer.planTextSizeScale.matchAgentChat": "與 Agent 聊天一致",
+      "cursor.composer.planTextSizeScale.matchAgentChat": "與智慧體聊天一致",
       "cursor.composer.planTextSizeScale.small": "小",
       "cursor.composer.planTextSizeScale.defaultSize": "預設",
       "cursor.composer.planTextSizeScale.large": "大",
@@ -145,7 +145,7 @@
     },
     "vs/workbench/contrib/composer/browser/browserEditor.contribution": {
       "closeBrowserTab.message": "關閉瀏覽器標籤頁",
-      "closeBrowserTab.detail": "此瀏覽器由 Agent 建立。關閉它可能影響正在進行的聊天。",
+      "closeBrowserTab.detail": "此瀏覽器由智慧體建立。關閉它可能影響正在進行的聊天。",
       "closeBrowserTab.hide": "隱藏(&&H)",
       "closeBrowserTab.close": "關閉(&&C)",
       "openBrowser": "開啟瀏覽器",
@@ -184,20 +184,20 @@
       "cursor.allowedLoginDomains": "允許在此裝置上登入的郵箱域逗號分隔列表（例如 example.com）（通過裝置管理設定）。僅精確匹配域名；不會隱式包含子域。"
     },
     "vs/workbench/contrib/terminalContrib/cursorExternalAgentStatus/browser/terminal.externalAgentStatus.contribution": {
-      "workbench.action.terminal.externalAgentActions": "外部 Agent 操作",
+      "workbench.action.terminal.externalAgentActions": "外部智慧體操作",
       "workbench.action.terminal.externalAgentSecondOpinion": "第二意見",
       "workbench.action.terminal.externalAgentAsk": "側邊聊天",
       "workbench.action.terminal.externalAgentAsk.menu": "側邊聊天",
       "workbench.action.terminal.externalAgentSecondOpinion.menu": "第二意見",
-      "workbench.action.terminal.externalAgentActions.title": "外部 Agent 操作"
+      "workbench.action.terminal.externalAgentActions.title": "外部智慧體操作"
     },
     "vs/workbench/services/agent/browser/agentExecProviderService": {
-      "agentExecSimulatedStreamStartTimeoutTitle": "Agent 流啟動超時",
+      "agentExecSimulatedStreamStartTimeoutTitle": "智慧體流啟動超時",
       "agentExecSimulatedStreamStartTimeoutDetail": "擴充套件主機未及時響應。請重新載入視窗以繼續。",
       "reloadWindow": "重新載入視窗",
-      "agentExecTimeoutTitle": "Agent 執行超時",
-      "agentExecTimeoutDetail": "Agent 執行提供程式未及時響應。這可能表示擴充套件主機未執行或無響應。",
-      "toggleSimulatedAgentExecStreamStartTimeout": "開發人員：切換 Agent 執行流啟動超時模擬（僅開發）"
+      "agentExecTimeoutTitle": "智慧體執行超時",
+      "agentExecTimeoutDetail": "智慧體執行提供程式未及時響應。這可能表示擴充套件主機未執行或無響應。",
+      "toggleSimulatedAgentExecStreamStartTimeout": "開發人員：切換智慧體執行流啟動超時模擬（僅開發）"
     },
     "vs/workbench/contrib/agents/browser/components/AgentSidebarUpdateButton": {
       "agentSidebarUpdateButton.tooltip": "重啟 Cursor 以安裝待處理的更新。",
@@ -215,8 +215,8 @@
     },
     "vs/workbench/services/agent/electron-sandbox/localAgentPromptQualityUrlHandler": {
       "localAgentPromptQuality.invalidUploadLink": "Prompt Quality 上傳連結無效",
-      "localAgentPromptQuality.uploadFailed": "將本地 Agent 執行上傳到 Prompt Quality 失敗：{0}",
-      "localAgentPromptQuality.confirmTitle": "將此本地 Agent 執行上傳到 Prompt Quality？",
+      "localAgentPromptQuality.uploadFailed": "將本地智慧體執行上傳到 Prompt Quality 失敗：{0}",
+      "localAgentPromptQuality.confirmTitle": "將此本地智慧體執行上傳到 Prompt Quality？",
       "localAgentPromptQuality.confirmDetail": "這會上傳提示詞、程式碼和上下文、工具引數與結果，以及模型回覆。Prompt Quality 會儲存這些資料供內部除錯。",
       "localAgentPromptQuality.confirmButton": "上傳到 Prompt Quality"
     },
@@ -233,9 +233,9 @@
       "chimes.source": "Cursor Chimes"
     },
     "vs/workbench/contrib/agents/browser/agentsActions": {
-      "all-agents": "所有 Agent",
-      "quickOpenPreviousRecentlyUsedAgent": "快速開啟上一個最近使用的 Agent",
-      "quickOpenLeastRecentlyUsedAgent": "快速開啟最久未使用的 Agent"
+      "all-agents": "所有智慧體",
+      "quickOpenPreviousRecentlyUsedAgent": "快速開啟上一個最近使用的智慧體",
+      "quickOpenLeastRecentlyUsedAgent": "快速開啟最久未使用的智慧體"
     },
     "vs/workbench/contrib/cursorLocalTrace/browser/cursorLocalTrace.contribution": {
       "cursorLocalTraceModeConfigurationTitle": "本地跟蹤模式",
@@ -257,16 +257,16 @@
       "agentLayoutMenu.moreActions": "更多操作"
     },
     "vs/workbench/contrib/agents/common/agentsContextKeys": {
-      "agentsPaneFocused": "Agents 側邊欄當前是否包含鍵盤焦點。",
-      "agentNavigationMode": "當前是否處於 Agent 導航模式（按住並鬆開以切換）。"
+      "agentsPaneFocused": "智慧體側邊欄當前是否包含鍵盤焦點。",
+      "agentNavigationMode": "當前是否處於智慧體導航模式（按住並鬆開以切換）。"
     },
     "vs/workbench/contrib/composer/browser/composer.contribution": {
       "cursor ai": "Cursor AI",
       "composerEditor": "Cursor AI"
     },
     "vs/workbench/contrib/composer/browser/utils/firstSteerNotice": {
-      "firstSteerNoticeTitle": "你的訊息已引導 Agent，且未停止其執行",
-      "firstSteerNoticeDescription": "新訊息已設為 Steer",
+      "firstSteerNoticeTitle": "你的訊息已引導智慧體，且未停止其執行",
+      "firstSteerNoticeDescription": "新訊息已設為引導",
       "firstSteerNoticeOpenSettings": "開啟設定"
     },
     "vs/workbench/contrib/composer/browser/composerMessageStorageService": {
@@ -289,7 +289,7 @@
       "agentLayoutMenu.savedLayoutName": "佈局 {0}"
     },
     "vs/workbench/browser/parts/editor/editorActions.cursor": {
-      "evenEditorGroupsExcludingAgent": "重置編輯器組大小（不含 Agent）"
+      "evenEditorGroupsExcludingAgent": "重置編輯器組大小（不含智慧體）"
     },
     "vs/workbench/contrib/composer/browser/transcript/composerTranscriptToolRuntime": {
       "composerTranscript.openFileFailed": "無法開啟 {0}"
