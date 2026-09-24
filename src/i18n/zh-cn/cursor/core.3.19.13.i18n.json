@@ -48,7 +48,7 @@
       "scmRepositories": "存储库",
       "scmChanges": "更改",
       "scmGraph": "图表",
-      "editorBugbot": "Agent 审查"
+      "editorBugbot": "智能体审查"
     },
     "vs/workbench/contrib/terminal/browser/terminal.glass.contribution": {
       "terminal": "终端"

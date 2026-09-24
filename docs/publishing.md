@@ -1,24 +1,15 @@
 # Publishing the language pack
 
-Cursor’s in-app extension search uses **[Open VSX](https://open-vsx.org/)** (via
-`marketplace.cursorapi.com`). Publish there first, or Cursor users will not find the pack.
-The VS Code Marketplace listing is optional extra exposure — it is **not** what Cursor
-searches.
-
-`config.json` → `publisher` is `polang233`. Same string on Open VSX (namespace) and
-VS Marketplace (publisher).
-
 中文说明：[publishing.zh-CN.md](publishing.zh-CN.md)
 
 | | |
 | --- | --- |
 | Extension id | `polang233.cursor-language-pack` |
-| Open VSX (required) | https://open-vsx.org/extension/polang233/cursor-language-pack |
-| VS Marketplace (optional) | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
+| Open VSX | https://open-vsx.org/extension/polang233/cursor-language-pack |
+| VS Marketplace | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
 | GitHub Releases | https://github.com/polang233/cursor-language-pack/releases |
 
-Sibling [kiro-language-pack](https://github.com/polang233/kiro-language-pack) is the same
-order: Open VSX first.
+`config.json` → `publisher` is `polang233`.
 
 ## Two registries
 

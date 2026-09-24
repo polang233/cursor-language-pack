@@ -1,7 +1,7 @@
 {
   "name": "cursor-language-pack",
   "private": true,
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "Cursor IDE 中文语言包（汉化）。简体/繁体已发布，其他语言欢迎贡献。",
   "type": "module",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "coverage": "node scripts/coverage.mjs",
     "validate": "node scripts/validate-dist.mjs",
     "package": "node scripts/package.mjs",
+    "translate": "node scripts/translate-install.mjs",
     "publish:ovsx": "node scripts/publish.mjs --registry=ovsx",
     "publish:vsce": "node scripts/publish.mjs --registry=vsce",
     "verify": "node scripts/build.mjs && node scripts/validate-dist.mjs && node scripts/coverage.mjs",

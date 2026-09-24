@@ -3,7 +3,7 @@
   "contents": {
     "package": {
       "displayName": "Cursor Shadow Workspace",
-      "description": "管理一个隐藏的本地窗口，供 AI Agent 在向你展示代码前进行打磨。"
+      "description": "管理一个隐藏的本地窗口，供 AI 智能体在向你展示代码前进行打磨。"
     }
   }
 }

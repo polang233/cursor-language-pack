@@ -1,20 +1,15 @@
 # 发布语言包
 
-Cursor 应用内搜扩展走的是 **[Open VSX](https://open-vsx.org/)**（经 `marketplace.cursorapi.com` 代理）。
-**先上 Open VSX**，否则 Cursor 里搜不到。VS Marketplace 只是额外曝光，不是 Cursor 的搜索源。
-
-`config.json` 的 `publisher` 是 `polang233`，必须同时等于 Open VSX 命名空间，以及（若也上微软商店）那边的出版商名。
-
 英文版：[publishing.md](publishing.md)
 
 | | |
 | --- | --- |
 | 扩展 id | `polang233.cursor-language-pack` |
-| Open VSX（必发） | https://open-vsx.org/extension/polang233/cursor-language-pack |
-| VS Marketplace（可选） | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
+| Open VSX | https://open-vsx.org/extension/polang233/cursor-language-pack |
+| VS Marketplace | https://marketplace.visualstudio.com/items?itemName=polang233.cursor-language-pack |
 | GitHub Release | https://github.com/polang233/cursor-language-pack/releases |
 
-姊妹项目 [kiro-language-pack](https://github.com/polang233/kiro-language-pack) 同样是 Open VSX 优先。
+`config.json` 的 `publisher` 是 `polang233`。
 
 ## 两个市场
 

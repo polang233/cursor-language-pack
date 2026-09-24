@@ -470,8 +470,8 @@
       "captureDebuggingDataFeatureFlagsAndExtensionsDetail": "包含功能門、實驗、動態配置和已安裝的擴充套件。",
       "captureDebuggingDataProcessDiagnostics": "程序診斷",
       "captureDebuggingDataProcessDiagnosticsDetail": "包含最近的程序記憶體和 CPU 歷史記錄。",
-      "captureDebuggingDataAgentTranscripts": "Agent 記錄（最近 7 天）",
-      "captureDebuggingDataAgentTranscriptsDetail": "包含此工作區最近的 Cursor Agent 記錄。若勾選，即使處於隱私模式，也會上傳聊天和提示資料（可能包含附加的程式碼片段）。",
+      "captureDebuggingDataAgentTranscripts": "智慧體記錄（最近 7 天）",
+      "captureDebuggingDataAgentTranscriptsDetail": "包含此工作區最近的 Cursor 智慧體記錄。若勾選，即使處於隱私模式，也會上傳聊天和提示資料（可能包含附加的程式碼片段）。",
       "captureDebuggingDataPickerTitle": "捕獲併發送除錯資料",
       "captureDebuggingDataPickerPlaceholder": "選擇要收集的除錯資料。按 Enter 繼續。",
       "capturingAndSendingDebuggingData": "正在捕獲併發送除錯資料…",
@@ -572,14 +572,14 @@
       "utilityHost.cpuProfile.saveFailed": "儲存 {0} CPU 分析失敗：{1}"
     },
     "vs/workbench/browser/windowQuitConfirmation": {
-      "shutdownChatStreamingTitle": "Agent 仍在工作",
+      "shutdownChatStreamingTitle": "智慧體仍在工作",
       "shutdownChatStreamingDetail": "現在停止將取消當前任務。",
-      "shutdownChatStreamingTitlePlural": "{0} 個 Agent 仍在工作",
+      "shutdownChatStreamingTitlePlural": "{0} 個智慧體仍在工作",
       "shutdownChatStreamingDetailPlural": "現在停止將取消它們的當前任務。",
-      "shutdownChatStreamingAutoContinueDetail": "重新開啟後，Cursor 將繼續此 Agent。",
-      "shutdownChatStreamingAutoContinueDetailPlural": "重新開啟後，Cursor 將繼續這些 Agent。",
-      "shutdownChatStreamingAutoContinueToggle": "自動恢復 Agent",
-      "shutdownChatStreamingAutoContinueTogglePlural": "自動恢復 Agent",
+      "shutdownChatStreamingAutoContinueDetail": "重新開啟後，Cursor 將繼續此智慧體。",
+      "shutdownChatStreamingAutoContinueDetailPlural": "重新開啟後，Cursor 將繼續這些智慧體。",
+      "shutdownChatStreamingAutoContinueToggle": "自動恢復智慧體",
+      "shutdownChatStreamingAutoContinueTogglePlural": "自動恢復智慧體",
       "shutdownClose": "關閉",
       "shutdownQuit": "退出",
       "shutdownReload": "重新載入",
@@ -588,8 +588,8 @@
       "shutdownForceQuit": "仍然退出",
       "shutdownForceReload": "仍然重新載入",
       "shutdownForceLoad": "仍然更改",
-      "archiveRunningAgentTitle": "將正在執行的 Agent 歸檔？",
-      "archiveRunningAgentDetail": "此 Agent 仍在工作。歸檔將停止它並取消當前任務。",
+      "archiveRunningAgentTitle": "將正在執行的智慧體歸檔？",
+      "archiveRunningAgentDetail": "此智慧體仍在工作。歸檔將停止它並取消當前任務。",
       "archiveRunningAgentConfirm": "歸檔",
       "shutdownBackgroundTerminalTitle": "後臺終端仍在執行",
       "shutdownBackgroundTerminalDetail": "現在停止將終止後臺終端。",
@@ -647,11 +647,11 @@
       "movePrimarySideBarLeft": "將側邊欄移到左側",
       "newAgentShort": "開啟聊天",
       "chatHistoryTitlebarMaximized": "聊天記錄",
-      "openAgentsWindowTitlebar": "開啟 Agents 視窗",
+      "openAgentsWindowTitlebar": "開啟智慧體視窗",
       "ideTitlebarUpdateAction": "重啟以更新",
       "moreActionsTitlebarMaximized": "更多操作",
       "togglePrimarySidebar": "切換主側欄",
-      "toggleAgents": "切換 Agents",
+      "toggleAgents": "切換智慧體",
       "titlebarOpenCursorSettings": "開啟 Cursor 設定",
       "cursorSettings": "Cursor 設定",
       "goBack": "返回",
@@ -660,7 +660,7 @@
     "vs/workbench/browser/workbench.contribution": {
       "workbench.quickOpen.width": "控制“快速開啟”及其他快速選取器的寬度（畫素）。",
       "activityBarDirection": "控制工作臺中活動欄的方向。退出並重新開啟後生效。",
-      "agentsWindowButtonEnabled": "控制是否在標題欄中顯示 Agents 視窗按鈕。",
+      "agentsWindowButtonEnabled": "控制是否在標題欄中顯示智慧體視窗按鈕。",
       "zenModeConfigurationTitle": "禪模式",
       "zenMode.fullScreen": "控制在開啟禪模式時是否將工作臺切換到全屏。",
       "zenMode.centerLayout": "控制在開啟禪模式時是否啟用居中佈局。",
@@ -760,9 +760,9 @@
     },
     "vs/workbench/browser/actions/layoutActions": {
       "minimizeChatSize": "最小化聊天",
-      "maximizeChatSizeDescription": "最大化聊天大小 - 隱藏編輯器、面板和主側邊欄，以便專注於 AI Agent",
+      "maximizeChatSizeDescription": "最大化聊天大小 - 隱藏編輯器、面板和主側邊欄，以便專注於 AI 智慧體",
       "toggleInlineDiffsDescription": "切換編輯器中內聯差異的可見性",
-      "toggleUnifiedSideBar": "切換 Agents 側邊欄",
+      "toggleUnifiedSideBar": "切換智慧體側邊欄",
       "openLayoutSettingsMenu": "開啟佈局設定選單",
       "miToggleZenMode": "禪模式",
       "maximizeChatSize": "最大化聊天大小",
@@ -798,16 +798,16 @@
       "windowsWslPathWarning.extensionInstalled.detail": "你開啟的資料夾（“{0}”）位於 Windows Subsystem for Linux 檔案系統中。直接從 Windows 開啟 WSL 資料夾可能會明顯變慢，並且某些功能可能無法正常工作。\n\n你已安裝 WSL 擴充套件。為獲得最佳效果，請使用命令“WSL: Connect to WSL”，或在 WSL 終端中使用“cursor .”從 WSL 內開啟此資料夾。"
     },
     "vs/workbench/contrib/appLayout/electron-sandbox/glassModeActions": {
-      "switchToModelSlug.noAgentsWindow": "無法開啟 Agents 視窗以切換模型。請開啟 Agents 視窗後重試。",
-      "switchToModelSlug.agentsWindowRoutingFailed": "無法在 Agents 視窗中切換模型。請重試。",
-      "cursor.newAgentsWindow": "新建 Agents 視窗",
-      "cursor.newAdditionalAgentsWindowDev": "開發人員：新建額外的 Agents 視窗",
+      "switchToModelSlug.noAgentsWindow": "無法開啟智慧體視窗以切換模型。請開啟智慧體視窗後重試。",
+      "switchToModelSlug.agentsWindowRoutingFailed": "無法在智慧體視窗中切換模型。請重試。",
+      "cursor.newAgentsWindow": "新建智慧體視窗",
+      "cursor.newAdditionalAgentsWindowDev": "開發人員：新建額外的智慧體視窗",
       "cursor.switchToNamedWindow": "切換到 {0}",
       "cursor.openOrFocusNamedWindow": "開啟或聚焦 {0}",
       "cursor.openOrFocusEditorWindow": "開啟或聚焦 IDE",
       "cursor.openGlassAndSwitchModelSlug": "開啟 Glass 並切換模型",
       "cursor.openGlassAndChangeToMultitask": "開啟 Glass 並切換到 Multitask",
-      "cursor.openGlassAndStartCloudAgent": "開啟 Agents 視窗並啟動 Cloud Agent"
+      "cursor.openGlassAndStartCloudAgent": "開啟智慧體視窗並啟動雲端智慧體"
     },
     "vs/workbench/contrib/externalTerminal/electron-sandbox/externalTerminal.contribution": {
       "terminal.kind.integrated": "顯示整合終端操作。",
@@ -848,12 +848,12 @@
     "vs/workbench/api/browser/mainThreadCursor": {
       "extensionHostTimeoutTitle": "工作區已斷開連線",
       "extensionHostTimeoutDetail": "Cursor 在開始執行工具時與工作區失去連線。請重新載入視窗後重試。",
-      "sessionInitFailedTitle": "Agent 會話初始化失敗",
-      "sessionInitFailedDetail": "未能初始化 Agent 執行會話。請重新載入視窗以繼續。",
-      "sessionNotFoundTitle": "未找到 Agent 會話",
-      "sessionNotFoundDetail": "Agent 執行會話已丟失。請重新載入視窗以繼續。",
-      "streamStartFailedTitle": "Agent 流啟動失敗",
-      "streamStartFailedDetail": "未能啟動 Agent 執行流。請重新載入視窗以繼續。",
+      "sessionInitFailedTitle": "智慧體會話初始化失敗",
+      "sessionInitFailedDetail": "未能初始化智慧體執行會話。請重新載入視窗以繼續。",
+      "sessionNotFoundTitle": "未找到智慧體會話",
+      "sessionNotFoundDetail": "智慧體執行會話已丟失。請重新載入視窗以繼續。",
+      "streamStartFailedTitle": "智慧體流啟動失敗",
+      "streamStartFailedDetail": "未能啟動智慧體執行流。請重新載入視窗以繼續。",
       "reloadWindow": "重新載入視窗"
     },
     "vs/workbench/contrib/extensions/electron-sandbox/runtimeExtensionsEditor": {
@@ -1018,7 +1018,7 @@
       "clearForcedSkillMigrationBanner": "清除強制技能遷移橫幅"
     },
     "vs/workbench/contrib/customizeEditor/browser/skillMigrationDevCommands": {
-      "forceSkillMigrationBanner.noStore": "已強制顯示技能遷移橫幅，但尚未掛載 Agent Store，因此仍會保持隱藏。請登入後重試。",
+      "forceSkillMigrationBanner.noStore": "已強制顯示技能遷移橫幅，但尚未掛載智慧體商店，因此仍會保持隱藏。請登入後重試。",
       "forceSkillMigrationBanner.done": "已強制顯示技能遷移橫幅。請重新載入視窗以檢視。",
       "clearForcedSkillMigrationBanner.done": "已清除技能遷移橫幅的強制覆蓋。"
     },
@@ -1050,7 +1050,7 @@
       "unsupportedBrowserDetail": "你的瀏覽器不支援開啟本地資料夾。\n你可以開啟單個檔案，或開啟遠端儲存庫。"
     },
     "vs/workbench/services/workspaceConnection/browser/workspaceConnectionService": {
-      "workspaceReconnectFailedCloudAgent": "Cursor 無法重新連線到執行此 Agent 的計算機。Agent 會在後臺繼續執行，不受影響。請重新載入視窗以重新連線，或稍後再試。",
+      "workspaceReconnectFailedCloudAgent": "Cursor 無法重新連線到執行此智慧體的計算機。智慧體會在後臺繼續執行，不受影響。請重新載入視窗以重新連線，或稍後再試。",
       "workspaceReconnectFailed": "Cursor 無法重新連線此工作區。請重新載入視窗後重試。",
       "workspaceReconnectTimedOut": "Cursor 未能在 5 秒內重新連線此工作區。請重新載入視窗後重試。",
       "workspaceReconnectStillDisconnected": "Cursor 無法重新連線此工作區。請重新載入視窗後重試。",
@@ -1079,7 +1079,7 @@
       "exportNotepads": "將記事本匯出為檔案"
     },
     "vs/workbench/browser/parts/auxiliarybar/auxiliaryBarPart": {
-      "auxiliaryBarShowAgentsSidebar": "顯示 Agents 側邊欄",
+      "auxiliaryBarShowAgentsSidebar": "顯示智慧體側邊欄",
       "titleAndKb": "{0} ({1})",
       "auxiliaryBarNewAgent": "開啟聊天",
       "auxiliaryBarChatHistory": "聊天記錄",
@@ -1087,12 +1087,12 @@
       "auxiliaryBarMoreActions": "更多操作"
     },
     "vs/workbench/contrib/appLayout/browser/appLayoutActions": {
-      "hideUnifiedSideBar": "切換 Agents 側邊欄",
-      "toggleUnifiedSideBarDescription": "切換 Agents 側邊欄的可見性",
-      "toggleAgentsToggled": "切換 Agents",
-      "toggleAgentsDescription": "切換 Agents 的可見性",
-      "toggleUnifiedSideBar": "切換 Agents 側邊欄",
-      "toggleAgents": "切換 Agents"
+      "hideUnifiedSideBar": "切換智慧體側邊欄",
+      "toggleUnifiedSideBarDescription": "切換智慧體側邊欄的可見性",
+      "toggleAgentsToggled": "切換智慧體",
+      "toggleAgentsDescription": "切換智慧體的可見性",
+      "toggleUnifiedSideBar": "切換智慧體側邊欄",
+      "toggleAgents": "切換智慧體"
     },
     "vs/workbench/contrib/extensions/electron-sandbox/extensionsSlowActions": {
       "cmd.reportOrShow": "效能問題",
@@ -1104,11 +1104,11 @@
     },
     "vs/workbench/contrib/ui/browser/buttons/AgentsWindowButton": {
       "agentsWindow.hoverGraphicTitle": "認識全新的 Cursor",
-      "agentsWindow.hoverSectionParallelTitle": "並行執行多個 Agent",
-      "agentsWindow.hoverSectionParallelBody": "跨倉庫的所有 Agent——本地、遠端 SSH 和雲端",
+      "agentsWindow.hoverSectionParallelTitle": "並行執行多個智慧體",
+      "agentsWindow.hoverSectionParallelBody": "跨倉庫的所有智慧體——本地、遠端 SSH 和雲端",
       "agentsWindow.hoverSectionDeeperTitle": "隨時深入",
       "agentsWindow.hoverSectionDeeperBody": "在需要時使用編輯器中最好的部分，例如檔案和瀏覽器",
-      "agentsWindowButtonLabel": "Agents 視窗"
+      "agentsWindowButtonLabel": "智慧體視窗"
     },
     "vs/workbench/electron-sandbox/parts/dialogs/dialogHandler": {
       "aboutLocalMode": "本地模式：已啟用",
@@ -1275,7 +1275,7 @@
       "window.systemColorTheme": "設定本機 UI 元素的顏色模式，例如本機對話方塊、選單和標題欄。即使在淺色模式下配置 OS，也可以為視窗選擇深色系統顏色主題。還可以配置為根據 {0} 設定自動調整。\n\n注意: 啟用 {1} 時會忽略此設定。"
     },
     "vs/workbench/browser/actions/exportCustomModesAction": {
-      "hasCustomModes": "使用者是否有舊版自定義 Composer 模式",
+      "hasCustomModes": "使用者是否有舊版自定義編寫模式",
       "noCustomModesFound": "儲存中未找到自定義模式。",
       "customModesExported": "已將 {0} 個自定義模式匯出到 {1}",
       "exportCustomModes": "匯出自定義模式"
@@ -1289,7 +1289,7 @@
     "vs/workbench/common/contextkeys": {
       "activeEditorIsReviewChanges": "活動編輯器是否為“審查更改”編輯器",
       "isAuxiliaryEditorPart": "編輯器部分位於輔助視窗中",
-      "agentChatMaximized": "Agent 聊天體驗是否已最大化並通過統一最大化模式隱藏編輯器區域",
+      "agentChatMaximized": "智慧體聊天體驗是否已最大化並通過統一最大化模式隱藏編輯器區域",
       "documentBodyFocused": "文件正文是否具有鍵盤焦點"
     },
     "vs/workbench/contrib/canvas/browser/shareCanvasAction": {
@@ -1330,9 +1330,9 @@
     },
     "vs/workbench/contrib/scm/browser/scm.contribution": {
       "maxRenderedResources": "控制原始碼管理檢視中每組呈現的最大資源數。超過此限制的超大更改列表會在檢視中截斷，以保持編輯器響應；這僅影響呈現，不會更改提交、暫存或放棄的檔案。設為 0 可呈現所有資源。",
-      "editorBugbot": "Agent 審查",
-      "openBugbotSettings": "Agent 審查設定",
-      "triggerAgentReview": "開始 Agent 審查"
+      "editorBugbot": "智慧體審查",
+      "openBugbotSettings": "智慧體審查設定",
+      "triggerAgentReview": "開始智慧體審查"
     },
     "vs/workbench/contrib/tasks/electron-sandbox/taskService": {
       "TaskSystem.runningTask": "存在執行中的任務。要終止它嗎？",
@@ -1374,7 +1374,7 @@
       "confirmModelAccess": "擴充套件“{0}”想要訪問 {1} 提供的語言模型。"
     },
     "vs/workbench/browser/actions/layoutSwitcherOverlay": {
-      "layoutSwitcher.agent": "Agent",
+      "layoutSwitcher.agent": "智慧體",
       "layoutSwitcher.editor": "編輯器",
       "layoutSwitcher.untitled": "無標題"
     },
@@ -1389,8 +1389,8 @@
       "removeRecentProject": "從最近項中移除"
     },
     "vs/workbench/browser/parts/titlebar/titlebarActions": {
-      "toggle.agentsWindow": "Agents 視窗按鈕",
-      "toggle.agentsWindowDescription": "切換標題欄中 Agents 視窗按鈕的可見性",
+      "toggle.agentsWindow": "智慧體視窗按鈕",
+      "toggle.agentsWindowDescription": "切換標題欄中智慧體視窗按鈕的可見性",
       "toggle.titleBarStyle": "還原原生標題欄"
     },
     "vs/workbench/contrib/extensions/browser/extensionFeaturesTab": {
@@ -1542,7 +1542,7 @@
       "aiCodeTracking.category": "AI 程式碼跟蹤"
     },
     "vs/workbench/contrib/appLayout/common/agentsWindowOrFocusMenuRegistrations": {
-      "cursor.agentsWindowNew": "新建 Agents 視窗",
+      "cursor.agentsWindowNew": "新建智慧體視窗",
       "cursor.agentsWindowSwitchTo": "切換到 {0}"
     },
     "vs/workbench/contrib/authentication/browser/authentication.contribution": {
@@ -1583,7 +1583,7 @@
     },
     "vs/workbench/contrib/markers/browser/markers.contribution": {
       "addToChat": "新增到聊天",
-      "fixInChat": "使用 Agent 修復"
+      "fixInChat": "使用智慧體修復"
     },
     "vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesView": {
       "notebook.notebookVariables": "筆記本變數",
@@ -1725,10 +1725,10 @@
       "quickInput": "快速輸入"
     },
     "vs/workbench/api/browser/viewsExtensionPoint": {
-      "views.container.secondarySidebar.unsupported": "無法將檢視容器貢獻到 Cursor 的輔助側邊欄。該位置保留給 Cursor 的 Agent UI。請改為貢獻到 “activitybar” 或 “panel”。"
+      "views.container.secondarySidebar.unsupported": "無法將檢視容器貢獻到 Cursor 的輔助側邊欄。該位置保留給 Cursor 的智慧體 UI。請改為貢獻到 “activitybar” 或 “panel”。"
     },
     "vs/workbench/browser/actions/helpActions": {
-      "setupBugBot": "設定 Bugbot"
+      "setupBugBot": "設定缺陷檢查"
     },
     "vs/workbench/browser/parts/activitybar/activitybarPart": {
       "reloadForActivityBar": "請退出並重新開啟，以使活動欄垂直顯示。"
