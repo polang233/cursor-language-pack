@@ -2,7 +2,7 @@
 
 Cursor 的多语言工具包，目前支持简体中文和繁体中文。
 
-[English](README.md) · **简体中文**
+[英文文档在此打开](README.en.md)
 
 <img src="media/icon.png" width="96" height="96" alt="Cursor Language Pack 图标" />
 

@@ -11,7 +11,7 @@ Installing and using the pack: root [README.md](../README.md) (English) /
 Also outside this folder:
 
 - **Adding a language** — [CONTRIBUTING.md](../CONTRIBUTING.md#adding-a-language)
-- **Full translation** — user steps in [README.md](../README.md#full-translation). Strings live in `src/i18n/<locale>/hardcoded.json`; the command is `npm run translate`.
+- **Full translation** — user steps in [README.en.md](../README.en.md#full-translation). Strings live in `src/i18n/<locale>/hardcoded.json`; the command is `npm run translate`.
 - **Extension marketplace page** — `src/marketplace/README.md` (copied into the `.vsix`)
 - **Agent / release notes** — root [AGENTS.md](../AGENTS.md) (`OVSX_PAT`, tag-and-push flow)
 
