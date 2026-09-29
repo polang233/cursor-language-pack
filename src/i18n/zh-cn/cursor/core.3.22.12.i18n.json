@@ -1,0 +1,37 @@
+// Cursor 3.22.12: update action titles moved from workbench/contrib to platform.
+// Those seven strings are copied, not retranslated. About dialog, sidebar footer,
+// and package-update strings are new.
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/platform/update/common/updateActionTitles": {
+      "checkForUpdates": "检查更新...",
+      "checkingForUpdates2": "正在检查更新...",
+      "DownloadingUpdate": "正在下载更新...",
+      "downloadUpdate": "下载更新",
+      "installingUpdate": "正在安装更新...",
+      "installUpdate": "安装更新",
+      "restartToUpdate": "重启以更新"
+    },
+    "vs/platform/update/electron-main/updateService.linux": {
+      "packageUpdateDialogMessage": "请用软件包管理器更新 {0}",
+      "packageUpdateDialogDetail": "在终端中运行此命令，然后重启 {0}：\n\n{1}",
+      "copyCommand": "复制命令",
+      "cancel": "取消"
+    },
+    "vs/workbench/browser/parts/dialogs/aboutDialog.react": {
+      "aboutDialog.copySucceeded": "已复制",
+      "aboutDialog.versionLabel": "版本 {0}",
+      "aboutDialog.copyVersion": "复制版本",
+      "aboutDialog.copyBuildDate": "复制构建日期",
+      "aboutDialog.copyVersionInfo": "复制版本信息"
+    },
+    "vs/workbench/contrib/agents/browser/components/AgentSidebarFooter": {
+      "agentSidebarFooter.privateInference": "私有推理"
+    },
+    "vs/workbench/contrib/update/browser/update": {
+      "packageUpdateAvailable": "有较新的 {0} 软件包（{1}），可通过 {2} 获取。",
+      "update": "更新"
+    }
+  }
+}

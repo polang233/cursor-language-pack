@@ -4,7 +4,7 @@
   "publisher": "polang233",
   "$publisher": "Must match the Open VSX namespace (Cursor's in-app search) and the VS Marketplace publisher id if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",
@@ -24,7 +24,7 @@
   },
 
   "target": {
-    "verifiedCursorVersions": ["3.16.17", "3.17.21", "3.19.13", "3.21.13"],
+    "verifiedCursorVersions": ["3.16.17", "3.17.21", "3.19.13", "3.21.13", "3.22.12"],
     "$verifiedCursorVersions": "Builds whose localizable surface this pack has been reconciled against: `npm run coverage` reports the Cursor-specific keys and `npm run validate` passes. `npm run check-upgrade` compares the installed Cursor against this list."
   },
 
