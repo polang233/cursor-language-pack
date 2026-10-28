@@ -615,24 +615,34 @@ function findVsix() {
   return picked ? path.join(dist, picked) : null;
 }
 
-function packInstalled(dir) {
-  if (!fs.existsSync(dir)) return false;
-  const prefix = `${config.publisher}.${config.namePrefix}`.toLowerCase();
+// An extensions folder also holds plain files (`extensions.json`, `.obsolete`). Reading
+// `<file>/package.json` throws ENOTDIR, which aborted an otherwise finished install with
+// "汉化未完成" even though the patch and the extension were already in place.
+function installedManifests(dir) {
+  if (!fs.existsSync(dir)) return [];
+  const manifests = [];
   for (const name of fs.readdirSync(dir)) {
-    const manifest = readJson(path.join(dir, name, 'package.json'), null);
-    if (!manifest) continue;
-    const id = `${manifest.publisher ?? ''}.${manifest.name ?? ''}`.toLowerCase();
-    if (id === prefix) return true;
+    const extDir = path.join(dir, name);
+    let stat;
+    try { stat = fs.statSync(extDir); } catch { continue; }
+    if (!stat.isDirectory()) continue;
+    const manifest = readJson(path.join(extDir, 'package.json'), null);
+    if (manifest) manifests.push(manifest);
   }
-  return false;
+  return manifests;
 }
 
-function conflictingPacks(dir, localeId) {
-  if (!fs.existsSync(dir)) return [];
+export function packInstalled(dir) {
+  const prefix = `${config.publisher}.${config.namePrefix}`.toLowerCase();
+  return installedManifests(dir).some(
+    (manifest) => `${manifest.publisher ?? ''}.${manifest.name ?? ''}`.toLowerCase() === prefix
+  );
+}
+
+export function conflictingPacks(dir, localeId) {
   const ours = `${config.publisher}.`.toLowerCase();
   const found = [];
-  for (const name of fs.readdirSync(dir)) {
-    const manifest = readJson(path.join(dir, name, 'package.json'), null);
+  for (const manifest of installedManifests(dir)) {
     const localizations = manifest?.contributes?.localizations;
     if (!Array.isArray(localizations)) continue;
     const id = `${manifest.publisher ?? ''}.${manifest.name ?? ''}`;
@@ -885,7 +895,17 @@ if (!completed) log.warn('部分步骤未完成。重跑相同命令可重试，
 process.exitCode = completed ? 0 : 1;
 } catch (err) {
   log.err('汉化未完成：' + err.message);
-  log.plain('请完全退出 Cursor 后重试；安装在系统目录时需要写入权限。备份与记录保存在用户目录。');
+  if (err.code === 'EPERM' && process.platform === 'darwin') {
+    // macOS "App Management" (TCC) denies writes into another app's bundle even when the
+    // files are yours and Cursor is closed; the generic advice below sent people chasing
+    // a running Cursor. Once refused, macOS stops asking, so it has to be switched on by hand.
+    log.plain('macOS 的「App 管理」阻止了写入（不是文件权限，也不是 Cursor 没退出）：');
+    log.plain('  系统设置 → 隐私与安全性 → App 管理，打开运行本命令的终端 App 的开关后重跑。');
+    log.plain('  被拒绝过一次后系统不再弹窗，需要在上面手动打开。');
+    log.plain('  备份与记录保存在用户目录。');
+  } else {
+    log.plain('请完全退出 Cursor 后重试；安装在系统目录时需要写入权限。备份与记录保存在用户目录。');
+  }
   process.exitCode = 1;
 }
 }
