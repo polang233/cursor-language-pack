@@ -84,6 +84,8 @@ export function readCursorInfo(appRoot) {
 }
 
 export function extensionsDir(dataFolderName) {
+  if (process.env.VSCODE_EXTENSIONS) return path.resolve(process.env.VSCODE_EXTENSIONS);
+  if (process.env.VSCODE_PORTABLE) return path.join(path.resolve(process.env.VSCODE_PORTABLE), 'extensions');
   return path.join(os.homedir(), dataFolderName || '.cursor', 'extensions');
 }
 

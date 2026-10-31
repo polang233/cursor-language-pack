@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.3 — 2026-10-31
+
+- Require a matching current-version entry in `extensions.json` and the registered extension's manifest before treating the language pack as installed. Leftover files after uninstall no longer satisfy this check.
+- Verify extension registration after the Cursor CLI exits successfully. Report an incomplete installation with exit code 1 and preserve existing language packs when verification fails.
+
+- Follow custom extension directories selected by VSCODE_EXTENSIONS or VSCODE_PORTABLE when verifying installation.
+
 ## 1.1.2 — 2026-10-29
 
 - Include the merged installer fix: ignore ordinary files in the extensions directory and explain macOS App Management write failures.

@@ -138,17 +138,25 @@ fs.appendFileSync(path.join(data,'cli-calls.jsonl'), JSON.stringify(args)+'\\n')
 if(process.env.LANGUAGE_PACK_TEST_FAIL === 'install' && args[0] === '--install-extension') process.exit(17);
 const extDir = path.join(data,'extensions');
 fs.mkdirSync(extDir,{recursive:true});
+const registry = path.join(extDir,'extensions.json');
+const registered = fs.existsSync(registry) ? JSON.parse(fs.readFileSync(registry,'utf8')) : [];
 if(args[0] === '--install-extension') {
   const m = JSON.parse(zipEntry(fs.readFileSync(args[1]), 'extension/package.json'));
-  const dir = path.join(extDir,m.publisher+'.'+m.name+'-'+m.version);
+  const id = m.publisher+'.'+m.name;
+  const dir = path.join(extDir,id+'-'+m.version);
   fs.mkdirSync(dir,{recursive:true});
   fs.writeFileSync(path.join(dir,'package.json'),JSON.stringify(m));
+  if(process.env.LANGUAGE_PACK_TEST_FAIL === 'register') process.exit(0);
+  fs.writeFileSync(registry,JSON.stringify([...registered.filter(e => e.identifier.id !== id),
+    {identifier:{id},version:m.version,relativeLocation:path.basename(dir)}]));
 } else if(args[0] === '--uninstall-extension') {
-  for(const folder of fs.readdirSync(extDir)) {
-    const file = path.join(extDir,folder,'package.json');
+  for(const folder of fs.readdirSync(extDir,{withFileTypes:true})) {
+    if(!folder.isDirectory()) continue;
+    const file = path.join(extDir,folder.name,'package.json');
     const m = JSON.parse(fs.readFileSync(file,'utf8'));
     if(m.publisher+'.'+m.name === args[1]) fs.rmSync(path.dirname(file),{recursive:true,force:true});
   }
+  fs.writeFileSync(registry,JSON.stringify(registered.filter(e => e.identifier.id !== args[1])));
 } else process.exit(18);
 `);
   const cli = path.join(installed, 'bin', 'cli.mjs');
@@ -202,6 +210,10 @@ if(args[0] === '--install-extension') {
   execute(['install', ...args, '--locale=zh-cn'], false, { LANGUAGE_PACK_TEST_FAIL: 'install' });
   assert.ok(fs.existsSync(path.join(official, 'package.json')), 'failed extension installation must preserve the working language pack');
   assert.equal(calls().some((call) => call[0] === '--uninstall-extension'), false);
+  const unregistered = execute(['install', ...args, '--locale=zh-cn'], false, { LANGUAGE_PACK_TEST_FAIL: 'register' });
+  assert.match(unregistered, /未检测到当前版本语言扩展的有效安装登记/);
+  assert.ok(fs.existsSync(path.join(official, 'package.json')), 'CLI exit 0 without registration must preserve the working language pack');
+  assert.equal(calls().some((call) => call[0] === '--uninstall-extension'), false);
   execute(['install', ...args, '--locale=zh-cn']);
   assert.notEqual(fs.readFileSync(target, 'utf8'), original);
   if (commerceTarget) assert.match(fs.readFileSync(commerceTarget, 'utf8'), /cursor-commerce-i18n/, 'commerce resources are installed from the shipped dictionary');
@@ -214,6 +226,17 @@ if(args[0] === '--install-extension') {
   execute(['install', ...args, '--locale=zh-cn']);
   assert.equal(fs.readFileSync(target, 'utf8'), simplified, 'repeat install converges');
   assert.ok(calls().filter((call) => call[0] === '--install-extension').length >= 3, 'repeat install retries extension setup');
+  const registry = path.join(extRoot, 'extensions.json');
+  const packId = `${config.publisher}.${config.namePrefix}`;
+  const registeredPack = () => readJson(registry).find((entry) => entry.identifier.id === packId);
+  assert.equal(registeredPack()?.version, config.version, 'the shipped CLI installs and registers the current version');
+  const residual = path.join(extRoot, registeredPack().relativeLocation, 'package.json');
+  writeJson(registry, readJson(registry).filter((entry) => entry.identifier.id !== packId));
+  assert.ok(fs.existsSync(residual), 'uninstall can leave the extension directory behind');
+  const installsBeforeRepair = calls().filter((call) => call[0] === '--install-extension').length;
+  execute(['install', ...args, '--locale=zh-cn']);
+  assert.equal(registeredPack()?.version, config.version, 'reinstall repairs missing registration despite residual files');
+  assert.equal(calls().filter((call) => call[0] === '--install-extension').length, installsBeforeRepair + 1);
   const stateFiles = (dir) => fs.existsSync(dir) ? fs.readdirSync(dir, { withFileTypes: true })
     .flatMap((entry) => entry.isDirectory() ? stateFiles(path.join(dir, entry.name)) : [path.join(dir, entry.name)]) : [];
   const stateRoot = path.join(data, `${product}-language-pack`);

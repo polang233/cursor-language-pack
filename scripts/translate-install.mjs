@@ -633,10 +633,32 @@ function installedManifests(dir) {
 }
 
 export function packInstalled(dir) {
-  const prefix = `${config.publisher}.${config.namePrefix}`.toLowerCase();
-  return installedManifests(dir).some(
-    (manifest) => `${manifest.publisher ?? ''}.${manifest.name ?? ''}`.toLowerCase() === prefix
-  );
+  const id = `${config.publisher}.${config.namePrefix}`.toLowerCase();
+  const registered = readJson(path.join(dir, 'extensions.json'), []);
+  if (!Array.isArray(registered)) return false;
+  return registered.some((entry) => {
+    if (typeof entry?.identifier?.id !== 'string'
+      || entry.identifier.id.toLowerCase() !== id || entry.version !== config.version) return false;
+    let extDir;
+    if (typeof entry.relativeLocation === 'string' && entry.relativeLocation) {
+      extDir = path.join(dir, entry.relativeLocation);
+    } else if (entry.location?.scheme === 'file' && typeof entry.location.path === 'string') {
+      const location = new URL('file:///');
+      // VS Code stores URI.path without percent encoding.
+      location.pathname = entry.location.path.replace(/%/g, '%25');
+      location.hostname = entry.location.authority ?? '';
+      extDir = fileURLToPath(location);
+    } else return false;
+    try {
+      if (!fs.statSync(extDir).isDirectory()) return false;
+    } catch (err) {
+      if (err.code === 'ENOENT' || err.code === 'ENOTDIR') return false;
+      throw err;
+    }
+    const manifest = readJson(path.join(extDir, 'package.json'), null);
+    return manifest?.version === config.version
+      && `${manifest.publisher ?? ''}.${manifest.name ?? ''}`.toLowerCase() === id;
+  });
 }
 
 export function conflictingPacks(dir, localeId) {
@@ -870,10 +892,17 @@ let completed = true;
 let extensionReady = false;
 if (off('extension')) log.plain('已跳过语言扩展安装。');
 else if (vsix && cli) {
-  extensionReady = runCli(cli, ['--install-extension', vsix, '--force'], install.appRoot);
-  if (!extensionReady) { log.warn('语言扩展安装失败，请退出 Cursor 后重跑。'); completed = false; }
-} else if (packInstalled(extDir) && !flags.vsix) extensionReady = true;
+  const installed = runCli(cli, ['--install-extension', vsix, '--force'], install.appRoot);
+  extensionReady = installed && packInstalled(extDir);
+  if (!extensionReady) {
+    log.warn(installed
+      ? 'Cursor 命令行已退出，但未检测到当前版本语言扩展的有效安装登记，请完全退出 Cursor 后重跑。'
+      : '语言扩展安装失败，请退出 Cursor 后重跑。');
+    completed = false;
+  }
+} else if (!flags.vsix && packInstalled(extDir)) extensionReady = true;
 else { log.warn('缺少当前版本的 VSIX 或 Cursor 命令行入口，请重新运行安装工具。'); completed = false; }
+if (extensionReady) log.ok('语言扩展 ' + config.version + ' 已安装并登记。');
 
 if (extensionReady && !off('keep-official')) {
   for (const id of conflictingPacks(extDir, locale.id)) {
