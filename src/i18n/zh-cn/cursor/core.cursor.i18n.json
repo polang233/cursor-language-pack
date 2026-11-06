@@ -157,7 +157,7 @@
     "vs/workbench/contrib/cursorOrigin/browser/cursorOrigin.contribution": {
       "cursorOrigin.category": "Cursor Origin",
       "cursorOrigin.noFile": "当前没有打开的文件。",
-      "cursorOrigin.noLink": "无法生成 cursor.com 链接。请在带有符合条件远程仓库的 git 仓库中打开文件。",
+      "cursorOrigin.noLink": "无法生成 Cursor 网页链接。请在带有符合条件远程仓库的 git 仓库中打开文件。",
       "cursorOrigin.copyCodeLink": "复制 cursor.com 链接（含选区）",
       "cursorOrigin.copyCodeLinkWithoutRange": "复制 cursor.com 链接（仅文件）",
       "cursorOrigin.copyCodeLink.menu": "复制 cursor.com 链接",
@@ -200,11 +200,11 @@
       "toggleSimulatedAgentExecStreamStartTimeout": "开发人员：切换智能体执行流启动超时模拟（仅开发）"
     },
     "vs/workbench/contrib/agents/browser/components/AgentSidebarUpdateButton": {
-      "agentSidebarUpdateButton.tooltip": "重启 Cursor 以安装待处理的更新。",
-      "agentSidebarUpdateButton.tooltipWithVersion": "重启 Cursor 以安装待处理的更新到 {0}。",
+      "agentSidebarUpdateButton.tooltip": "更新将在退出时应用 — 点击立即重启",
+      "agentSidebarUpdateButton.tooltipWithVersion": "更新到 {0} 将在退出时应用 — 点击立即重启",
       "agentSidebarUpdateButton.installingTooltip": "正在安装更新 — Cursor 将自动关闭并重新打开。",
-      "agentSidebarUpdateButton.label": "更新",
-      "agentSidebarUpdateButton.installingLabel": "正在安装"
+      "agentSidebarUpdateButton.label": "更新：重启 Cursor 以安装",
+      "agentSidebarUpdateButton.installingLabel": "正在安装更新"
     },
     "vs/workbench/contrib/cursorAiMarkdown/browser/chatFileReferenceContextMenu": {
       "chatRevealInWindows": "在文件资源管理器中显示",

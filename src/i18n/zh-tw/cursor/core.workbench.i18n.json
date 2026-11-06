@@ -982,8 +982,8 @@
     "vs/platform/environment/node/argv": {
       "suppressPopupsOnStartup": "啟動時抑制通知彈出。",
       "webWorkerExthost": "在 web worker 擴充套件主機中執行所有支援 Web 的擴充套件。",
-      "glass": "啟用多工作臺架構（僅開發）。",
-      "classic": "停用 Glass 模式並強制使用經典視窗（僅開發）。",
+      "glass": "開啟智慧體視窗，而不是經典編輯器視窗。",
+      "classic": "開啟經典編輯器視窗，而不是智慧體視窗。",
       "chat": "開啟不含完整 IDE 的獨立聊天視窗。",
       "stdinWindows": "要讀取其他程式的輸出，請追加“-”（例如 “echo Hello World | {0} -”）",
       "stdinUnix": "要從 stdin 讀取，請追加“-”（例如 “ps aux | grep code | {0} -”）"

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.4 — 2026-11-06
+
+- Adapt translations to Cursor 3.29.9. Add the new Agent window, project, file and airlock strings in Simplified and Traditional Chinese, and update ten strings whose English changed.
+- Center the README icon and show Open VSX downloads, npm downloads and GitHub stars. The same page is the npm package README.
+
 ## 1.1.3 — 2026-10-31
 
 - Require a matching current-version entry in `extensions.json` and the registered extension's manifest before treating the language pack as installed. Leftover files after uninstall no longer satisfy this check.

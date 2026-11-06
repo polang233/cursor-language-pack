@@ -4,16 +4,20 @@ Chinese translations for Cursor, including the editor, Settings and Agent interf
 
 [简体中文](../README.md)
 
-<p>
-  <img src="../media/icon.png" width="48" height="48" alt="Cursor Language Pack icon" />
-  <a href="https://open-vsx.org/extension/polang233/cursor-language-pack"><img src="https://img.shields.io/open-vsx/v/polang233/cursor-language-pack?label=Open%20VSX" alt="Open VSX" /></a>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/icon.png" width="96" height="96" alt="Cursor Language Pack icon" />
+</p>
+<p align="center">
+  <a href="https://open-vsx.org/extension/polang233/cursor-language-pack"><img alt="Open VSX downloads" src="https://img.shields.io/open-vsx/dt/polang233/cursor-language-pack?label=Open%20VSX&color=C160EF" /></a>
+  <a href="https://www.npmjs.com/package/@polang233/cursor-language-pack"><img alt="npm downloads" src="https://img.shields.io/npm/dt/%40polang233%2Fcursor-language-pack?logo=npm&logoColor=white&label=npm&color=CB3837" /></a>
+  <a href="https://github.com/polang233/cursor-language-pack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/polang233/cursor-language-pack?logo=github&label=stars&color=181717" /></a>
 </p>
 
 | Settings in Simplified Chinese | Settings in English |
 | --- | --- |
-| ![Simplified Chinese](../media/settings-zh.png) | ![English](../media/settings-en.png) |
+| ![Simplified Chinese](https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/settings-zh.png) | ![English](https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/settings-en.png) |
 
-![Agent sidebar in Simplified Chinese](../media/agents-zh.png)
+![Agent sidebar in Simplified Chinese](https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/agents-zh.png)
 
 ## Command-line installation
 
@@ -55,7 +59,7 @@ node bin/cli.mjs preview --locale=zh-tw
 
 The extension id remains `polang233.cursor-language-pack`. The setting `cursorLanguagePack.language` also accepts `auto`, `zh-cn`, `zh-tw` and `en`; restart after changing it. Translating some text compiled into the app requires the command-line installation above.
 
-The translations target Cursor **3.27.22**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
+The translations target Cursor **3.29.9**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
 
 ## Development and license
 

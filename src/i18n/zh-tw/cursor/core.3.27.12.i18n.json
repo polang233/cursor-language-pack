@@ -11,8 +11,8 @@
     },
     "vs/workbench/services/cursorAuth/browser/authenticationService.contribution": {
       "cursorManagedDeploymentConfigurationTitle": "受管理部署",
-      "cursor.deployment.backendUrl": "僅適用於 Cursor Orbit：DeploymentId 指定部署的 API 的 HTTPS 來源，由裝置管理設定。必填。",
-      "cursor.deployment.websiteUrl": "僅適用於 Cursor Orbit：此部署網站的 HTTPS 來源，由裝置管理設定。必填。",
+      "cursor.deployment.backendUrl": "僅適用於 Cursor Orbit：Cursor Orbit 所連線部署的 API 的 HTTPS 來源（由裝置管理設定）。必填。",
+      "cursor.deployment.websiteUrl": "僅適用於 Cursor Orbit：該部署網站的 HTTPS 來源，使用者在此登入（由裝置管理設定）。必填。",
       "cursor.deployment.issuer": "僅適用於 Cursor Orbit：此部署登入權杖的簽發者，須為與權杖 iss 宣告完全一致的 HTTPS URL，由裝置管理設定。必填。",
       "cursor.deployment.authorizationEndpoint": "僅適用於 Cursor Orbit：此部署 OAuth 授權端點的 HTTPS URL，由裝置管理設定。必填。",
       "cursor.deployment.tokenEndpoint": "僅適用於 Cursor Orbit：此部署 OAuth 權杖端點的 HTTPS URL，須與簽發者同源，由裝置管理設定。必填。",

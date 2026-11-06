@@ -70,7 +70,7 @@
       "airlock.devContainersMissing": "Cursor 通过 Dev Containers 扩展打开隔离舱，但该扩展未安装或已关闭。",
       "airlock.openLog": "打开日志",
       "airlock.reloadWindow": "重新加载窗口",
-      "airlockCanConnect": "此窗口能否打开 SpaceX 隔离舱"
+      "airlockCanConnect": "此窗口能否打开隔离舱"
     },
     "vs/workbench/contrib/airlock/electron-sandbox/airlockConnect.contribution": {
       "airlock.connect": "连接到隔离舱"

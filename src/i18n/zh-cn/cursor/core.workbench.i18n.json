@@ -982,8 +982,8 @@
     "vs/platform/environment/node/argv": {
       "suppressPopupsOnStartup": "启动时抑制通知弹出。",
       "webWorkerExthost": "在 web worker 扩展主机中运行所有支持 Web 的扩展。",
-      "glass": "启用多工作台架构（仅开发）。",
-      "classic": "禁用 Glass 模式并强制使用经典窗口（仅开发）。",
+      "glass": "打开智能体窗口，而不是经典编辑器窗口。",
+      "classic": "打开经典编辑器窗口，而不是智能体窗口。",
       "chat": "打开不含完整 IDE 的独立聊天窗口。",
       "stdinWindows": "要读取其他程序的输出，请追加“-”（例如 “echo Hello World | {0} -”）",
       "stdinUnix": "要从 stdin 读取，请追加“-”（例如 “ps aux | grep code | {0} -”）"
