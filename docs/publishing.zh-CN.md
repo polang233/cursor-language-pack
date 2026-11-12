@@ -60,7 +60,7 @@ Cursor 内置搜索使用 Open VSX。工作流保留两个市场的逻辑，Mark
 
 1. 对更新后的应用运行 `npm run check-upgrade`、`npm run detect`、`npm run extract`。
 2. 核对新增、删除、英文原文变更和移动的键。补齐 `src/i18n/zh-cn/`，移动模块时复用译文，审查过时键。
-3. 运行 `node scripts/convert-zh-tw.mjs` 并检查结果，保留台湾用词。
+3. 运行 `node scripts/convert-zh-tw.mjs` 并校对译文和术语一致性。
 4. 同步上游，执行 `npm run verify`、`npm test`、`npm run package:npm`，按需用 `npm run test:package` 复测，核对归档内容和隔离安装。
 5. 更新 `target.verifiedCursorVersions`、文档及所有版本字段。授权后让 npm 包与 VSIX 按相同版本一起发布。
 

@@ -20,10 +20,10 @@ node bin/cli.mjs status
 开发时也可用本地 TGZ 联调 npx，以下命令运行本地产物：
 
 ```bash
-npx --yes --package="./dist/polang233-cursor-language-pack-1.1.2.tgz" cursor-language-pack preview
+npx --yes --package="./dist/polang233-cursor-language-pack-1.1.5.tgz" cursor-language-pack preview
 ```
 
-源码入口与 npx 使用相同参数：默认 `install`，也支持 `install/preview/status/restore`、`--locale=zh-cn/zh-tw` 和 `--dir="路径"`。实际安装前退出应用；联调安装与恢复时使用隔离 fixture。系统语言含 TW/HK/MO 或 zh-Hant 时选 `zh-tw`，沿用台湾用词；其余选 `zh-cn`。
+源码入口与 npx 使用相同参数：默认 `install`，也支持 `install/preview/status/restore`、`--locale=zh-cn/zh-tw` 和 `--dir="路径"`。实际安装前退出应用；联调安装与恢复时使用隔离 fixture。系统语言含 TW/HK/MO 或 zh-Hant 时选 `zh-tw`，其余选 `zh-cn`。
 
 | 命令 | 职责 |
 | --- | --- |

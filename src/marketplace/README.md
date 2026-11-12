@@ -7,6 +7,7 @@
   <a href="https://open-vsx.org/extension/polang233/cursor-language-pack"><img alt="Open VSX 下载量" src="https://img.shields.io/open-vsx/dt/polang233/cursor-language-pack?label=Open%20VSX&color=C160EF" /></a>
   <a href="https://www.npmjs.com/package/@polang233/cursor-language-pack"><img alt="npm 下载量" src="https://img.shields.io/npm/dt/%40polang233%2Fcursor-language-pack?logo=npm&logoColor=white&label=npm&color=CB3837" /></a>
   <a href="https://github.com/polang233/cursor-language-pack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/polang233/cursor-language-pack?logo=github&label=stars&color=181717" /></a>
+  <a href="https://github.com/polang233/cursor-language-pack/releases/latest"><img alt="当前版本" src="https://img.shields.io/github/v/release/polang233/cursor-language-pack?label=version&color=1f6feb" /></a>
 </p>
 
 **Cursor 的多语言工具包（汉化 / 中文翻译）。** 目前支持简体中文和繁体中文。

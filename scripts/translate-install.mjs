@@ -73,9 +73,8 @@ function translateLiteral(raw, dict, hits) {
 }
 
 /**
- * Cursor Settings sidebar titles, keyed by the internal id.
- * Only this exact English value is replaced. The same id is reused for icons,
- * colors and abbreviation tables (`mcp:"MCP"`), and those must stay as they are.
+ * 设置侧栏标题按内部 ID 匹配，只替换已知版本的英文显示值。
+ * 相同 ID 还用于图标、颜色及缩写表（如 `mcp:"MCP"`），这些值保持原样。
  */
 const SIDEBAR_ENGLISH = {
   general: 'General',
@@ -88,7 +87,8 @@ const SIDEBAR_ENGLISH = {
   browser: 'Browser & Network',
   tab: 'Tab',
   models: 'Models',
-  'git-prs': 'Git & PRs',
+  voice: 'Voice',
+  'git-prs': ['Git & PRs', 'Source Control'],
   rules: 'Rules, Skills, Subagents',
   plugins: 'Plugins',
   customize: 'Customize',
@@ -118,6 +118,8 @@ const MODE_PARTS = [
 
 /** Quoted literals that are shown as-is, not as a `label:` / `title:` field. */
 const BARE_LABELS = [
+  'Search actions...',
+  'Editor Window',
   'Rules, Skills, Subagents',
   'Code Intelligence',
   'Indexing',
@@ -273,6 +275,20 @@ const SOURCE_FILTER_RE = /contentLabel:"Show source filters",deviates:([A-Za-z_$
 
 const NAV_RE = /(?:"([A-Za-z0-9-]+)"|([A-Za-z_$][\w$]*)):"((?:\\.|[^"\\])*)"/g;
 
+// 用完整的动作面板标签表识别显示文案，保留用于筛选的属性名。
+const PALETTE_TABS_RE = /\{all:"All",(?:projects:"Projects",)?agents:"Agents",files:"Files",actions:"Actions",settings:"Settings"\}/g;
+
+// React Compiler 将标题提升成变量。通过设置 ID 和 Root/Entry 结构识别该组件，
+// 不依赖压缩后的变量名，只替换其中的显示标题。
+const IDENTIFIER = '[A-Za-z_$][\\w$]*';
+const PR_PREFERENCES_RE = new RegExp(
+  `(?<![\\w$])${IDENTIFIER}="Pull Requests",${IDENTIFIER}=${IDENTIFIER}\\.Root,` +
+  `${IDENTIFIER}="Pull Requests",${IDENTIFIER}="pull-request-preferences",` +
+  `${IDENTIFIER}=${IDENTIFIER}\\.Entry,${IDENTIFIER}=${IDENTIFIER}\\.providerDescription,` +
+  `${IDENTIFIER}="Review Provider",${IDENTIFIER}=${IDENTIFIER},${IDENTIFIER}=${IDENTIFIER},${IDENTIFIER}="Review Provider"`,
+  'g'
+);
+
 /**
  * Replace a translation only when the English text is the entire value of a
  * UI field (`label:"…"`, `title:"…"`, …) or a Cursor Settings sidebar name.
@@ -292,13 +308,18 @@ export function rewrite(source, dict) {
   FIELD_RE.lastIndex = 0;
   const hits = new Map();
   let count = 0;
-  const replaceDisplayLiterals = (block) => block.replace(/"((?:\\.|[^"\\])*)"/g, (full, raw) => {
+  const replaceDisplayLiteral = (full, raw) => {
     const translated = translateLiteral(raw, dict, hits);
     if (translated === null) return full;
     count++;
     return `"${translated}"`;
-  });
+  };
+  const replaceDisplayLiterals = (block) => block.replace(/"((?:\\.|[^"\\])*)"/g, replaceDisplayLiteral);
   let text = source;
+  PALETTE_TABS_RE.lastIndex = 0;
+  text = text.replace(PALETTE_TABS_RE, replaceDisplayLiterals);
+  PR_PREFERENCES_RE.lastIndex = 0;
+  text = text.replace(PR_PREFERENCES_RE, block => block.replace(/"(Pull Requests|Review Provider)"/g, replaceDisplayLiteral));
   // Edit-session descriptors contain additional display fields beside placeholder.
   // Match the complete descriptor, leaving queue-item/goal dispatch IDs intact.
   text = text.replace(/\b(?:queueItem|goal):\(\)=>\(\{bannerLabel:"(?:\\.|[^"\\])*",placeholder:"(?:\\.|[^"\\])*",cancelLabel:"(?:\\.|[^"\\])*",pillLabel:"(?:\\.|[^"\\])*",pillTitle:"(?:\\.|[^"\\])*"\}\)/g,
@@ -354,7 +375,9 @@ export function rewrite(source, dict) {
   NAV_RE.lastIndex = 0;
   text = text.replace(NAV_RE, (full, quotedKey, bareKey, raw) => {
     const key = quotedKey || bareKey;
-    if (SIDEBAR_ENGLISH[key] !== unescapeJs(raw)) return full;
+    const expected = SIDEBAR_ENGLISH[key];
+    const english = unescapeJs(raw);
+    if (Array.isArray(expected) ? !expected.includes(english) : expected !== english) return full;
     const translated = translateLiteral(raw, dict, hits);
     if (translated === null) return full;
     count++;

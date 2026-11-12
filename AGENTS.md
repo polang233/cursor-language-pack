@@ -7,7 +7,7 @@ User instructions define the authorized scope. Human docs: [README.md](README.md
 - The npm package `@polang233/cursor-language-pack` is public. Keep npm, VSIX and lockfile versions aligned.
 - Extension id stays `polang233.cursor-language-pack`. Do not derive its publisher/name from the scoped npm name.
 - `npx @polang233/cursor-language-pack@latest` defaults to `install`. Also support `install/preview/status/restore`, `--locale=zh-cn/zh-tw` and `--dir=path`. Source entry point: `node bin/cli.mjs`.
-- Detect system locale: TW/HK/MO or zh-Hant selects `zh-tw` with the existing Taiwan terminology; everything else selects `zh-cn`.
+- Detect system locale: TW/HK/MO or zh-Hant selects `zh-tw`; everything else selects `zh-cn`.
 - Recommend Node 22+; runtime minimum is 18.17. Bundle this version's VSIX so end users need neither source checkout nor build.
 - After an app update, users rerun install. `restore` restores only app files; the extension and display language can be switched in the app.
 
@@ -18,7 +18,7 @@ Hardcoded Settings/Agent/account translation stays in `scripts/translate-install
 1. Run `npm run check-upgrade`, `npm run detect` and `npm run extract` against the updated Cursor installation.
 2. Inspect added, deleted and moved keys and changed English text. Translate new keys in `src/i18n/zh-cn/`, reuse translations for moved module paths and review obsolete keys. Do not count filtered-out keys as translated.
    `check-upgrade` archives the previous metadata under `reports/baselines/` before extraction. Use `--baseline=<snapshot>` to repeat the comparison against an older version. Review `changedKeys` even when a translation already exists; historical orphaned keys are separate from this upgrade's removals.
-3. Run `node scripts/convert-zh-tw.mjs`, inspect the diff and preserve Taiwan terminology.
+3. Run `node scripts/convert-zh-tw.mjs`, inspect the diff and preserve reviewed terminology.
 4. Update `target.verifiedCursorVersions` and relevant documentation. Keep README, English README and Chinese copies in sync.
 5. Align versions in `config.json`, `package.json`, `package-lock.json` and `package-lock.json.packages[""]`. The scoped npm package and VSIX use the same version; keep package/lock names aligned too.
 

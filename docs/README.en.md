@@ -1,6 +1,6 @@
 # Cursor Language Pack
 
-Chinese translations for Cursor, including the editor, Settings and Agent interface. Supports Simplified Chinese and Traditional Chinese with Taiwan terminology.
+Chinese translations for Cursor, including the editor, Settings and Agent interface. Supports Simplified Chinese and Traditional Chinese.
 
 [简体中文](../README.md)
 
@@ -11,6 +11,7 @@ Chinese translations for Cursor, including the editor, Settings and Agent interf
   <a href="https://open-vsx.org/extension/polang233/cursor-language-pack"><img alt="Open VSX downloads" src="https://img.shields.io/open-vsx/dt/polang233/cursor-language-pack?label=Open%20VSX&color=C160EF" /></a>
   <a href="https://www.npmjs.com/package/@polang233/cursor-language-pack"><img alt="npm downloads" src="https://img.shields.io/npm/dt/%40polang233%2Fcursor-language-pack?logo=npm&logoColor=white&label=npm&color=CB3837" /></a>
   <a href="https://github.com/polang233/cursor-language-pack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/polang233/cursor-language-pack?logo=github&label=stars&color=181717" /></a>
+  <a href="https://github.com/polang233/cursor-language-pack/releases/latest"><img alt="version" src="https://img.shields.io/github/v/release/polang233/cursor-language-pack?label=version&color=1f6feb" /></a>
 </p>
 
 | Settings in Simplified Chinese | Settings in English |
@@ -41,7 +42,7 @@ npx @polang233/cursor-language-pack@latest --dir="path/to/install"
 | `status` | Report the current state |
 | `restore` | Restore only the app files |
 
-System locales with TW/HK/MO or zh-Hant select `zh-tw` with Taiwan terminology; all others select `zh-cn`. Override this with `--locale`. `--dir` selects the install directory containing `resources/app`, or `Cursor.app/Contents` on macOS.
+System locales with TW/HK/MO or zh-Hant select `zh-tw`; all others select `zh-cn`. Override this with `--locale`. `--dir` selects the install directory containing `resources/app`, or `Cursor.app/Contents` on macOS.
 
 Reopen Cursor after installation. Rerun the install command after an app update. Switch extensions and display language inside the app; `restore` does not uninstall the extension or reset the display language.
 
@@ -59,7 +60,7 @@ node bin/cli.mjs preview --locale=zh-tw
 
 The extension id remains `polang233.cursor-language-pack`. The setting `cursorLanguagePack.language` also accepts `auto`, `zh-cn`, `zh-tw` and `en`; restart after changing it. Translating some text compiled into the app requires the command-line installation above.
 
-The translations target Cursor **3.29.9**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
+The translations target Cursor **3.29.15**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
 
 ## Development and license
 

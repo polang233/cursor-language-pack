@@ -65,7 +65,7 @@ After filling `zh-cn`, regenerate Traditional Chinese with:
 node scripts/convert-zh-tw.mjs
 ```
 
-Then hand-edit Taiwan terms in `src/i18n/zh-tw/` if needed.
+Then review the wording in `src/i18n/zh-tw/` for consistency.
 
 ## Before a PR
 

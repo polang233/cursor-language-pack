@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.5 — 待发布
+
+- 支持 Cursor 3.29.15，补齐项目会话导入状态和本地反馈入口的简繁体译文。
+- 完善动作面板的搜索、分屏和固定操作，修复设置侧栏及拉取请求页面标题的翻译匹配。
+- 统一 README 的安装说明和版本入口。
+
 ## 1.1.4 — 2026-11-06
 
 - Adapt translations to Cursor 3.29.9. Add the new Agent window, project, file and airlock strings in Simplified and Traditional Chinese, and update ten strings whose English changed.

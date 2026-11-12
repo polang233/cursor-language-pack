@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/glass/browser/hooks/use-continue-chat-in-project.react": {
+      "glass.projects.continueInProject.bringingIn": "正在导入 {0}…"
+    },
+    "vs/workbench/contrib/composer/browser/sendFeedbackAction": {
+      "cursor.localMode.sendFeedback": "发送反馈"
+    }
+  }
+}

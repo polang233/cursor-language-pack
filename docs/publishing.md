@@ -60,7 +60,7 @@ Store content comes from `src/marketplace/README.md`, `config.json` → `pack.di
 
 1. Run `npm run check-upgrade`, `npm run detect` and `npm run extract` against the updated app.
 2. Review added and deleted keys, changed source text and moved module paths. Translate new keys in `src/i18n/zh-cn/`, reuse translations at moved paths and review obsolete keys.
-3. Run `node scripts/convert-zh-tw.mjs` and review the output, preserving Taiwan terminology.
+3. Run `node scripts/convert-zh-tw.mjs` and review the output for consistent terminology.
 4. Sync upstream, run `npm run verify`, `npm test`, `npm run package:npm`. Use `npm run test:package` for optional retesting. Check the archive's contents and isolated installation.
 5. Update `target.verifiedCursorVersions`, documentation and all version fields together. After authorization, release npm and VSIX with the same version.
 
