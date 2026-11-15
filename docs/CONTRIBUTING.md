@@ -1,16 +1,16 @@
 # Contributing
 
-Translation fixes, new languages and terminology proposals are welcome.
+Translation fixes, new languages, terminology reviews and missing-text reports are welcome. You can start with a few strings or one screen; partial translations fall back to English.
 
 Install / usage: [README.md](../README.md) (简体中文) · [README.en.md](README.en.md) (English).
 Docs index: [README.md](README.md).
 
 ## Setup
 
-Node.js 18.17+. No compile step.
+Node.js 22+ is recommended; the minimum is 18.17. Run these commands from the repository root with Cursor installed locally.
 
 ```bash
-npm install
+npm ci
 npm run detect      # find local Cursor (or set CURSOR_INSTALL_DIR)
 npm run extract
 npm run sync
@@ -28,6 +28,7 @@ npm run build && npm run validate && npm run coverage
 | Store page | `src/marketplace/README.md` |
 | Runtime notifications | `src/i18n/<locale>/extension.l10n.json` |
 | Hardcoded Cursor UI | `src/i18n/<locale>/hardcoded.json` |
+| Credits, top-up and billing messages | `src/i18n/<locale>/commerce.json` |
 | Enable locale / bump version | `config.json` |
 
 Do not edit `dist/`, `metadata/`, `upstream/` or `reports/` — generated and gitignored.
@@ -46,7 +47,7 @@ npm run gap -- --skeleton=.tmp-todo.json   # stub only — do not commit English
 
 ## Translation rules
 
-`validate` enforces these; broken PRs will fail CI:
+`validate` checks structural markers. Review terminology and runtime strings against the installed Cursor as well:
 
 - Keep `{0}`, `{1}`, … placeholders (same count; reordering OK).
 - Keep codicons like `$(add)` verbatim.
@@ -57,7 +58,7 @@ npm run gap -- --skeleton=.tmp-todo.json   # stub only — do not commit English
 - Prefer terms that match the official VS Code Chinese pack when the concept exists in both.
 - Keep Cursor and the protocol name MCP in English. Translate feature labels: Agent 智能体, Tab 代码补全, Cloud Agent 云端智能体, Composer 编写, Steer 引导, Bugbot 缺陷检查. Editor tabs stay 标签页, not 代码补全.
 
-`hardcoded.json` is not part of the `.vsix`. English keys must match the installed Cursor byte for byte. `npm run translate` only rewrites UI fields (`label`, `description`, `title`, `children`, and the others listed in `scripts/translate-install.mjs`). Check a local install with `npm run translate -- --preview` before changing entries.
+`hardcoded.json` ships with the npm installer. The CLI patches supported text in the app files, including Cursor Settings, Agents and Chat. English keys must match the installed Cursor byte for byte. Add replacements for UI fields or reviewed display-text fragments in `scripts/translate-install.mjs`; preserve command IDs, routes and search metadata. Preview with `npm run translate -- --preview --locale=<locale>` and check real application file copies with `npm run validate:install`.
 
 After filling `zh-cn`, regenerate Traditional Chinese with:
 
@@ -65,16 +66,19 @@ After filling `zh-cn`, regenerate Traditional Chinese with:
 node scripts/convert-zh-tw.mjs
 ```
 
-Then review the wording in `src/i18n/zh-tw/` for consistency.
+Then review the diff and wording in `src/i18n/zh-tw/`, preserving existing reviewed translations. The conversion script rewrites the Traditional Chinese files.
 
 ## Before a PR
 
 ```bash
-npm run build && npm run validate && npm run coverage
-npm test    # only if you changed src/extension/
+npm run verify
+npm test
+npm run package:npm
 ```
 
-Describe: Cursor version tested (`npm run detect`), coverage for the locale you touched, and a screenshot for a new locale.
+For installer, hardcoded-text or commerce changes, also run `npm run validate:install`. It checks rewritten application file copies without changing the installed application. `package:npm` tests the actual tarball against isolated application and user-profile fixtures.
+
+Describe the Cursor version tested (`npm run detect`), locale, coverage and changed screens. Include a screenshot for a new locale or a visible UI correction. Report which checks you ran and any remaining gaps.
 
 ## Adding a language
 
@@ -84,9 +88,10 @@ Locales from vscode-loc are already in `config.json` with `enabled: false`.
 2. Write `src/i18n/<locale>/glossary.json` first.
 3. `npm run sync -- --locale=<locale>` then `npm run gap -- --locale=<locale> --skeleton=.tmp-todo.json`.
 4. Fill `src/i18n/<locale>/cursor/…` (use zh-cn files as reference).
-5. Add `src/i18n/<locale>/hardcoded.json` for strings compiled into Cursor (copy `src/i18n/zh-cn/hardcoded.json` and translate the values). `npm run translate -- --locale=<locale>` reads that file. English keys must match the UI exactly.
-6. `npm run build && npm run validate && npm run coverage`, then open the PR.
-7. Mention the language in `src/marketplace/README.md` and, if useful, in `pack.displayName` / `pack.description`.
+5. Add `src/i18n/<locale>/hardcoded.json` for strings compiled into Cursor. Use the English keys from `zh-cn` as a reference and translate the values. Preview with `npm run translate -- --preview --locale=<locale>`; English keys must match the UI exactly. Add `commerce.json` and runtime notification translations for the areas you cover.
+6. For npm installation, check locale validation and help in `scripts/lib/cli.mjs`, OS-language selection in `scripts/lib/system-locale.mjs`, and packaged dictionaries in `package.json`. Cover the new locale in `scripts/test-cli.mjs` and `scripts/test-package.mjs`.
+7. Run the checks in **Before a PR**, then open the PR with the tested Cursor version, coverage and screenshots.
+8. Mention the language in `src/marketplace/README.md` and, if useful, in `pack.displayName` / `pack.description`.
 
 Partial translations are fine — missing keys fall back to English.
 
@@ -109,11 +114,12 @@ Publishing: [publishing.md](publishing.md) · [publishing.zh-CN.md](publishing.z
 
 ## Reporting issues
 
-Include Cursor version, platform, which pack is installed, and the string you saw vs expected.
+Include the Cursor version, operating system, language-pack version, selected locale and installation method (extension only or npm CLI). For missing or incorrect text, include the original string, expected translation, screen location and a screenshot when possible.
 
-- Mostly English UI → uninstall other language packs (do not run two packs that claim `vscode`).
-- No change after install → fully restart Cursor once.
-- Cursor Settings / Agent / Chat overlay / account popup → not reachable by a language pack; do not file translation issues here.
+- Mostly English UI: check the display language and conflicting language packs. Only one pack should claim `vscode` for a locale.
+- No change after install: fully quit and reopen Cursor. After a Cursor update, rerun the npm installer to apply the current patch.
+- Cursor Settings, Agents, Chat or account text: report missing translations here. These screens include text handled by the CLI installer, so tell us whether you ran it and which version you used.
+- Installation failure: include the command and error output, removing credentials and personal data. Avoid attaching entire application bundles.
 
 ### Runtime
 
