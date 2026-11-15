@@ -60,7 +60,7 @@ node bin/cli.mjs preview --locale=zh-tw
 
 The extension id remains `polang233.cursor-language-pack`. The setting `cursorLanguagePack.language` also accepts `auto`, `zh-cn`, `zh-tw` and `en`; restart after changing it. Translating some text compiled into the app requires the command-line installation above.
 
-The translations target Cursor **3.29.15**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
+The translations target Cursor **3.30.14**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
 
 ## Development and license
 

@@ -1070,7 +1070,7 @@
       "airlock.repo.settingsChanged": "Cursor 还在准备容器时，你所在组织的隔离舱设置发生了变化。",
       "airlock.repo.startFailed": "{0} 中的启动命令失败：{1}",
       "airlock.repo.startThrew": "Cursor 无法启动该存储库的隔离舱容器：{0}",
-      "airlock.repo.startTimeout": "{0} 中的启动命令已结束，但 {2} 秒后仍没有用于 {1} 的隔离舱容器在运行。",
+      "airlock.repo.startTimeout": "{0} 中的启动命令已结束，但 {2} 秒后容器 {1} 仍未运行。",
       "airlock.repo.starting": "正在启动 {0} 的隔离舱容器…",
       "airlock.repo.stopped": "容器 {0} 没有运行。请先启动它，然后重新连接。",
       "airlock.repo.unmapped": "Cursor 无法判断 {0} 在容器 {1} 中的位置：该容器没有挂载此文件夹，也没有设置工作文件夹。"
@@ -1114,7 +1114,7 @@
     "vs/workbench/contrib/airlock/electron-sandbox/airlockAttach": {
       "airlock.connectAction": "连接到隔离舱",
       "airlock.repo.openFolder": "先在这台电脑上打开存储库文件夹，再连接到它的隔离舱。",
-      "airlock.repo.started": "隔离舱容器 {0} 正在运行。",
+      "airlock.repo.started": "隔离舱容器 {0} 正在运行",
       "airlock.repo.startingTitle": "正在启动隔离舱容器",
       "airlock.repo.untrusted": "在 Cursor 运行隔离舱启动命令之前，请先信任此文件夹。",
       "airlockCanStartRepo": "此窗口能否启动其存储库的隔离舱容器"

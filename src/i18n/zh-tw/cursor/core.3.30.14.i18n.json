@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/glass/browser/components/agent-panel/allowed-machines/add-folder-row.react": {
+      "glass.allowedMachines.cloneRepoOnMachine": "在 {0} 上複製儲存庫"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/deploy-intent-pill.react": {
+      "glass.agentPanel.deployIntentPill.dismiss": "關閉",
+      "glass.agentPanel.deployIntentPill.label": "使用 Cursor 部署",
+      "glass.agentPanel.deployIntentTray.body": "在提示中讓 Cursor 建置應用程式，它會搭建 Web 應用程式、部署並提供可分享的連結。",
+      "glass.agentPanel.deployIntentTray.deploy": "建置應用程式",
+      "glass.agentPanel.deployIntentTray.dismiss": "關閉",
+      "glass.agentPanel.deployIntentTray.title": "使用 Cursor 建置可線上存取和分享的應用程式"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/local-deploy-tray.react": {
+      "glass.localDeployTray.body": "Cursor 可以將你的成果發佈為可線上存取和分享的 Web 應用程式。發佈工作流在雲端執行，此聊天及其全部工作內容也將移至雲端。",
+      "glass.localDeployTray.deploy": "部署應用程式",
+      "glass.localDeployTray.deploying": "正在部署…",
+      "glass.localDeployTray.dismiss": "關閉",
+      "glass.localDeployTray.title": "部署可線上存取和分享的應用程式"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/presend-deploy-tray.react": {
+      "glass.presendDeployTray.body": "Cursor 可以建置應用程式並部署，產生可分享的連結。只需在提示中明確要求 Cursor 建置應用程式。",
+      "glass.presendDeployTray.deploy": "建置應用程式",
+      "glass.presendDeployTray.dismiss": "關閉",
+      "glass.presendDeployTray.title": "建置可線上存取和分享的應用程式"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/use-local-deploy-action.react": {
+      "glass.localDeployTray.alreadyDeploying": "此專案正在另一個視窗中部署。",
+      "glass.localDeployTray.confirmChatFolderOnly": "僅 {0}",
+      "glass.localDeployTray.confirmDeploy": "部署資料夾",
+      "glass.localDeployTray.confirmDescription": "除依賴項、建置輸出和 .env 檔案外，{0} 中的所有內容都將隨此聊天移至雲端。",
+      "glass.localDeployTray.confirmTitle": "部署此資料夾？",
+      "glass.localDeployTray.draftRepoFailed": "無法為此專案建立儲存庫，因此未將其移至雲端。",
+      "glass.localDeployTray.nothingToDeploy": "此聊天尚未儲存任何應用程式檔案，請在建置出內容後再部署。",
+      "glass.localDeployTray.tooLarge": "此專案過大，無法從此處移至雲端。",
+      "glass.localDeployTray.uploadFailed": "無法將此專案的檔案複製到雲端，因此未將其移至雲端。"
+    },
+    "vs/glass/browser/components/agent-panel/deploy-prototype-nudge/deploy-prototype-nudge-tray.react": {
+      "glass.deployPrototypeNudge.body": "Cursor 可以將原型轉為可分享、可線上存取的 Web 應用程式。只需讓 Cursor 部署應用程式，或點選此處的「部署應用程式」。",
+      "glass.deployPrototypeNudge.deploy": "部署應用程式",
+      "glass.deployPrototypeNudge.dismiss": "關閉",
+      "glass.deployPrototypeNudge.title": "部署你的成果"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index": {
+      "glass.prIndex.stackPosition": "堆疊中的 {0}/{1}",
+      "glass.prIndex.state.changesRequested": "請求了變更",
+      "glass.prIndex.state.checksFailing": "檢查失敗",
+      "glass.prIndex.state.checksNeedAction": "檢查需要處理",
+      "glass.prIndex.state.checksRunning": "檢查進行中",
+      "glass.prIndex.state.conflicts": "有衝突",
+      "glass.prIndex.state.mergeConflicts": "合併衝突",
+      "glass.prIndex.state.reviewRequired": "需要審查",
+      "glass.prIndex.state.waitingOn": "等待 {0}",
+      "glass.prIndex.state.waitingOnAll": "等待 {0}",
+      "glass.prIndex.state.waitingOnMany": "等待 {0} +{1}",
+      "glass.prIndex.status.closed": "已關閉",
+      "glass.prIndex.status.draft": "草稿",
+      "glass.prIndex.status.merged": "已合併",
+      "glass.prIndex.status.queued": "已排隊",
+      "glass.prIndex.status.ready": "就緒"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-row.react": {
+      "glass.project.prsTray.addPrToChat": "把 {0} 加入對話"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-tray-chrome.react": {
+      "glass.prIndex.showMore": "顯示更多",
+      "glass.prIndex.showMoreAria": "在 {1} 中再顯示 {0} 個拉取請求"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-view.react": {
+      "glass.prIndex.clearSearch": "清除搜尋",
+      "glass.prIndex.emptyAgent": "此智慧體尚無拉取請求。",
+      "glass.prIndex.emptyFiltered": "沒有符合條件的拉取請求。",
+      "glass.prIndex.emptyProject": "此專案還沒有拉取請求。",
+      "glass.prIndex.search": "搜尋拉取請求",
+      "glass.prIndex.searchPlaceholder": "依標題、編號、分支或討論搜尋"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-agent-stack.react": {
+      "glass.project.agentChip.loadingName": "正在載入…",
+      "glass.project.task.agents": "智慧體"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-agent-status.react": {
+      "glass.project.task.agentStatus.error": "智慧體執行失敗",
+      "glass.project.task.agentStatus.idle": "沒有智慧體在工作",
+      "glass.project.task.agentStatus.needsAttention": "智慧體需要你處理",
+      "glass.project.task.agentStatus.none": "未連結智慧體",
+      "glass.project.task.agentStatus.working": "智慧體工作中"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-context-menu.react": {
+      "glass.project.task.menu.owner": "負責人",
+      "glass.project.task.menu.rename": "重新命名",
+      "glass.project.task.menu.status": "狀態",
+      "glass.project.task.menu.tags": "標籤",
+      "glass.project.taskOwner.unassigned": "未分配"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-rename-dialog.react": {
+      "glass.project.task.rename.cancel": "取消",
+      "glass.project.task.rename.input": "任務標題",
+      "glass.project.task.rename.save": "儲存",
+      "glass.project.task.rename.title": "重新命名任務"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-row-text": {
+      "glass.project.task.agentStack": "{0} 個智慧體"
+    },
+    "vs/glass/browser/hooks/command-handlers/agent.react": {
+      "glass.buildAppFromAd.title": "建置應用程式"
+    },
+    "vs/glass/browser/hooks/use-connect-vercel-pill.react": {
+      "glass.deployWithCursorPill.label": "使用 Cursor 部署"
+    },
+    "vs/glass/browser/hooks/use-glass-agent-creation.react": {
+      "glass.buildAppFromAd.prompt": "建置一個應用程式，實現以下功能："
+    },
+    "vs/glass/browser/utils/start-project-from-chat": {
+      "glass.projects.sideChatNotMoved": "1 個側邊對話未能移入專案。",
+      "glass.projects.sideChatsNotMoved": "{0} 個側邊對話未能移入專案。",
+      "glass.projects.someSideChatsNotMoved": "部分側邊對話未能移入專案。"
+    },
+    "vs/platform/airlock/common/airlock": {
+      "airlock.repo.none": "沒有用於 {0} 的隔離艙容器。請為此儲存庫啟動 {1}，然後重新連線。",
+      "airlock.repo.noneInvalidSandboxConfig": "沒有用於 {0} 的隔離艙容器。請為此儲存庫啟動 {1}，然後重新連線。{3} 無法提供「啟動」操作：{2}",
+      "airlock.repo.noneStartable": "沒有用於 {0} 的隔離艙容器。請先啟動容器，然後重新連線。",
+      "airlock.repo.stopped": "容器 {0} 沒有執行。請先啟動它，然後重新連線。",
+      "airlock.repo.unmapped": "{2} 無法確定 {0} 在容器 {1} 中的位置，因為容器既未掛載此資料夾，也未設定工作目錄。"
+    },
+    "vs/platform/airlock/electron-main/airlockMainService": {
+      "airlock.repo.noStartCommand": "{0} 的所有沙盒檔案都未指定 start_command（{1}），請手動啟動其隔離艙容器。",
+      "airlock.repo.startTimeout": "{0} 中的啟動命令已結束，但 {2} 秒後容器 {1} 仍未執行。"
+    },
+    "vs/platform/airlock/node/airlockEngine": {
+      "airlock.engineNotFound": "{0} 不在 PATH 中。",
+      "airlock.exitCode": "退出碼 {0}",
+      "airlock.noAnswer": "{0} 秒內沒有響應",
+      "airlock.stoppedBySignal": "被 {0} 終止"
+    },
+    "vs/platform/update/common/update.config.contribution": {
+      "restartWhenIdle": "在螢幕鎖定且結束應用程式不會受阻或遺失內容時，重新啟動並安裝已下載的更新：沒有正在執行的智慧體、終端機、任務、測試、筆記本儲存格或除錯工作階段，也沒有會因結束而遺失的變更。",
+      "restartWhenIdleTitle": "空閒時重新啟動以更新"
+    },
+    "vs/workbench/contrib/appLayout/electron-sandbox/glassModeActions": {
+      "cursor.openGlassAndCreateProject": "開啟智慧體視窗並建立專案"
+    },
+    "vs/workbench/contrib/composer/browser/promptInputTrays/PromptInputAnchoredTrayHovercard.react": {
+      "composer.anchoredTray.infoAriaLabel": "關於 {0}"
+    },
+    "vs/workbench/electron-sandbox/window": {
+      "switchingTeams": "正在切換團隊…"
+    },
+    "vs/workbench/services/cursorAuth/browser/authenticationService.contribution": {
+      "cursor.airlock.required": "僅適用於 Cursor Orbit：本機智慧體是否只能在隔離艙中執行，由裝置管理設定。未設定或為 false 時，本機智慧體可在此電腦以及 AgentRemoteWorkspaceAuthorities 允許的遠端工作區中執行。視窗在開啟時讀取此設定，變更後請重新載入。",
+      "cursorOrbitAirlockConfigurationTitle": "Orbit 隔離艙"
+    },
+    "vs/platform/extensionManagement/node/extensionManagementService": {
+      "restartCode": "請先重新啟動 {1}，然後重新安裝 {0}。"
+    },
+    "vs/platform/externalTerminal/node/externalTerminalService": {
+      "console.title": "{0} 主控台"
+    },
+    "vs/workbench/contrib/airlock/electron-sandbox/airlockAttach": {
+      "airlock.connecting": "正在連線隔離艙",
+      "airlock.repo.started": "隔離艙容器 {0} 正在執行"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsActions": {
+      "deprecated with alternate settings message": "此擴充套件已淘汰，因為 {0} 已內建此功能。",
+      "deprecated with alternate settings tooltip": "此擴充套件已淘汰，因為 {1} 已內建此功能。請設定這些{0}以使用此功能。"
+    },
+    "vs/workbench/contrib/tasks/browser/abstractTaskService": {
+      "TerminateAction.noProcess": "啟動的處理程序已不存在。如果工作產生了背景工作，結束 {0} 可能會留下孤立的處理程序。"
+    },
+    "vs/workbench/contrib/tasks/electron-sandbox/taskService": {
+      "TaskSystem.noProcess": "啟動的工作已不存在。如果工作產生了背景處理程序，結束 {0} 可能會留下孤立的處理程序。為避免此情況，請使用等待旗標啟動最後一個背景處理程序。"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalView": {
+      "terminal.monospaceOnly": "終端機僅支援等寬字型。如果這是新安裝的字型，請務必重新啟動 {0}。"
+    },
+    "vs/workbench/services/userDataProfile/browser/userDataProfileManagement": {
+      "reload message": "切換設定檔需要重新載入 {0}。"
+    }
+  }
+}

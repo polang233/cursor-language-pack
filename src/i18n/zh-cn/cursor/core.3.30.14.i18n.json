@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "vs/glass/browser/components/agent-panel/allowed-machines/add-folder-row.react": {
+      "glass.allowedMachines.cloneRepoOnMachine": "在 {0} 上克隆仓库"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/deploy-intent-pill.react": {
+      "glass.agentPanel.deployIntentPill.dismiss": "关闭",
+      "glass.agentPanel.deployIntentPill.label": "使用 Cursor 部署",
+      "glass.agentPanel.deployIntentTray.body": "在提示中让 Cursor 构建应用，它会搭建 Web 应用、部署并提供可分享的链接。",
+      "glass.agentPanel.deployIntentTray.deploy": "构建应用",
+      "glass.agentPanel.deployIntentTray.dismiss": "关闭",
+      "glass.agentPanel.deployIntentTray.title": "使用 Cursor 构建可在线访问和分享的应用"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/local-deploy-tray.react": {
+      "glass.localDeployTray.body": "Cursor 可以将你的成果发布为可在线访问和分享的 Web 应用。发布工作流在云端运行，此聊天及其全部工作内容也将移至云端。",
+      "glass.localDeployTray.deploy": "部署应用",
+      "glass.localDeployTray.deploying": "正在部署…",
+      "glass.localDeployTray.dismiss": "关闭",
+      "glass.localDeployTray.title": "部署可在线访问和分享的应用"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/presend-deploy-tray.react": {
+      "glass.presendDeployTray.body": "Cursor 可以构建应用并部署，生成可分享的链接。只需在提示中明确要求 Cursor 构建应用。",
+      "glass.presendDeployTray.deploy": "构建应用",
+      "glass.presendDeployTray.dismiss": "关闭",
+      "glass.presendDeployTray.title": "构建可在线访问和分享的应用"
+    },
+    "vs/glass/browser/components/agent-panel/apps-growth/use-local-deploy-action.react": {
+      "glass.localDeployTray.alreadyDeploying": "此项目正在另一个窗口中部署。",
+      "glass.localDeployTray.confirmChatFolderOnly": "仅 {0}",
+      "glass.localDeployTray.confirmDeploy": "部署文件夹",
+      "glass.localDeployTray.confirmDescription": "除依赖项、构建输出和 .env 文件外，{0} 中的所有内容都将随此聊天移至云端。",
+      "glass.localDeployTray.confirmTitle": "部署此文件夹？",
+      "glass.localDeployTray.draftRepoFailed": "无法为此项目创建仓库，因此未将其移至云端。",
+      "glass.localDeployTray.nothingToDeploy": "此聊天尚未保存任何应用文件，请在构建出内容后再部署。",
+      "glass.localDeployTray.tooLarge": "此项目过大，无法从此处移至云端。",
+      "glass.localDeployTray.uploadFailed": "无法将此项目的文件复制到云端，因此未将其移至云端。"
+    },
+    "vs/glass/browser/components/agent-panel/deploy-prototype-nudge/deploy-prototype-nudge-tray.react": {
+      "glass.deployPrototypeNudge.body": "Cursor 可以将原型转为可分享、可在线访问的 Web 应用。只需让 Cursor 部署应用，或点击此处的“部署应用”。",
+      "glass.deployPrototypeNudge.deploy": "部署应用",
+      "glass.deployPrototypeNudge.dismiss": "关闭",
+      "glass.deployPrototypeNudge.title": "部署你的成果"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index": {
+      "glass.prIndex.stackPosition": "堆叠中的 {0}/{1}",
+      "glass.prIndex.state.changesRequested": "请求了更改",
+      "glass.prIndex.state.checksFailing": "检查失败",
+      "glass.prIndex.state.checksNeedAction": "检查需要处理",
+      "glass.prIndex.state.checksRunning": "检查进行中",
+      "glass.prIndex.state.conflicts": "有冲突",
+      "glass.prIndex.state.mergeConflicts": "合并冲突",
+      "glass.prIndex.state.reviewRequired": "需要审查",
+      "glass.prIndex.state.waitingOn": "等待 {0}",
+      "glass.prIndex.state.waitingOnAll": "等待 {0}",
+      "glass.prIndex.state.waitingOnMany": "等待 {0} +{1}",
+      "glass.prIndex.status.closed": "已关闭",
+      "glass.prIndex.status.draft": "草稿",
+      "glass.prIndex.status.merged": "已合并",
+      "glass.prIndex.status.queued": "已排队",
+      "glass.prIndex.status.ready": "就绪"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-row.react": {
+      "glass.project.prsTray.addPrToChat": "把 {0} 加入对话"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-tray-chrome.react": {
+      "glass.prIndex.showMore": "显示更多",
+      "glass.prIndex.showMoreAria": "在 {1} 中再显示 {0} 个拉取请求"
+    },
+    "vs/glass/browser/components/editor-panel/pr-index-page/pr-index-view.react": {
+      "glass.prIndex.clearSearch": "清除搜索",
+      "glass.prIndex.emptyAgent": "此智能体尚无拉取请求。",
+      "glass.prIndex.emptyFiltered": "没有匹配的拉取请求。",
+      "glass.prIndex.emptyProject": "此项目还没有拉取请求。",
+      "glass.prIndex.search": "搜索拉取请求",
+      "glass.prIndex.searchPlaceholder": "按标题、编号、分支或讨论搜索"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-agent-stack.react": {
+      "glass.project.agentChip.loadingName": "正在加载…",
+      "glass.project.task.agents": "智能体"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-agent-status.react": {
+      "glass.project.task.agentStatus.error": "智能体执行失败",
+      "glass.project.task.agentStatus.idle": "没有智能体在工作",
+      "glass.project.task.agentStatus.needsAttention": "智能体需要你处理",
+      "glass.project.task.agentStatus.none": "未关联智能体",
+      "glass.project.task.agentStatus.working": "智能体工作中"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-context-menu.react": {
+      "glass.project.task.menu.owner": "负责人",
+      "glass.project.task.menu.rename": "重命名",
+      "glass.project.task.menu.status": "状态",
+      "glass.project.task.menu.tags": "标签",
+      "glass.project.taskOwner.unassigned": "未分配"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-rename-dialog.react": {
+      "glass.project.task.rename.cancel": "取消",
+      "glass.project.task.rename.input": "任务标题",
+      "glass.project.task.rename.save": "保存",
+      "glass.project.task.rename.title": "重命名任务"
+    },
+    "vs/glass/browser/components/editor-panel/project-document/project-task-row-text": {
+      "glass.project.task.agentStack": "{0} 个智能体"
+    },
+    "vs/glass/browser/hooks/command-handlers/agent.react": {
+      "glass.buildAppFromAd.title": "构建应用"
+    },
+    "vs/glass/browser/hooks/use-connect-vercel-pill.react": {
+      "glass.deployWithCursorPill.label": "使用 Cursor 部署"
+    },
+    "vs/glass/browser/hooks/use-glass-agent-creation.react": {
+      "glass.buildAppFromAd.prompt": "构建一个应用，实现以下功能："
+    },
+    "vs/glass/browser/utils/start-project-from-chat": {
+      "glass.projects.sideChatNotMoved": "1 个侧边对话未能移入项目。",
+      "glass.projects.sideChatsNotMoved": "{0} 个侧边对话未能移入项目。",
+      "glass.projects.someSideChatsNotMoved": "部分侧边对话未能移入项目。"
+    },
+    "vs/platform/airlock/common/airlock": {
+      "airlock.repo.none": "没有用于 {0} 的隔离舱容器。请为此仓库启动 {1}，然后重新连接。",
+      "airlock.repo.noneInvalidSandboxConfig": "没有用于 {0} 的隔离舱容器。请为此仓库启动 {1}，然后重新连接。{3} 无法提供“启动”操作：{2}",
+      "airlock.repo.noneStartable": "没有用于 {0} 的隔离舱容器。请先启动容器，然后重新连接。",
+      "airlock.repo.stopped": "容器 {0} 没有运行。请先启动它，然后重新连接。",
+      "airlock.repo.unmapped": "{2} 无法确定 {0} 在容器 {1} 中的位置，因为容器既未挂载此文件夹，也未设置工作目录。"
+    },
+    "vs/platform/airlock/electron-main/airlockMainService": {
+      "airlock.repo.noStartCommand": "{0} 的所有沙盒文件都未指定 start_command（{1}），请手动启动其隔离舱容器。",
+      "airlock.repo.startTimeout": "{0} 中的启动命令已结束，但 {2} 秒后容器 {1} 仍未运行。"
+    },
+    "vs/platform/airlock/node/airlockEngine": {
+      "airlock.engineNotFound": "{0} 不在 PATH 中。",
+      "airlock.exitCode": "退出码 {0}",
+      "airlock.noAnswer": "{0} 秒内没有响应",
+      "airlock.stoppedBySignal": "被 {0} 终止"
+    },
+    "vs/platform/update/common/update.config.contribution": {
+      "restartWhenIdle": "在屏幕锁定且退出应用不会受阻或丢失内容时，重启并安装已下载的更新：没有正在运行的智能体、终端、任务、测试、笔记本单元格或调试会话，也没有会因退出而丢失的更改。",
+      "restartWhenIdleTitle": "空闲时重启以更新"
+    },
+    "vs/workbench/contrib/appLayout/electron-sandbox/glassModeActions": {
+      "cursor.openGlassAndCreateProject": "打开智能体窗口并创建项目"
+    },
+    "vs/workbench/contrib/composer/browser/promptInputTrays/PromptInputAnchoredTrayHovercard.react": {
+      "composer.anchoredTray.infoAriaLabel": "关于 {0}"
+    },
+    "vs/workbench/electron-sandbox/window": {
+      "switchingTeams": "正在切换团队…"
+    },
+    "vs/workbench/services/cursorAuth/browser/authenticationService.contribution": {
+      "cursor.airlock.required": "仅适用于 Cursor Orbit：本地智能体是否只能在隔离舱中运行，由设备管理设置。未设置或为 false 时，本地智能体可在此计算机以及 AgentRemoteWorkspaceAuthorities 允许的远程工作区中运行。窗口在打开时读取此设置，更改后请重新加载。",
+      "cursorOrbitAirlockConfigurationTitle": "Orbit 隔离舱"
+    },
+    "vs/platform/extensionManagement/node/extensionManagementService": {
+      "restartCode": "请先重启 {1}，然后重新安装 {0}。"
+    },
+    "vs/platform/externalTerminal/node/externalTerminalService": {
+      "console.title": "{0} 控制台"
+    },
+    "vs/workbench/contrib/airlock/electron-sandbox/airlockAttach": {
+      "airlock.connecting": "正在连接隔离舱",
+      "airlock.repo.started": "隔离舱容器 {0} 正在运行"
+    },
+    "vs/workbench/contrib/extensions/browser/extensionsActions": {
+      "deprecated with alternate settings message": "此扩展已弃用，因为 {0} 已内置此功能。",
+      "deprecated with alternate settings tooltip": "此扩展已弃用，因为 {1} 已内置此功能。请配置这些{0}以使用此功能。"
+    },
+    "vs/workbench/contrib/tasks/browser/abstractTaskService": {
+      "TerminateAction.noProcess": "启动的进程已不存在。如果任务生成了后台任务，退出 {0} 可能会留下孤立进程。"
+    },
+    "vs/workbench/contrib/tasks/electron-sandbox/taskService": {
+      "TaskSystem.noProcess": "启动的任务已不存在。如果任务生成了后台进程，退出 {0} 可能会留下孤立进程。要避免此情况，请使用等待标记启动最后一个后台进程。"
+    },
+    "vs/workbench/contrib/terminal/browser/terminalView": {
+      "terminal.monospaceOnly": "终端仅支持等宽字体。如果这是新安装的字体，请务必重启 {0}。"
+    },
+    "vs/workbench/services/userDataProfile/browser/userDataProfileManagement": {
+      "reload message": "切换配置文件需要重新加载 {0}。"
+    }
+  }
+}

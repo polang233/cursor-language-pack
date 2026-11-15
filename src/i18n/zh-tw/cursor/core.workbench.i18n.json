@@ -1337,7 +1337,7 @@
     "vs/workbench/contrib/tasks/electron-sandbox/taskService": {
       "TaskSystem.runningTask": "存在執行中的任務。要終止它嗎？",
       "TaskSystem.terminateTask": "終止任務(&&T)",
-      "TaskSystem.noProcess": "啟動的任務不再存在。如果任務已生成出後臺程序，則退出 VS Code 可能會導致出現孤立的程序。若要避免此情況，請使用等待標記啟動最後一個後臺程序。",
+      "TaskSystem.noProcess": "啟動的工作已不存在。如果工作產生了背景處理程序，結束 {0} 可能會留下孤立的處理程序。為避免此情況，請使用等待旗標啟動最後一個背景處理程序。",
       "TaskSystem.exitAnyways": "仍要退出(&&E)"
     },
     "vs/workbench/contrib/ui/browser/gallery/sections/TreeViewExampleSection": {
