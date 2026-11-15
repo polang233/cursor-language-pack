@@ -37,6 +37,41 @@ for (const locale of ['zh-cn', 'zh-tw']) {
     assert.equal(rewrite(result.text, dictionary).text, result.text);
   });
 
+  test(`${locale}: Agents 菜单助记符和模块名只替换完整文案`, () => {
+    const source = [
+      '{title:"New &&Agent"}',
+      '{title:"Run on"}',
+      'pjl="New Chat"',
+      'j$e="No Repo"',
+      'pHs="Remote Machine"',
+      'RNv="All Remote Machines"',
+      't.folders.length>1?"Workspace":"Home"',
+      'sectionHeaderLabel:`On ${t.workspaceName.trim()||"workspace"}`',
+      'function CrI(t){return t<=0?"Terminal":t===1?"1 Terminal":`${t} Terminals`}',
+      'label:h.title.trim()||"Terminal"',
+      'case $t.SideChat:return"Side Chat"',
+      'case $t.Canvas:return"Canvas"',
+      'case $t.Terminal:return"Terminal"',
+      'keywords:["Terminal","New Chat"]'
+    ].join('\n');
+    const result = rewrite(source, dictionary);
+    assert.equal(result.text.includes('title:"New &&Agent"'), false);
+    assert.equal(result.text.includes(dictionary['New &&Agent']), true);
+    assert.equal(result.text.includes(dictionary['Run on']), true);
+    assert.equal(result.text.includes(dictionary['pjl="New Chat"']), true);
+    assert.equal(result.text.includes(dictionary['No Repo']), true);
+    assert.equal(result.text.includes(dictionary['Remote Machine']), true);
+    assert.equal(result.text.includes(dictionary['All Remote Machines']), true);
+    assert.equal(result.text.includes(dictionary['t.folders.length>1?"Workspace":"Home"']), true);
+    assert.equal(result.text.includes(dictionary['sectionHeaderLabel:`On ${t.workspaceName.trim()||"workspace"}`']), true);
+    assert.equal(result.text.includes(dictionary['t<=0?"Terminal":t===1?"1 Terminal":`${t} Terminals`']), true);
+    assert.equal(result.text.includes(dictionary['return"Side Chat"']), true);
+    assert.equal(result.text.includes(dictionary['return"Canvas"']), true);
+    assert.equal(result.text.includes(dictionary['case $t.Terminal:return"Terminal"']), true);
+    assert.equal(result.text.includes('keywords:["Terminal","New Chat"]'), true);
+    assert.equal(rewrite(result.text, dictionary).text, result.text);
+  });
+
   test(`${locale}: 新旧设置侧栏标题均可翻译，路由和图标名保持原样`, () => {
     const source = 'const current={voice:"Voice","git-prs":"Source Control"};'
       + 'const legacy={"git-prs":"Git & PRs"};'
