@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "configuration.title": "PHP",
+      "commands.categroy.php": "PHP"
+    }
+  }
+}

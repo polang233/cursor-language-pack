@@ -423,7 +423,7 @@ function writeRuntime(outDir, manifest, localeList) {
           'Display language for the Cursor interface (editor chrome **and** Cursor-authored workbench strings).\n\n' +
           'Changing this writes only the `locale` field of `argv.json` and offers to restart. ' +
           'It does **not** uninstall the extension — translations stay on disk, so you can switch ' +
-          'Chinese ↔ English repeatedly without reinstalling.\n\n' +
+          'between bundled languages and English without reinstalling.\n\n' +
           'To remove the pack entirely: uninstall the extension, then set this to `en` (or delete ' +
           '`locale` in `argv.json`) and restart.',
         scope: 'application'

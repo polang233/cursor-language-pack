@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "configuration.codeLens": "CodeLens",
+      "typescript.reselectNodeVersion": "カスタム Node パスの設定",
+      "configuration.tsserver.experimental.useBundledNode": "同梱の Node.js で TypeScript サーバーを実行します。無効の場合は Electron の Node.js を使います。`typescript.tsserver.nodePath` で指定したパスが優先されます。",
+      "configuration.tsserver.experimental.useBundledNode.unifiedDeprecationMessage": "この設定は非推奨です。代わりに `#js/ts.tsserver.experimental.useBundledNode#` を使ってください。",
+      "typescript.preferences.importModuleSpecifierEnding.label.js": ".js / .ts"
+    }
+  }
+}

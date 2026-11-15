@@ -165,6 +165,19 @@ test('flat commerce dictionary preserves every ICU argument, plural branch, poun
   }
 });
 
+test('Japanese commerce preserves ICU arguments, components and actual resource injection', async () => {
+  const japanese = JSON.parse(fs.readFileSync(new URL('../src/i18n/ja/commerce.json', import.meta.url), 'utf8'));
+  assert.deepEqual(Object.keys(japanese).sort(), Object.keys(resources).sort());
+  for (const [english, value] of Object.entries(japanese)) {
+    assert.ok(typeof value === 'string' && value.trim(), english);
+    assert.deepEqual(messageSignature(value), messageSignature(english), english);
+  }
+  const fake = fakeI18n({ resolvedLanguage: 'ja' });
+  await runnable(rewriteCommerce(fixture(), japanese).text, {}, () => ({ instance: fake.instance, ready: Promise.resolve() }))('ja', {});
+  assert.equal(fake.calls[0][2]['Buy credits'], 'クレジットを購入');
+  assert.equal(fake.calls[0][2]['Auto top-up'], '自動チャージ');
+});
+
 test('Traditional Chinese has the same message keys and preserves every ICU and component reference', async () => {
   const traditional = JSON.parse(fs.readFileSync(new URL('../src/i18n/zh-tw/commerce.json', import.meta.url), 'utf8'));
   const translated = Object.fromEntries(Object.entries(traditional).filter(([key]) => key !== '$comment'));

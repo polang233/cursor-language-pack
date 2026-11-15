@@ -1,9 +1,10 @@
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
-/** Map an OS language to one of the two translations shipped by this package. */
-export function chineseLocale(language) {
+/** Select a bundled translation from the OS display language. */
+export function resolveLocale(language) {
   const tag = String(language ?? '').trim().split(/[.:@]/)[0].replaceAll('_', '-').toLowerCase();
+  if (/^ja(?:-|$)/.test(tag)) return 'ja';
   if (tag === 'zh-cht' || tag === 'cht' || /^(tw|hk|mo)$/.test(tag)) return 'zh-tw';
   if (/(^|-)hans($|-)/.test(tag)) return 'zh-cn';
   if (/(^|-)hant($|-)/.test(tag) || /(^|-)(tw|hk|mo)($|-)/.test(tag)) return 'zh-tw';

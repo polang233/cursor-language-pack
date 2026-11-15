@@ -10,7 +10,7 @@ import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { p, readJson, writeJson } from './lib/util.mjs';
 import { npmCommand } from './lib/npm-tooling.mjs';
-import { chineseLocale, systemLocale } from './lib/system-locale.mjs';
+import { resolveLocale, systemLocale } from './lib/system-locale.mjs';
 
 // ZIP central directory reader for the VSIX built by vsce; no runtime dependency.
 function zipEntry(zip, name) {
@@ -104,7 +104,20 @@ try {
   assert.equal(extension.version, pkg.version);
   assert.equal(extension.name, config.namePrefix);
   assert.equal(extension.publisher, config.publisher);
-  assert.deepEqual(extension.contributes.localizations.map((item) => item.languageId).sort(), ['zh-cn', 'zh-tw']);
+  assert.deepEqual(extension.contributes.localizations.map((item) => item.languageId).sort(), config.locales.filter(l => l.enabled !== false).map(l => l.id).sort());
+  if (product === 'cursor') {
+    for (const locale of config.locales.filter(item => item.enabled !== false)) {
+      for (const file of ['hardcoded.json', 'commerce.json']) {
+        const relative = path.join('src', 'i18n', locale.id, file);
+        assert.deepEqual(readJson(path.join(installed, relative)), readJson(p(relative)), `${locale.id}: shipped ${file}`);
+      }
+      const messages = zipEntry(fs.readFileSync(asset), `extension/l10n/bundle.l10n.${locale.id}.json`);
+      const authoredMessages = Object.fromEntries(Object.entries(readJson(p('src', 'i18n', locale.id, 'extension.l10n.json')))
+        .filter(([key]) => !key.startsWith('$')));
+      assert.deepEqual(JSON.parse(messages), authoredMessages,
+        `${locale.id}: shipped extension messages`);
+    }
+  }
   for (const locale of extension.contributes.localizations) {
     for (const item of locale.translations) {
       const bytes = zipEntry(fs.readFileSync(asset), 'extension/' + item.path.replace(/^\.\//, ''));
@@ -253,6 +266,17 @@ if(args[0] === '--install-extension') {
   const traditional = fs.readFileSync(target, 'utf8');
   assert.notEqual(traditional, original);
   assert.match(fs.readFileSync(path.join(data, 'argv.json'), 'utf8'), /"locale":\s*"zh-tw"/);
+  if (product === 'cursor') {
+    execute(['install', ...args, '--locale=ja']);
+    const japanese = fs.readFileSync(target, 'utf8');
+    assert.notEqual(japanese, traditional, 'Japanese switching changes the translated app');
+    assert.match(japanese, /サインイン/);
+    assert.match(fs.readFileSync(path.join(data, 'argv.json'), 'utf8'), /"locale":\s*"ja"/);
+    execute(['install', ...args, '--locale=ja']);
+    assert.equal(fs.readFileSync(target, 'utf8'), japanese, 'Japanese installation is repeatable');
+    execute(['install', ...args, '--locale=zh-tw']);
+    assert.equal(fs.readFileSync(target, 'utf8'), traditional, 'switching from Japanese preserves the original backup');
+  }
   execute(['status', ...args]);
   // External edits must survive both a refused reinstall and restore.
   fs.appendFileSync(target, '\n// external change\n');
@@ -276,18 +300,18 @@ if(args[0] === '--install-extension') {
   execute(['restore', ...args]);
   assert.equal(fs.readFileSync(target, 'utf8'), updated, 'restore never reinstates an older application build');
   execute(args);
-  const automaticLocale = chineseLocale(systemLocale());
+  const automaticLocale = resolveLocale(systemLocale());
   assert.ok(fs.readFileSync(path.join(data, 'argv.json'), 'utf8').includes(`"${automaticLocale}"`), 'default install uses the detected OS language');
   execute(['restore', ...args]);
   // Exercise npx's one-off tarball install and generated command, outside the repository.
   const npx = npmCommand(['exec', '--offline', '--yes', `--package=${tarball}`, '--', config.namePrefix, '--version'], { env, cwd: temp });
   assert.equal(npx.stdout.trim(), pkg.version);
-  if (published) {
+  {
     const npmEntry = [process.env.npm_execpath,
       path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js'),
       path.resolve(path.dirname(process.execPath), '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js')]
       .find((file) => file && fs.existsSync(file));
-    assert.ok(npmEntry, 'run the published check through npm run');
+    assert.ok(npmEntry, 'the npm CLI is available');
     const npxEntry = path.join(path.dirname(npmEntry), 'npx-cli.js');
     assert.ok(fs.existsSync(npxEntry), 'the actual npx CLI is available');
     const localeStub = path.join(temp, 'system-locale-fixture.cjs');
@@ -310,7 +334,9 @@ require('node:module').syncBuiltinESMExports();
         testEnv.LC_ALL = simulatedLocale;
         testEnv.NODE_OPTIONS = [env.NODE_OPTIONS, '--import=' + pathToFileURL(localeStub).href].filter(Boolean).join(' ');
       }
-      const result = spawnSync(process.execPath, [npxEntry, '--yes', pkg.name + '@latest', ...cliArgs],
+      const packageArgs = published ? [pkg.name + '@latest']
+        : ['--offline', '--package=' + tarball, '--', config.namePrefix];
+      const result = spawnSync(process.execPath, [npxEntry, '--yes', ...packageArgs, ...cliArgs],
         { cwd: temp, env: testEnv, encoding: 'utf8', windowsHide: true, timeout: 120_000 });
       assert.equal(result.error, undefined);
       // npm's version and dist-tag endpoints can propagate at different times.
@@ -320,22 +346,23 @@ require('node:module').syncBuiltinESMExports();
       return result.stdout + result.stderr;
     };
     let npxVersion;
-    for (let attempt = 0; attempt < propagationAttempts; attempt++) {
+    const attempts = published ? propagationAttempts : 1;
+    for (let attempt = 0; attempt < attempts; attempt++) {
       npxVersion = runNpx(['--version'], undefined, true)?.trim() ?? '(ETARGET: metadata not propagated)';
       if (npxVersion === pkg.version) break;
-      if (attempt < propagationAttempts - 1) {
+      if (attempt < attempts - 1) {
         console.log(`Waiting for npx latest ${pkg.version}; npx resolves ${npxVersion}.`);
         await new Promise((resolve) => setTimeout(resolve, 10_000));
       }
     }
-    assert.equal(npxVersion, pkg.version, 'npx latest must resolve the version under test');
+    assert.equal(npxVersion, pkg.version, 'npx must resolve the version under test');
     const beforeNpx = fs.readFileSync(target);
     const selectedLocale = () => JSON.parse(fs.readFileSync(path.join(data, 'argv.json'), 'utf8')
       .replace(/^\s*\/\/.*$/gm, '')).locale;
     runNpx(args);
     assert.equal(selectedLocale(), automaticLocale, 'README default command uses the real OS display language');
-    console.log(`npx ${pkg.name}@latest: real system ${systemLocale()} selected ${automaticLocale}.`);
-    for (const [tag, expected] of [['zh-TW', 'zh-tw'], ['zh-HK', 'zh-tw'], ['zh-MO', 'zh-tw'],
+    console.log(`npx ${published ? pkg.name + '@latest' : 'local tarball'}: real system ${systemLocale()} selected ${automaticLocale}.`);
+    for (const [tag, expected] of [['ja-JP', 'ja'], ['ja_JP.UTF-8', 'ja'], ['zh-TW', 'zh-tw'], ['zh-HK', 'zh-tw'], ['zh-MO', 'zh-tw'],
       ['zh-Hant', 'zh-tw'], ['zh-CN', 'zh-cn'], ['en-US', 'zh-cn'], ['zh-Hans-HK', 'zh-cn']]) {
       runNpx(args, tag);
       assert.equal(selectedLocale(), expected, 'npx default for simulated system ' + tag);
@@ -346,10 +373,14 @@ require('node:module').syncBuiltinESMExports();
     runNpx([...args, '--locale=zh-cn'], 'zh-HK');
     assert.equal(selectedLocale(), 'zh-cn', 'manual Simplified Chinese overrides the system');
     assert.notDeepEqual(fs.readFileSync(target), traditionalNpx, 'switching locales changes the app translations');
+    runNpx([...args, '--locale=ja'], 'zh-CN');
+    assert.equal(selectedLocale(), 'ja', 'manual Japanese overrides the system');
+    runNpx([...args, '--locale=zh-cn'], 'ja-JP');
+    assert.equal(selectedLocale(), 'zh-cn', 'manual Chinese overrides Japanese system language');
     runNpx(['status', ...args]);
     runNpx(['restore', ...args]);
-    assert.deepEqual(fs.readFileSync(target), beforeNpx, 'published npx restores the original app bytes');
-    console.log('Published npx: default installation, TW/HK/MO/Hant/CN/English/script precedence, manual locale overrides and restore passed.');
+    assert.deepEqual(fs.readFileSync(target), beforeNpx, 'npx restores the original app bytes');
+    console.log(`${published ? 'Published' : 'Packaged'} npx: default installation, Japanese/TW/HK/MO/Hant/CN/English/script precedence, manual locale overrides and restore passed.`);
   }
   console.log(`${pkg.name}: tarball install, npx entry, VSIX, preview, retries, language switch, restore and app upgrade passed.`);
 } finally {

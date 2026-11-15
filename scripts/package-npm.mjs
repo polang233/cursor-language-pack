@@ -16,7 +16,10 @@ for (const required of ['bin/cli.mjs', 'scripts/lib/cli.mjs', 'scripts/lib/syste
   if (!files.includes(required)) throw new Error(`npm tarball is missing ${required}`);
 }
 if (pkg.name.endsWith('/cursor-language-pack')) {
-  for (const required of ['scripts/lib/commerce-i18n.mjs', 'src/i18n/zh-cn/commerce.json', 'src/i18n/zh-tw/commerce.json']) {
+  const config = readJson(p('config.json'));
+  const dictionaries = config.locales.filter(locale => locale.enabled !== false)
+    .flatMap(locale => ['hardcoded.json', 'commerce.json'].map(name => `src/i18n/${locale.id}/${name}`));
+  for (const required of ['scripts/lib/commerce-i18n.mjs', ...dictionaries]) {
     if (!files.includes(required)) throw new Error(`npm tarball is missing ${required}`);
   }
 }

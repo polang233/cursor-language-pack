@@ -1,0 +1,18 @@
+{
+  "Display language set to {0}. Restart Cursor to apply it. The language pack stays installed; switch again anytime without reinstalling.": "表示言語を {0} に変更しました。Cursor を再起動すると反映されます。再インストールせずに言語を切り替えられます。",
+  "{0} Quit and start Cursor again.": "{0} Cursor を終了し、もう一度起動してください。",
+  "Restart now": "今すぐ再起動",
+  "Later": "後で",
+  "The display language is already {0}.": "表示言語はすでに {0} です。",
+  "Could not write {0}: {1}. Run \"Configure Display Language\" from the Command Palette instead.": "{0} に書き込めませんでした：{1}。コマンドパレットから「Configure Display Language」を実行してください。",
+  "Cursor Language Pack": "Cursor 言語パック",
+  "Switch language only — does not uninstall the pack. Restart required.": "表示言語を切り替えます。言語パックは残ります。再起動が必要です。",
+  "Applies workbench and Cursor UI. The pack stays installed — switch languages anytime without reinstalling.": "エディターと Cursor の画面に適用します。再インストールせずに切り替えられます。",
+  "Built-in English. Menus, Settings and other Cursor UI all return to English. The pack stays installed — pick a language again later, no reinstall.": "標準の英語表示に戻します。言語パックは残るため、いつでも切り替えられます。",
+  "current": "現在の言語",
+  "Show in Extensions": "拡張機能で表示",
+  "Do not ask again": "今後表示しない",
+  "{0} also provides the workbench translations for a language this pack covers. Only one of them can win, and which one is not stable across restarts. Uninstall the other pack.": "{0} と翻訳が競合しています。再起動のたびに表示が変わる場合があります。他の言語パックをアンインストールしてください。",
+  "Cursor Language Pack is installed ({0}), but the display language is still {1}.": "Cursor 言語パック（{0}）がインストールされています。現在の表示言語は {1} です。",
+  "Select language": "言語を選択"
+}

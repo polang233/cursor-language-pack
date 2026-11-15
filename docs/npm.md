@@ -20,17 +20,17 @@ node bin/cli.mjs status
 开发时也可用本地 TGZ 联调 npx，以下命令运行本地产物：
 
 ```bash
-npx --yes --package="./dist/polang233-cursor-language-pack-1.1.6.tgz" cursor-language-pack preview
+npx --yes --package="./dist/polang233-cursor-language-pack-1.2.0.tgz" cursor-language-pack preview
 ```
 
-源码入口与 npx 使用相同参数：默认 `install`，也支持 `install/preview/status/restore`、`--locale=zh-cn/zh-tw` 和 `--dir="路径"`。实际安装前退出应用；联调安装与恢复时使用隔离 fixture。系统语言含 TW/HK/MO 或 zh-Hant 时选 `zh-tw`，其余选 `zh-cn`。
+源码入口与 npx 使用相同参数：默认 `install`，也支持 `install/preview/status/restore`、`--locale=zh-cn/zh-tw/ja` 和 `--dir="路径"`。实际安装前退出应用；联调安装与恢复时使用隔离 fixture。日语系统选 `ja`，TW/HK/MO 或 zh-Hant 选 `zh-tw`，其余选 `zh-cn`。
 
 | 命令 | 职责 |
 | --- | --- |
 | `npm run test:cli` | 纯 CLI/locale 测试，不构建、不要求真实应用 |
 | `npm test` | 扩展运行时、CLI、升级差异、硬编码文案与 commerce 资源测试 |
 | `npm run verify` | 原有构建、manifest、覆盖率检查，需要先 detect/extract 本机应用 |
-| `npm run validate:install` | 在临时目录改写本机 Cursor 的两种语言程序副本并检查语法，不修改安装目录 |
+| `npm run validate:install` | 在临时目录改写本机 Cursor 的所有启用语言程序副本并检查语法，不修改安装目录 |
 | `npm run package:npm` | 构建本版本 VSIX、准备包内 assets、执行 npm pack 到 dist，再验证真实 TGZ |
 | `npm run test:published` | 下载并校验公开 latest 包，实际运行 npx，检查自动语言、手动切换和恢复 |
 | `npm run test:package` | 重新测试 dist 中本版本已有 TGZ，可重复运行，不依赖重新打包 |
@@ -61,6 +61,6 @@ npm 首发已完成。该包已配置 GitHub Actions 可信发布，仓库变量
 
 ## 发布后验收
 
-发布工作流会在 Windows、macOS、Linux 自动运行 `npm run test:published`。也可在本地手动运行。它分别最多等待约 6 分钟，确认 registry 元数据和 npx 的 `latest` 都指向当前版本；npx 查询会重新验证缓存。该检查从官方 registry 下载并核对完整性，在仓库外安装实际 tarball，再用官方 npx 入口按包名运行默认安装、手动简繁体切换和恢复。它验证本机系统语言，也通过隔离的系统查询模拟 TW/HK/MO/Hant/CN/英文及明确字形优先级；不会修改电脑语言或真实应用。`--dir` 使用带空格的临时安装目录。
+发布工作流会在 Windows、macOS、Linux 自动运行 `npm run test:published`。也可在本地手动运行。它分别最多等待约 6 分钟，确认 registry 元数据和 npx 的 `latest` 都指向当前版本；npx 查询会重新验证缓存。该检查从官方 registry 下载并核对完整性，在仓库外安装实际 tarball，再用官方 npx 入口按包名运行默认安装、手动日语／简繁体切换和恢复。它验证本机系统语言，也通过隔离的系统查询模拟日语／TW/HK/MO/Hant/CN/英文及明确字形优先级；不会修改电脑语言或真实应用。`--dir` 使用带空格的临时安装目录。
 
 npm 刚接收发布时，版本元数据可能暂未传到所有查询入口。首次 npx 版本探测遇到 `ETARGET` 时会等待重试；后续安装、切换和恢复的错误仍立即失败。

@@ -20,7 +20,7 @@
   "Cursor Language Pack": "Cursor 語言包",
   "Switch language only — does not uninstall the pack. Restart required.": "僅切換顯示語言，不會解除安裝語言包。需重啟後生效。",
   "Applies workbench and Cursor UI. The pack stays installed — switch languages anytime without reinstalling.": "同時作用於編輯器主體與 Cursor 寫入核心的介面。語言包仍保留，之後可隨時切換，無需重灌。",
-  "Built-in English. Menus, Settings and other Cursor UI all return to English. The pack stays installed — pick a language again later, no reinstall.": "內建英文。選單、設定及其他 Cursor 介面都會恢復英文。語言包仍保留，之後再選中文即可，無需重灌。",
+  "Built-in English. Menus, Settings and other Cursor UI all return to English. The pack stays installed — pick a language again later, no reinstall.": "內建英文。選單、設定及其他 Cursor 介面都會恢復英文。語言包仍保留，可隨時切換語言，無需重灌。",
   "current": "當前",
   "Show in Extensions": "在擴充套件檢視中顯示",
   "Do not ask again": "不再提示",

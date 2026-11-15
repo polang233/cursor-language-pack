@@ -2,7 +2,7 @@
 
 Translation fixes, new languages, terminology reviews and missing-text reports are welcome. You can start with a few strings or one screen; partial translations fall back to English.
 
-Install / usage: [README.md](../README.md) (简体中文) · [README.en.md](README.en.md) (English).
+Install / usage: [简体中文](../README.md) · [English](README.en.md) · [日本語](README.ja.md).
 Docs index: [README.md](README.md).
 
 ## Setup
@@ -55,8 +55,9 @@ npm run gap -- --skeleton=.tmp-todo.json   # stub only — do not commit English
 - Keep menu mnemonics (`&&`); Chinese style e.g. `文件(&&F)`.
 - Keep key glyphs (`⌘Enter`) and significant whitespace / `\n`.
 - No empty values. Follow `glossary.json`; change the glossary in the same PR if you rename a term.
-- Prefer terms that match the official VS Code Chinese pack when the concept exists in both.
-- Keep Cursor and the protocol name MCP in English. Translate feature labels: Agent 智能体, Tab 代码补全, Cloud Agent 云端智能体, Composer 编写, Steer 引导, Bugbot 缺陷检查. Editor tabs stay 标签页, not 代码补全.
+- Prefer the official VS Code terms for each language when the concept exists in both.
+- For Chinese, translate feature labels: Agent 智能体, Tab 代码补全, Cloud Agent 云端智能体, Composer 编写, Steer 引导, Bugbot 缺陷检查. Keep Cursor and MCP in English. Editor tabs use 标签页.
+- Maintain Japanese independently using [the Japanese wording guide](translation-ja.md). Use concise labels and standard software terms; preserve product names such as Cursor, Composer and Bugbot.
 
 `hardcoded.json` ships with the npm installer. The CLI patches supported text in the app files, including Cursor Settings, Agents and Chat. English keys must match the installed Cursor byte for byte. Add replacements for UI fields or reviewed display-text fragments in `scripts/translate-install.mjs`; preserve command IDs, routes and search metadata. Preview with `npm run translate -- --preview --locale=<locale>` and check real application file copies with `npm run validate:install`.
 

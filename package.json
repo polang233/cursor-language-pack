@@ -1,7 +1,7 @@
 {
   "name": "@polang233/cursor-language-pack",
-  "version": "1.1.6",
-  "description": "Cursor 简体/繁体中文汉化工具，自动选择系统语言，支持一键安装与恢复。",
+  "version": "1.2.0",
+  "description": "Cursor 中文・日语界面翻译工具，自动识别系统语言，支持一键安装、语言切换与恢复。",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -62,7 +62,9 @@
     "LICENSE",
     "NOTICE",
     "src/i18n/zh-cn/commerce.json",
-    "src/i18n/zh-tw/commerce.json"
+    "src/i18n/zh-tw/commerce.json",
+    "src/i18n/ja/hardcoded.json",
+    "src/i18n/ja/commerce.json"
   ],
   "publishConfig": {
     "access": "public",
@@ -76,6 +78,9 @@
     "cli",
     "chinese",
     "zh-cn",
-    "zh-tw"
+    "zh-tw",
+    "japanese",
+    "日本語",
+    "ja"
   ]
 }

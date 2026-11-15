@@ -1,0 +1,23 @@
+{
+  "locale": "ja",
+  "terms": [
+    { "en": "Cursor", "ja": "Cursor", "keepEnglish": true },
+    { "en": "Composer", "ja": "Composer", "keepEnglish": true },
+    { "en": "Bugbot", "ja": "Bugbot", "keepEnglish": true },
+    { "en": "MCP", "ja": "MCP", "keepEnglish": true },
+    { "en": "Agent", "ja": "エージェント", "keepEnglish": false },
+    { "en": "Settings", "ja": "設定", "keepEnglish": false },
+    { "en": "Extension", "ja": "拡張機能", "keepEnglish": false },
+    { "en": "Workspace", "ja": "ワークスペース", "keepEnglish": false },
+    { "en": "Repository", "ja": "リポジトリ", "keepEnglish": false },
+    { "en": "Branch", "ja": "ブランチ", "keepEnglish": false },
+    { "en": "Prompt", "ja": "プロンプト", "keepEnglish": false },
+    { "en": "Context", "ja": "コンテキスト", "keepEnglish": false },
+    { "en": "Terminal", "ja": "ターミナル", "keepEnglish": false },
+    { "en": "Command Palette", "ja": "コマンドパレット", "keepEnglish": false }
+  ],
+  "style": {
+    "labels": "短い操作表現を使い、画面の文脈に合わせる。",
+    "markers": "プレースホルダー、助記符、コマンドリンク、ICU 分岐とコンポーネントタグを保持する。"
+  }
+}

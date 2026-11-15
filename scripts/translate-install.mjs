@@ -611,7 +611,7 @@ function resolveInstall() {
 
 function localeChoice() {
   if (typeof flags.locale === 'string') {
-    const named = config.locales.find((l) => l.id === flags.locale);
+    const named = config.locales.find((l) => l.enabled !== false && l.id === flags.locale);
     if (!named) fail(`不认识的语言 “${flags.locale}”。`);
     return named;
   }

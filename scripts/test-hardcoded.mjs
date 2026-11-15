@@ -3,15 +3,28 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { test } from 'node:test';
 import { rewrite } from './translate-install.mjs';
+import { markerMismatches } from './lib/markers.mjs';
+
+test('Japanese hardcoded dictionary covers the maintained UI strings and preserves markers', () => {
+  const read = locale => JSON.parse(fs.readFileSync(new URL(`../src/i18n/${locale}/hardcoded.json`, import.meta.url), 'utf8'));
+  const chineseKeys = Object.keys(read('zh-cn')).filter(key => !key.startsWith('$')).sort();
+  const japanese = read('ja');
+  assert.deepEqual(Object.keys(japanese).sort(), chineseKeys);
+  for (const [english, value] of Object.entries(japanese)) {
+    assert.ok(typeof value === 'string' && value.trim(), english);
+    assert.deepEqual(markerMismatches(english, value), [], english);
+  }
+});
 
 const issue5Copy = {
   'zh-cn': ['搜索操作…', '搜索智能体…', '搜索智能体', '编辑器窗口', '水平拆分面板', '垂直拆分面板', '从面板组移除', '固定 / 取消固定智能体'],
-  'zh-tw': ['搜尋操作…', '搜尋智慧體…', '搜尋智慧體', '編輯器視窗', '水平分割面板', '垂直分割面板', '從面板群組移除', '固定 / 取消固定智慧體']
+  'zh-tw': ['搜尋操作…', '搜尋智慧體…', '搜尋智慧體', '編輯器視窗', '水平分割面板', '垂直分割面板', '從面板群組移除', '固定 / 取消固定智慧體'],
+  ja: ['操作を検索…', 'エージェントを検索…', 'エージェントを検索', 'エディターウィンドウ', '横に分割', '縦に分割', 'パネルグループから削除', 'エージェントの固定/固定解除']
 };
 const issue5Keys = ['Search actions...', 'Search Agents...', 'Search Agents', 'Editor Window',
   'Split Tile Horizontally', 'Split Tile Vertically', 'Remove from Tileset', 'Pin / Unpin Agent'];
 
-for (const locale of ['zh-cn', 'zh-tw']) {
+for (const locale of ['zh-cn', 'zh-tw', 'ja']) {
   const dictionary = JSON.parse(fs.readFileSync(new URL(`../src/i18n/${locale}/hardcoded.json`, import.meta.url), 'utf8'));
 
   test(`${locale}: 动作面板覆盖精确大小写和省略号，并保留搜索元数据`, () => {

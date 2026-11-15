@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "OCaml 言語の基本",
+      "description": "OCaml の構文ハイライトとかっこの対応表示を提供します。"
+    }
+  }
+}

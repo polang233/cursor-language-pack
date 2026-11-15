@@ -1,8 +1,8 @@
 # Cursor Language Pack
 
-Chinese translations for Cursor, including the editor, Settings and Agent interface. Supports Simplified Chinese and Traditional Chinese.
+Chinese and Japanese translations for Cursor, including the editor, Settings and Agent interface.
 
-[简体中文](../README.md)
+[简体中文](../README.md) · [日本語](README.ja.md)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/icon.png" width="96" height="96" alt="Cursor Language Pack icon" />
@@ -33,6 +33,7 @@ The default command is `install`. It installs the language pack and translates t
 ```bash
 npx @polang233/cursor-language-pack@latest --locale=zh-cn
 npx @polang233/cursor-language-pack@latest --locale=zh-tw
+npx @polang233/cursor-language-pack@latest --locale=ja
 npx @polang233/cursor-language-pack@latest --dir="path/to/install"
 ```
 
@@ -42,7 +43,7 @@ npx @polang233/cursor-language-pack@latest --dir="path/to/install"
 | `status` | Report the current state |
 | `restore` | Restore only the app files |
 
-System locales with TW/HK/MO or zh-Hant select `zh-tw`; all others select `zh-cn`. Override this with `--locale`. `--dir` selects the install directory containing `resources/app`, or `Cursor.app/Contents` on macOS.
+Japanese system languages select `ja`, TW/HK/MO or zh-Hant select `zh-tw`, and other system languages select `zh-cn`. Override this with `--locale`. `--dir` selects the install directory containing `resources/app`, or `Cursor.app/Contents` on macOS.
 
 Reopen Cursor after installation. Rerun the install command after an app update. Switch extensions and display language inside the app; `restore` does not uninstall the extension or reset the display language.
 
@@ -54,11 +55,11 @@ node bin/cli.mjs preview --locale=zh-tw
 
 ## Extension installation
 
-1. Uninstall other language packs to avoid conflicts with the official VS Code Chinese packs.
+1. Uninstall other language packs to avoid conflicts with the official VS Code language packs.
 2. Search Extensions for **Cursor Language Pack** or **汉化**, or download a VSIX from [GitHub Releases](https://github.com/polang233/cursor-language-pack/releases) and use **Extensions: Install from VSIX…**.
-3. Run **Language Pack: Select Display Language**, choose Simplified or Traditional Chinese, then quit Cursor completely and reopen it.
+3. Run **Language Pack: Select Display Language**, choose Simplified Chinese, Traditional Chinese or Japanese, then quit Cursor completely and reopen it.
 
-The extension id remains `polang233.cursor-language-pack`. The setting `cursorLanguagePack.language` also accepts `auto`, `zh-cn`, `zh-tw` and `en`; restart after changing it. Translating some text compiled into the app requires the command-line installation above.
+The extension id remains `polang233.cursor-language-pack`. The setting `cursorLanguagePack.language` also accepts `auto`, `zh-cn`, `zh-tw`, `ja` and `en`; restart after changing it. Translating some text compiled into the app requires the command-line installation above.
 
 The translations target Cursor **3.30.14**. New or untranslated text stays in English. Names such as Cursor and MCP stay in English.
 

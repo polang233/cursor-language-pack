@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Git",
+      "command.deleteWorktreeFromPalette": "ワークツリーを削除…",
+      "command.git.resolveAllConflictsInChat": "チャットで競合を解消",
+      "config.blameEditorDecoration.forceDisabled": "ワークスペースの設定に関係なく、git blame のエディター装飾を無効にします。アプリ全体に適用されます。",
+      "config.diagnosticsCommitHook.Enabled": "コミット前に未解決の診断を確認します。",
+      "config.diagnosticsCommitHook.Sources": "コミット前に確認する診断のソース（**Item**）と最低重大度（**Value**）を指定します。**注:** 特定のソースを無視するには、一覧に追加して最低重大度を `none` にしてください。",
+      "submenu.explorer": "Git"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "css.title": "CSS",
+      "less.title": "LESS",
+      "scss.title": "SCSS (Sass)"
+    }
+  }
+}

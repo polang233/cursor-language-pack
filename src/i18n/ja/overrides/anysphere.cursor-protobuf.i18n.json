@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Cursor Protocol Buffers",
+      "description": "Cursor で Protocol Buffers の構文強調と括弧の対応表示を提供します。"
+    }
+  }
+}

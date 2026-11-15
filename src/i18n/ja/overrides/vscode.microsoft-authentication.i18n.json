@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "microsoft-authentication.implementation.description": "Microsoft アカウントへのサインインに使用する認証方式。\n\n*注: `classic` は非推奨です。今後、この設定とともに削除されます。`classic` でしかサインインできない場合は、接続先を添えて [Issue を作成](command:workbench.action.openIssueReporter)してください。*",
+      "microsoft-authentication.implementation.enumDescriptions.classic": "（非推奨）従来の認証フローで Microsoft アカウントにサインインします。",
+      "microsoft-sovereign-cloud.environment.enumDescriptions.AzureChinaCloud": "Azure China",
+      "microsoft-sovereign-cloud.environment.enumDescriptions.AzureUSGovernment": "Azure US Government"
+    }
+  }
+}

@@ -35,7 +35,11 @@
     "localization",
     "本地化",
     "l10n",
-    "i18n"
+    "i18n",
+    "日本語",
+    "日本語化",
+    "japanese",
+    "japanese language pack"
   ],
   "repository": {
     "type": "git",

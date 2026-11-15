@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "AI コード補完",
+      "description": "コード用言語モデルによる補完候補を表示します。"
+    }
+  }
+}

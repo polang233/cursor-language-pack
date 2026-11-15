@@ -1,8 +1,8 @@
 # Cursor Language Pack
 
-Cursor 中文语言包，支持简体中文和繁体中文，覆盖编辑器、设置和智能体界面。
+Cursor 多语言界面翻译，支持简体中文、繁体中文和日语，覆盖编辑器、设置和智能体界面。
 
-[English](https://github.com/polang233/cursor-language-pack/blob/main/docs/README.en.md)
+[English](https://github.com/polang233/cursor-language-pack/blob/main/docs/README.en.md) · [日本語](https://github.com/polang233/cursor-language-pack/blob/main/docs/README.ja.md)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/polang233/cursor-language-pack/main/media/icon.png" width="96" height="96" alt="Cursor Language Pack 图标" />
@@ -33,6 +33,7 @@ npx @polang233/cursor-language-pack@latest
 ```bash
 npx @polang233/cursor-language-pack@latest --locale=zh-cn
 npx @polang233/cursor-language-pack@latest --locale=zh-tw
+npx @polang233/cursor-language-pack@latest --locale=ja
 npx @polang233/cursor-language-pack@latest --dir="安装目录"
 ```
 
@@ -42,7 +43,7 @@ npx @polang233/cursor-language-pack@latest --dir="安装目录"
 | `status` | 查看状态 |
 | `restore` | 只恢复程序文件 |
 
-系统语言为 TW/HK/MO 或 zh-Hant 时自动选 `zh-tw`，其他选 `zh-cn`。可用 `--locale` 指定。`--dir` 指向含 `resources/app` 的安装目录，macOS 为 `Cursor.app/Contents`。
+日语系统自动选择 `ja`，TW/HK/MO 或 zh-Hant 选择 `zh-tw`，其他选择 `zh-cn`。可用 `--locale` 手动指定语言。`--dir` 指向含 `resources/app` 的安装目录，macOS 为 `Cursor.app/Contents`。
 
 安装后重新打开 Cursor；应用更新后重跑安装命令。扩展和显示语言可在应用内切换，`restore` 不会卸载扩展或重置显示语言。
 
@@ -54,11 +55,11 @@ node bin/cli.mjs preview --locale=zh-tw
 
 ## 扩展安装
 
-1. 卸载其他语言包，避免与官方 VS Code 中文包冲突。
+1. 卸载其他语言包，避免与官方 VS Code 语言包冲突。
 2. 在扩展中搜索 **Cursor Language Pack** 或 **汉化**，也可从 [GitHub Releases](https://github.com/polang233/cursor-language-pack/releases) 下载 VSIX，通过 **Extensions: Install from VSIX…** 安装。
-3. 命令面板运行 **Language Pack: Select Display Language**，选简体或繁体，完全退出 Cursor 后重新打开。
+3. 命令面板运行 **Language Pack: Select Display Language**，选简体、繁体或日语，完全退出 Cursor 后重新打开。
 
-扩展 id 保持 `polang233.cursor-language-pack`。也可用设置 `cursorLanguagePack.language` 选择 `auto`、`zh-cn`、`zh-tw` 或 `en`，切换后重启。仅安装扩展时，部分写死在程序里的英文需要命令行安装才能翻译。
+扩展 id 保持 `polang233.cursor-language-pack`。也可用设置 `cursorLanguagePack.language` 选择 `auto`、`zh-cn`、`zh-tw`、`ja` 或 `en`，切换后重启。仅安装扩展时，部分写死在程序里的英文需要命令行安装才能翻译。
 
 当前译文对应 Cursor **3.30.14**。新增或未覆盖的文案会显示英文。Cursor 和 MCP 等名称保留英文。
 

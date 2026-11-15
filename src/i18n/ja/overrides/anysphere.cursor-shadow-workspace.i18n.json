@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "displayName": "Cursor Shadow Workspace",
+      "description": "エージェントがコードを提示する前に検証・改善できる、非表示のローカルウィンドウを管理します。"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "contents": {
+    "package": {
+      "darkColorThemeLabel": "ダーク (Visual Studio)",
+      "lightColorThemeLabel": "ライト (Visual Studio)"
+    }
+  }
+}

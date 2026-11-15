@@ -4,7 +4,7 @@
   "publisher": "polang233",
   "$publisher": "Must match the Open VSX namespace (Cursor's in-app search) and the VS Marketplace publisher id if we also publish there.",
   "namePrefix": "cursor-language-pack",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "license": "MIT",
   "repository": "https://github.com/polang233/cursor-language-pack",
   "homepage": "https://github.com/polang233/cursor-language-pack#readme",
@@ -18,9 +18,9 @@
   "$engines": "Lower bound is the Code OSS version inside the Cursor build this pack was reconciled against. Cursor 3.21.13 ships vscodeVersion 1.128.0. Raise it only to require a newer Cursor. `npm run detect` prints the value for the locally installed build.",
 
   "pack": {
-    "displayName": "Cursor Language Pack — 简体中文 / 繁體中文",
-    "description": "Cursor IDE 中文语言包（汉化 / 中文翻译）。简体与繁体已发布；替代 VS Code 官方语言包，并覆盖 Cursor 写进内核的界面文案。其他语言可自行贡献。Simplified & Traditional Chinese for Cursor; other locales welcome via PR.",
-    "$note": "One displayName + description on Open VSX / Marketplace. Lead with 汉化 / 中文翻译 so Chinese users can find it; other languages are contribution-only and do not need to dominate search."
+    "displayName": "Cursor Language Pack — 中文 / 日本語",
+    "description": "Cursor 多语言界面翻译，支持简体中文、繁体中文和日语，覆盖编辑器、设置及智能体界面。Chinese and Japanese localization for Cursor.",
+    "$note": "One displayName + description on Open VSX / Marketplace. Mention Chinese and Japanese support; retain Chinese and Japanese search keywords."
   },
 
   "target": {
@@ -55,7 +55,7 @@
       "localizedLanguageName": "日本語",
       "companionExtension": "ms-ceintl.vscode-language-pack-ja",
       "upstreamPackDir": "i18n/vscode-language-pack-ja",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "ko",
