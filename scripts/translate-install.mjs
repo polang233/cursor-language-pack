@@ -227,7 +227,10 @@ const BARE_LABELS = [
   'Show environment filters',
   'Sidebar filters',
   'Hide Sidebar',
-  'Show Sidebar'
+  'Show Sidebar',
+  'No Repo',
+  'Remote Machine',
+  'All Remote Machines'
 ];
 
 /** Fragments inside template literals. The translation is the dictionary value. */
@@ -262,6 +265,30 @@ const PHRASES = [
   'pageTitle:"Automations"',
   'e7a="New Chat"',
   'MUd="New Chat"',
+  'pjl="New Chat"',
+  'bTg="New Agent"',
+  't<=0?"Terminal":t===1?"1 Terminal":`${t} Terminals`',
+  'label:h.title.trim()||"Terminal"',
+  't.folders.length>1?"Workspace":"Home"',
+  'sectionHeaderLabel:`On ${t.workspaceName.trim()||"workspace"}`',
+  'return"Side Chat"',
+  'return"Canvas"',
+  'return"Machine Metrics"',
+  'return"Voice call"',
+  'return"Gallery"',
+  'return"Colors"',
+  'return"Desktop"',
+  'return"Changes"',
+  'return"Output"',
+  'return"Context"',
+  'return"Pull Request"',
+  'default:return"Tab"',
+  'case $t.Terminal:return"Terminal"',
+  'case $t.Browser:return"Browser"',
+  'case $t.File:return"File"',
+  'case $t.AgentFiles:return"Files"',
+  'case $t.Plan:return"Plan"',
+  'case $t.EnvironmentSetup:return"Environment"',
   '{value:"source",label:"Source",icon:"arrow-bracket-to-right"}'
 ];
 
