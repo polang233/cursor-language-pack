@@ -1,6 +1,6 @@
 {
   "name": "@polang233/cursor-language-pack",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Cursor 中文・日语界面翻译工具，自动识别系统语言，支持一键安装、语言切换与恢复。",
   "type": "module",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "audit": "node scripts/audit-manifest.mjs",
     "gap": "node scripts/gap.mjs",
     "check-upgrade": "node scripts/check-upgrade.mjs",
-    "test": "node scripts/test-extension.mjs && node --test scripts/test-cli.mjs scripts/test-upgrade.mjs scripts/test-commerce.mjs scripts/test-hardcoded.mjs",
+    "test": "node scripts/test-extension.mjs && node --test scripts/test-cli.mjs scripts/test-upgrade.mjs scripts/test-commerce.mjs scripts/test-hardcoded.mjs scripts/test-install-maintenance.mjs",
     "sync": "node scripts/sync-upstream.mjs",
     "build": "node scripts/build.mjs",
     "coverage": "node scripts/coverage.mjs",

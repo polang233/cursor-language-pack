@@ -47,6 +47,8 @@ Japanese system languages select `ja`, TW/HK/MO or zh-Hant select `zh-tw`, and o
 
 Reopen Cursor after installation. Rerun the install command after an app update. Switch extensions and display language inside the app; `restore` does not uninstall the extension or reset the display language.
 
+Successful installs retain backups for the current build and two recent builds. Use `--keep-backups=N` to set the total. Incomplete recovery records are kept separately. `status` checks for running app processes; restore reports when only older build records exist.
+
 Test the source entry point from the repository. See [npm maintenance](npm.md) for preparation:
 
 ```bash

@@ -17,6 +17,8 @@ npx @polang233/cursor-language-pack@latest --locale=ja
 - `restore`：アプリのファイルを復元
 - `--dir="インストール先"`：Cursor の場所を指定
 
+インストール成功後は、現在のバージョンと直近 2 バージョンのバックアップを保持します。`--keep-backups=N` で合計数を変更できます。復元が未完了の記録は追加で保持します。`status` は実行中のアプリも確認します。
+
 拡張機能の ID は `polang233.cursor-language-pack` です。言語設定と拡張機能は `restore` の対象外です。拡張機能だけを入れた場合、プログラムに直接書かれた英語の翻訳にはコマンドの実行が必要です。
 
 Cursor 3.30.14 に対応しています。AI の回答言語は、表示言語とは別に Rules で設定できます。

@@ -23,6 +23,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { p, readJson, writeJson, log, fail, parseArgs, loadConfig } from './lib/util.mjs';
 import { findCursorInstalls, readCursorInfo, extensionsDir, argvJsonPath } from './lib/cursor-paths.mjs';
+import { acquireInstallLock, atomicReplace, backupLimit, buildHistory, leftoverMessage, leftoverPatches, pruneBuilds, reportPreviousBuilds, reportAppProcesses } from './lib/install-maintenance.mjs';
 
 const COMMERCE_BUNDLE = 'out/vs/workbench/workbench.xai-commerce-prepaid.js';
 const BUNDLES = [
@@ -479,11 +480,12 @@ function checksumBase64(buf) {
 }
 
 /** Cursor compares these hashes to the files on disk and otherwise says the install is damaged. */
-function syncChecksums(appRoot) {
+function syncChecksums(appRoot, bundles = BUNDLES) {
   const productFile = path.join(appRoot, 'product.json');
-  let text = fs.readFileSync(productFile, 'utf8');
+  const before = fs.readFileSync(productFile);
+  let text = before.toString('utf8');
   let changed = 0;
-  for (const rel of BUNDLES) {
+  for (const rel of bundles) {
     const key = rel.replace(/^out\//, '');
     const file = bundlePath(appRoot, rel);
     if (!fs.existsSync(file)) continue;
@@ -496,7 +498,7 @@ function syncChecksums(appRoot) {
       return `${open}${hash}${close}`;
     });
   }
-  if (changed) fs.writeFileSync(productFile, text);
+  if (changed) atomicReplace(productFile, text, sha256(before));
   return changed;
 }
 
@@ -560,9 +562,29 @@ function installStateDir(info, installRoot) {
   return path.join(stateDir(info.dataFolderName), 'installs', installId, buildId);
 }
 
-function backupPath(info, installRoot, rel, hash) {
+function backupPath(buildDir, rel, hash) {
   const name = `${rel.split('/').join('__')}__${hash.slice(0, 12)}`;
-  return path.join(installStateDir(info, installRoot), 'backup', name);
+  return path.join(buildDir, 'backup', name);
+}
+
+function physicalInstall(installRoot) {
+  if (typeof installRoot !== 'string' || !installRoot) return null;
+  try { return normalizedInstall(fs.realpathSync.native(installRoot)); }
+  catch (err) {
+    if (err.code === 'ENOENT' || err.code === 'ENOTDIR') return normalizedInstall(installRoot);
+    throw err;
+  }
+}
+
+function aliasHistory(canonicalBuildDir, canonicalInstall) {
+  const installs = path.dirname(path.dirname(canonicalBuildDir));
+  if (!fs.existsSync(installs)) return [];
+  return fs.readdirSync(installs, { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && /^[a-f0-9]{16}$/.test(entry.name))
+    .map(entry => path.join(installs, entry.name))
+    .filter(dir => dir !== path.dirname(canonicalBuildDir))
+    .flatMap(dir => buildHistory(dir, 'rewrite.json'))
+    .filter(item => physicalInstall(item.record.installRoot) === canonicalInstall);
 }
 
 function saveRecord(file, value) {
@@ -810,16 +832,45 @@ if (isDirectRun) {
 try {
 const install = resolveInstall();
 const info = readCursorInfo(install.appRoot);
-const recPath = path.join(installStateDir(info, install.installRoot), 'rewrite.json');
+const canonical = physicalInstall(install.installRoot);
+const canonicalBuildDir = installStateDir(info, canonical);
+const keepBackups = backupLimit(flags['keep-backups']);
+if (!flags.status && !flags.preview) {
+  acquireInstallLock(path.join(stateDir(info.dataFolderName), 'locks', sha256(Buffer.from(canonical)) + '.lock'));
+}
 const legacy = readJson(path.join(stateDir(info.dataFolderName), 'rewrite.json'), null);
-const matches = (entry) => entry && normalizedInstall(entry.installRoot) === normalizedInstall(install.installRoot)
+const matches = entry => physicalInstall(entry?.installRoot) === canonical
   && entry.commit === info.commit && entry.cursorVersion === info.cursorVersion;
-const record = readJson(recPath, null) ?? (matches(legacy) ? legacy : null);
-const sameInstall = matches(record);
+const canonicalRecord = readJson(path.join(canonicalBuildDir, 'rewrite.json'), null);
+const aliases = aliasHistory(canonicalBuildDir, canonical);
+const matchedAliases = aliases.filter(item => matches(item.record));
+const currentRecords = [canonicalRecord, ...matchedAliases.map(item => item.record)].filter(Boolean);
+if (currentRecords.length > 1) throw new Error('同一安装目录存在多份当前版本的恢复记录，请先核对记录来源。');
+if (canonicalRecord && !matches(canonicalRecord)) throw new Error('当前版本的恢复记录与安装不符，已保留记录。');
+const buildDir = matchedAliases[0]?.dir ?? canonicalBuildDir;
+const historyRoot = path.dirname(buildDir);
+const recPath = path.join(buildDir, 'rewrite.json');
+const record = currentRecords[0] ?? (matches(legacy) ? legacy : null);
+const sameInstall = Boolean(record);
+const legacyRecords = legacy && physicalInstall(legacy.installRoot) === canonical && !matches(legacy) ? [legacy] : [];
+const otherRecords = aliases.filter(item => path.dirname(item.dir) !== historyRoot).map(item => item.record).concat(legacyRecords);
+if (historyRoot !== path.dirname(canonicalBuildDir)) {
+  otherRecords.push(...buildHistory(path.dirname(canonicalBuildDir), 'rewrite.json').map(item => item.record));
+}
+
+const leftovers = flags.status || flags.preview ? [] : leftoverPatches({
+  root: historyRoot, current: buildDir, recordName: 'rewrite.json',
+  targetRoot: install.appRoot, currentFiles: record?.files, legacyRecords: otherRecords
+});
+if (!flags.undo && leftovers.length) throw new Error(leftoverMessage(leftovers));
+
+const reportHistory = () => reportPreviousBuilds(historyRoot, buildDir, 'rewrite.json', otherRecords);
 
 if (flags.status) {
+  reportAppProcesses('cursor', canonical);
   log.plain('Cursor ' + info.cursorVersion + '    ' + install.installRoot);
-  if (!sameInstall) log.plain('尚未汉化当前版本。');
+  if (!sameInstall) reportHistory();
+  else if (record.status === 'restored') log.plain('当前版本已恢复。');
   else {
     let intact = 0;
     for (const [rel, entry] of Object.entries(record.files ?? {})) {
@@ -832,41 +883,52 @@ if (flags.status) {
 }
 
 if (flags.undo) {
-  if (!sameInstall) { log.ok('当前版本没有需要恢复的补丁。'); process.exit(0); }
+  if (leftovers.length) log.warn(leftoverMessage(leftovers));
+  if (leftovers.length && (!sameInstall || record.status === 'restored')) process.exit(1);
+  if (!sameInstall) { reportHistory(); process.exit(0); }
+  if (record.status === 'restored') { log.ok('当前版本已恢复。'); process.exit(0); }
+  reportAppProcesses('cursor', canonical, { writing: true });
   let restored = 0;
-  const left = {};
+  let unresolved = 0;
+  const files = { ...record.files };
+  const verified = [];
   for (const [rel, entry] of Object.entries(record.files ?? {})) {
+    if (leftovers.includes(rel)) { unresolved++; continue; }
     const target = bundlePath(install.appRoot, rel);
-    const backup = entry.backup;
-    if (!backup || !fs.existsSync(backup) || sha256(fs.readFileSync(backup)) !== entry.original) {
-      log.warn(rel + ' 的原始备份缺失或有改动，保留恢复记录。');
-      left[rel] = entry;
-      continue;
+    try {
+      const current = sha256(fs.readFileSync(target));
+      if (![entry.patched, entry.original, entry.pendingFrom].includes(current)) {
+        throw new Error('已被更新或修改，保留文件和恢复记录。');
+      }
+      if (current !== entry.original) {
+        const backup = entry.backup && fs.existsSync(entry.backup) ? fs.readFileSync(entry.backup) : null;
+        if (!backup || sha256(backup) !== entry.original) throw new Error('原始备份缺失或有改动，保留恢复记录。');
+        atomicReplace(target, backup, current);
+        restored++;
+      }
+      files[rel] = { original: entry.original, patched: entry.original, backup: entry.backup };
+      verified.push(rel);
+    } catch (err) {
+      unresolved++;
+      log.warn(rel + '：' + err.message);
     }
-    const current = fs.existsSync(target) ? sha256(fs.readFileSync(target)) : null;
-    if (!current || ![entry.patched, entry.original, entry.pendingFrom].includes(current)) {
-      log.warn(rel + ' 已被更新或修改，保留文件和恢复记录。');
-      left[rel] = entry;
-      continue;
-    }
-    fs.copyFileSync(backup, target);
-    restored++;
   }
-  syncChecksums(install.appRoot);
-  if (Object.keys(left).length) saveRecord(recPath, { ...record, files: left });
-  else {
-    fs.rmSync(recPath, { force: true });
+  syncChecksums(install.appRoot, verified);
+  saveRecord(recPath, { ...record, status: unresolved ? 'restore-incomplete' : 'restored', files });
+  if (!unresolved) {
     // An imported legacy record must not be rediscovered after a successful restore.
     if (matches(legacy)) fs.rmSync(path.join(stateDir(info.dataFolderName), 'rewrite.json'), { force: true });
   }
-  log.ok('已还原 ' + restored + ' 个文件。语言包和显示语言可在 Cursor 内调整。');
-  process.exit(Object.keys(left).length ? 1 : 0);
+  if (unresolved) log.warn(`已还原 ${restored} 个文件，${unresolved} 个文件未恢复。修复上述问题后可重试。`);
+  else log.ok('已还原 ' + restored + ' 个文件。语言包和显示语言可在 Cursor 内调整。');
+  process.exit(unresolved || leftovers.length ? 1 : 0);
 }
 
 const locale = localeChoice();
 const dict = loadDict(locale.id);
 const commerceDict = loadCommerceDict(locale.id);
 const preview = flags.preview === true;
+if (!preview) reportAppProcesses('cursor', canonical, { writing: true });
 const plan = [];
 const seen = new Set();
 let total = 0;
@@ -907,7 +969,7 @@ if (!plan.length && !already) fail('没有匹配的文案。当前 Cursor 版本
 
 const files = { ...(sameInstall ? record.files : {}) };
 for (const item of plan) {
-  const backup = item.previous?.backup ?? backupPath(info, install.installRoot, item.rel, item.original);
+  const backup = item.previous?.backup ?? backupPath(buildDir, item.rel, item.original);
   if (!fs.existsSync(backup)) {
     fs.mkdirSync(path.dirname(backup), { recursive: true });
     fs.writeFileSync(backup, item.before, { flag: 'wx' });
@@ -915,8 +977,8 @@ for (const item of plan) {
   files[item.rel] = { original: item.original, patched: sha256(Buffer.from(item.text)), backup, pendingFrom: item.current };
 }
 const nextRecord = {
-  installRoot: install.installRoot, cursorVersion: info.cursorVersion, commit: info.commit,
-  locale: locale.id, packVersion: config.version, rewrittenAt: new Date().toISOString(), files
+  installRoot: matchedAliases[0]?.record.installRoot ?? canonical, cursorVersion: info.cursorVersion, commit: info.commit,
+  locale: locale.id, packVersion: config.version, rewrittenAt: new Date().toISOString(), status: 'applying', files
 };
 // Journal before touching the install so an interrupted run remains recoverable.
 saveRecord(recPath, nextRecord);
@@ -931,6 +993,7 @@ for (const item of plan) {
 const checksums = syncChecksums(install.appRoot);
 if (checksums) log.plain('安装校验已更新。');
 for (const entry of Object.values(files)) delete entry.pendingFrom;
+nextRecord.status = 'setup-incomplete';
 saveRecord(recPath, nextRecord);
 log.ok(plan.length ? '已汉化 ' + plan.length + ' 个文件。' : '程序文件已是所选语言。');
 
@@ -971,6 +1034,14 @@ if (!off('set-locale')) {
 }
 log.plain('完全退出 Cursor 再打开。Cursor 更新后重新执行安装命令。');
 if (!completed) log.warn('部分步骤未完成。重跑相同命令可重试，原始备份已保留。');
+nextRecord.status = completed ? 'patched' : 'setup-incomplete';
+saveRecord(recPath, nextRecord);
+if (completed) {
+  try {
+    const removed = pruneBuilds({ root: historyRoot, current: buildDir, recordName: 'rewrite.json', installRoot: nextRecord.installRoot, targetRoot: install.appRoot, keep: keepBackups });
+    if (removed.length) log.plain(`已清理 ${removed.length} 份旧版本备份，保留当前版本和最近的备份。`);
+  } catch (err) { log.warn('旧备份清理未完成，备份已保留：' + err.message); }
+}
 process.exitCode = completed ? 0 : 1;
 } catch (err) {
   log.err('汉化未完成：' + err.message);

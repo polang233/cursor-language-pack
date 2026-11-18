@@ -47,6 +47,8 @@ npx @polang233/cursor-language-pack@latest --dir="安装目录"
 
 安装后重新打开 Cursor；应用更新后重跑安装命令。扩展和显示语言可在应用内切换，`restore` 不会卸载扩展或重置显示语言。
 
+安装成功后默认保留当前版本和最近两个版本的备份，可用 `--keep-backups=N` 调整总数。未完成的恢复记录会额外保留。`status` 会检查应用进程；恢复时若只有旧版本记录，会提示确认原安装目录。
+
 可在仓库内联调源码入口，准备步骤见 [npm 维护说明](https://github.com/polang233/cursor-language-pack/blob/main/docs/npm.md)：
 
 ```bash

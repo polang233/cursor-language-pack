@@ -4,6 +4,7 @@ import readline from 'node:readline/promises';
 import { spawnSync } from 'node:child_process';
 import { p, readJson } from './util.mjs';
 import { resolveLocale, systemLocale } from './system-locale.mjs';
+import { backupLimit, missingInstallMessage } from './install-maintenance.mjs';
 
 const COMMANDS = ['install', 'preview', 'status', 'restore'];
 const LOCALES = readJson(p('config.json')).locales.filter(l => l.enabled !== false);
@@ -20,7 +21,7 @@ export function parseCli(args) {
     if (arg.startsWith('--')) {
       const equal = arg.indexOf('=');
       const key = arg.slice(2, equal < 0 ? undefined : equal);
-      if (!['locale', 'dir', 'install-dir'].includes(key)) throw new Error(`未知参数：${arg}`);
+      if (!['locale', 'dir', 'install-dir', 'keep-backups'].includes(key)) throw new Error(`未知参数：${arg}`);
       const value = equal < 0 ? args[++i] : arg.slice(equal + 1);
       if (!value || value.startsWith('--')) throw new Error(`--${key} 需要一个值。`);
       const canonical = key === 'install-dir' ? 'dir' : key;
@@ -41,9 +42,13 @@ export async function runCli(product, args = process.argv.slice(2)) {
   try {
     const { command, options } = parseCli(args);
     const name = product === 'cursor' ? 'Cursor' : 'Kiro';
+    if (options['keep-backups'] !== undefined) backupLimit(options['keep-backups']);
     const pkg = readJson(p('package.json'));
     if (options.version) { console.log(pkg.version); return; }
     if (options.help) {
+      console.log((options.locale && options.locale !== 'auto' ? options.locale : resolveLocale(systemLocale())) === 'ja'
+        ? '--keep-backups=N  保持するバックアップの合計数（現在のバージョンを含む、既定値 3）。未完了の復元記録は追加で保持します。'
+        : '--keep-backups=N  保留的备份版本总数（含当前版本，默认 3）；未完成的恢复记录会额外保留。');
       if ((options.locale && options.locale !== 'auto' ? options.locale : resolveLocale(systemLocale())) === 'ja') {
         console.log(`${name} Language Pack\n\nnpx ${pkg.name}@latest [install|preview|status|restore] [オプション]\n\n省略時はインストールします。先に ${name} を完全に終了し、完了後に起動し直してください。\n  --locale=${LOCALE_IDS.join('|')}  表示言語を指定（省略時はシステム言語）\n  --dir=<パス>           インストール先を指定。macOS は ${name}.app も指定可能\n  --yes                  複数ある場合は --dir で選択\n  --help                 ヘルプを表示\n  --version              バージョンを表示\n\n日本語のシステムでは日本語、TW/HK/MO・zh-Hant では繁体字、それ以外は簡体字を選びます。\nrestore はアプリのファイルを復元します。表示言語と拡張機能は ${name} 内で変更できます。`);
         return;
@@ -68,13 +73,14 @@ export async function runCli(product, args = process.argv.slice(2)) {
         if (!/^\d+$/.test(answer.trim())) throw new Error('已取消。');
         dir = installs[Number(answer.trim()) - 1]?.installRoot;
         if (!dir) throw new Error('已取消。');
-      } else throw new Error(`找不到 ${name}。请用 --dir 指定安装目录。`);
+      } else throw new Error(missingInstallMessage(name, null, command));
     }
     dir = path.resolve(dir);
     if (/\.app$/i.test(dir)) dir = path.join(dir, 'Contents');
     const appRoot = path.join(dir, 'resources', 'app');
-    if (!fs.existsSync(path.join(appRoot, 'package.json'))) throw new Error(`安装目录中找不到 resources/app：${dir}`);
+    if (!fs.existsSync(path.join(appRoot, 'package.json'))) throw new Error(missingInstallMessage(name, dir, command));
     const flags = [`--${product === 'cursor' ? 'dir' : 'install-dir'}=${dir}`];
+    if (options['keep-backups'] !== undefined) flags.push(`--keep-backups=${options['keep-backups']}`);
     if (command === 'restore') flags.push(product === 'cursor' ? '--undo' : '--restore');
     else if (command === 'status') flags.push('--status');
     else {
